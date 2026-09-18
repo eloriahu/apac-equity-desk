@@ -12,6 +12,60 @@ The system separates collection from judgment:
 4. `source-verifier` and `desk-editor` challenge causal claims, contradictory evidence and numerical consistency.
 5. Every publishable artifact remains a draft until a human approves it. Trading tools are never used.
 
+## What can this do for you?
+
+Use it to turn market data and news into a draft you can review quickly. The examples below are prompts to paste into a **new Codex task after installation**, not commands to run in PowerShell. Live research needs connected, entitled data sources; you can also supply quotes, news links and an evidence pack yourself.
+
+### 1. Explain why a stock is moving
+
+Turn a price alert into concise trader-ready colour: the move, performance versus peers, volume context, possible catalysts and what to watch next. Separate verified disclosures from structural background and unconfirmed chatter.
+
+> Use $market-color to investigate CATL (300750.SZ). Compare its latest move with Ganfeng and Tianqi, check the H-share where data is available, and draft 150 words of market colour. Distinguish confirmed facts from possible explanations and cite the sources.
+
+### 2. Write the closing market wrap
+
+Build a country or regional recap covering indices, breadth, sectors, notable movers, turnover, flows and the session's main news. Identify missing inputs before drafting.
+
+> Use $apac-market-wrap to draft today's China and Hong Kong close wrap. Lead with what changed during the session, explain the strongest and weakest sectors, and finish with tomorrow's watch points. Include as-of times and flag unavailable data.
+
+You can also request Japan, Korea, Australia, Singapore or the full APAC region when suitable data is connected or supplied.
+
+### 3. Prepare for the trading day
+
+Condense overnight markets, company disclosures and scheduled events into a selective pre-open watchlist, with the names and sectors most exposed.
+
+> Use $morning-brief to prepare my APAC pre-open brief. Focus on overnight US tech, currencies, commodities and company announcements. Give me up to 10 watch items and explain what would confirm each read-through.
+
+### 4. Test a catalyst before repeating it
+
+Compare competing explanations for a move. Ask whether the news is new, whether its timing fits the price action, and whether peers support or contradict the explanation.
+
+> Use $catalyst-analysis to assess whether this battery-sector sell-off is better explained by lithium prices, demand expectations or company news. Use the attached evidence, rank the explanations and state what remains unresolved.
+
+### 5. Develop event-driven research ideas
+
+Turn a verified event into a few research scenarios with a clear mechanism, time horizon, catalyst, risks and invalidation. This workflow frames ideas for discussion; it does not execute trades.
+
+> Use $event-trade-ideas to develop up to three APAC equity research scenarios from this verified policy announcement. Explain what may already be priced in, the affected names, the earnings or valuation impact, and what would invalidate each idea. Return fewer ideas if the evidence is weak.
+
+### 6. Check a draft's facts and sources
+
+Review claims for citation support, timestamps, units, numerical conflicts and unsupported causal language. Reposts of one story should not become multiple independent confirmations.
+
+> Use $source-verifier to audit the market note and source links below. Flag unsupported claims, stale data and any rumour presented as fact. Tell me which corrections are needed before I share it.
+
+### 7. Tighten a note before sending it
+
+Give a completed draft a senior editorial pass: sharpen the lead, remove repetition, challenge weak explanations and preserve uncertainty. Supply the evidence with the draft; the editor does not collect missing data.
+
+> Use $desk-editor to tighten this market-colour draft to 120 words. Preserve the numbers and citations, distinguish today's trigger from background, and list any evidence gaps separately.
+
+### A typical desk day
+
+Start with `$morning-brief`, use `$market-color` for intraday moves, and finish with `$apac-market-wrap`. Run `$source-verifier` and `$desk-editor` on drafts before your final review. Use `$catalyst-analysis` and `$event-trade-ideas` when an event warrants deeper work.
+
+These workflows run when requested. Installing the plugin does not create scheduled briefs, continuous monitoring or automatic distribution; those require separate setup. Every research draft stays subject to human publication approval.
+
 ## Repository layout
 
 ```text
