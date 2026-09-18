@@ -1,9 +1,11 @@
 ---
 name: catalyst-analysis
-description: Rank and test competing explanations for an APAC equity, sector or market move using primary evidence, timing, relative behavior and contradictory facts. Use for catalyst deep dives after a move is identified.
+description: Test competing APAC equity catalysts from requests such as dig deeper or challenge the catalyst, using the current task's identified move and evidence.
 ---
 
 # Catalyst Analysis
+
+Read `../../references/desk-defaults.md` for short-request routing, context/date defaults and the included review stages. The user does not need to repeat these instructions or request each pass.
 
 Read `../../references/source-priority.md`. Define the observation, session and relevant comparison group. Build a timeline from the last unaffected price through each disclosure and market reaction. For every proposed catalyst record source level, freshness, specificity, market fit, whether it was already known and contradictory evidence.
 

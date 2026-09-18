@@ -19,6 +19,10 @@ Use Longbridge first where supported and entitled. Use AKShare/Tushare for China
 
 Resolve contradictions by preserving both observations, preferring the higher-ranked and more recent primary source, and explaining the discrepancy. Two sites repeating the same wire or social post count as one source.
 
+## Short requests
+
+Read `plugins/apac-equity-desk/references/desk-defaults.md` for task routing, date/session defaults and included review stages. A request such as "Japan wrap" supplies the subject and task; do not require the user to repeat the house style or separately request verification and editing. Explicit user constraints override defaults. Ask only when an essential subject cannot be resolved.
+
 ## Workflow invariants
 
 1. Build a structured evidence/data pack before writing prose.

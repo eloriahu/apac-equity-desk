@@ -1,0 +1,4 @@
+interface:
+  display_name: "APAC Desk"
+  short_description: "Run complete desk workflows from short requests"
+  default_prompt: "Use $desk Japan wrap."

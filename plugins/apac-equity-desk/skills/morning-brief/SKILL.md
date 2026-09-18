@@ -1,9 +1,11 @@
 ---
 name: morning-brief
-description: Draft a short APAC country morning snippet led by the current opening tape, overnight context and sector leadership, or a pre-open brief when the market is still closed.
+description: Draft a short APAC morning snippet from requests such as Japan morning or HK morning. Include opening tape, overnight context, sectors and the standard verification/editing passes; label pre-open or retrospective data honestly.
 ---
 
 # Morning Brief
+
+Read `../../references/desk-defaults.md` for short-request routing, context/date defaults and the included review stages. The user does not need to repeat these instructions or request each pass.
 
 Read `../../references/house-style.md` (voice and morning format), `../../references/source-priority.md` and the morning-snippet contract in `../../references/data-contract.md`.
 

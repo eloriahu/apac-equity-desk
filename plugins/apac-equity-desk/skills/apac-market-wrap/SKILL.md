@@ -1,15 +1,17 @@
 ---
 name: apac-market-wrap
-description: Build a structured data pack and concise end-of-day wrap for major APAC equity markets, especially China, Hong Kong, Japan, Korea, Australia and Singapore. Use for close recaps, regional wraps and country-by-country session summaries.
+description: Run a complete country close or regional APAC wrap from short requests such as Japan wrap, HK close or China EOD, including fresh session data, house-style drafting, source checks and editing.
 ---
 
 # Apac Market Wrap
+
+Read `../../references/desk-defaults.md` for short-request routing, context/date defaults and the included review stages. The user does not need to repeat these instructions or request each pass.
 
 Build the structured data pack before prose. Read `../../references/house-style.md`, `../../references/source-priority.md`, `../../references/data-contract.md` and `../../references/market-calendars.yaml`. Default to the house's developed country narrative when a country is requested; use a regional digest only when requested.
 
 ## Scope and timing
 
-Confirm the requested date, closed sessions and cutoff time. Never call a still-open market “closed”. Label holidays, partial sessions, delayed data and non-overlapping FX/commodity timestamps. Longbridge is the primary read-only source where coverage/entitlements permit; approved fallbacks may fill gaps. Singapore live quotes require a fallback because Longbridge Developers does not currently supply them.
+Resolve the date, closed sessions and cutoff time using the shared defaults; do not turn this into a mandatory confirmation question. Never call a still-open market “closed”. Label holidays, partial sessions, delayed data and non-overlapping FX/commodity timestamps. Longbridge is the primary read-only source where coverage/entitlements permit; approved fallbacks may fill gaps. Singapore live quotes require a fallback because Longbridge Developers does not currently supply them.
 
 Read `../../references/integrations.md` when the primary source is unavailable or a fallback must be chosen.
 

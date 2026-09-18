@@ -1,4 +1,4 @@
 interface:
   display_name: "Morning Brief"
   short_description: "Write opening-tape APAC country morning snippets"
-  default_prompt: "Use $morning-brief for a short Japan morning note: opening tape, overnight context and sector drivers."
+  default_prompt: "Use $morning-brief for Japan."

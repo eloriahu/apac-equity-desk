@@ -1,9 +1,11 @@
 ---
 name: desk-editor
-description: Apply a senior sell-side editorial pass to completed APAC research drafts while preserving the desk's narrative wraps, thematic intraday colour and short opening snippets.
+description: Edit a completed APAC desk draft from requests such as tighten this, preserving the house format, facts, citations and voice without collecting new data.
 ---
 
 # Desk Editor
+
+Read `../../references/desk-defaults.md` for short-request routing, context/date defaults and the included review stages. The user does not need to repeat these instructions or request each pass.
 
 Read `../../references/house-style.md`. Identify whether the draft is a developed country close, a theme note, a flash, a morning snippet or an explicitly requested regional digest; preserve that choice.
 

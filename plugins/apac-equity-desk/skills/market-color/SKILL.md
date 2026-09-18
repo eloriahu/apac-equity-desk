@@ -1,9 +1,11 @@
 ---
 name: market-color
-description: Investigate and draft concise, evidence-ranked intraday colour for an APAC equity or sector move. Use for “why is it moving?”, unusual price/volume, A/H divergence, or trader-ready colour; not for order execution.
+description: Investigate an APAC stock or sector move from requests such as CATL colour or why is CATL moving, including relative performance, evidence-ranked explanations, implications, watch points and review.
 ---
 
 # Market Color
+
+Read `../../references/desk-defaults.md` for short-request routing, context/date defaults and the included review stages. The user does not need to repeat these instructions or request each pass.
 
 Produce a draft that a sell-side analyst can verify quickly. Read `../../references/source-priority.md`, `../../references/house-style.md` and the market-colour section of `../../references/data-contract.md`.
 
@@ -40,4 +42,4 @@ Keep source rank and causal confidence in the evidence pack and express uncertai
 
 Use `../../scripts/render_market_color.py` with the selected schema. Developed colour is roughly 180–350 words; use 90–180 for an explicitly requested flash. The legacy labelled single-stock layout remains available when requested. Add the draft banner.
 
-Before returning, run the fact-check helper on any claim bundle and perform the desk-editor questions: Why today? Why this name versus peers? What is new? What contradicts the explanation? Are all numbers aligned by session and timestamp? Never publish or send the result; the user is the final approval layer.
+Before returning, read and apply `../source-verifier/SKILL.md` and `../desk-editor/SKILL.md`. Run the fact-check helper on any claim bundle and perform the desk-editor questions: Why today? Why this name versus peers? What is new? What contradicts the explanation? Are all numbers aligned by session and timestamp? Never publish or send the result; the user is the final approval layer.

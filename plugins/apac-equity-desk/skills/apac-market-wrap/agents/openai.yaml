@@ -1,4 +1,4 @@
 interface:
   display_name: "Apac Market Wrap"
   short_description: "Draft evidence-led APAC market close wraps"
-  default_prompt: "Use $apac-market-wrap for a developed Japan close with sector detail and Corporate Headlines."
+  default_prompt: "Use $apac-market-wrap for Japan."

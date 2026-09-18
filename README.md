@@ -12,6 +12,27 @@ The system separates collection from judgment:
 4. `source-verifier` and `desk-editor` challenge causal claims, contradictory evidence and numerical consistency.
 5. Every publishable artifact remains a draft until a human approves it. Trading tools are never used.
 
+## Just tell the desk what you need
+
+You do not need to write a detailed prompt. Type these in a new Codex task after installation:
+
+| You type | The desk handles |
+| --- | --- |
+| Japan morning | Opening tape, overnight context and sectors |
+| Japan wrap | Full house-style country close and Corporate Headlines |
+| CATL colour | Relative move, evidence-ranked explanations and watch points |
+| Ideas from this | Up to three researched event scenarios with invalidation |
+| Check this | Facts, citations, timestamps and contradictions |
+| Tighten this | A concise edit of the draft you supply |
+
+Research drafts include source verification and a desk-editor pass. House style,
+source ranking and session/date handling are already designed in. Add instructions
+only to override a default—for example, "Japan wrap, 300 words".
+
+Natural-language skill selection depends on the task context. To select the desk
+explicitly, type `$desk Japan wrap`. Follow-ups such as "Ideas from this" use the
+event in the current task; supply it if you are starting a fresh task.
+
 ## What can this do for you?
 
 Use it to turn market data and news into a draft you can review quickly. The examples below are prompts to paste into a **new Codex task after installation**, not commands to run in PowerShell. Live research needs connected, entitled data sources; you can also supply quotes, news links and an evidence pack yourself.
@@ -20,13 +41,13 @@ Use it to turn market data and news into a draft you can review quickly. The exa
 
 Turn a price alert into concise trader-ready colour: the move, performance versus peers, volume context, possible catalysts and what to watch next. Separate verified disclosures from structural background and unconfirmed chatter.
 
-> Use $market-color to investigate CATL (300750.SZ). Compare its latest move with Ganfeng and Tianqi, check the H-share where data is available, and draft 150 words of market colour. Distinguish confirmed facts from possible explanations and cite the sources.
+> Why is CATL moving?
 
 ### 2. Write the closing market wrap
 
 Build a country or regional recap covering indices, breadth, sectors, notable movers, turnover, flows and the session's main news. Identify missing inputs before drafting.
 
-> Use $apac-market-wrap to draft today's China and Hong Kong close wrap. Lead with what changed during the session, explain the strongest and weakest sectors, and finish with tomorrow's watch points. Include as-of times and flag unavailable data.
+> China and HK wrap
 
 You can also request Japan, Korea, Australia, Singapore or the full APAC region when suitable data is connected or supplied.
 
@@ -34,35 +55,35 @@ You can also request Japan, Korea, Australia, Singapore or the full APAC region 
 
 Lead with the current opening tape and index divergence, then cover overnight markets, policy events and sector leadership in three short paragraphs. If the market is still closed, the note is labelled PRE-OPEN and discusses expectations. An extended watchlist is available when requested.
 
-> Use $morning-brief for a Japan morning snippet in our house style: {JA} JAPAN MORNING, the current NKY/TPX divergence first, overnight US/rates/commodity context second, and sector drivers last. Keep it around 200 words.
+> Japan morning
 
 ### 4. Test a catalyst before repeating it
 
 Compare competing explanations for a move. Ask whether the news is new, whether its timing fits the price action, and whether peers support or contradict the explanation.
 
-> Use $catalyst-analysis to assess whether this battery-sector sell-off is better explained by lithium prices, demand expectations or company news. Use the attached evidence, rank the explanations and state what remains unresolved.
+> Challenge the catalyst
 
 ### 5. Develop event-driven research ideas
 
 Turn a verified event into a few research scenarios with a clear mechanism, time horizon, catalyst, risks and invalidation. This workflow frames ideas for discussion; it does not execute trades.
 
-> Use $event-trade-ideas to develop up to three APAC equity research scenarios from this verified policy announcement. Explain what may already be priced in, the affected names, the earnings or valuation impact, and what would invalidate each idea. Return fewer ideas if the evidence is weak.
+> Ideas from this
 
 ### 6. Check a draft's facts and sources
 
 Review claims for citation support, timestamps, units, numerical conflicts and unsupported causal language. Reposts of one story should not become multiple independent confirmations.
 
-> Use $source-verifier to audit the market note and source links below. Flag unsupported claims, stale data and any rumour presented as fact. Tell me which corrections are needed before I share it.
+> Check this
 
 ### 7. Tighten a note before sending it
 
 Give a completed draft a senior editorial pass: sharpen the lead, remove repetition, challenge weak explanations and preserve uncertainty. Supply the evidence with the draft; the editor does not collect missing data.
 
-> Use $desk-editor to tighten this market-colour draft to 120 words. Preserve the numbers and citations, distinguish today's trigger from background, and list any evidence gaps separately.
+> Tighten this to 120 words
 
 ### A typical desk day
 
-Start with `$morning-brief`, use `$market-color` for intraday moves, and finish with `$apac-market-wrap`. Run `$source-verifier` and `$desk-editor` on drafts before your final review. Use `$catalyst-analysis` and `$event-trade-ideas` when an event warrants deeper work.
+Start with “Japan morning”, ask “CATL colour” when a stock moves, and finish with “Japan wrap”. Verification and editing are included in each research draft. Follow up with “Challenge the catalyst” or “Ideas from this” when an event warrants deeper work.
 
 These workflows run when requested. Installing the plugin does not create scheduled briefs, continuous monitoring or automatic distribution; those require separate setup. Every research draft stays subject to human publication approval.
 
@@ -76,7 +97,7 @@ The writing defaults follow the desk's preferred structure. The original samples
 
 Evidence ranking stays in the research pack and informs the prose. Citations remain beside the claims; missing inputs go into separate review notes. Supplied humour is optional, with no automatically invented jokes. Taiwan themes can be researched with supplied or connected data, but no new Taiwan data feed is included.
 
-Ask for "house style" to use these formats. The regional digest and labelled single-stock layout remain available when explicitly requested.
+These house formats apply by default; you do not need to ask for "house style". The regional digest and labelled single-stock layout remain available when explicitly requested.
 
 Try the synthetic layouts locally:
 
@@ -97,7 +118,7 @@ config/providers.example.toml       Optional provider settings
 plugins/apac-equity-desk/
   .codex-plugin/plugin.json         Plugin manifest
   .mcp.json                         Longbridge hosted MCP connection
-  skills/                           Seven desk workflows
+  skills/                           Short-request entrypoint + seven workflows
   references/                       House style, data contract and mappings
   scripts/                          Deterministic calculation/rendering helpers
 tests/                              Offline fixtures and unit tests
@@ -112,7 +133,7 @@ codex plugin marketplace add https://github.com/eloriahu/apac-equity-desk
 codex plugin add apac-equity-desk@apac-equity-desk
 ```
 
-Start a new Codex task after installation. Try `$market-color` with a ticker or `$apac-market-wrap` with a date and markets. Complete Longbridge OAuth when prompted. Quote coverage depends on account entitlements; the official hosted MCP emphasizes US/HK and the scaffold requires approved fallback data for uncovered markets.
+Start a new Codex task after installation. Try `$desk Japan wrap` or simply “Japan morning”. Complete Longbridge OAuth when prompted. Quote coverage depends on account entitlements; the official hosted MCP emphasizes US/HK and the scaffold requires approved fallback data for uncovered markets.
 
 To update an installed copy:
 
@@ -121,7 +142,7 @@ codex plugin marketplace upgrade apac-equity-desk
 codex plugin add apac-equity-desk@apac-equity-desk
 ```
 
-This is version 0.2.0: a research workflow scaffold with house-style narrative formats and offline tests. Live account integration has not been validated. Optional AKShare, Tushare and Jin10 entries are configuration examples, not implemented collectors. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
+This is version 0.2.1: a research workflow scaffold with short-request routing, built-in review passes, house-style narrative formats and offline tests. Live account integration has not been validated. Optional AKShare, Tushare and Jin10 entries are configuration examples, not implemented collectors. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
 
 All numbers, events, URLs and dates in `tests/fixtures/` are synthetic test data, not verified market facts. The renderers format supplied packs; they do not independently research or prove the content. The fact-check helper checks selected structural issues and does not establish that a source supports a claim.
 

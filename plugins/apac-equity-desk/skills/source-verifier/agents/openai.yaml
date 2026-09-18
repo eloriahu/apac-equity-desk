@@ -1,4 +1,4 @@
 interface:
   display_name: "Source Verifier"
   short_description: "Audit claims, citations and numerical consistency"
-  default_prompt: "Use $source-verifier to audit this research draft and its evidence bundle."
+  default_prompt: "Use $source-verifier to check this."
