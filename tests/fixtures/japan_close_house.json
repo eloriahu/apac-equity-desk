@@ -1,0 +1,57 @@
+{
+  "format": "desk-narrative",
+  "synthetic": true,
+  "date": "2026-09-18",
+  "as_of": "2026-09-18T15:45:00+09:00",
+  "sources": [
+    {
+      "id": "demo",
+      "label": "Synthetic desk fixture",
+      "url": "https://example.com/synthetic-desk-data",
+      "evidence_level": 1,
+      "published_at": "2026-09-17T23:00:00+00:00"
+    }
+  ],
+  "markets": [
+    {
+      "name": "Japan",
+      "session": "closed",
+      "lead": [
+        {
+          "summary": "Nikkei +0.82%, ahead of TOPIX +0.06% as an AI-hardware rebound lifted the headline index while exporters remained under pressure from the yen. The divergence suggests narrow leadership; contributor weights are unavailable, so concentration cannot be quantified.",
+          "source_ids": [
+            "demo"
+          ]
+        }
+      ],
+      "local_policy": [
+        "Locally, a hypothetical broker note keeps a rate hike as its base case. Its consecutive-hike scenario is a tail risk, not official guidance. A fictional fiscal statement discusses issuance restraint without changing the current funding plan."
+      ],
+      "fx_rates": [
+        "USDJPY touched 151.40 before recovering to 152.10 at the cutoff. JGBs rallied with super-longs leading: 10y -3bp at 1.85%, 20y -5bp at 2.62%, 30y -7bp at 2.94%. The different tenor moves matter more than describing the whole curve as simply lower."
+      ],
+      "macro_data": [
+        "A synthetic spending release was -2.1% YoY versus -0.8% expected, adding to the domestic-demand debate."
+      ],
+      "sector_laggards": [
+        "Chemicals lagged: Example Chem A -3.2%, Example Chem B -2.7%, Example Fibre -1.8%. Autos were also lower: Example Motor A -2.4%, Example Motor B -1.9%, Example Parts -1.3%. Trading houses eased: Example Trading A -2.1%, Example Trading B -0.9%. These are fictional names for layout testing."
+      ],
+      "sector_leaders": [
+        "AI components outperformed: Example Substrate +5.6%, Example Capacitor +4.3%, Example Cable +3.1%, Example Automation +2.0%. Example Inspection -1.4% was an exception within the technology rally. Banks were mixed despite lower yields."
+      ],
+      "corporate_headlines": [
+        {
+          "summary": "EXAMPLE INDUSTRIAL: announces a preliminary review; the scope is confirmed but financial effects remain undetermined.",
+          "source_ids": [
+            "demo"
+          ]
+        },
+        "EXAMPLE RETAIL: plans to acquire a domestic distribution business."
+      ]
+    }
+  ],
+  "data_gaps": [
+    "Synthetic example only; no live data was queried.",
+    "Index contribution weights and foreign flow unavailable in this fixture."
+  ]
+}

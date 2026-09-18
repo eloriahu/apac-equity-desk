@@ -5,7 +5,7 @@ description: Build a structured data pack and concise end-of-day wrap for major 
 
 # Apac Market Wrap
 
-Write prose only after the close pack is complete. Read `../../references/house-style.md`, `source-priority.md`, `data-contract.md` and `market-calendars.yaml`.
+Build the structured data pack before prose. Read `../../references/house-style.md`, `../../references/source-priority.md`, `../../references/data-contract.md` and `../../references/market-calendars.yaml`. Default to the house's developed country narrative when a country is requested; use a regional digest only when requested.
 
 ## Scope and timing
 
@@ -19,7 +19,7 @@ For each in-scope closed market collect:
 
 - headline indices with close and percent move
 - advancers/decliners/unchanged, up/down volume, percent above 20DMA and new highs/lows when available
-- three best and worst sectors; breadth within the sector if possible
+- sector leaders, laggards and useful exceptions; retain enough named stock moves to explain the session rather than limiting the note to three sectors
 - top index contributors/detractors and material movers, with volume/turnover context
 - turnover and market-specific foreign/Stock Connect flow where available
 - session catalysts: macro, policy, earnings, corporate and sector
@@ -31,4 +31,12 @@ Use `market_snapshot.py`, `breadth.py`, `movers.py`, `relative_moves.py`, `news_
 
 Identify the dominant regime and dispersion rather than listing tapes. Compare what the market expected at the open with what changed during the session. Keep country-specific causes local unless evidence supports a regional transmission channel. Distinguish index-level moves from the median stock and note when a few heavyweights distort the headline index.
 
-Write only markets with a complete enough pack. Use `../../scripts/render_market_wrap.py` for the first draft, then fact-check and apply the desk-editor review. Target 450–800 words, but shorten on low-information days. End with tomorrow's scheduled catalysts/live questions and a concise data-gap note. Keep the draft banner and require human approval before publication.
+## Write the country narrative
+
+Lead with index divergence and heavyweight concentration, followed by local policy/official remarks, FX and the yield curve, macro actual versus consensus, weak sectors and outperformers. Preserve detailed stock-move lists and explain exceptions. Only include paragraphs supported by that session's data. Keep breadth/flow calculations in the pack; surface them when explanatory rather than as mandatory labels.
+
+End with Corporate Headlines, using concise company-led bullets. A supplied humorous aside can appear just before them, but never replaces factual analysis. Do not force a Tomorrow section or invent jokes.
+
+Build `format: desk-narrative` with closed-session market blocks and use `../../scripts/render_market_wrap.py`. Put sources beside the relevant paragraphs and record missing inputs in separate review notes. Rough guide: 500–900 words per developed country wrap, adjustable to the day's information and the user's request. Fact-check and apply desk-editor before returning the draft.
+
+The legacy `regional-summary` format remains available for explicit multi-market digest requests. Neither format authorizes publication or trading actions.

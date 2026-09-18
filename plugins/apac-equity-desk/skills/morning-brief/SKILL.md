@@ -1,10 +1,18 @@
 ---
 name: morning-brief
-description: Prepare a selective pre-open APAC equities brief from overnight markets, scheduled catalysts, company disclosures and cross-asset moves. Use before the China/HK/Japan/Korea/Australia/Singapore sessions.
+description: Draft a short APAC country morning snippet led by the current opening tape, overnight context and sector leadership, or a pre-open brief when the market is still closed.
 ---
 
 # Morning Brief
 
-Set the cutoff and list which markets are pre-open, open or closed. Select information for expected APAC equity impact: US/Europe close, rates, FX, commodities, ADRs, official macro calendar, policy, exchange filings and earnings. Prefer 10–15 actionable watch items over an exhaustive headline digest.
+Read `../../references/house-style.md` (voice and morning format), `../../references/source-priority.md` and the morning-snippet contract in `../../references/data-contract.md`.
 
-For each watch item state what changed, exposed names/sectors, expected transmission, what the market likely expects, and the price/data signal that would confirm or invalidate the read. Separate scheduled facts from scenarios. Attribute sources using `../../references/source-priority.md`; retain the draft banner and human publication gate.
+Resolve the country, session, date and as-of time. Default to a compact three-paragraph snippet, around 150–250 words. A Japan example is a `{JA} JAPAN MORNING` header, the live NKY/TPX divergence, overnight US/rates/commodity and policy context, then current sector leadership/drag. Preserve clear desk shorthand.
+
+When the market is open, lead with the local tape and say whether a move is versus prior close or since opening. Include named heavyweight offsets and counterintuitive moves where supported. For rates, distinguish an intraday high from the session close. Attribute dated central-bank expectations and survey results; a policy base case is not an announced decision.
+
+When pre-open, use a PRE-OPEN header and expectations instead of observed opening performance. An extended watchlist is available only when requested; do not force the default snippet into 10–15 bullet points.
+
+Use Longbridge read-only tools where available; consult `../../references/integrations.md` for unsupported markets. The skills do not create new provider coverage. Keep every claim tied to an evidence pack, distinguish missing data from flat markets and retain contradictions.
+
+Build `format: desk-morning` data and render with `../../scripts/render_morning_brief.py`. Run source-verifier and desk-editor before delivery. Never send, publish or execute trades; the result remains a draft for human review.

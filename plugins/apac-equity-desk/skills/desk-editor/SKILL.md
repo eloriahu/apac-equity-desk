@@ -1,12 +1,18 @@
 ---
 name: desk-editor
-description: Apply a senior sell-side editorial pass to completed APAC equity research drafts. Use after evidence collection to challenge causality, remove repetition and sharpen what matters; do not use it to collect missing data.
+description: Apply a senior sell-side editorial pass to completed APAC research drafts while preserving the desk's narrative wraps, thematic intraday colour and short opening snippets.
 ---
 
 # Desk Editor
 
-Do not collect new evidence. If required evidence is missing, return the draft with a specific data request rather than filling the gap.
+Read `../../references/house-style.md`. Identify whether the draft is a developed country close, a theme note, a flash, a morning snippet or an explicitly requested regional digest; preserve that choice.
 
-Check: Why today? Why this stock versus peers? What is genuinely new? What contradicts the lead explanation? Are correlation and catalyst separated? Are session, timestamp, currency, units and percentage points consistent? Is Level 4 material clearly downgraded? Are duplicate factors collapsed? Does each paragraph change the reader's decision or watchlist?
+Do not collect new evidence. If evidence is missing, return a specific data request. Challenge: Why today? Why this name versus peers? What is new? What contradicts the lead? Does a confirmed announcement really establish causation? Are close, intraday peak and since-open moves distinguished?
 
-Edit to `../../references/house-style.md`. Preserve uncertainty and source links; never strengthen a claim beyond its evidence. Return the clean draft plus a short list of unresolved risks/data gaps. Keep `DRAFT — HUMAN APPROVAL REQUIRED`; editorial completion is not publication approval.
+Preserve dense but useful stock/sector rosters, familiar desk abbreviations, mixed evidence, inline citations and user-supplied humour. Fix spelling and tangled sentences without turning the voice into generic polished prose. Do not delete counterexamples to strengthen a thesis. An optional joke is not a market explanation; do not invent one or create a next-wrap promise.
+
+For closes, keep index divergence, local policy, FX/rates, macro and loser/winner detail in flowing paragraphs, with Corporate Headlines at the end. For themes, keep the headline/ticker block, competing explanations, fundamental hook, mixed evidence, implications and watch dates. For morning notes, lead with the opening tape, then overnight context and sectors.
+
+Check ticker/company/listing alignment, source independence, timestamps, units, percentage points and attributed expectations. Keep structural background separate from session triggers and label chatter unconfirmed. Omit empty prose sections but preserve missing inputs in review notes.
+
+Return the draft and only material unresolved items. Preserve `DRAFT — HUMAN APPROVAL REQUIRED`; editing does not authorize publication or any brokerage mutation.

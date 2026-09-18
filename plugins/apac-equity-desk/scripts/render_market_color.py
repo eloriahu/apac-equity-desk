@@ -18,6 +18,11 @@ def _join(items: Any) -> str:
 
 
 def render(pack: dict[str, Any]) -> str:
+    if pack.get("format") == "desk-theme":
+        from desk_formats import render_theme
+        return render_theme(pack)
+    if pack.get("format") not in (None, "single-stock"):
+        raise ValueError("Unknown colour format; use desk-theme or single-stock.")
     required = ("as_of", "subject", "move", "relative", "catalysts", "watch")
     missing = [key for key in required if not pack.get(key)]
     if missing:
@@ -62,4 +67,3 @@ if __name__ == "__main__":
         Path(args.output).write_text(text, encoding="utf-8")
     else:
         print(text, end="")
-

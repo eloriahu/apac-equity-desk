@@ -28,6 +28,12 @@ Resolve contradictions by preserving both observations, preferring the higher-ra
 5. Run fact checking and the desk-editor pass before presenting a client-ready draft.
 6. Preserve source URLs and timestamps beside claims, not in a detached source dump.
 
+## House output formats
+
+Follow `plugins/apac-equity-desk/references/house-style.md`. Default country closes to a developed narrative: index divergence, local policy, FX/rates, macro, sector losers/winners and Corporate Headlines. Default thematic intraday colour to a headline/ticker block, competing explanations, fundamental hook, mixed evidence, implications and dated watch points. Morning snippets lead with the opening tape, then overnight context and sector leadership; label pre-open expectations honestly.
+
+Keep dense useful name/move lists, desk shorthand and optional user-supplied humour. Do not force internal evidence-pack labels into reader-facing prose or compress every note to flash length. Treat user samples as style references, never as reusable live facts. Do not publish the user's raw samples as fixtures; use clearly synthetic examples.
+
 ## Market conventions
 
 - Use local market time and name the timezone on first use.
@@ -40,4 +46,3 @@ Resolve contradictions by preserving both observations, preferring the higher-ra
 ## Quality threshold
 
 A market-colour note is incomplete without a quantified move, relative context, evidence-ranked driver assessment and watch/invalidating condition. A close wrap is incomplete without index performance, breadth, sectors, movers, flows/turnover (or a declared gap), cross-asset context and session catalysts.
-

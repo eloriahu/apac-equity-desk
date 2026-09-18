@@ -1,0 +1,34 @@
+{
+  "format": "desk-morning",
+  "synthetic": true,
+  "country": "Japan",
+  "country_tag": "{JA}",
+  "session": "open",
+  "as_of": "2026-09-18T09:35:00+09:00",
+  "sources": [
+    {
+      "id": "demo",
+      "label": "Synthetic desk fixture",
+      "url": "https://example.com/synthetic-desk-data",
+      "evidence_level": 1,
+      "published_at": "2026-09-17T23:00:00+00:00"
+    }
+  ],
+  "opening_tape": [
+    {
+      "summary": "NKY +0.05% versus the prior close and broadly flat since opening. AI-heavyweight losses are offsetting a cyclical bid; TPX +0.55% is ahead, helped by materials, construction and financials.",
+      "source_ids": [
+        "demo"
+      ]
+    }
+  ],
+  "overnight_context": [
+    "In this synthetic session, US equities softened with S&P -0.30% and Nasdaq -0.60%. UST 10Y briefly reached 4.28% before ending New York at 4.24%. Oil held firm ahead of a scheduled policy decision; the stated broker rate view remains an expectation."
+  ],
+  "sector_drivers": [
+    "AI hardware is the main drag despite a positive funding headline for a related company. Energy tracks firmer crude; chemicals and contractors are bid. The price response shows that the headline alone has not outweighed the broader pressure."
+  ],
+  "data_gaps": [
+    "Synthetic layout example; opening moves and overnight figures are not live observations."
+  ]
+}

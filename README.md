@@ -30,11 +30,11 @@ Build a country or regional recap covering indices, breadth, sectors, notable mo
 
 You can also request Japan, Korea, Australia, Singapore or the full APAC region when suitable data is connected or supplied.
 
-### 3. Prepare for the trading day
+### 3. Write a short morning snippet
 
-Condense overnight markets, company disclosures and scheduled events into a selective pre-open watchlist, with the names and sectors most exposed.
+Lead with the current opening tape and index divergence, then cover overnight markets, policy events and sector leadership in three short paragraphs. If the market is still closed, the note is labelled PRE-OPEN and discusses expectations. An extended watchlist is available when requested.
 
-> Use $morning-brief to prepare my APAC pre-open brief. Focus on overnight US tech, currencies, commodities and company announcements. Give me up to 10 watch items and explain what would confirm each read-through.
+> Use $morning-brief for a Japan morning snippet in our house style: {JA} JAPAN MORNING, the current NKY/TPX divergence first, overnight US/rates/commodity context second, and sector drivers last. Keep it around 200 words.
 
 ### 4. Test a catalyst before repeating it
 
@@ -65,6 +65,28 @@ Give a completed draft a senior editorial pass: sharpen the lead, remove repetit
 Start with `$morning-brief`, use `$market-color` for intraday moves, and finish with `$apac-market-wrap`. Run `$source-verifier` and `$desk-editor` on drafts before your final review. Use `$catalyst-analysis` and `$event-trade-ideas` when an event warrants deeper work.
 
 These workflows run when requested. Installing the plugin does not create scheduled briefs, continuous monitoring or automatic distribution; those require separate setup. Every research draft stays subject to human publication approval.
+
+## Our three default desk formats
+
+The writing defaults follow the desk's preferred structure. The original samples are not reproduced in this public repository; the bundled examples use synthetic facts and fictional names.
+
+- **Country close:** index divergence and heavyweight concentration; local policy; FX and rates; macro actual versus expectations; detailed losing and winning sectors; Corporate Headlines at the end. Flowing paragraphs, familiar desk shorthand and useful name/move lists. Usually 500–900 words, adjusted to the session.
+- **Intraday theme:** a punchy headline and ticker block, competing explanations for the move, the fundamental hook, mixed evidence, cross-market implications and dated watch points. Usually 180–350 words; ask for a flash when you want less.
+- **Morning snippet:** a country header such as `{JA} JAPAN MORNING`, the local opening tape first, overnight context second and sector leadership last. Usually 150–250 words. Pre-open expectations are explicitly distinguished from observed opening moves.
+
+Evidence ranking stays in the research pack and informs the prose. Citations remain beside the claims; missing inputs go into separate review notes. Supplied humour is optional, with no automatically invented jokes. Taiwan themes can be researched with supplied or connected data, but no new Taiwan data feed is included.
+
+Ask for "house style" to use these formats. The regional digest and labelled single-stock layout remain available when explicitly requested.
+
+Try the synthetic layouts locally:
+
+```sh
+python plugins/apac-equity-desk/scripts/render_market_wrap.py tests/fixtures/japan_close_house.json
+python plugins/apac-equity-desk/scripts/render_market_color.py tests/fixtures/optical_theme_house.json
+python plugins/apac-equity-desk/scripts/render_morning_brief.py tests/fixtures/japan_morning_house.json
+```
+
+The [house-style guide](plugins/apac-equity-desk/references/house-style.md) describes voice and sequencing. The [data contract](plugins/apac-equity-desk/references/data-contract.md#house-narrative-packs) documents the input formats.
 
 ## Repository layout
 
@@ -99,7 +121,7 @@ codex plugin marketplace upgrade apac-equity-desk
 codex plugin add apac-equity-desk@apac-equity-desk
 ```
 
-This is version 0.1.0: an initial research workflow scaffold with offline tests. Live account integration has not been validated. Optional AKShare, Tushare and Jin10 entries are configuration examples, not implemented collectors. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
+This is version 0.2.0: a research workflow scaffold with house-style narrative formats and offline tests. Live account integration has not been validated. Optional AKShare, Tushare and Jin10 entries are configuration examples, not implemented collectors. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
 
 All numbers, events, URLs and dates in `tests/fixtures/` are synthetic test data, not verified market facts. The renderers format supplied packs; they do not independently research or prove the content. The fact-check helper checks selected structural issues and does not establish that a source supports a claim.
 

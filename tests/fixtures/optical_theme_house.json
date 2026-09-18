@@ -1,0 +1,46 @@
+{
+  "format": "desk-theme",
+  "synthetic": true,
+  "as_of": "2026-09-18T11:15:00+08:00",
+  "headline": "OPTICAL LENSES REBOUND",
+  "tickers": [
+    "EXAMPLE-LENS-A TT Equity",
+    "EXAMPLE-LENS-B TT Equity"
+  ],
+  "sources": [
+    {
+      "id": "demo",
+      "label": "Synthetic desk fixture",
+      "url": "https://example.com/synthetic-desk-data",
+      "evidence_level": 1,
+      "published_at": "2026-09-17T23:00:00+00:00"
+    }
+  ],
+  "move_context": [
+    {
+      "summary": "A fictional lens basket is up 3.4% after a 12% pullback. A local report attributes the rebound to a possible handset upgrade cycle; positioning after the de-rating is an alternative explanation, not an independently established catalyst.",
+      "source_ids": [
+        "demo"
+      ]
+    }
+  ],
+  "fundamental_hook": [
+    "An illustrative broker thesis links more complex optics to higher lens ASP. That is distinct from a unit-volume recovery; a proposed adjacent product contributes no revenue until the stated future production date."
+  ],
+  "mixed_evidence": [
+    "Some channel lead times are shorter than the comparable launch, a possible demand warning.",
+    "A different model mix and launch calendar may distort the year-on-year comparison.",
+    "A separate carrier check shows later delivery dates for selected models, providing a counterpoint rather than resolving the demand question."
+  ],
+  "implications": [
+    "EXAMPLE-MODULE KS Equity: content per device may rise if the higher-spec camera mix persists.",
+    "EXAMPLE-SENSOR JP Equity: exposure is mainly to unit volumes, so higher lens ASP alone does not establish upside."
+  ],
+  "watch": [
+    "21 Sep: first deliveries in this synthetic scenario; resale pricing is a suggested demand proxy, not conclusive evidence.",
+    "Next monthly sales release: compare supplier revenue with the broker's volume and ASP assumptions."
+  ],
+  "data_gaps": [
+    "Ticker strings and all events are fictional test inputs, not valid trading identifiers."
+  ]
+}

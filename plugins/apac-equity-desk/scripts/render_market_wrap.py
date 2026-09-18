@@ -16,6 +16,11 @@ def _items(values: Any) -> str:
 
 
 def render(pack: dict[str, Any]) -> str:
+    if pack.get("format") == "desk-narrative":
+        from desk_formats import render_close
+        return render_close(pack)
+    if pack.get("format") not in (None, "regional-summary"):
+        raise ValueError("Unknown wrap format; use desk-narrative or regional-summary.")
     if not pack.get("date") or not pack.get("markets"):
         raise ValueError("Market-wrap pack requires date and markets.")
     lines = [BANNER, "", f"APAC close — {pack['date']}", _items(pack.get("regional_lead")), ""]
