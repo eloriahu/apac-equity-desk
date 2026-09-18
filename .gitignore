@@ -1,13 +1,41 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 .venv/
+venv/
 dist/
 build/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local credentials and provider settings
 .env
 .env.*
 !.env.example
 *.pem
 *.key
+*.p12
+*.pfx
+credentials.*
+secrets.*
 config/providers.toml
+
+# Private or proprietary data (keep synthetic tests/fixtures and reference maps)
+data/
+datasets/
+private/
+proprietary/
+*.db
+*.sqlite
+*.sqlite3
+
+# Local outputs and logs
 work/
+outputs/
+*.log
