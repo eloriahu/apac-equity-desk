@@ -1,0 +1,5 @@
+# Project-local defaults. Authentication is completed interactively by the MCP client.
+[mcp_servers.longbridge]
+url = "https://mcp.longbridge.com"
+enabled = true
+

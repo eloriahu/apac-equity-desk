@@ -1,0 +1,11 @@
+provider_symbol,sector,industry,peer_basket,commodity_link,notes
+300750.SZ,Industrials,Battery Manufacturers,CN_BATTERY,Lithium carbonate,Primary A-share line
+3750.HK,Industrials,Battery Manufacturers,CN_BATTERY,Lithium carbonate,H-share line
+002460.SZ,Materials,Lithium,CN_LITHIUM,Lithium carbonate,
+002466.SZ,Materials,Lithium,CN_LITHIUM,Lithium carbonate,
+700.HK,Communication Services,Interactive Media,HK_INTERNET,,
+7203.T,Consumer Discretionary,Automobiles,JP_AUTOS,JPY,
+005930.KS,Information Technology,Semiconductors,KR_SEMIS,KRW,
+BHP.AX,Materials,Diversified Mining,AU_MINERS,Iron ore,
+D05.SI,Financials,Banks,SG_BANKS,SGD rates,
+

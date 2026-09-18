@@ -1,0 +1,18 @@
+{
+  "as_of": "2026-09-18T15:00:00+08:00",
+  "subject": {"name":"CATL","symbol":"300750.SZ","desk_ticker":"300750 CH Equity"},
+  "move": {"pct_change":-4.0,"detail":["extending the prior session's decline; turnover 2.2× the 20-day average"]},
+  "relative": {"peer_spread_ppt":-1.5,"detail":["battery peer median -2.5%; CSI 300 -0.8%"]},
+  "catalysts": [
+    {"summary":"The company said it was unaware of the circulating production-cut rumour.","evidence_level":1,"status":"confirmed","confidence":"high","new_today":true},
+    {"summary":"Persistent capacity and lithium-inventory concerns remain structural background, not a confirmed session trigger.","evidence_level":3,"status":"context","confidence":"medium","new_today":false}
+  ],
+  "secondary_factors": ["lithium peers were also lower, consistent with sector pressure"],
+  "flow_technical": ["shares traded below VWAP; volume was 2.4× normal"],
+  "chatter": ["Unconfirmed social-media claims referred to production-plan and profit-forecast cuts; the company said it was unaware"],
+  "read_through": ["002460 CH Equity -3.0%; 002466 CH Equity -2.0%; monitor 3750 HK Equity when sessions overlap"],
+  "watch": ["H-share follow-through, sector breadth, lithium pricing and any exchange filing"],
+  "sources": [{"id":"s1","evidence_level":1,"url":"https://example.com/statement","published_at":"2026-09-18T13:00:00+08:00"}],
+  "data_gaps": ["Stock Connect flow not available in the fixture"]
+}
+

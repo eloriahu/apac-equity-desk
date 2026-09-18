@@ -1,0 +1,28 @@
+[providers.longbridge]
+enabled = true
+role = "primary"
+transport = "mcp"
+url = "https://mcp.longbridge.com"
+read_only = true
+
+[providers.akshare]
+enabled = false
+role = "china_breadth_crosscheck"
+
+[providers.tushare]
+enabled = false
+role = "china_fundamentals_flows"
+token_env = "TUSHARE_TOKEN"
+
+[providers.jin10]
+enabled = false
+role = "china_macro_flash_news"
+url = "https://mcp.jin10.com"
+
+[publication]
+require_human_approval = true
+draft_banner = "DRAFT — HUMAN APPROVAL REQUIRED"
+
+[trading]
+mode = "disabled"
+

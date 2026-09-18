@@ -1,0 +1,4 @@
+interface:
+  display_name: "Catalyst Analysis"
+  short_description: "Rank competing catalysts and contradictions"
+  default_prompt: "Use $catalyst-analysis to test the competing explanations for this move."

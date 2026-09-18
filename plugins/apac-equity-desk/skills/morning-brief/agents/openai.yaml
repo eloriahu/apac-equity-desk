@@ -1,0 +1,4 @@
+interface:
+  display_name: "Morning Brief"
+  short_description: "Build a selective pre-open APAC watchlist"
+  default_prompt: "Use $morning-brief to prepare today's selective APAC pre-open brief."

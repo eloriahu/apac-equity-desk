@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-18",
+  "as_of": "2026-09-18T17:10:00+08:00",
+  "regional_lead": ["APAC was mixed, with China battery weakness offset by gains in Hong Kong internet and Japan exporters."],
+  "markets": [
+    {"name":"China","indices":[{"name":"CSI 300","pct_change":-0.8}],"breadth":{"advancers":1480,"decliners":3440},"sectors":["banks led; batteries lagged"],"movers":["CATL -4.0% on 2.4× volume"],"catalysts":["battery supply concerns; no single CATL-specific trigger confirmed"],"flows":["turnover above the 20-day average"]},
+    {"name":"Hong Kong","indices":[{"name":"Hang Seng","pct_change":0.3}],"breadth":{"advancers":880,"decliners":760},"sectors":["internet outperformed"],"movers":["Tencent +1.0%"],"catalysts":["large-cap internet support"],"flows":["southbound data pending"]},
+    {"name":"Japan","indices":[{"name":"TOPIX","pct_change":0.5}],"breadth":{"advancers":1040,"decliners":520},"sectors":["autos led"],"movers":["exporters firmer"],"catalysts":["yen weakness"],"flows":["cash turnover normal"]},
+    {"name":"Korea","indices":[{"name":"KOSPI","pct_change":-0.2}],"breadth":{"advancers":360,"decliners":510},"sectors":["semiconductors mixed"],"movers":["memory names diverged"],"catalysts":["chip pricing debate"],"flows":["foreign flow modestly negative"]},
+    {"name":"Australia","indices":[{"name":"S&P/ASX 200","pct_change":0.1}],"breadth":{"advancers":102,"decliners":91},"sectors":["miners led"],"movers":["iron-ore names firmer"],"catalysts":["iron ore gains"],"flows":["turnover normal"]},
+    {"name":"Singapore","indices":[{"name":"STI","pct_change":0.2}],"breadth":{"advancers":210,"decliners":180},"sectors":["banks firm"],"movers":["DBS outperformed"],"catalysts":["rate sensitivity"],"flows":["fallback quote source used"]}
+  ],
+  "cross_asset": ["USD/CNH was steady; iron ore rose; lithium carbonate fell"],
+  "tomorrow": ["China loan prime rates", "Japan CPI", "company filing follow-ups"],
+  "data_gaps": ["Singapore prices are from the configured fallback because Longbridge API coverage is unavailable"]
+}
+

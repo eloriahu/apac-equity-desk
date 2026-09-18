@@ -1,0 +1,27 @@
+{
+  "name": "apac-equity-desk",
+  "version": "0.1.0",
+  "description": "Read-only APAC equity market colour, close wraps, catalyst analysis and event-driven research workflows.",
+  "author": {
+    "name": "APAC Equity Desk"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/eloriahu/apac-equity-desk",
+  "homepage": "https://github.com/eloriahu/apac-equity-desk#readme",
+  "keywords": ["apac", "equities", "market-color", "market-wrap", "research"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "APAC Equity Desk",
+    "shortDescription": "Evidence-ranked APAC equity research drafts.",
+    "longDescription": "Builds structured APAC market data packs, concise market colour, close wraps and catalyst analysis with explicit source ranking and human publication approval.",
+    "developerName": "APAC Equity Desk",
+    "category": "Finance",
+    "capabilities": ["Read-only market research", "Analysis", "Drafting"],
+    "defaultPrompt": [
+      "Write concise market colour on this APAC stock move.",
+      "Draft today's APAC market close wrap.",
+      "Verify the catalysts and sources in this note."
+    ]
+  }
+}

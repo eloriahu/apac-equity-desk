@@ -1,0 +1,28 @@
+[
+  {
+    "symbol": "300750.SZ", "desk_ticker": "300750 CH Equity", "name": "CATL", "market": "CN",
+    "sector": "Battery", "last": 240.0, "prev_close": 250.0, "open": 248.0, "high": 249.0, "low": 238.0,
+    "volume": 36000000, "avg_volume_20d": 15000000, "turnover": 8800000000, "avg_turnover_20d": 4000000000,
+    "vwap": 243.0, "benchmark_pct": -0.8, "index_weight": 3.0, "fresh_announcement": true,
+    "ah_divergence_pct": 2.4, "dma20": 255.0, "high_52w": 310.0, "low_52w": 170.0
+  },
+  {
+    "symbol": "002460.SZ", "desk_ticker": "002460 CH Equity", "name": "Ganfeng Lithium", "market": "CN",
+    "sector": "Battery", "last": 38.8, "prev_close": 40.0, "volume": 10000000, "avg_volume_20d": 9000000,
+    "turnover": 390000000, "avg_turnover_20d": 350000000, "benchmark_pct": -0.8, "dma20": 39.5,
+    "high_52w": 55.0, "low_52w": 28.0
+  },
+  {
+    "symbol": "002466.SZ", "desk_ticker": "002466 CH Equity", "name": "Tianqi Lithium", "market": "CN",
+    "sector": "Battery", "last": 29.4, "prev_close": 30.0, "volume": 9000000, "avg_volume_20d": 8500000,
+    "turnover": 267000000, "avg_turnover_20d": 250000000, "benchmark_pct": -0.8, "dma20": 29.0,
+    "high_52w": 44.0, "low_52w": 22.0
+  },
+  {
+    "symbol": "700.HK", "desk_ticker": "700 HK Equity", "name": "Tencent", "market": "HK",
+    "sector": "Internet", "last": 616.0, "prev_close": 610.0, "volume": 21000000, "avg_volume_20d": 18000000,
+    "turnover": 12900000000, "avg_turnover_20d": 10800000000, "benchmark_pct": 0.3, "dma20": 600.0,
+    "high_52w": 650.0, "low_52w": 380.0
+  }
+]
+

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Event Trade Ideas"
+  short_description: "Frame event-driven APAC research scenarios"
+  default_prompt: "Use $event-trade-ideas to turn this verified event into researched scenarios with invalidation."

@@ -1,0 +1,6 @@
+[
+  {"id":"n1","title":"CATL says it is unaware of production-cut rumours","body":"Company responds to market chatter","source":"Company statement","published_at":"2026-09-18T13:00:00+08:00","url":"https://example.com/statement","evidence_level":1},
+  {"id":"n2","title":"CATL says unaware of production cut rumor","body":"The battery maker responded to chatter","source":"Wire service","published_at":"2026-09-18T13:05:00+08:00","url":"https://example.com/wire","evidence_level":2},
+  {"id":"n3","title":"Lithium carbonate prices decline on inventory concerns","body":"Industry pricing update","source":"Industry service","published_at":"2026-09-18T10:00:00+08:00","url":"https://example.com/lithium","evidence_level":3}
+]
+

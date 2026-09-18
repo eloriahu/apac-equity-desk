@@ -1,0 +1,12 @@
+{
+  "name": "apac-equity-desk",
+  "interface": {"displayName": "APAC Equity Desk"},
+  "plugins": [
+    {
+      "name": "apac-equity-desk",
+      "source": {"source": "local", "path": "./plugins/apac-equity-desk"},
+      "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
+      "category": "Finance"
+    }
+  ]
+}

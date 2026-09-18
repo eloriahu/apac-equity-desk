@@ -1,0 +1,4 @@
+interface:
+  display_name: "Market Color"
+  short_description: "Explain APAC equity moves with ranked evidence"
+  default_prompt: "Use $market-color to investigate this APAC equity move and draft concise trader-ready colour."

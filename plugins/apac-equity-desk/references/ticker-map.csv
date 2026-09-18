@@ -1,0 +1,11 @@
+provider_symbol,desk_ticker,name,market,exchange,currency,security_type,ah_pair,benchmark,custom_alias
+300750.SZ,300750 CH Equity,CATL,China,SZSE,CNY,equity,3750.HK,000300.SH,
+3750.HK,3750 HK Equity,CATL,Hong Kong,HKEX,HKD,equity,300750.SZ,HSCEI,
+002460.SZ,002460 CH Equity,Ganfeng Lithium,China,SZSE,CNY,equity,1772.HK,000300.SH,
+002466.SZ,002466 CH Equity,Tianqi Lithium,China,SZSE,CNY,equity,9696.HK,000300.SH,
+700.HK,700 HK Equity,Tencent,Hong Kong,HKEX,HKD,equity,,HSI,
+7203.T,7203 JP Equity,Toyota Motor,Japan,TSE,JPY,equity,,TOPIX,
+005930.KS,005930 KS Equity,Samsung Electronics,Korea,KRX,KRW,equity,,KOSPI,
+BHP.AX,BHP AU Equity,BHP Group,Australia,ASX,AUD,equity,,AS51,
+D05.SI,D05 SP Equity,DBS Group,Singapore,SGX,SGD,equity,,STI,
+

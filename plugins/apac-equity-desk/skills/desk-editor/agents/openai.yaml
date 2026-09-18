@@ -1,0 +1,4 @@
+interface:
+  display_name: "Desk Editor"
+  short_description: "Apply a senior sell-side editorial challenge"
+  default_prompt: "Use $desk-editor to challenge and tighten this completed APAC research draft."

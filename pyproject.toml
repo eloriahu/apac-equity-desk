@@ -1,0 +1,10 @@
+[project]
+name = "apac-equity-desk"
+version = "0.1.0"
+description = "Deterministic helpers and Codex skills for read-only APAC equity research workflows"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.unittest]
+start-directory = "tests"
+

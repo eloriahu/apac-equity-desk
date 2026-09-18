@@ -1,0 +1,12 @@
+{
+  "as_of": "2026-09-18T15:00:00+08:00",
+  "claims": [
+    {"id":"c1","text":"The company said it was unaware of the rumour.","source_ids":["s1"],"confirmed":true},
+    {"id":"c2","text":"Social chatter caused the decline.","source_ids":["s4"],"causal":true}
+  ],
+  "sources": [
+    {"id":"s1","evidence_level":1,"url":"https://example.com/statement","published_at":"2026-09-18T13:00:00+08:00"},
+    {"id":"s4","evidence_level":4,"url":"https://example.com/social","published_at":"2026-09-18T10:00:00+08:00"}
+  ]
+}
+
