@@ -265,7 +265,7 @@ One behavioural difference is worth knowing: a brand-new Longbridge tool outside
 
 - Added: claim-level freshness checks. Live facts can now declare `max_age_minutes`; the verifier uses source `observed_at` (falling back to `published_at`) and blocks evidence that is too old for the stated as-of time.
 - Added: repeated numeric facts now fail verification when their units, currencies or sessions disagree, even when the numeric values happen to match.
-- Fixed: release versions are synchronized across the Python project, lock file, Codex manifest, Claude manifest and Claude marketplace, with a regression test to prevent drift.
+- Fixed: base release versions are synchronized across the Python project, lock file, Codex manifest, Claude manifest and Claude marketplace, while preserving Codex's local cachebuster suffix; a regression test prevents drift.
 
 **0.5.0**
 

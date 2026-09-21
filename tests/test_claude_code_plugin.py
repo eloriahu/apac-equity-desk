@@ -46,7 +46,9 @@ class ManifestTests(unittest.TestCase):
         claude = load_json(PLUGIN / ".claude-plugin" / "plugin.json")
         codex = load_json(PLUGIN / ".codex-plugin" / "plugin.json")
         self.assertEqual(claude["name"], codex["name"])
-        self.assertEqual(claude["version"], codex["version"])
+        # Codex local development adds a +codex.<cachebuster> suffix; Claude
+        # and the package metadata share the underlying release version.
+        self.assertEqual(claude["version"], codex["version"].split("+", 1)[0])
         self.assertEqual(claude["description"], codex["description"])
 
     def test_marketplace_points_at_the_plugin(self):
@@ -61,14 +63,15 @@ class ManifestTests(unittest.TestCase):
         self.assertEqual(entry["version"], load_json(PLUGIN / ".claude-plugin" / "plugin.json")["version"])
 
     def test_release_versions_stay_in_sync(self):
-        version = load_json(PLUGIN / ".codex-plugin" / "plugin.json")["version"]
+        version = load_json(PLUGIN / ".codex-plugin" / "plugin.json")["version"].split("+", 1)[0]
+        claude = load_json(PLUGIN / ".claude-plugin" / "plugin.json")["version"]
         marketplace = load_json(ROOT / ".claude-plugin" / "marketplace.json")
         pyproject = re.search(r'^version = "([^"]+)"$', (ROOT / "pyproject.toml").read_text(encoding="utf-8"), re.M)
         lock = re.search(r'^version = "([^"]+)"$', (ROOT / "uv.lock").read_text(encoding="utf-8"), re.M)
         self.assertIsNotNone(pyproject)
         self.assertIsNotNone(lock)
         self.assertEqual(
-            {version, marketplace["version"], marketplace["plugins"][0]["version"], pyproject.group(1), lock.group(1)},
+            {version, claude, marketplace["version"], marketplace["plugins"][0]["version"], pyproject.group(1), lock.group(1)},
             {version},
         )
 
