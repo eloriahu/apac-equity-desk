@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import fnmatch
 import json
+import re
 import unittest
 from pathlib import Path
 
@@ -121,12 +122,14 @@ class PermissionTests(unittest.TestCase):
 class ComponentDiscoveryTests(unittest.TestCase):
     SKILLS = {
         "apac-market-wrap", "catalyst-analysis", "desk", "desk-editor",
-        "event-trade-ideas", "market-color", "morning-brief", "source-verifier",
+        "event-trade-ideas", "market-color", "morning-brief", "parallel-desk",
+        "source-verifier",
     }
     COMMANDS = {
         "catalyst", "check", "color", "desk",
-        "ideas", "morning", "tighten", "wrap",
+        "ideas", "morning", "parallel", "tighten", "wrap",
     }
+    AGENTS = {"catalyst-investigator", "desk-verifier", "market-pack-builder"}
     # A command shadows a skill of the same name: the skill drops out of the
     # skill list Claude Code offers, so natural-language routing into it stops
     # working. "desk" is the one deliberate overlap, because the /desk command
@@ -152,6 +155,63 @@ class ComponentDiscoveryTests(unittest.TestCase):
     def test_commands_do_not_shadow_skills(self):
         collisions = (self.COMMANDS & self.SKILLS) - self.INTENTIONAL_SHADOWS
         self.assertEqual(collisions, set(), f"rename these commands: {sorted(collisions)}")
+
+    def agent_frontmatter(self, name: str) -> str:
+        text = (PLUGIN / "agents" / f"{name}.md").read_text(encoding="utf-8")
+        self.assertTrue(text.startswith("---\n"), name)
+        return text[4:].split("\n---\n", 1)[0]
+
+    def test_agents_are_well_formed(self):
+        found = {p.stem for p in (PLUGIN / "agents").glob("*.md")}
+        self.assertEqual(found, self.AGENTS)
+        for name in sorted(found):
+            front = self.agent_frontmatter(name)
+            for field in ("name:", "description:", "model:", "color:", "tools:"):
+                self.assertIn(field, front, f"{name} is missing {field}")
+            declared = re.search(r"^name:\s*(\S+)", front, re.M).group(1)
+            self.assertEqual(declared, name, "agent name must match its filename")
+            self.assertIn("<example>", front, f"{name} needs triggering examples")
+
+    def test_agent_frontmatter_is_parseable_yaml(self):
+        # The description carries <example> blocks containing blank lines and
+        # lines such as `user: "..."`. As a bare scalar, YAML ends the value at
+        # the first blank line and reads the rest as more keys, so a `tools:`
+        # written after it never reaches Claude Code and the agent silently
+        # launches with every tool. Keep the description last and in a block
+        # scalar, with every other key ahead of it.
+        for name in sorted(self.AGENTS):
+            front = self.agent_frontmatter(name)
+            self.assertIn("description: |", front, f"{name} needs a block scalar")
+            desc_at = front.index("description:")
+            for key in ("name:", "model:", "color:", "tools:"):
+                self.assertLess(front.index(key), desc_at, f"{key} must precede description in {name}")
+            body = front.split("description: |", 1)[1]
+            for line in body.splitlines():
+                if line.strip():
+                    self.assertTrue(line.startswith("  "), f"unindented block-scalar line in {name}: {line!r}")
+
+    def test_agents_cannot_write_to_the_repository(self):
+        for name in sorted(self.AGENTS):
+            front = self.agent_frontmatter(name)
+            granted = {x.strip() for x in re.search(r"^tools:\s*(.+)$", front, re.M).group(1).split(",")}
+            for banned in ("Write", "Edit", "NotebookEdit", "*"):
+                self.assertNotIn(banned, granted, f"{name} must not be granted {banned}")
+            self.assertIn("Read", granted, name)
+            self.assertIn("mcp__longbridge__*", granted, name)
+            # Windows resolves the shell tool to PowerShell, POSIX hosts to Bash.
+            self.assertTrue({"Bash", "PowerShell"} <= granted, f"{name} needs both shell tools")
+
+    def test_agent_names_do_not_collide(self):
+        self.assertEqual(self.AGENTS & self.SKILLS, set())
+        self.assertEqual(self.AGENTS & self.COMMANDS, set())
+
+    def test_only_the_parallel_skill_depends_on_agents(self):
+        # Codex loads skills but not agents/. Any other skill that told the
+        # model to dispatch one would break the Codex build silently.
+        for skill in sorted(self.SKILLS - {"parallel-desk"}):
+            text = (PLUGIN / "skills" / skill / "SKILL.md").read_text(encoding="utf-8")
+            for agent in self.AGENTS:
+                self.assertNotIn(agent, text, f"{skill} references the {agent} agent")
 
     def test_commands_reference_real_skill_files(self):
         for path in (PLUGIN / "commands").glob("*.md"):

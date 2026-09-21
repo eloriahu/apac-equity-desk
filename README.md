@@ -36,7 +36,8 @@ supply it if you are starting a fresh one.
 
 Claude Code also exposes one slash command per workflow: `/morning`, `/wrap`,
 `/color`, `/catalyst`, `/ideas`, `/check` and `/tighten`. They take the same
-short arguments, for example `/wrap Japan, 300 words`.
+short arguments, for example `/wrap Japan, 300 words`. `/parallel` runs a
+multi-market request with researcher subagents.
 
 ## What can this do for you?
 
@@ -74,13 +75,34 @@ Turn a verified event into a few research scenarios with a clear mechanism, time
 
 > Ideas from this
 
-### 6. Check a draft's facts and sources
+### 6. Run a regional request in parallel (Claude Code only)
+
+For a request that spans several markets or several names, the Claude Code build
+can gather the evidence concurrently: one researcher subagent per market, one
+catalyst investigator per contested name, an independent verifier that audits
+the draft without having seen how it was written, and the house-style drafting
+kept in one context.
+
+> /parallel APAC wrap
+
+The split is by market, not by function. Within a single market the data work
+and the news work are sequential — the mover list decides which catalysts matter
+— so a subagent boundary between them buys nothing. Subagents exchange
+`data-contract.md` packs rather than prose, because every prose hand-off is a
+place a number gets retyped.
+
+This costs roughly one gathering pass per market, so it is worth it for a
+regional wrap and wasteful for a single country. Ordinary requests never fan
+out. Codex ignores the `agents/` directory and runs the same workflows
+sequentially.
+
+### 7. Check a draft's facts and sources
 
 Review claims for citation support, timestamps, units, numerical conflicts and unsupported causal language. Reposts of one story should not become multiple independent confirmations.
 
 > Check this
 
-### 7. Tighten a note before sending it
+### 8. Tighten a note before sending it
 
 Give a completed draft a senior editorial pass: sharpen the lead, remove repetition, challenge weak explanations and preserve uncertainty. Supply the evidence with the draft; the editor does not collect missing data.
 
@@ -129,8 +151,9 @@ plugins/apac-equity-desk/
   .claude-plugin/plugin.json        Claude Code plugin manifest
   .codex-plugin/plugin.json         Codex plugin manifest
   .mcp.json                         Longbridge hosted MCP connection
-  skills/                           Short-request entrypoint + seven workflows
+  skills/                           Short-request entrypoint + eight workflows
   commands/                         Claude Code slash commands for each workflow
+  agents/                           Claude Code researcher/verifier subagents
   references/                       House style, data contract and mappings
   scripts/                          Deterministic calculation/rendering helpers
 tests/                              Offline fixtures and unit tests
@@ -237,4 +260,5 @@ One behavioural difference is worth knowing: a brand-new Longbridge tool outside
 - Added: `session_clock.py`, an offline market clock (pre-open / open / lunch / closed / weekend / holiday) with a Sydney daylight-saving fallback for Python installs without timezone data. The market calendar moved from YAML to `market-calendars.json` so it needs no extra library.
 - Added: `evidence_score.py`, which computes the 0–8 driver score from `source-priority.md`.
 - Added: a read-only Longbridge tool allowlist in `.codex/config.toml`, with a test.
+- Added: an optional Claude Code multi-agent mode. `/parallel` fans out one `market-pack-builder` per market and one `catalyst-investigator` per contested name, audits the draft with an independent `desk-verifier`, and keeps house-style drafting in one context. Subagents exchange data-contract packs rather than prose. Codex ignores `agents/` and runs the same workflows sequentially; a test keeps every other skill free of agent references so the Codex build cannot come to depend on them.
 - Added: Claude Code CLI support alongside Codex. `.claude-plugin/marketplace.json`, `plugins/apac-equity-desk/.claude-plugin/plugin.json`, a `CLAUDE.md` that imports the shared `AGENTS.md`, eight slash commands, and a `.claude/settings.json` permission boundary mirrored from the Codex allowlist. Skills, references, scripts and tests are shared; `tests/test_claude_code_plugin.py` checks the two builds do not drift.
