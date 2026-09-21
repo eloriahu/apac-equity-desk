@@ -60,6 +60,18 @@ class ManifestTests(unittest.TestCase):
         self.assertTrue((ROOT / entry["source"]).is_dir())
         self.assertEqual(entry["version"], load_json(PLUGIN / ".claude-plugin" / "plugin.json")["version"])
 
+    def test_release_versions_stay_in_sync(self):
+        version = load_json(PLUGIN / ".codex-plugin" / "plugin.json")["version"]
+        marketplace = load_json(ROOT / ".claude-plugin" / "marketplace.json")
+        pyproject = re.search(r'^version = "([^"]+)"$', (ROOT / "pyproject.toml").read_text(encoding="utf-8"), re.M)
+        lock = re.search(r'^version = "([^"]+)"$', (ROOT / "uv.lock").read_text(encoding="utf-8"), re.M)
+        self.assertIsNotNone(pyproject)
+        self.assertIsNotNone(lock)
+        self.assertEqual(
+            {version, marketplace["version"], marketplace["plugins"][0]["version"], pyproject.group(1), lock.group(1)},
+            {version},
+        )
+
     def test_mcp_config_is_the_read_only_longbridge_endpoint(self):
         for path in (ROOT / ".mcp.json", PLUGIN / ".mcp.json"):
             servers = load_json(path)["mcpServers"]

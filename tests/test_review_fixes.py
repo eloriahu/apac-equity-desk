@@ -119,6 +119,39 @@ class FactCheckTests(unittest.TestCase):
         source = dict(self.SOURCE, id="5")
         self.assertEqual(audit(self.bundle({"id": "c1", "source_ids": 5}, source))["status"], "pass")
 
+    def test_freshness_limit_uses_observation_time(self):
+        source = dict(self.SOURCE, observed_at="2026-09-18T09:55:00+08:00", published_at="2026-09-17T09:00:00+08:00")
+        result = audit(self.bundle({"id": "c1", "source_ids": ["s1"], "max_age_minutes": 10}, source))
+        self.assertEqual(result["status"], "pass")
+
+    def test_stale_live_evidence_blocks(self):
+        source = dict(self.SOURCE, observed_at="2026-09-18T09:30:00+08:00")
+        result = audit(self.bundle({"id": "c1", "source_ids": ["s1"], "max_age_minutes": 15}, source))
+        self.assertEqual(result["status"], "block")
+        self.assertIn("stale_evidence", self.codes(result))
+
+    def test_freshness_without_a_timestamp_needs_revision(self):
+        source = {key: value for key, value in self.SOURCE.items() if key != "published_at"}
+        result = audit(self.bundle({"id": "c1", "source_ids": ["s1"], "max_age_minutes": 15}, source))
+        self.assertIn("freshness_unverifiable", self.codes(result))
+
+    def test_bad_freshness_limit_needs_revision(self):
+        result = audit(self.bundle({"id": "c1", "source_ids": ["s1"], "max_age_minutes": -1}))
+        self.assertIn("invalid_max_age", self.codes(result))
+
+    def test_repeated_fact_metadata_conflicts_block(self):
+        bundle = {
+            "as_of": "2026-09-18T10:00:00+08:00",
+            "sources": [self.SOURCE],
+            "claims": [
+                {"id": "c1", "source_ids": ["s1"], "fact_key": "close", "value": 100, "unit": "price", "currency": "JPY", "session": "2026-09-18"},
+                {"id": "c2", "source_ids": ["s1"], "fact_key": "close", "value": 100, "unit": "percent", "currency": "USD", "session": "2026-09-17"},
+            ],
+        }
+        result = audit(bundle)
+        self.assertEqual(result["status"], "block")
+        self.assertLessEqual({"unit_conflict", "currency_conflict", "session_conflict"}, self.codes(result))
+
 
 class SessionClockTests(unittest.TestCase):
     CALENDAR = load_calendar()

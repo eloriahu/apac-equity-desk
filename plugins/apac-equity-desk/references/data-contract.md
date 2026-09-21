@@ -50,7 +50,9 @@ Input to `evidence_score.py`: `id`, `summary`, `evidence_level` (1–4), and `fr
 }
 ```
 
-Optional claim fields: `value`, `unit`, `tolerance`, `new_today`, `confirmed`. The checker flags missing citations, causal claims supported only by Level 4 or by sources with no `evidence_level`, malformed source URLs, timestamps without an offset, sources dated after the bundle `as_of`, and contradictory numeric claims sharing the same `fact_key`. Source age, source independence, semantic support and whether an event caused a move still require analyst verification.
+Optional source field `observed_at` records the timestamp of a quote or other observation; `published_at` remains the timestamp for news and filings. Both must be ISO timestamps with offsets. When both exist, `observed_at` is used for freshness.
+
+Optional claim fields: `value`, `unit`, `currency`, `session`, `tolerance`, `fact_key`, `max_age_minutes`, `new_today`, `confirmed`. The checker flags missing citations, causal claims supported only by Level 4 or by sources with no `evidence_level`, malformed or future source timestamps, evidence older than a claim's explicit `max_age_minutes`, contradictory numeric claims sharing the same `fact_key`, and repeated facts that mix units, currencies or sessions. Set freshness limits only for genuinely live claims; a filing or structural background item is not stale merely because it is old. Source independence, semantic support and whether an event caused a move still require analyst verification.
 
 ## House narrative packs
 

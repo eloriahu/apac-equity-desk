@@ -214,7 +214,7 @@ To update an installed copy:
 
 Complete Longbridge OAuth when prompted. Quote coverage depends on account entitlements; the official hosted MCP emphasizes US/HK and the scaffold requires approved fallback data for uncovered markets.
 
-This is version 0.5.0: a research workflow scaffold with short-request routing, built-in review passes, house-style narrative formats, an offline market clock, a driver-scoring helper, a read-only Longbridge tool allowlist, an optional Claude Code multi-agent mode and offline tests. Live account integration has not been validated. Optional AKShare, Tushare and Jin10 entries are configuration examples, not implemented collectors. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
+This is version 0.6.0: a research workflow scaffold with short-request routing, built-in review passes, house-style narrative formats, an offline market clock, a driver-scoring helper, deterministic freshness and repeated-fact metadata checks, a read-only Longbridge tool allowlist, an optional Claude Code multi-agent mode and offline tests. Live account integration has not been validated. Optional AKShare, Tushare and Jin10 entries are configuration examples, not implemented collectors. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
 
 All numbers, events, URLs and dates in `tests/fixtures/` are synthetic test data, not verified market facts. The renderers format supplied packs; they do not independently research or prove the content. The fact-check helper checks selected structural issues and does not establish that a source supports a claim.
 
@@ -260,6 +260,12 @@ One behavioural difference is worth knowing: a brand-new Longbridge tool outside
 **Outside this repository.** Neither installed plugin carries its permission rules with it. For Codex, copy the `[mcp_servers.longbridge]` block into your user `~/.codex/config.toml`. For Claude Code, copy the `permissions` block from `.claude/settings.json` into `~/.claude/settings.json`. Also use least-privilege credentials where supported, and do not grant trading access for this desk workflow. Credentials, private client information and proprietary research must remain outside this public repository.
 
 ## Changelog
+
+**0.6.0**
+
+- Added: claim-level freshness checks. Live facts can now declare `max_age_minutes`; the verifier uses source `observed_at` (falling back to `published_at`) and blocks evidence that is too old for the stated as-of time.
+- Added: repeated numeric facts now fail verification when their units, currencies or sessions disagree, even when the numeric values happen to match.
+- Fixed: release versions are synchronized across the Python project, lock file, Codex manifest, Claude manifest and Claude marketplace, with a regression test to prevent drift.
 
 **0.5.0**
 
