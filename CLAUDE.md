@@ -23,21 +23,26 @@ in `tests/test_claude_code_plugin.py` enforces this.
 
 ## Multi-agent mode
 
-`plugins/apac-equity-desk/agents/` holds three subagents Codex cannot load:
-`market-pack-builder`, `catalyst-investigator` and `desk-verifier`. Only
-`skills/parallel-desk/SKILL.md` may reference them, so the Codex build never
-depends on a component it cannot see; a test enforces that.
+`plugins/apac-equity-desk/agents/` holds five subagents Codex cannot load:
+`market-data-analyst`, `country-researcher`, `catalyst-investigator`,
+`chief-editor` and `desk-verifier`. Only `skills/parallel-desk/SKILL.md` may
+reference them, so the Codex build never depends on a component it cannot see; a
+test enforces that.
 
-Fan out by market, not by function. Inside one market the data work and the news
-work are sequential, because the mover list decides which catalysts matter.
-Across markets they are independent.
+The run is two gathering waves, then draft, verify and one revision round. The
+data analyst and country researcher run together per market; the catalyst
+investigators wait for the mover lists, because the movers decide which
+catalysts matter. The parent is the desk head: it briefs, reconciles and
+presents, and does not research, calculate or draft.
 
-Subagents return `data-contract.md` packs, never prose. Drafting and editing
-stay in the parent context so one context owns the house voice, and figures
-carry across as returned rather than being re-derived at a context boundary.
+Three rules keep quality up across the hand-offs. The data analyst never does
+arithmetic — every derived figure comes from the Python helpers. Packs travel in
+full and unedited, and nobody downstream rounds or re-derives a figure. The
+chief-editor gets the user's request word for word, and the verifier gets the
+draft and packs with no account of how the draft was reached.
 
-Reach for it only when the request spans several markets or several names. A
-single-market request pays the dispatch cost and gets the same note.
+The mode is opt-in through `/parallel` or an explicit ask. It runs roughly a
+dozen contexts for a three-market wrap, so ordinary short requests stay in one.
 
 Agent frontmatter is real YAML, so the `description` goes last and in a block
 scalar (`description: |`). The examples inside it contain blank lines and lines

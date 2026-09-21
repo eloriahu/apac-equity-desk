@@ -36,8 +36,8 @@ supply it if you are starting a fresh one.
 
 Claude Code also exposes one slash command per workflow: `/morning`, `/wrap`,
 `/color`, `/catalyst`, `/ideas`, `/check` and `/tighten`. They take the same
-short arguments, for example `/wrap Japan, 300 words`. `/parallel` runs a
-multi-market request with researcher subagents.
+short arguments, for example `/wrap Japan, 300 words`. `/parallel` runs any
+request with the full agent team.
 
 ## What can this do for you?
 
@@ -75,26 +75,36 @@ Turn a verified event into a few research scenarios with a clear mechanism, time
 
 > Ideas from this
 
-### 6. Run a regional request in parallel (Claude Code only)
+### 6. Run a request with the full agent team (Claude Code only)
 
-For a request that spans several markets or several names, the Claude Code build
-can gather the evidence concurrently: one researcher subagent per market, one
-catalyst investigator per contested name, an independent verifier that audits
-the draft without having seen how it was written, and the house-style drafting
-kept in one context.
+For a note that matters, the Claude Code build can run the desk as a team of
+five agents instead of one context:
+
+| Agent | One per | Job |
+| --- | --- | --- |
+| `market-data-analyst` | market | Collects quotes, runs the Python helpers for indices, breadth, sectors, movers and flows, and checks the data for problems |
+| `country-researcher` | market | Policy, macro, FX and rates, overnight context and corporate headlines |
+| `catalyst-investigator` | contested name | Timeline, ranked competing explanations and what would falsify the lead |
+| `chief-editor` | request | Drafts the house-style note from the packs and revises it against the verifier |
+| `desk-verifier` | draft | Audits the draft against the packs without being told how it was reached |
 
 > /parallel APAC wrap
 
-The split is by market, not by function. Within a single market the data work
-and the news work are sequential — the mover list decides which catalysts matter
-— so a subagent boundary between them buys nothing. Subagents exchange
-`data-contract.md` packs rather than prose, because every prose hand-off is a
-place a number gets retyped.
+The data analysts and country researchers run together, one pair per market.
+The catalyst investigators run next, because the mover lists decide which names
+need them. The chief editor drafts, the verifier audits, and the editor gets one
+revision round against the findings. Anything still open after that round comes
+back to you as an open finding.
 
-This costs roughly one gathering pass per market, so it is worth it for a
-regional wrap and wasteful for a single country. Ordinary requests never fan
-out. Codex ignores the `agents/` directory and runs the same workflows
-sequentially.
+Three rules protect the numbers across hand-offs: the data analyst never does
+arithmetic (every derived figure comes from the helpers), packs travel in full
+and nobody downstream rounds or re-derives a figure, and the editor receives
+your request word for word.
+
+A three-market wrap runs roughly a dozen agent contexts against one for the
+ordinary workflow, so the team runs only when you ask for it. It works for a
+single market too. Codex ignores the `agents/` directory and runs the same
+workflows in one context.
 
 ### 7. Check a draft's facts and sources
 
@@ -153,7 +163,7 @@ plugins/apac-equity-desk/
   .mcp.json                         Longbridge hosted MCP connection
   skills/                           Short-request entrypoint + eight workflows
   commands/                         Claude Code slash commands for each workflow
-  agents/                           Claude Code researcher/verifier subagents
+  agents/                           Claude Code agent team (five subagents)
   references/                       House style, data contract and mappings
   scripts/                          Deterministic calculation/rendering helpers
 tests/                              Offline fixtures and unit tests
@@ -204,7 +214,7 @@ To update an installed copy:
 
 Complete Longbridge OAuth when prompted. Quote coverage depends on account entitlements; the official hosted MCP emphasizes US/HK and the scaffold requires approved fallback data for uncovered markets.
 
-This is version 0.4.0: a research workflow scaffold with short-request routing, built-in review passes, house-style narrative formats, an offline market clock, a driver-scoring helper, a read-only Longbridge tool allowlist, an optional Claude Code multi-agent mode and offline tests. Live account integration has not been validated. Optional AKShare, Tushare and Jin10 entries are configuration examples, not implemented collectors. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
+This is version 0.5.0: a research workflow scaffold with short-request routing, built-in review passes, house-style narrative formats, an offline market clock, a driver-scoring helper, a read-only Longbridge tool allowlist, an optional Claude Code multi-agent mode and offline tests. Live account integration has not been validated. Optional AKShare, Tushare and Jin10 entries are configuration examples, not implemented collectors. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
 
 All numbers, events, URLs and dates in `tests/fixtures/` are synthetic test data, not verified market facts. The renderers format supplied packs; they do not independently research or prove the content. The fact-check helper checks selected structural issues and does not establish that a source supports a claim.
 
@@ -250,6 +260,12 @@ One behavioural difference is worth knowing: a brand-new Longbridge tool outside
 **Outside this repository.** Neither installed plugin carries its permission rules with it. For Codex, copy the `[mcp_servers.longbridge]` block into your user `~/.codex/config.toml`. For Claude Code, copy the `permissions` block from `.claude/settings.json` into `~/.claude/settings.json`. Also use least-privilege credentials where supported, and do not grant trading access for this desk workflow. Credentials, private client information and proprietary research must remain outside this public repository.
 
 ## Changelog
+
+**0.5.0**
+
+- Changed: `/parallel` now runs the desk as a full five-agent team. New `market-data-analyst` (numbers and a data-quality check, always through the Python helpers) and `chief-editor` (house-style drafting and revision). `market-pack-builder` is renamed `country-researcher` and now covers session context only, since the numbers moved to the data analyst.
+- Added: a revision round. The `desk-verifier`'s findings go back to the `chief-editor` once; anything still open is returned to the user instead of looping.
+- Changed: the team can be run for a single market when asked for. Ordinary short requests still stay in one context.
 
 **0.4.0**
 

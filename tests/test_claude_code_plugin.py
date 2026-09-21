@@ -129,7 +129,10 @@ class ComponentDiscoveryTests(unittest.TestCase):
         "catalyst", "check", "color", "desk",
         "ideas", "morning", "parallel", "tighten", "wrap",
     }
-    AGENTS = {"catalyst-investigator", "desk-verifier", "market-pack-builder"}
+    AGENTS = {
+        "catalyst-investigator", "chief-editor", "country-researcher",
+        "desk-verifier", "market-data-analyst",
+    }
     # A command shadows a skill of the same name: the skill drops out of the
     # skill list Claude Code offers, so natural-language routing into it stops
     # working. "desk" is the one deliberate overlap, because the /desk command
@@ -182,6 +185,7 @@ class ComponentDiscoveryTests(unittest.TestCase):
         for name in sorted(self.AGENTS):
             front = self.agent_frontmatter(name)
             self.assertIn("description: |", front, f"{name} needs a block scalar")
+            self.assertEqual(front.count("tools:"), 1, f"{name} has a stray tools line")
             desc_at = front.index("description:")
             for key in ("name:", "model:", "color:", "tools:"):
                 self.assertLess(front.index(key), desc_at, f"{key} must precede description in {name}")

@@ -1,85 +1,95 @@
 ---
 name: parallel-desk
-description: Run a multi-market or multi-name APAC desk request by dispatching researcher subagents in parallel, then verifying and drafting centrally. Use for a regional wrap, several countries at once, or a basket of names needing separate driver work. Claude Code only; a single-market or single-name request uses the ordinary workflow instead.
+description: Run an APAC desk request with the full agent team — a market-data-analyst and a country-researcher per market, a catalyst-investigator per contested name, an independent desk-verifier and a chief-editor — for a higher-quality note at a higher token cost. Use when the user asks for multi-agent or parallel mode, the agent team, or /parallel. Claude Code only; ordinary short requests use the single-context workflows.
 ---
 
 # Parallel Desk
 
 Read `../../references/desk-defaults.md` first. Everything there still applies:
-the same house formats, the same review passes, the same session and date
-handling. This skill only changes *how the gathering is done*, never what the
-desk produces.
+the same house formats, the same session and date handling, the same
+human-approval banner. This skill changes who does each stage, not what the desk
+produces.
 
-## When this is worth it
+You are the desk head in this mode. You brief the team, move packs between
+them, reconcile across markets and present the result. You do not research,
+calculate or draft.
 
-Fan out only when the pieces are genuinely independent:
+## The team
 
-- A regional wrap, or two or more country closes in one request.
-- A basket of names that each need their own driver assessment.
+| Agent | One per | Does |
+| --- | --- | --- |
+| `market-data-analyst` | market | Quotes, then the Python helpers: indices, breadth, sectors, movers, relative moves, flows. Checks the data for problems. |
+| `country-researcher` | market | Policy, macro, FX and rates, overnight context, corporate headlines. |
+| `catalyst-investigator` | contested name | Timeline, ranked competing explanations, what would falsify the lead. |
+| `chief-editor` | request | Drafts the house-style note from the packs; revises against the verifier. |
+| `desk-verifier` | draft | Audits the draft against the packs without knowing how it was reached. |
 
-Do not fan out for one market or one name. The ordinary workflow is cheaper and
-the result is the same. Do not fan out to split the data work from the news work
-inside a single market: the mover list decides which catalysts matter, so those
-two stages are sequential and a subagent boundary between them just adds a round
-trip and a chance to garble numbers.
+A subagent sees nothing of this conversation. Whatever it needs — market,
+session date, the user's constraints, the packs — must be in its prompt.
 
-## How to run it
+## The run
 
-**1. Resolve scope in the parent.** Decide the markets or names, the session
-dates and any explicit user constraints before dispatching anything. A subagent
-cannot see the conversation, so whatever it needs must be in its prompt.
+**1. Scope.** Resolve the markets or names, the session dates and the user's
+explicit constraints. Keep the user's request word for word; the chief-editor
+gets it verbatim.
 
-**2. Dispatch gatherers concurrently.** Send every subagent call in a single
-message, or they run one after another and the parallelism is lost.
+**2. First wave — one message.** For every market dispatch a
+`market-data-analyst` and a `country-researcher`. Send all of them in a single
+message or they run one after another.
 
-- One `market-pack-builder` per market. Give it the market, the session date and
-  any format or length constraint that affects what to collect.
-- One `catalyst-investigator` per name that needs driver work. Give it the
-  security, the session, the observed move and the comparison group.
+**3. Second wave — one message.** Read the mover lists from the data packs.
+Dispatch a `catalyst-investigator` for each name whose move stands out from its
+sector and index, and for any name the user asked about. Give each one the
+security, the session, the move and peer figures from the data pack, and any
+related headline from the country pack. Skip this wave when nothing stands out.
 
-**3. Reconcile in the parent.** The packs come back independently, so
-cross-market facts are your job: A/H and ADR read-through, a commodity or FX
-move that explains several markets at once, and any place two packs disagree.
-Preserve both observations and explain the discrepancy; prefer the
-higher-ranked, more recent primary source.
+**4. Reconcile.** The packs arrive independently, so cross-market facts are
+yours: A/H and ADR read-through, one commodity or FX move explaining several
+markets, and places two packs disagree. Write short reconciliation notes. When
+sources conflict keep both observations, prefer the higher-ranked and more
+recent primary source, and say why. Do not alter a figure in any pack.
 
-**4. Draft in the parent.** Do not ask a subagent to write client-facing prose.
-One context owns the house voice, and the packs are inputs to it. Use the format
-from `../../references/house-style.md` that matches the request — regional
-digest for a regional wrap, the developed country close per country when
-countries were requested individually.
+**5. Draft.** Dispatch `chief-editor` with the user's request word for word,
+every pack in full, and your reconciliation notes.
 
-**5. Verify independently.** Dispatch `desk-verifier` with the draft and the
-packs and nothing else. Do not tell it how you reached the draft or which
-explanation you preferred — that is what makes the audit worth running. Act on
-its blocking findings before going further.
+**6. Verify.** Dispatch `desk-verifier` with the draft and the packs and nothing
+else. Do not tell it which explanation anyone preferred or how the draft was
+built; that isolation is what makes the audit worth running.
 
-**6. Edit in the parent.** Apply `../desk-editor/SKILL.md` yourself. Keep the
-draft banner and the human publication approval.
+**7. Revise — one round.** On `revise` or `block`, dispatch `chief-editor` again
+with the draft, the packs and the verifier's findings. Do not patch sentences
+yourself. One round only: anything still open after it goes to the user as an
+open finding rather than into another loop.
 
-## What must survive the fan-out
+**8. Present.** Return the note with its draft banner, the review notes, any
+finding the editor declined and any finding still open. Verification is not
+approval to publish.
 
-The failure mode of this mode is numbers degrading as they pass between
-contexts. Guard against it:
+## What must survive every hand-off
 
-- Subagents return packs in the `../../references/data-contract.md` shapes, not
-  prose. Carry figures across as they were returned; do not re-derive or round
-  them.
-- Keep each source URL and timestamp attached to its claim through every hand-off.
-- Carry every `GAPS` and `UNRESOLVED` entry into the draft's gap list. A gap
-  that a subagent found and the parent dropped is worse than no fan-out at all.
-- If a pack comes back empty or failed, say so in the note. Do not quietly draft
-  around a market you have no data for.
+Numbers degrading between contexts is how this mode fails. Guard against it:
+
+- Pass packs in full and unedited. Never summarize a pack before handing it on.
+- Figures come from the helpers via the data analyst, and travel as returned.
+  Nobody downstream rounds, restates or re-derives one.
+- Source URLs and timestamps stay attached to their claims.
+- Every `GAPS`, `UNRESOLVED` and `DATA QUALITY` entry reaches the final review
+  notes. A problem an agent found and the desk dropped is worse than not running
+  the team at all.
+- If an agent fails or returns nothing, retry it once. If it fails again, say so
+  in the note. Never draft around a missing market.
 
 ## Cost
 
-Each subagent is a separate context with its own token cost. Five markets is
-roughly five times the gathering cost of one. That is worth it for a regional
-wrap on a deadline and wasteful for anything smaller, so do not reach for this
-mode by default.
+Each agent is its own context. A three-market wrap is six agents in the first
+wave, a handful of investigators, an editor and a verifier — roughly a dozen
+contexts against one for the ordinary workflow. That buys independent gathering,
+a data check, an isolated audit and a revision pass. It is for notes that
+matter, not for every request, which is why ordinary short requests never
+trigger it.
 
 ## Boundaries
 
-Everything in `AGENTS.md` applies to every subagent: read-only research, no
-account or order mutation, no publication without explicit human approval at
-that moment, and no representing analysis as personalized investment advice.
+Everything in `AGENTS.md` binds every agent: read-only research, no account or
+order mutation, no publication without explicit human approval at that moment,
+and nothing represented as personalized investment advice.

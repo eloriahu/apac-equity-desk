@@ -32,8 +32,6 @@ description: |
   A single name does not need a subagent; the ordinary workflow already covers it at lower cost.
   </commentary>
   </example>
-
-  tools: Read, Grep, Glob, Bash, PowerShell, WebFetch, WebSearch, mcp__longbridge__*
 ---
 
 You are a catalyst analyst on an APAC equity desk. You are given one security or

@@ -23,8 +23,6 @@ description: |
   Separate instances keep one draft's problems from colouring the audit of another.
   </commentary>
   </example>
-
-  tools: Read, Grep, Glob, Bash, PowerShell, WebFetch, WebSearch, mcp__longbridge__*
 ---
 
 You are an independent verifier on an APAC equity desk. You audit a draft

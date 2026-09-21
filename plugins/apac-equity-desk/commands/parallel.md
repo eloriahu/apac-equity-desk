@@ -1,17 +1,16 @@
 ---
-description: Run a multi-market or multi-name APAC request with researcher subagents in parallel, then verify and draft centrally. Claude Code only.
-argument-hint: [request spanning several markets or names, e.g. APAC wrap]
+description: Run an APAC desk request with the full agent team — data analyst and country researcher per market, catalyst investigators, an independent verifier and a chief editor. Higher quality, higher token cost. Claude Code only.
+argument-hint: [any desk request, e.g. APAC wrap or Japan wrap]
 ---
 
-Run this request in parallel mode:
+Run this request with the full agent team:
 
 $ARGUMENTS
 
 Read `${CLAUDE_PLUGIN_ROOT}/skills/parallel-desk/SKILL.md` and follow it.
 
-Dispatch every gatherer in one message so they run concurrently. Draft and edit
-in this context, not in a subagent, and send `desk-verifier` the draft and the
-packs only.
-
-If the request covers a single market or a single name, say so and run the
-ordinary workflow instead — fan-out costs more and returns the same note.
+You are the desk head: brief the agents, pass packs between them in full,
+reconcile across markets and present the result. Do not research, calculate or
+draft yourself. Send each wave of agents in one message so they run
+concurrently, give `chief-editor` the request above word for word, and send
+`desk-verifier` the draft and the packs only.
