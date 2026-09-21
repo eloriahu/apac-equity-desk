@@ -30,7 +30,7 @@ Normalize quote rows to the shared contract. Use `../../scripts/relative_moves.p
 
 Treat a move as investigation-worthy when any two signals are present: absolute move above 3%, sector-relative move above 2ppt, volume above 1.8× normal, material index contribution, fresh announcement, large related commodity move, estimate revision, material policy headline, A/H divergence above the desk threshold, or unusual flow. User-requested names may still be analyzed below the threshold; call it below the desk trigger rather than statistically insignificant, since these thresholds are not a statistical test.
 
-Rank proposed drivers with the evidence score in `source-priority.md`. Separate confirmed session catalyst, plausible contributing factor, structural background already known and unconfirmed chatter. If no driver clears medium confidence, say `No single catalyst is confirmed` and describe the best-supported possibilities. Correlation, co-movement and headline timing are not proof of causation.
+Rank proposed drivers with the evidence score in `source-priority.md`, computed with `../../scripts/evidence_score.py` so the arithmetic and bands are consistent. Separate confirmed session catalyst, plausible contributing factor, structural background already known and unconfirmed chatter. If no driver clears medium confidence, say `No single catalyst is confirmed` and describe the best-supported possibilities. Correlation, co-movement and headline timing are not proof of causation.
 
 ## Draft and challenge
 

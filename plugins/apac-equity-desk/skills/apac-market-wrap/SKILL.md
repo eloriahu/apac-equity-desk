@@ -7,11 +7,11 @@ description: Run a complete country close or regional APAC wrap from short reque
 
 Read `../../references/desk-defaults.md` for short-request routing, context/date defaults and the included review stages. The user does not need to repeat these instructions or request each pass.
 
-Build the structured data pack before prose. Read `../../references/house-style.md`, `../../references/source-priority.md`, `../../references/data-contract.md` and `../../references/market-calendars.yaml`. Default to the house's developed country narrative when a country is requested; use a regional digest only when requested.
+Build the structured data pack before prose. Read `../../references/house-style.md`, `../../references/source-priority.md`, `../../references/data-contract.md` and `../../references/market-calendars.json`. Default to the house's developed country narrative when a country is requested; use a regional digest only when requested.
 
 ## Scope and timing
 
-Resolve the date, closed sessions and cutoff time using the shared defaults; do not turn this into a mandatory confirmation question. Never call a still-open market “closed”. Label holidays, partial sessions, delayed data and non-overlapping FX/commodity timestamps. Longbridge is the primary read-only source where coverage/entitlements permit; approved fallbacks may fill gaps. Singapore live quotes require a fallback because Longbridge Developers does not currently supply them.
+Resolve the date, closed sessions and cutoff time using the shared defaults. Confirm each market's status with Longbridge `market_status`/`trading_days` when available, otherwise run `../../scripts/session_clock.py --markets CN,HK` (it knows holidays only when a verified holidays file is supplied); do not turn this into a mandatory confirmation question. Never call a still-open market “closed”. Label holidays, partial sessions, delayed data and non-overlapping FX/commodity timestamps. Longbridge is the primary read-only source where coverage/entitlements permit; approved fallbacks may fill gaps. Singapore live quotes require a fallback because Longbridge Developers does not currently supply them.
 
 Read `../../references/integrations.md` when the primary source is unavailable or a fallback must be chosen.
 

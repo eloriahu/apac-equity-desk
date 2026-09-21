@@ -9,7 +9,7 @@ Read `../../references/desk-defaults.md` for short-request routing, context/date
 
 Read `../../references/house-style.md` (voice and morning format), `../../references/source-priority.md` and the morning-snippet contract in `../../references/data-contract.md`.
 
-Resolve the country, session, date and as-of time. Default to a compact three-paragraph snippet, around 150–250 words. A Japan example is a `{JA} JAPAN MORNING` header, the live NKY/TPX divergence, overnight US/rates/commodity and policy context, then current sector leadership/drag. Preserve clear desk shorthand.
+Resolve the country, session, date and as-of time. Decide `open` versus `pre_open` from Longbridge `market_status` or `../../scripts/session_clock.py --markets JP`, not from memory of the timetable. Default to a compact three-paragraph snippet, around 150–250 words. A Japan example is a `{JA} JAPAN MORNING` header, the live NKY/TPX divergence, overnight US/rates/commodity and policy context, then current sector leadership/drag. Preserve clear desk shorthand.
 
 When the market is open, lead with the local tape and say whether a move is versus prior close or since opening. Include named heavyweight offsets and counterintuitive moves where supported. For rates, distinguish an intraday high from the session close. Attribute dated central-bank expectations and survey results; a policy base case is not an announced decision.
 

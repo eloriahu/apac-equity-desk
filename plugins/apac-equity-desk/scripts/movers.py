@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from common import load_data, number, parser, percent_change, records, write_output
+from common import flag, load_data, number, parser, records, write_output
 from relative_moves import calculate_relative_moves
 
 
@@ -12,7 +12,6 @@ def find_movers(rows: list[dict[str, Any]], min_signals: int = 2) -> list[dict[s
     output: list[dict[str, Any]] = []
     for row in calculate_relative_moves(rows):
         move = number(row.get("pct_change"))
-        move = move if move is not None else percent_change(row.get("last", row.get("close")), row.get("prev_close"))
         relative = number(row.get("relative_to_peer_ppt"))
         volume_ratio = number(row.get("volume_ratio"))
         if volume_ratio is None and number(row.get("volume")) is not None and number(row.get("avg_volume_20d")) not in (None, 0):
@@ -26,7 +25,7 @@ def find_movers(rows: list[dict[str, Any]], min_signals: int = 2) -> list[dict[s
         for field, label in (("fresh_announcement", "fresh_announcement"), ("commodity_shock", "commodity_move"),
                              ("estimate_revision", "estimate_revision"), ("policy_headline", "policy_headline"),
                              ("unusual_flow", "unusual_flow")):
-            if row.get(field) is True: signals.append(label)
+            if flag(row.get(field)): signals.append(label)
         if number(row.get("ah_divergence_pct")) is not None and abs(number(row.get("ah_divergence_pct"))) > 2:
             signals.append("ah_divergence")
         if len(signals) >= min_signals:

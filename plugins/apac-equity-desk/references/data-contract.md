@@ -10,6 +10,8 @@ Recommended: `name`, `desk_ticker`, `currency`, `timestamp`, `session`, `open`, 
 
 Timestamps must include an offset or the pack must provide a timezone. Do not merge quotes from materially different as-of times without a warning.
 
+Price is `last`, falling back to `close` when `last` is absent or blank; a row with neither is reported as a data gap. Signal fields such as `fresh_announcement` accept JSON booleans or CSV text (`true`, `1`, `yes`). `peer_median_pct`, when not supplied, is the median of the other priced stocks in the same market and sector, excluding the stock itself; a stock with no priced peers gets `null` and `peer_count: 0` rather than a zero spread.
+
 ## News row
 
 Required: `id`, `title`, `source`, `published_at`, `url`. Recommended: `body`, `symbols`, `evidence_level` (1–4), `source_type`, `language`.
@@ -30,6 +32,14 @@ The default country close uses `format: desk-narrative`; see House narrative pac
 
 Top-level fields: `date`, `as_of`, `regional_lead`, `markets`, `cross_asset`, `tomorrow`, `sources`, `data_gaps`. Each market contains `name`, `indices`, `breadth`, `sectors`, `movers`, `flows`, `catalysts` and `as_of`.
 
+## Driver score row
+
+Input to `evidence_score.py`: `id`, `summary`, `evidence_level` (1–4), and `freshness`, `specificity`, `market_fit` as 0–2 points or words (`new`/`updated`/`stale`; `security`/`sector`/`macro`; `strong`/`partial`/`contradicts`). Output adds `score_parts`, `score` (0–8), `confidence` (high/medium/low) and `unscored` dimensions, which count as zero.
+
+## Session clock
+
+`session_clock.py --markets JP,HK [--at ISO] [--holidays file.json]` reads `references/market-calendars.json` and returns per-market `status` (`pre_open`, `open`, `lunch_break`, `closed`, `weekend`, `holiday`), local time and sessions. `holiday_calendar_loaded: false` means holidays were not checked. Holidays file shape: `{"HK": {"closed": ["2026-10-01"], "half_day": {"2026-12-24": "12:00"}}}`.
+
 ## Fact-check bundle
 
 ```json
@@ -40,7 +50,7 @@ Top-level fields: `date`, `as_of`, `regional_lead`, `markets`, `cross_asset`, `t
 }
 ```
 
-Optional claim fields: `value`, `unit`, `tolerance`, `new_today`, `confirmed`. The checker flags missing citations, causal claims supported only by Level 4, malformed source URLs/timestamps and contradictory numeric claims sharing the same `fact_key`. Source age, source independence, semantic support and whether an event caused a move still require analyst verification.
+Optional claim fields: `value`, `unit`, `tolerance`, `new_today`, `confirmed`. The checker flags missing citations, causal claims supported only by Level 4 or by sources with no `evidence_level`, malformed source URLs, timestamps without an offset, sources dated after the bundle `as_of`, and contradictory numeric claims sharing the same `fact_key`. Source age, source independence, semantic support and whether an event caused a move still require analyst verification.
 
 ## House narrative packs
 

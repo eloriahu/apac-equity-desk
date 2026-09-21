@@ -142,7 +142,7 @@ codex plugin marketplace upgrade apac-equity-desk
 codex plugin add apac-equity-desk@apac-equity-desk
 ```
 
-This is version 0.2.1: a research workflow scaffold with short-request routing, built-in review passes, house-style narrative formats and offline tests. Live account integration has not been validated. Optional AKShare, Tushare and Jin10 entries are configuration examples, not implemented collectors. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
+This is version 0.3.0: a research workflow scaffold with short-request routing, built-in review passes, house-style narrative formats, an offline market clock, a driver-scoring helper, a read-only Longbridge tool allowlist and offline tests. Live account integration has not been validated. Optional AKShare, Tushare and Jin10 entries are configuration examples, not implemented collectors. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
 
 All numbers, events, URLs and dates in `tests/fixtures/` are synthetic test data, not verified market facts. The renderers format supplied packs; they do not independently research or prove the content. The fact-check helper checks selected structural issues and does not establish that a source supports a claim.
 
@@ -158,6 +158,7 @@ Try the included fixtures:
 python plugins/apac-equity-desk/scripts/market_snapshot.py tests/fixtures/quotes.json
 python plugins/apac-equity-desk/scripts/render_market_color.py tests/fixtures/market_color_pack.json
 python plugins/apac-equity-desk/scripts/render_market_wrap.py tests/fixtures/market_wrap_pack.json
+python plugins/apac-equity-desk/scripts/session_clock.py --markets JP,HK,AU
 ```
 
 The scripts consume normalized JSON/CSV rather than credentials. Codex should collect live data with MCP tools, save/pipe only the required fields, and run the calculation helpers. See the plugin's `references/data-contract.md` for schemas and `references/integrations.md` for provider boundaries.
@@ -166,4 +167,18 @@ The scripts consume normalized JSON/CSV rather than credentials. Codex should co
 
 This repository is research-only. It must not submit, replace, cancel or stage orders; alter positions, alerts, watchlists or DCA/grid plans; or publish/send a draft without the user's explicit approval at that moment.
 
-These are agent instructions, not a server-enforced tool filter. The upstream Longbridge MCP can expose trading and account-write tools. Use least-privilege credentials where supported and do not grant trading access for this desk workflow. Credentials, private client information and proprietary research must remain outside this public repository.
+The upstream Longbridge MCP exposes trading and account-write tools. When Codex runs in this repository, `.codex/config.toml` sets an `enabled_tools` allowlist for the `longbridge` server: only tools Longbridge itself marks read-only, minus reads of your own account (balances, positions, orders, statements, bank cards). Codex enforces this list, so the model cannot call anything outside it. New Longbridge tools stay blocked until they are reviewed and added. A test checks that no order, alert, DCA, grid, watchlist or sharelist write tool is in the list.
+
+The installed plugin's own `.mcp.json` does not carry this list. If you use the plugin outside this repository, copy the `[mcp_servers.longbridge]` block into your user `~/.codex/config.toml`. Also use least-privilege credentials where supported, and do not grant trading access for this desk workflow. Credentials, private client information and proprietary research must remain outside this public repository.
+
+## Changelog
+
+**0.3.0**
+
+- Fixed: peer medians now exclude the stock itself. Before, a stock was compared against a basket that included it, which understated relative moves (by half in a two-stock basket). A stock with no priced peers now shows no peer spread instead of 0ppt.
+- Fixed: CSV rows with a blank `last` now fall back to `close`; text signals such as `"True"` now count in the mover trigger.
+- Fixed: news clusters order articles by actual time, not by timestamp text, so mixed-timezone feeds report the true earliest article.
+- Fixed: the fact-checker reads a single string source ID correctly, blocks sources dated after the bundle's `as_of`, flags causal claims whose sources have no evidence level, and rejects timestamps without a timezone offset.
+- Added: `session_clock.py`, an offline market clock (pre-open / open / lunch / closed / weekend / holiday) with a Sydney daylight-saving fallback for Python installs without timezone data. The market calendar moved from YAML to `market-calendars.json` so it needs no extra library.
+- Added: `evidence_score.py`, which computes the 0–8 driver score from `source-priority.md`.
+- Added: a read-only Longbridge tool allowlist in `.codex/config.toml`, with a test.

@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Any
 
-from common import iso_now, load_data, median, number, parser, percent_change, records, write_output
+from common import iso_now, load_data, median, number, parser, percent_change, price, records, write_output
 
 
 def build_snapshot(rows: list[dict[str, Any]], as_of: str | None = None) -> dict[str, Any]:
@@ -15,7 +15,7 @@ def build_snapshot(rows: list[dict[str, Any]], as_of: str | None = None) -> dict
     for source in rows:
         row = dict(source)
         symbol = str(row.get("symbol", "unknown"))
-        pct = percent_change(row.get("last", row.get("close")), row.get("prev_close"))
+        pct = percent_change(price(row), row.get("prev_close"))
         row["pct_change"] = pct
         row["volume_ratio"] = (
             number(row.get("volume")) / number(row.get("avg_volume_20d"))
@@ -29,10 +29,12 @@ def build_snapshot(rows: list[dict[str, Any]], as_of: str | None = None) -> dict
         )
         high, low, previous = number(row.get("high")), number(row.get("low")), number(row.get("prev_close"))
         row["intraday_range_pct"] = ((high - low) / previous * 100) if None not in (high, low, previous) and previous else None
-        row["vs_vwap_pct"] = percent_change(row.get("last", row.get("close")), row.get("vwap"))
+        row["vs_vwap_pct"] = percent_change(price(row), row.get("vwap"))
         weight = number(row.get("index_weight"))
         row["index_contribution_ppt"] = pct * weight / 100 if pct is not None and weight is not None else None
-        missing = [field for field in ("market", "last", "prev_close") if row.get(field) in (None, "")]
+        missing = [field for field in ("market", "prev_close") if row.get(field) in (None, "")]
+        if price(row) is None:
+            missing.append("last/close")
         if missing:
             gaps.append(f"{symbol}: missing {', '.join(missing)}")
         enriched.append(row)

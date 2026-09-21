@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import re
+from datetime import datetime, timezone
 from typing import Any
 
-from common import load_data, parser, records, write_output
+from common import load_data, parse_timestamp, parser, records, write_output
 
 STOP = {"a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "in", "is", "of", "on", "or", "the", "to", "with"}
 
@@ -18,9 +19,17 @@ def similarity(left: set[str], right: set[str]) -> float:
     return len(left & right) / len(left | right) if left or right else 0.0
 
 
+_UNDATED = datetime.max.replace(tzinfo=timezone.utc)
+
+
+def _published(row: dict[str, Any]) -> datetime:
+    # Compare instants, not strings: "02:00Z" is later than "09:00+08:00".
+    return parse_timestamp(row.get("published_at")) or _UNDATED
+
+
 def cluster_news(articles: list[dict[str, Any]], threshold: float = 0.55) -> list[dict[str, Any]]:
     clusters: list[dict[str, Any]] = []
-    for article in sorted(articles, key=lambda row: str(row.get("published_at", ""))):
+    for article in sorted(articles, key=_published):
         title_tokens = tokens(str(article.get("title", "")))
         article_tokens = tokens(f"{article.get('title', '')} {article.get('body', '')}")
         match = None
@@ -43,7 +52,10 @@ def cluster_news(articles: list[dict[str, Any]], threshold: float = 0.55) -> lis
             "representative_title": members[0].get("title"),
             "earliest_published_at": members[0].get("published_at"),
             "article_count": len(members),
+            # Outlets that carried the story. A cluster is one underlying story, so
+            # these are not independent confirmations of each other.
             "independent_sources": sorted({str(row.get("source", "unknown")) for row in members}),
+            "undated_article_ids": [row.get("id") for row in members if parse_timestamp(row.get("published_at")) is None],
             "best_evidence_level": min(levels) if levels else None,
             "article_ids": [row.get("id") for row in members],
         })

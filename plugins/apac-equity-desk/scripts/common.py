@@ -27,6 +27,37 @@ def percent_change(last: Any, base: Any) -> float | None:
     return (last_n / base_n - 1.0) * 100.0
 
 
+def price(row: dict[str, Any]) -> float | None:
+    """Return `last`, falling back to `close` when `last` is absent or blank (common in CSV)."""
+    value = number(row.get("last"))
+    return value if value is not None else number(row.get("close"))
+
+
+def row_pct_change(row: dict[str, Any]) -> float | None:
+    """Use a supplied `pct_change`, otherwise compute it from price() and `prev_close`."""
+    value = number(row.get("pct_change"))
+    return value if value is not None else percent_change(price(row), row.get("prev_close"))
+
+
+def flag(value: Any) -> bool:
+    """Read a boolean signal from JSON (true) or CSV text ("true", "1", "yes", "y")."""
+    if isinstance(value, bool):
+        return value
+    text = str(value).strip().lower()
+    if text in {"true", "yes", "y"}:
+        return True
+    return number(text) == 1  # 1, 1.0 and "1.0" from spreadsheet exports
+
+
+def parse_timestamp(value: Any) -> datetime | None:
+    """Parse an ISO-8601 timestamp with an offset; naive or malformed values return None."""
+    try:
+        stamp = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    return stamp if stamp.tzinfo is not None else None
+
+
 def median(values: Iterable[Any]) -> float | None:
     nums = sorted(v for value in values if (v := number(value)) is not None)
     if not nums:

@@ -1,6 +1,6 @@
 {
   "name": "apac-equity-desk",
-  "version": "0.2.1+codex.20260918040625",
+  "version": "0.3.0",
   "description": "Read-only APAC equity market colour, close wraps, catalyst analysis and event-driven research workflows.",
   "author": {
     "name": "APAC Equity Desk"

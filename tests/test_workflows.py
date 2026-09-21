@@ -33,8 +33,10 @@ class CalculationTests(unittest.TestCase):
         self.assertAlmostEqual(catl["pct_change"], -4.0)
         self.assertAlmostEqual(catl["volume_ratio"], 2.4)
         relative = calculate_relative_moves(quotes)[0]
-        self.assertAlmostEqual(relative["peer_median_pct"], -3.0)
-        self.assertAlmostEqual(relative["relative_to_peer_ppt"], -1.0)
+        # Peers exclude CATL itself: median(-3.0, -2.0) = -2.5.
+        self.assertAlmostEqual(relative["peer_median_pct"], -2.5)
+        self.assertAlmostEqual(relative["relative_to_peer_ppt"], -1.5)
+        self.assertEqual(relative["peer_count"], 2)
 
     def test_breadth_and_multi_signal_mover(self):
         quotes = fixture("quotes.json")

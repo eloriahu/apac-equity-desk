@@ -3,11 +3,10 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from datetime import datetime
 from typing import Any
 from urllib.parse import urlparse
 
-from common import load_data, number, parser, write_output
+from common import load_data, number, parse_timestamp, parser, write_output
 
 
 def _valid_url(value: Any) -> bool:
@@ -20,13 +19,24 @@ def audit(bundle: dict[str, Any]) -> dict[str, Any]:
     sources = {str(source.get("id")): source for source in bundle.get("sources", []) if source.get("id")}
     findings: list[dict[str, str]] = []
     numeric_facts: dict[str, list[tuple[str, float, float]]] = defaultdict(list)
+    as_of = parse_timestamp(bundle.get("as_of"))
 
     def flag(severity: str, code: str, claim_id: str, detail: str) -> None:
         findings.append({"severity": severity, "code": code, "claim_id": claim_id, "detail": detail})
 
+    if bundle.get("as_of") and as_of is None:
+        flag("revise", "invalid_as_of", "bundle", "as_of is not ISO-8601 with an offset; sources were not checked against it.")
+
     for claim in claims:
         claim_id = str(claim.get("id", "unknown"))
-        source_ids = [str(value) for value in claim.get("source_ids", [])]
+        raw_ids = claim.get("source_ids", [])
+        # A bare string is one ID; iterating it would split "s1" into "s", "1".
+        if raw_ids is None or raw_ids == "":
+            source_ids = []
+        elif isinstance(raw_ids, (list, tuple)):
+            source_ids = [str(value) for value in raw_ids]
+        else:
+            source_ids = [str(raw_ids)]
         if not source_ids:
             flag("block", "uncited_claim", claim_id, "Claim has no source IDs.")
             continue
@@ -37,6 +47,8 @@ def audit(bundle: dict[str, Any]) -> dict[str, Any]:
         levels = [int(source.get("evidence_level")) for source in linked if str(source.get("evidence_level", "")).isdigit()]
         if claim.get("causal") is True and levels and min(levels) >= 4:
             flag("block", "level4_causality", claim_id, "Causal claim relies only on Level 4 evidence.")
+        if claim.get("causal") is True and linked and not levels:
+            flag("revise", "unknown_evidence_level", claim_id, "Causal claim cites sources with no evidence_level.")
         if claim.get("confirmed") is True and not any(level == 1 for level in levels):
             flag("revise", "confirmation_without_primary", claim_id, "Confirmed wording lacks Level 1 support.")
         for source in linked:
@@ -44,8 +56,11 @@ def audit(bundle: dict[str, Any]) -> dict[str, Any]:
                 flag("revise", "invalid_url", claim_id, f"Source {source.get('id')} has no valid HTTP(S) URL.")
             timestamp = source.get("published_at")
             if timestamp:
-                try: datetime.fromisoformat(str(timestamp).replace("Z", "+00:00"))
-                except ValueError: flag("revise", "invalid_timestamp", claim_id, f"Source {source.get('id')} timestamp is not ISO-8601.")
+                published = parse_timestamp(timestamp)
+                if published is None:
+                    flag("revise", "invalid_timestamp", claim_id, f"Source {source.get('id')} timestamp is not ISO-8601 with an offset.")
+                elif as_of is not None and published > as_of:
+                    flag("block", "source_after_as_of", claim_id, f"Source {source.get('id')} is dated after the bundle as_of {bundle.get('as_of')}.")
         fact_key, value = claim.get("fact_key"), number(claim.get("value"))
         if fact_key and value is not None:
             numeric_facts[str(fact_key)].append((claim_id, value, number(claim.get("tolerance")) or 0.0))
