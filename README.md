@@ -204,7 +204,7 @@ To update an installed copy:
 
 Complete Longbridge OAuth when prompted. Quote coverage depends on account entitlements; the official hosted MCP emphasizes US/HK and the scaffold requires approved fallback data for uncovered markets.
 
-This is version 0.3.0: a research workflow scaffold with short-request routing, built-in review passes, house-style narrative formats, an offline market clock, a driver-scoring helper, a read-only Longbridge tool allowlist and offline tests. Live account integration has not been validated. Optional AKShare, Tushare and Jin10 entries are configuration examples, not implemented collectors. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
+This is version 0.4.0: a research workflow scaffold with short-request routing, built-in review passes, house-style narrative formats, an offline market clock, a driver-scoring helper, a read-only Longbridge tool allowlist, an optional Claude Code multi-agent mode and offline tests. Live account integration has not been validated. Optional AKShare, Tushare and Jin10 entries are configuration examples, not implemented collectors. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
 
 All numbers, events, URLs and dates in `tests/fixtures/` are synthetic test data, not verified market facts. The renderers format supplied packs; they do not independently research or prove the content. The fact-check helper checks selected structural issues and does not establish that a source supports a claim.
 
@@ -251,6 +251,12 @@ One behavioural difference is worth knowing: a brand-new Longbridge tool outside
 
 ## Changelog
 
+**0.4.0**
+
+- Added: Claude Code CLI support alongside Codex. `.claude-plugin/marketplace.json`, `plugins/apac-equity-desk/.claude-plugin/plugin.json`, a `CLAUDE.md` that imports the shared `AGENTS.md`, eight slash commands, and a `.claude/settings.json` permission boundary mirrored from the Codex allowlist. Skills, references, scripts and tests are shared; `tests/test_claude_code_plugin.py` checks the two builds do not drift.
+- Added: an optional Claude Code multi-agent mode. `/parallel` fans out one `market-pack-builder` per market and one `catalyst-investigator` per contested name, audits the draft with an independent `desk-verifier`, and keeps house-style drafting in one context. Subagents exchange data-contract packs rather than prose. Codex ignores `agents/` and runs the same workflows sequentially; a test keeps every other skill free of agent references so the Codex build cannot come to depend on them.
+- Note: installed copies only pick up changes when this version string moves. `claude plugin update` and `codex plugin add` both compare versions, not content.
+
 **0.3.0**
 
 - Fixed: peer medians now exclude the stock itself. Before, a stock was compared against a basket that included it, which understated relative moves (by half in a two-stock basket). A stock with no priced peers now shows no peer spread instead of 0ppt.
@@ -260,5 +266,3 @@ One behavioural difference is worth knowing: a brand-new Longbridge tool outside
 - Added: `session_clock.py`, an offline market clock (pre-open / open / lunch / closed / weekend / holiday) with a Sydney daylight-saving fallback for Python installs without timezone data. The market calendar moved from YAML to `market-calendars.json` so it needs no extra library.
 - Added: `evidence_score.py`, which computes the 0–8 driver score from `source-priority.md`.
 - Added: a read-only Longbridge tool allowlist in `.codex/config.toml`, with a test.
-- Added: an optional Claude Code multi-agent mode. `/parallel` fans out one `market-pack-builder` per market and one `catalyst-investigator` per contested name, audits the draft with an independent `desk-verifier`, and keeps house-style drafting in one context. Subagents exchange data-contract packs rather than prose. Codex ignores `agents/` and runs the same workflows sequentially; a test keeps every other skill free of agent references so the Codex build cannot come to depend on them.
-- Added: Claude Code CLI support alongside Codex. `.claude-plugin/marketplace.json`, `plugins/apac-equity-desk/.claude-plugin/plugin.json`, a `CLAUDE.md` that imports the shared `AGENTS.md`, eight slash commands, and a `.claude/settings.json` permission boundary mirrored from the Codex allowlist. Skills, references, scripts and tests are shared; `tests/test_claude_code_plugin.py` checks the two builds do not drift.
