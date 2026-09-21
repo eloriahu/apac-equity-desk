@@ -2,6 +2,12 @@
 
 Calculation helpers accept UTF-8 JSON arrays (or CSV where noted) and emit JSON to stdout unless `--output` is supplied. Draft renderers accept JSON objects and emit Markdown. Unknown fields are preserved where practical in calculation helpers; narrative renderers output only their documented fields. Numbers may be JSON numbers or numeric strings; blanks become null.
 
+## Source envelope
+
+Market packs should include `provider` or `provider_policy`, `as_of` (task/run time), `data_as_of` or row-level `timestamp`, `expected_market_timestamp`, `timezone`, `movement_basis` and `capture_window`. `as_of` never substitutes for a provider price timestamp.
+
+The preferred market source is a user-supplied Bloomberg export or screenshot. For screenshots, record `source_kind: bloomberg_screenshot` and a local `source_artifact`; transcribe only visible values. If no on-screen timestamp is visible, leave `data_as_of` null. OpenBB fallback fields carry row-level `lineage`; pack-level `fallback_fields` explains whether each substitution filled a missing value or replaced a stale live value. Preserve material overlaps in `conflicts`.
+
 ## Quote row
 
 Required: `symbol`, `market`, `last`, `prev_close`.
@@ -38,13 +44,13 @@ Input to `evidence_score.py`: `id`, `summary`, `evidence_level` (1–4), and `fr
 
 ## Topic-radar pack
 
-Top level: `as_of` (offset timestamp), `market`, optional `benchmark_pct`, nonempty `quotes`, optional `news`, optional `limit` and `max_news_age_hours`. Quote rows require `sector` and either `pct_change` or the prices needed by the quote-row contract. Volume context is `volume_ratio` or `volume` plus `avg_volume_20d`. News can identify `sectors` and/or `symbols`.
+Top level: `as_of` (offset task timestamp), `expected_market_timestamp`, `provider` or `provider_policy`, `movement_basis`, `market`, optional `benchmark_pct`, nonempty `quotes`, optional `news`, optional `limit`, `max_news_age_hours`, `max_age_minutes` and `max_skew_minutes`. Quote rows require an offset `timestamp`, `sector` and either `pct_change` or the prices needed by the quote-row contract. Volume context is `volume_ratio` or `volume` plus `avg_volume_20d`. News can identify `sectors` and/or `symbols`.
 
 `topic_radar.py` groups the supplied universe by sector and ranks observations using absolute and benchmark-relative movement, direction breadth, volume participation and available fresh news. The score is an attention queue, not statistical significance, causal confidence or a trading signal. Output always sets `causal_status: not_assessed`.
 
 ## Readiness and update packs
 
-`pack_readiness.py` accepts a pack plus `--mode topic-radar|morning|wrap|color|earnings`. Optional `freshness` entries contain `id`, `observed_at` and optional `max_age_minutes`. Output is `ready`, `limited` or `block`, with explicit missing, stale and warning arrays.
+`pack_readiness.py` accepts a pack plus `--mode topic-radar|morning|wrap|color|earnings`. Optional `freshness` entries contain `id`, `observed_at` and optional `max_age_minutes`. When `expected_market_timestamp` is present, freshness is measured against the latest tradable market time rather than task time; this makes a 12:00 HK quote valid during lunch but rejects a 10:34 quote at the afternoon reopen. Topic radar defaults to five minutes maximum age and capture skew. Output is `ready`, `limited` or `block`, with explicit missing, stale and warning arrays.
 
 `pack_delta.py` accepts a prior and current JSON object. It matches object fields recursively and list objects by a unique `id`, `symbol`, `name` or `market` where possible. Output records additions, removals and changes; it does not fetch a prior task or persist memory.
 

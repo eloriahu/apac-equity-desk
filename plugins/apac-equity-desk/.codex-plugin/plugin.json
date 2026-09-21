@@ -1,7 +1,7 @@
 {
   "name": "apac-equity-desk",
-  "version": "1.0.0+codex.20260921034914",
-  "description": "Read-only APAC equity topic discovery, market colour, wraps, earnings, catalyst and research-ledger workflows.",
+  "version": "1.1.0+codex.20260921060034",
+  "description": "Bloomberg-first APAC equity research with screenshot ingestion, OpenBB fallback, topic discovery, wraps, colour and earnings workflows.",
   "author": {
     "name": "APAC Equity Desk"
   },
@@ -16,11 +16,10 @@
     "research"
   ],
   "skills": "./skills/",
-  "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "APAC Equity Desk",
     "shortDescription": "Evidence-ranked APAC equity research drafts.",
-    "longDescription": "Finds timely APAC sector topics and turns short requests into verified morning notes, colour, wraps, earnings, event research, transmission maps and explicit thesis updates, with optional multi-agent mode and human publication approval.",
+    "longDescription": "Uses user-supplied Bloomberg exports or screenshots first, fills explicit gaps through OpenBB, and turns APAC market data into verified morning notes, colour, wraps, earnings and topic research.",
     "developerName": "APAC Equity Desk",
     "category": "Finance",
     "capabilities": [

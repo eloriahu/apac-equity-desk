@@ -8,6 +8,13 @@ description: Run APAC equity desk workflows from short requests including mornin
 Read `../../references/desk-defaults.md`. The user should need only a task and
 a market/security/event, not a detailed prompt. Apply explicit overrides first.
 
+For every workflow that consumes market, consensus, estimate, calendar or
+cross-asset data, read `../../references/integrations.md`. Prefer the user's
+Bloomberg export or screenshot, use OpenBB only for missing, stale or absent
+market fields, and preserve task time, provider time and field lineage. Official
+filings and regulator/exchange/government releases remain authoritative for
+reported facts and events.
+
 Select the route and read its sibling skill:
 
 - Morning -> `../morning-brief/SKILL.md`

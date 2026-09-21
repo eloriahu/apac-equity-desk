@@ -2,12 +2,12 @@
 
 For minipanda's happy friends.
 
-`apac-equity-desk` is a plugin and reference repository for sell-side APAC equity market colour, close wraps, catalyst work and event-driven idea generation. It installs into both the **Codex CLI** and the **Claude Code CLI** from one set of skills, references and helpers. It is optimized for China, Hong Kong, Japan, Korea, Australia and Singapore.
+`apac-equity-desk` is a plugin and reference repository for sell-side APAC equity market colour, close wraps, catalyst work and event-driven idea generation. It installs into both the **Codex CLI** and the **Claude Code CLI** from one set of skills, references and helpers. Regional requests cover North Asia, Australia/New Zealand, India and Southeast Asia to the extent the supplied or configured sources support each exchange.
 
 The system separates collection from judgment:
 
-1. Longbridge supplies the primary live market and company data where coverage and entitlements permit.
-2. Optional AKShare, Tushare and Jin10 adapters can fill China breadth, structured fundamentals/flows and fast macro-news gaps.
+1. User-supplied Bloomberg exports or screenshots are the preferred market-data input.
+2. OpenBB fills only missing, stale or absent market fields; official sources remain authoritative for reported facts and events.
 3. The Python helpers normalize and calculate facts before prose is drafted.
 4. `source-verifier` and `desk-editor` challenge causal claims, contradictory evidence and numerical consistency.
 5. Every publishable artifact remains a draft until a human approves it. Trading tools are never used.
@@ -166,17 +166,13 @@ The [house-style guide](plugins/apac-equity-desk/references/house-style.md) desc
 ```text
 AGENTS.md                           Desk-wide operating rules (shared)
 CLAUDE.md                           Claude Code entry point; imports AGENTS.md
-.codex/config.toml                  Codex MCP defaults + read-only tool allowlist
 .codex/agents/                      Codex project agent team (five roles)
-.claude/settings.json               Claude Code read-only tool permissions
 .claude-plugin/marketplace.json     Claude Code marketplace manifest
 .agents/plugins/marketplace.json    Codex marketplace manifest
-.mcp.json                           Longbridge connection for in-repo sessions
 config/providers.example.toml       Optional provider settings
 plugins/apac-equity-desk/
   .claude-plugin/plugin.json        Claude Code plugin manifest
   .codex-plugin/plugin.json         Codex plugin manifest
-  .mcp.json                         Longbridge hosted MCP connection
   skills/                           Short-request entrypoint + thirteen workflows
   commands/                         Claude Code slash commands for each workflow
   agents/                           Claude Code agent team (five subagents)
@@ -216,9 +212,6 @@ Run these at the Claude Code prompt, not in a shell:
 ```
 
 Then try `/desk Japan wrap`, `/morning Japan`, or simply “Japan morning”.
-Read the [safety boundary](#safety-boundary) before connecting Longbridge:
-unlike Codex, an installed Claude Code plugin cannot ship its own permission
-rules, so the read-only boundary needs one block copied into your settings.
 
 To update an installed copy:
 
@@ -228,9 +221,7 @@ To update an installed copy:
 
 ### Either CLI
 
-Complete Longbridge OAuth when prompted. Quote coverage depends on account entitlements; the official hosted MCP emphasizes US/HK and the scaffold requires approved fallback data for uncovered markets.
-
-This is version 1.0.0: an on-demand APAC research desk with topic discovery, readiness and freshness gates, update deltas, earnings review, event radar, transmission mapping, sector playbooks, an explicit research ledger, Codex/Claude multi-agent mode, deterministic helpers, source verification and offline evaluations. Live account integration has not been validated. Optional AKShare, Tushare and Jin10 entries are configuration examples, not implemented collectors. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
+Attach a Bloomberg CSV/XLSX/BQL export or screenshot with the request. The desk preserves its displayed/export timestamp and uses OpenBB only when configured and needed. This is version 1.1.0: an on-demand APAC research desk with Bloomberg-first ingestion, screenshot support, field-level fallback lineage, session-aware freshness gates, topic discovery, earnings, event research, signal tracking, deterministic helpers and optional multi-agent mode. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
 
 All numbers, events, URLs and dates in `tests/fixtures/` are synthetic test data, not verified market facts. The renderers format supplied packs; they do not independently research or prove the content. The fact-check helper checks selected structural issues and does not establish that a source supports a claim.
 
@@ -249,33 +240,19 @@ python plugins/apac-equity-desk/scripts/render_market_wrap.py tests/fixtures/mar
 python plugins/apac-equity-desk/scripts/session_clock.py --markets JP,HK,AU
 ```
 
-The scripts consume normalized JSON/CSV rather than credentials. The agent collects live data with MCP tools, saves or pipes only the required fields, and runs the calculation helpers. See the plugin's `references/data-contract.md` for schemas and `references/integrations.md` for provider boundaries.
+The scripts consume normalized JSON/CSV rather than credentials. Bloomberg screenshots are transcribed from visible values, structured exports are normalized directly, and OpenBB fallback fields retain lineage. See the plugin's `references/data-contract.md` for schemas and `references/integrations.md` for provider boundaries.
 
 ## Safety boundary
 
-This repository is research-only. It must not submit, replace, cancel or stage orders; alter positions, alerts, watchlists or DCA/grid plans; or publish/send a draft without the user's explicit approval at that moment.
-
-The upstream Longbridge MCP exposes trading and account-write tools. Each CLI
-enforces the read-only boundary with its own mechanism, and the two are not
-identical.
-
-**Codex.** `.codex/config.toml` sets an `enabled_tools` allowlist for the `longbridge` server: only tools Longbridge itself marks read-only, minus reads of your own account (balances, positions, orders, statements, bank cards). Codex enforces this list, so the model cannot call anything outside it. New Longbridge tools stay blocked until they are reviewed and added.
-
-**Claude Code.** Claude Code has no equivalent “only these tools” setting, so `.claude/settings.json` reproduces the boundary with permission rules:
-
-- `permissions.allow` holds the same read-only tools as the Codex allowlist, so research calls run without prompting.
-- `permissions.deny` names every order, alert, DCA, grid, watchlist, sharelist and community-post write tool, plus the account reads. Deny beats allow in Claude Code and cannot be overridden by an allow rule, a permission mode or a hook.
-- Glob deny rules such as `mcp__longbridge__dca_*` cover those families, so a newly published tool inside one is blocked before anyone reviews it.
-
-Claude Code applies `allow` rules from a project only after you accept the workspace trust dialog, because they grant capability. `deny` rules only restrict, so they apply from the first session whether or not you have trusted the folder. Until you trust it, the boundary still holds; research calls just prompt you one by one. Accept the trust dialog the first time you run Claude Code in this repository to stop the prompting.
-
-One behavioural difference is worth knowing: a brand-new Longbridge tool outside every denied family is neither allowed nor denied, so Claude Code **prompts you** rather than refusing outright. Codex refuses it without asking. Decline unfamiliar tools at the prompt and open an issue.
-
-`tests/test_claude_code_plugin.py` checks that the two builds still describe the same boundary: the allow list matches the Codex allowlist, every write and account tool is denied by name, and no deny glob accidentally shadows a research tool.
-
-**Outside this repository.** Neither installed plugin carries its permission rules with it. For Codex, copy the `[mcp_servers.longbridge]` block into your user `~/.codex/config.toml`. For Claude Code, copy the `permissions` block from `.claude/settings.json` into `~/.claude/settings.json`. Also use least-privilege credentials where supported, and do not grant trading access for this desk workflow. Credentials, private client information and proprietary research must remain outside this public repository.
+This repository is research-only. It does not package a brokerage connector and must not submit, replace, cancel or stage orders; alter positions, alerts or watchlists; or publish/send a draft without the user's explicit approval at that moment. Bloomberg artifacts remain local and must not be committed or redistributed. OpenBB/provider credentials stay in local provider settings or environment variables.
 
 ## Changelog
+
+**1.1.0**
+
+- Changed: Bloomberg exports and screenshots are the preferred market-data input across every workflow; the plugin no longer packages a brokerage connector.
+- Added: field-level OpenBB fallback lineage and conflicts, plus distinct task, ingestion and provider timestamps.
+- Added: session-aware freshness and capture-skew gates, including correct lunch-break handling.
 
 **1.0.0**
 
@@ -311,4 +288,4 @@ One behavioural difference is worth knowing: a brand-new Longbridge tool outside
 - Fixed: the fact-checker reads a single string source ID correctly, blocks sources dated after the bundle's `as_of`, flags causal claims whose sources have no evidence level, and rejects timestamps without a timezone offset.
 - Added: `session_clock.py`, an offline market clock (pre-open / open / lunch / closed / weekend / holiday) with a Sydney daylight-saving fallback for Python installs without timezone data. The market calendar moved from YAML to `market-calendars.json` so it needs no extra library.
 - Added: `evidence_score.py`, which computes the 0–8 driver score from `source-priority.md`.
-- Added: a read-only Longbridge tool allowlist in `.codex/config.toml`, with a test.
+- Added at the time: a read-only provider boundary; version 1.1.0 removes the brokerage connector entirely.

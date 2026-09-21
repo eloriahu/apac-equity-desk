@@ -32,6 +32,10 @@ needed paths and material. Claude Code uses the matching agents in `../../agents
 
 A subagent sees nothing of this conversation. Whatever it needs — market,
 session date, the user's constraints, the packs — must be in its prompt.
+Attach or describe every user-supplied Bloomberg export or screenshot in the
+market-data brief. The data analyst must prefer it and request OpenBB fallback
+only for missing, stale or absent fields; downstream agents receive the full
+lineage and conflicts.
 
 ## The run
 

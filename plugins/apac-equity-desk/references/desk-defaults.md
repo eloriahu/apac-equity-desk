@@ -35,7 +35,7 @@ shell command, keyword-parser API or background subscription.
 - Read the user's explicit subject, date, format, length and data-source constraints first; these override defaults.
 - Reuse the market, named event or draft from the current task when "this", "update" or "wrap" has an unambiguous referent. Do not assume access to other tasks, yesterday's private notes or a cross-task memory store.
 - If the essential market/security/event is missing and cannot be resolved from context, ask one short question. Do not ask optional style or checklist questions.
-- A morning request defaults to the requested market's current local trading day. Check the market clock/calendar (Longbridge `market_status`, or `scripts/session_clock.py` offline). If pre-open, label PRE-OPEN and use expectations; if already closed, label it a retrospective morning recap rather than a live opening note. On a holiday, identify the closure instead of inventing a session.
+- A morning request defaults to the requested market's current local trading day. Run `scripts/session_clock.py` and verify holidays against an exchange calendar when material. If pre-open, label PRE-OPEN and use expectations; if already closed, label it a retrospective morning recap rather than a live opening note. On a holiday, identify the closure instead of inventing a session.
 - A wrap with no date defaults to the latest completed session for that market; display the date, especially on holidays or before today's close. If the user explicitly requests today's wrap while trading continues, return a clearly labelled interim note and do not use the closed-session renderer. Do not create a later run unless separately requested.
 - Colour defaults to the latest available market observation, with its actual timestamp and delayed/live status. Resolve security identity and listing; use prior context for an already-established A/H focus. Do not guess ambiguous numeric tickers.
 - "Ideas from this" needs an identifiable event and evidence. Use the current task's material and verify the event before developing scenarios. Do not choose an unrelated macro story just to fill three ideas.
@@ -45,7 +45,7 @@ shell command, keyword-parser API or background subscription.
 
 For morning, wrap, colour and catalyst analysis:
 
-1. Resolve market/session/subject and get the material data from available approved read-only sources. Longbridge is preferred where supported; optional integrations must actually be configured. Public primary-source research may supplement news when available, not masquerade as an entitled quote feed.
+1. Resolve market/session/subject and apply the source router in `integrations.md`: user-supplied Bloomberg export or screenshot first, OpenBB for missing/stale/absent market fields, and official primary sources for reported facts. Public research may supplement news, not masquerade as a timestamped quote feed.
 2. Build or refresh the evidence pack before drafting. Compare peers, benchmarks, related listings and cross-assets where relevant; investigate rather than assume causation.
 3. Run `scripts/pack_readiness.py` for topic-radar, morning, wrap, colour or earnings packs. A blocking result stops prose; a limited result must be disclosed.
 4. For an update with a supplied or current-task prior pack, run `scripts/pack_delta.py` and lead with material changes. Never claim access to another task's pack.

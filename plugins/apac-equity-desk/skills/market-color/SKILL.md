@@ -11,9 +11,9 @@ Produce a draft that a sell-side analyst can verify quickly. Read `../../referen
 
 ## Build the evidence pack first
 
-Resolve the security, listing, session and as-of time. Prefer Longbridge read-only quote, candle, trade, capital-flow, announcement and news tools where supported and entitled. Use configured AKShare/Tushare for China breadth or cross-checks and Jin10 for macro timing; disclose coverage gaps and delayed data.
+Resolve the security, listing, session and as-of time. Prefer user-supplied Bloomberg exports or screenshots for prices, peers, intraday context, volume and flow fields. Use OpenBB for missing, stale or absent market fields. Use company/exchange disclosures for announcements and configured specialist sources for breadth, flows or macro timing; disclose every coverage gap and delayed observation.
 
-If the primary source is unavailable or an adapter must be configured, read `../../references/integrations.md` before selecting a fallback.
+Read `../../references/integrations.md` before selecting or combining sources. Preserve field-level lineage and material conflicts.
 
 Collect only what is material:
 

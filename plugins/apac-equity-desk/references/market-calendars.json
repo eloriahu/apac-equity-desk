@@ -1,5 +1,5 @@
 {
-  "_note": "Seed calendar metadata for session_clock.py. Regular continuous sessions only (auctions excluded). Holidays and half days are NOT pre-filled: add verified dates from Longbridge trading_days or the exchange before relying on a holiday call. Sessions verified 2026-09-18 for SGX (lunch break reinstated 2017); others are seed values.",
+  "_note": "Seed calendar metadata for session_clock.py. Regular continuous sessions only (auctions excluded). Holidays and half days are NOT pre-filled: add verified exchange-calendar dates before relying on a holiday call. Sessions verified 2026-09-18 for SGX (lunch break reinstated 2017); others are seed values.",
   "markets": {
     "CN": {"name": "China", "timezone": "Asia/Shanghai", "utc_offset": "+08:00", "regular_session": ["09:30-11:30", "13:00-15:00"], "benchmarks": ["000300.SH", "000905.SH", "000852.SH"]},
     "HK": {"name": "Hong Kong", "timezone": "Asia/Hong_Kong", "utc_offset": "+08:00", "regular_session": ["09:30-12:00", "13:00-16:00"], "benchmarks": ["HSI", "HSCEI", "HSTECH"]},

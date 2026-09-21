@@ -42,9 +42,49 @@ class ReadinessAndDeltaTests(unittest.TestCase):
     def test_blocks_stale_live_pack(self):
         pack = {
             "as_of": "2026-09-21T11:00:00+08:00",
+            "expected_market_timestamp": "2026-09-21T11:00:00+08:00",
             "market": "HK",
-            "quotes": [{"symbol": "A"}, {"symbol": "B"}, {"symbol": "C"}],
+            "provider": "Bloomberg user upload",
+            "movement_basis": "latest_vs_previous_close",
+            "quotes": [
+                {"symbol": "A", "timestamp": "2026-09-21T09:00:00+08:00"},
+                {"symbol": "B", "timestamp": "2026-09-21T09:00:00+08:00"},
+                {"symbol": "C", "timestamp": "2026-09-21T09:00:00+08:00"},
+            ],
             "freshness": [{"id": "quotes", "observed_at": "2026-09-21T09:00:00+08:00", "max_age_minutes": 30}],
+        }
+        self.assertEqual(assess_pack(pack, "topic-radar")["status"], "block")
+
+    def test_lunch_uses_expected_market_timestamp_not_run_time(self):
+        pack = {
+            "as_of": "2026-09-21T12:45:00+08:00",
+            "expected_market_timestamp": "2026-09-21T12:00:00+08:00",
+            "market": "HK",
+            "provider": "Bloomberg user upload",
+            "movement_basis": "latest_vs_previous_close",
+            "quotes": [
+                {"symbol": "A", "timestamp": "2026-09-21T12:00:00+08:00"},
+                {"symbol": "B", "timestamp": "2026-09-21T12:00:00+08:00"},
+                {"symbol": "C", "timestamp": "2026-09-21T12:00:00+08:00"},
+            ],
+        }
+        result = assess_pack(pack, "topic-radar")
+        self.assertEqual(result["status"], "ready")
+        self.assertEqual(result["reference_timestamp"], "2026-09-21T12:00:00+08:00")
+
+    def test_blocks_misaligned_quote_capture_window(self):
+        pack = {
+            "as_of": "2026-09-21T13:05:00+08:00",
+            "expected_market_timestamp": "2026-09-21T13:05:00+08:00",
+            "market": "HK",
+            "provider_policy": "user_supplied_bloomberg_then_openbb",
+            "movement_basis": "latest_vs_previous_close",
+            "max_age_minutes": 120,
+            "quotes": [
+                {"symbol": "A", "timestamp": "2026-09-21T13:04:00+08:00"},
+                {"symbol": "B", "timestamp": "2026-09-21T12:50:00+08:00"},
+                {"symbol": "C", "timestamp": "2026-09-21T13:03:00+08:00"},
+            ],
         }
         self.assertEqual(assess_pack(pack, "topic-radar")["status"], "block")
 

@@ -8,6 +8,6 @@ Draft the morning snippet for:
 $ARGUMENTS
 
 Read `${CLAUDE_PLUGIN_ROOT}/skills/morning-brief/SKILL.md` and follow it.
-Resolve the session state from Longbridge `market_status` or
+Resolve the session state from
 `${CLAUDE_PLUGIN_ROOT}/scripts/session_clock.py`, not from memory of the
 timetable, and label PRE-OPEN or a retrospective recap accordingly.

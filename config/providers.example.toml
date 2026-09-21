@@ -1,9 +1,14 @@
-[providers.longbridge]
+[providers.bloomberg_user_upload]
 enabled = true
-role = "primary"
-transport = "mcp"
-url = "https://mcp.longbridge.com"
-read_only = true
+role = "primary_market_input"
+accepted = ["xlsx", "csv", "json", "screenshot"]
+
+[providers.openbb]
+enabled = false
+role = "field_level_fallback"
+preferred_provider = "fmp"
+secondary_provider = "yfinance"
+credentials = "local_provider_settings"
 
 [providers.akshare]
 enabled = false
@@ -25,4 +30,3 @@ draft_banner = "DRAFT — HUMAN APPROVAL REQUIRED"
 
 [trading]
 mode = "disabled"
-

@@ -2,7 +2,7 @@
 name: catalyst-investigator
 model: inherit
 color: cyan
-tools: Read, Grep, Glob, Bash, PowerShell, WebFetch, WebSearch, mcp__longbridge__*
+tools: Read, Grep, Glob, Bash, PowerShell, WebFetch, WebSearch
 description: |
   Use this agent to investigate why ONE name or event moved, when several names need that work at the same time and they can be investigated in parallel. Dispatch one instance per name in a single message. It returns ranked competing explanations, not prose.
 

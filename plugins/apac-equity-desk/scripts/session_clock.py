@@ -1,8 +1,7 @@
-"""Report whether APAC markets are pre-open, open, at lunch or closed at a given instant.
+"""Report APAC session state and the latest expected tradable timestamp.
 
-Offline fallback for the skills' "check the market clock" step. Prefer Longbridge
-market_status / trading_days when connected. Holidays are only known when the
-calendar (or --holidays file) lists them; otherwise the output says so.
+Holidays are only known when the calendar (or --holidays file) lists them;
+otherwise the output says so.
 """
 
 from __future__ import annotations
@@ -95,6 +94,15 @@ def market_status(code: str, instant: datetime, calendar: dict[str, Any]) -> dic
     else:
         status = "lunch_break"
 
+    expected_price_time = None
+    if status == "open":
+        expected_price_time = local
+    elif status == "lunch_break":
+        previous_end = max(end for start, end in sessions if end <= now)
+        expected_price_time = datetime.combine(local.date(), previous_end, tzinfo=local.tzinfo)
+    elif status == "closed" and sessions and now >= sessions[-1][1]:
+        expected_price_time = datetime.combine(local.date(), sessions[-1][1], tzinfo=local.tzinfo)
+
     return {
         "market": code,
         "name": spec.get("name", code),
@@ -102,6 +110,7 @@ def market_status(code: str, instant: datetime, calendar: dict[str, Any]) -> dic
         "timezone": spec["timezone"],
         "status": status,
         "session_date": today,
+        "expected_market_timestamp": expected_price_time.isoformat(timespec="seconds") if expected_price_time else None,
         "half_day_close": early_close,
         "holiday_calendar_loaded": holidays is not None,
         "sessions": [f"{start:%H:%M}-{end:%H:%M}" for start, end in sessions],

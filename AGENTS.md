@@ -15,7 +15,7 @@ Produce concise, evidence-ranked sell-side APAC equity research. Prioritize what
 
 ## Data and source order
 
-Use Longbridge first where supported and entitled. Use AKShare/Tushare for China-specific breadth, flow or cross-checking and Jin10 for time-sensitive China/macro headlines only when configured. Read `plugins/apac-equity-desk/references/source-priority.md` before causal work and `data-contract.md` before running helpers.
+Prefer user-supplied Bloomberg exports or screenshots for market observations. Preserve their displayed/export timestamps separately from task time. Use OpenBB only for missing, stale or absent market fields, and retain field-level lineage instead of silently overwriting supplied values. Official company, exchange, regulator and government releases remain authoritative for reported facts and events. Read `plugins/apac-equity-desk/references/integrations.md`, `source-priority.md` and `data-contract.md` before running helpers.
 
 Resolve contradictions by preserving both observations, preferring the higher-ranked and more recent primary source, and explaining the discrepancy. Two sites repeating the same wire or social post count as one source.
 

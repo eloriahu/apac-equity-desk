@@ -11,9 +11,9 @@ Build the structured data pack before prose. Read `../../references/house-style.
 
 ## Scope and timing
 
-Resolve the date, closed sessions and cutoff time using the shared defaults. Confirm each market's status with Longbridge `market_status`/`trading_days` when available, otherwise run `../../scripts/session_clock.py --markets CN,HK` (it knows holidays only when a verified holidays file is supplied); do not turn this into a mandatory confirmation question. Never call a still-open market “closed”. Label holidays, partial sessions, delayed data and non-overlapping FX/commodity timestamps. Longbridge is the primary read-only source where coverage/entitlements permit; approved fallbacks may fill gaps. Singapore live quotes require a fallback because Longbridge Developers does not currently supply them.
+Resolve the date, closed sessions and cutoff time using the shared defaults. Run `../../scripts/session_clock.py` for the requested markets and verify holidays against an exchange calendar when material; do not turn this into a mandatory confirmation question. Never call a still-open market “closed”. Label holidays, partial sessions, delayed data and non-overlapping FX/commodity timestamps. Prefer a user-supplied Bloomberg export or screenshot for market observations; use OpenBB only for missing, stale or absent fields.
 
-Read `../../references/integrations.md` when the primary source is unavailable or a fallback must be chosen.
+Always read `../../references/integrations.md` before choosing or combining sources.
 
 ## Build one pack per market
 

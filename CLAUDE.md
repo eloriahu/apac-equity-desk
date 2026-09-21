@@ -61,19 +61,8 @@ Run the Python helpers with the repository's interpreter, for example
 They read normalized JSON/CSV on stdin or as a path argument and never take
 credentials.
 
-## Tool permissions
+## Market-data inputs
 
-`.claude/settings.json` holds the read-only Longbridge boundary for work done
-inside this repository:
-
-- `permissions.allow` lists the Longbridge tools Longbridge itself annotates
-  `read_only_hint = true`, minus reads of the user's own account.
-- `permissions.deny` lists every order, alert, DCA, grid, watchlist, sharelist
-  and community-post write tool by name, plus glob rules covering those families
-  so a newly published tool in them is blocked before review.
-
-Deny always beats allow in Claude Code, and a deny rule cannot be overridden by
-an allow rule, a permission mode or a hook. A Longbridge tool that is in neither
-list prompts the user instead of running silently. Do not add a tool to `allow`
-without checking its read-only annotation, and never propose editing the deny
-list to unblock a call.
+This repository does not configure a brokerage MCP. Prefer user-supplied
+Bloomberg exports or screenshots, use OpenBB only for explicit market-data
+fallbacks, preserve field-level lineage, and keep all workflows research-only.

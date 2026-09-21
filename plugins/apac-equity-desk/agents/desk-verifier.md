@@ -2,7 +2,7 @@
 name: desk-verifier
 model: inherit
 color: yellow
-tools: Read, Grep, Glob, Bash, PowerShell, WebFetch, WebSearch, mcp__longbridge__*
+tools: Read, Grep, Glob, Bash, PowerShell, WebFetch, WebSearch
 description: |
   Use this agent to audit a finished APAC desk draft against its evidence pack before the draft is shown to anyone. Dispatch it with the draft and the pack and nothing else — no explanation of how the draft was reached. The isolation is the point: an auditor that has seen the reasoning tends to ratify it.
 

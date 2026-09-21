@@ -1,22 +1,22 @@
 # Integration notes
 
-## Longbridge — primary
+## Bloomberg user inputs — preferred market observations
 
-The plugin points to the official hosted streamable-HTTP MCP at `https://mcp.longbridge.com`. Authentication is interactive OAuth; do not place access tokens in this repository. Official resources:
+Accept user-supplied Bloomberg CSV/XLSX/BQL exports and screenshots. Structured exports are preferred, but screenshots are first-class evidence when the visible rows can be read reliably. Transcribe only visible values, use numerical signs rather than colour, and leave cropped or ambiguous cells missing. Keep the source artifact local; never commit or redistribute proprietary inputs.
 
-- MCP server: https://github.com/longbridge/longbridge-mcp
-- Developer overview: https://open.longbridge.com/docs
-- Quote symbol conventions and coverage: https://open.longbridge.com/docs/quote/overview
+Record task/upload time separately from Bloomberg's visible/export timestamp. A screenshot uploaded at 13:00 is not 13:00 market data unless the screen itself supports that timestamp. Saved Bloomberg spreadsheet values may be used, but do not claim BDP/BDH/BQL formulas refreshed outside a Bloomberg-enabled environment.
 
-The official MCP exposes both read and write tools. This desk intentionally permits read-only research behavior at the instruction layer. Do not call order, account-mutation, alert, watchlist, DCA, grid or sharelist write methods.
+## OpenBB — field-level fallback
 
-Coverage and quote entitlements vary. The official hosted MCP currently emphasizes US/HK, while the developer SDK/CLI documents China symbols. Singapore real-time quotes are not currently supplied through Longbridge Developers. Treat unsupported markets and entitlement failures as data gaps, then use only a configured/approved fallback.
+Use OpenBB when no Bloomberg input was supplied or when supplied market fields are missing or stale. FMP is the preferred broad-exchange candidate when configured; Yahoo Finance is suitable for a controlled symbol basket and cross-checking. Provider coverage, latency and entitlements must be verified for each APAC exchange. OpenBB is a routing layer, not the underlying data owner.
 
-## Optional China and news adapters
+Fallback values must retain provider and timestamp lineage. Fresh fallback data may replace stale live fields, but it must not silently replace fresh Bloomberg observations or official reported facts. Preserve material conflicts for review.
 
-AKShare is suitable for China-local breadth and cross-checks; Tushare for structured A-share fundamentals, classifications and flows; Jin10 for time-sensitive China/macro headlines. They are disabled in `config/providers.example.toml` because each installation has different authentication, licensing and data definitions.
+## Official and optional sources
 
-Adapters should output the normalized contract in `data-contract.md`. Preserve provider name, source URL or endpoint identity, timestamp, timezone and delayed/live status. A fallback may fill a gap, but it must not silently overwrite a conflicting primary observation.
+Company filings and direct statements, exchange/regulator releases and official economic data remain authoritative for reported actuals and events. Optional AKShare/Tushare can support China-specific breadth or flows and Jin10 can support macro-headline timing when configured.
+
+Adapters should output the normalized contract in `data-contract.md`, including provider, artifact/endpoint identity, task time, market timestamp, timezone, capture window and delayed/live status.
 
 ## Adding an adapter
 

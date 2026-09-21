@@ -221,27 +221,5 @@ class EvidenceScoreTests(unittest.TestCase):
             self.assertEqual(scored["score_parts"]["authority"], None, level)
 
 
-class ReadOnlyAllowlistTests(unittest.TestCase):
-    WRITE_TOOLS = {
-        "submit_order", "replace_order", "cancel_order", "alert_add", "alert_delete", "alert_enable", "alert_disable",
-        "create_watchlist_group", "update_watchlist_group", "delete_watchlist_group", "topic_create", "topic_create_reply",
-        "dca_create", "dca_update", "dca_pause", "dca_resume", "dca_stop", "grid_submit", "grid_replace", "grid_cancel",
-        "grid_suspend", "grid_restart", "sharelist_create", "sharelist_delete", "sharelist_add", "sharelist_remove", "sharelist_sort",
-    }
-    ACCOUNT_READS = {"account_balance", "stock_positions", "today_orders", "history_orders", "bank_cards", "withdrawals", "short_margin", "screener_user_strategies"}
-    RESEARCH = {"quote", "candlesticks", "market_status", "trading_days", "news", "filings", "capital_flow", "ah_premium", "exchange_rate"}
-
-    def test_codex_allowlist_is_research_only(self):
-        try:
-            import tomllib
-        except ImportError:
-            self.skipTest("tomllib needs Python 3.11+")
-        config = tomllib.loads((ROOT / ".codex" / "config.toml").read_text(encoding="utf-8"))
-        allowed = set(config["mcp_servers"]["longbridge"]["enabled_tools"])
-        self.assertFalse(allowed & self.WRITE_TOOLS)
-        self.assertFalse(allowed & self.ACCOUNT_READS)
-        self.assertLessEqual(self.RESEARCH, allowed)
-
-
 if __name__ == "__main__":
     unittest.main()

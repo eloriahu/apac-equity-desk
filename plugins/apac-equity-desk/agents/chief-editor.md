@@ -2,7 +2,7 @@
 name: chief-editor
 model: inherit
 color: magenta
-tools: Read, Grep, Glob, Bash, PowerShell, WebFetch, WebSearch, mcp__longbridge__*
+tools: Read, Grep, Glob, Bash, PowerShell, WebFetch, WebSearch
 description: |
   Use this agent in the desk's multi-agent mode to turn the researchers' packs into the finished house-style note, and to revise that note against the desk-verifier's findings. Dispatch it with the user's request word for word, every pack, and the reconciliation notes. It does not collect new evidence.
 

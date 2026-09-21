@@ -12,6 +12,5 @@
   ],
   "cross_asset": ["USD/CNH was steady; iron ore rose; lithium carbonate fell"],
   "tomorrow": ["China loan prime rates", "Japan CPI", "company filing follow-ups"],
-  "data_gaps": ["Singapore prices are from the configured fallback because Longbridge API coverage is unavailable"]
+  "data_gaps": ["Singapore prices are from the configured fallback because the supplied Bloomberg pack omitted them"]
 }
-
