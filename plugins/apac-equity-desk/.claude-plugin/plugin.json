@@ -1,0 +1,13 @@
+{
+  "name": "apac-equity-desk",
+  "version": "0.3.0",
+  "description": "Read-only APAC equity market colour, close wraps, catalyst analysis and event-driven research workflows.",
+  "author": {
+    "name": "APAC Equity Desk"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/eloriahu/apac-equity-desk",
+  "homepage": "https://github.com/eloriahu/apac-equity-desk#readme",
+  "keywords": ["apac", "equities", "market-color", "market-wrap", "research"],
+  "mcpServers": "./.mcp.json"
+}

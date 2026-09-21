@@ -2,7 +2,7 @@
 
 For minipanda's happy friends.
 
-`apac-equity-desk` is a Codex plugin and reference repository for sell-side APAC equity market colour, close wraps, catalyst work and event-driven idea generation. It is optimized for China, Hong Kong, Japan, Korea, Australia and Singapore.
+`apac-equity-desk` is a plugin and reference repository for sell-side APAC equity market colour, close wraps, catalyst work and event-driven idea generation. It installs into both the **Codex CLI** and the **Claude Code CLI** from one set of skills, references and helpers. It is optimized for China, Hong Kong, Japan, Korea, Australia and Singapore.
 
 The system separates collection from judgment:
 
@@ -14,7 +14,7 @@ The system separates collection from judgment:
 
 ## Just tell the desk what you need
 
-You do not need to write a detailed prompt. Type these in a new Codex task after installation:
+You do not need to write a detailed prompt. Type these in a new Codex or Claude Code session after installation:
 
 | You type | The desk handles |
 | --- | --- |
@@ -29,13 +29,18 @@ Research drafts include source verification and a desk-editor pass. House style,
 source ranking and session/date handling are already designed in. Add instructions
 only to override a default—for example, "Japan wrap, 300 words".
 
-Natural-language skill selection depends on the task context. To select the desk
-explicitly, type `$desk Japan wrap`. Follow-ups such as "Ideas from this" use the
-event in the current task; supply it if you are starting a fresh task.
+Natural-language skill selection depends on the session context. To select the
+desk explicitly, type `$desk Japan wrap` in Codex or `/desk Japan wrap` in Claude
+Code. Follow-ups such as "Ideas from this" use the event in the current session;
+supply it if you are starting a fresh one.
+
+Claude Code also exposes one slash command per workflow: `/morning`, `/wrap`,
+`/color`, `/catalyst`, `/ideas`, `/check` and `/tighten`. They take the same
+short arguments, for example `/wrap Japan, 300 words`.
 
 ## What can this do for you?
 
-Use it to turn market data and news into a draft you can review quickly. The examples below are prompts to paste into a **new Codex task after installation**, not commands to run in PowerShell. Live research needs connected, entitled data sources; you can also supply quotes, news links and an evidence pack yourself.
+Use it to turn market data and news into a draft you can review quickly. The examples below are prompts to paste into a **new Codex or Claude Code session after installation**, not commands to run in PowerShell. Live research needs connected, entitled data sources; you can also supply quotes, news links and an evidence pack yourself.
 
 ### 1. Explain why a stock is moving
 
@@ -112,28 +117,38 @@ The [house-style guide](plugins/apac-equity-desk/references/house-style.md) desc
 ## Repository layout
 
 ```text
-.codex/config.toml                  Project MCP defaults
-AGENTS.md                           Desk-wide operating rules
+AGENTS.md                           Desk-wide operating rules (shared)
+CLAUDE.md                           Claude Code entry point; imports AGENTS.md
+.codex/config.toml                  Codex MCP defaults + read-only tool allowlist
+.claude/settings.json               Claude Code read-only tool permissions
+.claude-plugin/marketplace.json     Claude Code marketplace manifest
+.agents/plugins/marketplace.json    Codex marketplace manifest
+.mcp.json                           Longbridge connection for in-repo sessions
 config/providers.example.toml       Optional provider settings
 plugins/apac-equity-desk/
-  .codex-plugin/plugin.json         Plugin manifest
+  .claude-plugin/plugin.json        Claude Code plugin manifest
+  .codex-plugin/plugin.json         Codex plugin manifest
   .mcp.json                         Longbridge hosted MCP connection
   skills/                           Short-request entrypoint + seven workflows
+  commands/                         Claude Code slash commands for each workflow
   references/                       House style, data contract and mappings
   scripts/                          Deterministic calculation/rendering helpers
 tests/                              Offline fixtures and unit tests
 ```
 
+Both CLIs load the same `skills/`, `references/` and `scripts/`. Only the
+manifests, the instruction entry point and the permission format differ.
+
 ## Quick start
 
-Install with the Codex CLI:
+### Codex CLI
 
 ```sh
 codex plugin marketplace add https://github.com/eloriahu/apac-equity-desk
 codex plugin add apac-equity-desk@apac-equity-desk
 ```
 
-Start a new Codex task after installation. Try `$desk Japan wrap` or simply “Japan morning”. Complete Longbridge OAuth when prompted. Quote coverage depends on account entitlements; the official hosted MCP emphasizes US/HK and the scaffold requires approved fallback data for uncovered markets.
+Start a new Codex task after installation. Try `$desk Japan wrap` or simply “Japan morning”.
 
 To update an installed copy:
 
@@ -141,6 +156,30 @@ To update an installed copy:
 codex plugin marketplace upgrade apac-equity-desk
 codex plugin add apac-equity-desk@apac-equity-desk
 ```
+
+### Claude Code CLI
+
+Run these at the Claude Code prompt, not in a shell:
+
+```text
+/plugin marketplace add eloriahu/apac-equity-desk
+/plugin install apac-equity-desk@apac-equity-desk
+```
+
+Then try `/desk Japan wrap`, `/morning Japan`, or simply “Japan morning”.
+Read the [safety boundary](#safety-boundary) before connecting Longbridge:
+unlike Codex, an installed Claude Code plugin cannot ship its own permission
+rules, so the read-only boundary needs one block copied into your settings.
+
+To update an installed copy:
+
+```text
+/plugin marketplace update apac-equity-desk
+```
+
+### Either CLI
+
+Complete Longbridge OAuth when prompted. Quote coverage depends on account entitlements; the official hosted MCP emphasizes US/HK and the scaffold requires approved fallback data for uncovered markets.
 
 This is version 0.3.0: a research workflow scaffold with short-request routing, built-in review passes, house-style narrative formats, an offline market clock, a driver-scoring helper, a read-only Longbridge tool allowlist and offline tests. Live account integration has not been validated. Optional AKShare, Tushare and Jin10 entries are configuration examples, not implemented collectors. Market calendars and symbol mappings are starter data and need verification for the chosen provider and trading date.
 
@@ -161,15 +200,31 @@ python plugins/apac-equity-desk/scripts/render_market_wrap.py tests/fixtures/mar
 python plugins/apac-equity-desk/scripts/session_clock.py --markets JP,HK,AU
 ```
 
-The scripts consume normalized JSON/CSV rather than credentials. Codex should collect live data with MCP tools, save/pipe only the required fields, and run the calculation helpers. See the plugin's `references/data-contract.md` for schemas and `references/integrations.md` for provider boundaries.
+The scripts consume normalized JSON/CSV rather than credentials. The agent collects live data with MCP tools, saves or pipes only the required fields, and runs the calculation helpers. See the plugin's `references/data-contract.md` for schemas and `references/integrations.md` for provider boundaries.
 
 ## Safety boundary
 
 This repository is research-only. It must not submit, replace, cancel or stage orders; alter positions, alerts, watchlists or DCA/grid plans; or publish/send a draft without the user's explicit approval at that moment.
 
-The upstream Longbridge MCP exposes trading and account-write tools. When Codex runs in this repository, `.codex/config.toml` sets an `enabled_tools` allowlist for the `longbridge` server: only tools Longbridge itself marks read-only, minus reads of your own account (balances, positions, orders, statements, bank cards). Codex enforces this list, so the model cannot call anything outside it. New Longbridge tools stay blocked until they are reviewed and added. A test checks that no order, alert, DCA, grid, watchlist or sharelist write tool is in the list.
+The upstream Longbridge MCP exposes trading and account-write tools. Each CLI
+enforces the read-only boundary with its own mechanism, and the two are not
+identical.
 
-The installed plugin's own `.mcp.json` does not carry this list. If you use the plugin outside this repository, copy the `[mcp_servers.longbridge]` block into your user `~/.codex/config.toml`. Also use least-privilege credentials where supported, and do not grant trading access for this desk workflow. Credentials, private client information and proprietary research must remain outside this public repository.
+**Codex.** `.codex/config.toml` sets an `enabled_tools` allowlist for the `longbridge` server: only tools Longbridge itself marks read-only, minus reads of your own account (balances, positions, orders, statements, bank cards). Codex enforces this list, so the model cannot call anything outside it. New Longbridge tools stay blocked until they are reviewed and added.
+
+**Claude Code.** Claude Code has no equivalent “only these tools” setting, so `.claude/settings.json` reproduces the boundary with permission rules:
+
+- `permissions.allow` holds the same read-only tools as the Codex allowlist, so research calls run without prompting.
+- `permissions.deny` names every order, alert, DCA, grid, watchlist, sharelist and community-post write tool, plus the account reads. Deny beats allow in Claude Code and cannot be overridden by an allow rule, a permission mode or a hook.
+- Glob deny rules such as `mcp__longbridge__dca_*` cover those families, so a newly published tool inside one is blocked before anyone reviews it.
+
+Claude Code applies `allow` rules from a project only after you accept the workspace trust dialog, because they grant capability. `deny` rules only restrict, so they apply from the first session whether or not you have trusted the folder. Until you trust it, the boundary still holds; research calls just prompt you one by one. Accept the trust dialog the first time you run Claude Code in this repository to stop the prompting.
+
+One behavioural difference is worth knowing: a brand-new Longbridge tool outside every denied family is neither allowed nor denied, so Claude Code **prompts you** rather than refusing outright. Codex refuses it without asking. Decline unfamiliar tools at the prompt and open an issue.
+
+`tests/test_claude_code_plugin.py` checks that the two builds still describe the same boundary: the allow list matches the Codex allowlist, every write and account tool is denied by name, and no deny glob accidentally shadows a research tool.
+
+**Outside this repository.** Neither installed plugin carries its permission rules with it. For Codex, copy the `[mcp_servers.longbridge]` block into your user `~/.codex/config.toml`. For Claude Code, copy the `permissions` block from `.claude/settings.json` into `~/.claude/settings.json`. Also use least-privilege credentials where supported, and do not grant trading access for this desk workflow. Credentials, private client information and proprietary research must remain outside this public repository.
 
 ## Changelog
 
@@ -182,3 +237,4 @@ The installed plugin's own `.mcp.json` does not carry this list. If you use the 
 - Added: `session_clock.py`, an offline market clock (pre-open / open / lunch / closed / weekend / holiday) with a Sydney daylight-saving fallback for Python installs without timezone data. The market calendar moved from YAML to `market-calendars.json` so it needs no extra library.
 - Added: `evidence_score.py`, which computes the 0–8 driver score from `source-priority.md`.
 - Added: a read-only Longbridge tool allowlist in `.codex/config.toml`, with a test.
+- Added: Claude Code CLI support alongside Codex. `.claude-plugin/marketplace.json`, `plugins/apac-equity-desk/.claude-plugin/plugin.json`, a `CLAUDE.md` that imports the shared `AGENTS.md`, eight slash commands, and a `.claude/settings.json` permission boundary mirrored from the Codex allowlist. Skills, references, scripts and tests are shared; `tests/test_claude_code_plugin.py` checks the two builds do not drift.

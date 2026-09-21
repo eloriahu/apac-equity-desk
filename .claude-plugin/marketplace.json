@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "apac-equity-desk",
+  "owner": {
+    "name": "APAC Equity Desk",
+    "url": "https://github.com/eloriahu/apac-equity-desk"
+  },
+  "description": "Read-only APAC equity research workflows: morning snippets, close wraps, market colour, catalyst work and event-driven ideas.",
+  "version": "0.3.0",
+  "plugins": [
+    {
+      "name": "apac-equity-desk",
+      "displayName": "APAC Equity Desk",
+      "source": "./plugins/apac-equity-desk",
+      "description": "Read-only APAC equity market colour, close wraps, catalyst analysis and event-driven research workflows.",
+      "version": "0.3.0",
+      "author": {
+        "name": "APAC Equity Desk"
+      },
+      "homepage": "https://github.com/eloriahu/apac-equity-desk#readme",
+      "repository": "https://github.com/eloriahu/apac-equity-desk",
+      "license": "MIT",
+      "keywords": ["apac", "equities", "market-color", "market-wrap", "research"],
+      "category": "finance"
+    }
+  ]
+}
