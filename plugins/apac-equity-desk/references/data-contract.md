@@ -36,6 +36,30 @@ Top-level fields: `date`, `as_of`, `regional_lead`, `markets`, `cross_asset`, `t
 
 Input to `evidence_score.py`: `id`, `summary`, `evidence_level` (1–4), and `freshness`, `specificity`, `market_fit` as 0–2 points or words (`new`/`updated`/`stale`; `security`/`sector`/`macro`; `strong`/`partial`/`contradicts`). Output adds `score_parts`, `score` (0–8), `confidence` (high/medium/low) and `unscored` dimensions, which count as zero.
 
+## Topic-radar pack
+
+Top level: `as_of` (offset timestamp), `market`, optional `benchmark_pct`, nonempty `quotes`, optional `news`, optional `limit` and `max_news_age_hours`. Quote rows require `sector` and either `pct_change` or the prices needed by the quote-row contract. Volume context is `volume_ratio` or `volume` plus `avg_volume_20d`. News can identify `sectors` and/or `symbols`.
+
+`topic_radar.py` groups the supplied universe by sector and ranks observations using absolute and benchmark-relative movement, direction breadth, volume participation and available fresh news. The score is an attention queue, not statistical significance, causal confidence or a trading signal. Output always sets `causal_status: not_assessed`.
+
+## Readiness and update packs
+
+`pack_readiness.py` accepts a pack plus `--mode topic-radar|morning|wrap|color|earnings`. Optional `freshness` entries contain `id`, `observed_at` and optional `max_age_minutes`. Output is `ready`, `limited` or `block`, with explicit missing, stale and warning arrays.
+
+`pack_delta.py` accepts a prior and current JSON object. It matches object fields recursively and list objects by a unique `id`, `symbol`, `name` or `market` where possible. Output records additions, removals and changes; it does not fetch a prior task or persist memory.
+
+## Earnings rows
+
+Input to `earnings_surprise.py`: `metric`, `actual`, `consensus`; recommended `actual_unit`, `consensus_unit`, `currency`, `period`, `basis`, `tolerance_pct` and `lower_is_better`. Mixed explicit units are not scored. A zero consensus receives an absolute surprise and no percentage surprise.
+
+## Transmission map
+
+Top level: `event_node`, `nodes`, `edges`, optional `max_depth`. Nodes require unique `id` and may carry `label`, `type`, market and ticker metadata. Edges require `from`, `to`, `mechanism`, `source_ids` and a 0–1 `confidence`. `transmission_map.py` returns simple paths, evidence coverage, multiplied confidence, cycles and structural issues; it does not establish the truth of an edge.
+
+## Research ledger
+
+`research_ledger.py` accepts `{\"ledger\": {...}, \"observation\": {...}}`. The ledger contains `theses`, each with a stable `id`. The observation requires `thesis_id` and a verdict of `strengthened`, `weakened`, `falsified` or `unchanged`; falsification requires a reason. The CLI requires `--output` and never stores hidden cross-task state.
+
 ## Session clock
 
 `session_clock.py --markets JP,HK [--at ISO] [--holidays file.json]` reads `references/market-calendars.json` and returns per-market `status` (`pre_open`, `open`, `lunch_break`, `closed`, `weekend`, `holiday`), local time and sessions. `holiday_calendar_loaded: false` means holidays were not checked. Holidays file shape: `{"HK": {"closed": ["2026-10-01"], "half_day": {"2026-12-24": "12:00"}}}`.

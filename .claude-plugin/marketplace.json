@@ -5,15 +5,15 @@
     "name": "APAC Equity Desk",
     "url": "https://github.com/eloriahu/apac-equity-desk"
   },
-  "description": "Read-only APAC equity research workflows: morning snippets, close wraps, market colour, catalyst work and event-driven ideas.",
-  "version": "0.6.0",
+  "description": "Read-only APAC equity research workflows: topic radar, morning, wraps, colour, earnings, catalysts and signal tracking.",
+  "version": "1.0.0",
   "plugins": [
     {
       "name": "apac-equity-desk",
       "displayName": "APAC Equity Desk",
       "source": "./plugins/apac-equity-desk",
-      "description": "Read-only APAC equity market colour, close wraps, catalyst analysis and event-driven research workflows.",
-      "version": "0.6.0",
+      "description": "Read-only APAC equity topic discovery, market colour, wraps, earnings, catalyst and research-ledger workflows.",
+      "version": "1.0.0",
       "author": {
         "name": "APAC Equity Desk"
       },

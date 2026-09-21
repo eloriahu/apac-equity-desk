@@ -1,7 +1,7 @@
 {
   "name": "apac-equity-desk",
-  "version": "0.6.0+codex.20260921031030",
-  "description": "Read-only APAC equity market colour, close wraps, catalyst analysis and event-driven research workflows.",
+  "version": "1.0.0+codex.20260921034914",
+  "description": "Read-only APAC equity topic discovery, market colour, wraps, earnings, catalyst and research-ledger workflows.",
   "author": {
     "name": "APAC Equity Desk"
   },
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "APAC Equity Desk",
     "shortDescription": "Evidence-ranked APAC equity research drafts.",
-    "longDescription": "Turns short requests into APAC morning notes, market colour, close wraps and event research, with house-style defaults, source verification, editing and human publication approval.",
+    "longDescription": "Finds timely APAC sector topics and turns short requests into verified morning notes, colour, wraps, earnings, event research, transmission maps and explicit thesis updates, with optional multi-agent mode and human publication approval.",
     "developerName": "APAC Equity Desk",
     "category": "Finance",
     "capabilities": [
@@ -31,7 +31,8 @@
     "defaultPrompt": [
       "$desk Japan morning",
       "$desk Japan wrap",
-      "$desk Why is CATL moving?"
+      "$desk Why is CATL moving?",
+      "$desk What is moving in HK?"
     ]
   }
 }

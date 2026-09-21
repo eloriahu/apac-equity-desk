@@ -1,5 +1,5 @@
 ---
-description: Run an APAC desk request with the full agent team — data analyst and country researcher per market, catalyst investigators, an independent verifier and a chief editor. Higher quality, higher token cost. Claude Code only.
+description: Run an APAC desk request with the full agent team — data analyst and country researcher per market, catalyst investigators, an independent verifier and a chief editor. Higher quality, higher token cost.
 argument-hint: [any desk request, e.g. APAC wrap or Japan wrap]
 ---
 

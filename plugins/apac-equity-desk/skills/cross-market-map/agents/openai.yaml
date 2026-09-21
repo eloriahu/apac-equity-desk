@@ -1,0 +1,6 @@
+interface:
+  display_name: "APAC Cross-Market Map"
+  short_description: "Trace evidence-linked event transmission paths."
+  default_prompt: "Map this event through APAC sectors, companies, commodities and FX."
+policy:
+  allow_implicit_invocation: true

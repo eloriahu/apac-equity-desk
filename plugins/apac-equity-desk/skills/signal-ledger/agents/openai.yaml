@@ -1,0 +1,6 @@
+interface:
+  display_name: "APAC Signal Ledger"
+  short_description: "Track how a research thesis changes with evidence."
+  default_prompt: "Update this research thesis ledger with the new evidence."
+policy:
+  allow_implicit_invocation: true

@@ -14,6 +14,13 @@ fact checking or editing instructions.
 | CATL colour; why is CATL moving?; Taiwan lenses | market-color | Move versus peers, competing explanations, fundamental hook, mixed evidence, implications, watch |
 | Dig deeper; challenge the catalyst | catalyst-analysis | Evidence-ranked explanations, contradictions and invalidation |
 | Ideas from this; trade ideas on this event | event-trade-ideas | Up to three research scenarios with mechanism, horizon, confirmation and invalidation |
+| What is moving?; sector radar; find me a topic; what should I write about? | topic-radar | Ranked observed sectors/themes, leaders, breadth, volume, gaps and research questions |
+| Earnings review; results colour; actual versus consensus | earnings-review | Verified result versus consensus, drivers, guidance and read-through |
+| Catalysts this week; event calendar; what matters next? | event-radar | Sourced chronological event watchlist with confirmed/provisional timing |
+| Cross-market read-through; who benefits?; transmission map | cross-market-map | Evidence-linked paths across sectors, securities, commodities and FX |
+| Track this thesis; update the signal; what changed? | signal-ledger | Explicit strengthened/weakened/falsified/unchanged ledger update |
+| Update this; what changed since the last pack? | current workflow + pack-delta | Refreshed facts and a material delta from the supplied/current-task prior pack |
+| Multi-agent; parallel; use the agent team; /parallel | parallel-desk | Explicit higher-cost team workflow with independent verification |
 | Check this | source-verifier | Audit the supplied note and evidence |
 | Tighten this | desk-editor | Edit the supplied draft, preserving the selected house format and evidence |
 
@@ -40,10 +47,12 @@ For morning, wrap, colour and catalyst analysis:
 
 1. Resolve market/session/subject and get the material data from available approved read-only sources. Longbridge is preferred where supported; optional integrations must actually be configured. Public primary-source research may supplement news when available, not masquerade as an entitled quote feed.
 2. Build or refresh the evidence pack before drafting. Compare peers, benchmarks, related listings and cross-assets where relevant; investigate rather than assume causation.
-3. Use the appropriate format and voice from `house-style.md`.
-4. Apply the sibling source-verifier instructions to the claims and citations. Use the fact-check helper on structured claims where appropriate; it does not prove semantic support.
-5. Apply the sibling desk-editor instructions. Remove or qualify unsupported claims; if the conclusion cannot be supported, return a limited draft or concise evidence-gap request.
-6. Return the finished draft and only material unresolved gaps. The user does not need to request each review pass or receive a narration of every checklist item.
+3. Run `scripts/pack_readiness.py` for topic-radar, morning, wrap, colour or earnings packs. A blocking result stops prose; a limited result must be disclosed.
+4. For an update with a supplied or current-task prior pack, run `scripts/pack_delta.py` and lead with material changes. Never claim access to another task's pack.
+5. Use the appropriate format and voice from `house-style.md`.
+6. Apply the sibling source-verifier instructions to the claims and citations. Use the fact-check helper on structured claims where appropriate; it does not prove semantic support.
+7. Apply the sibling desk-editor instructions. Remove or qualify unsupported claims; if the conclusion cannot be supported, return a limited draft or concise evidence-gap request.
+8. Return the finished draft and only material unresolved gaps. The user does not need to request each review pass or receive a narration of every checklist item.
 
 For event-trade-ideas, verify the event and assess catalysts first, then create
 at most three researched scenarios and perform the same verification/editing

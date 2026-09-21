@@ -137,8 +137,9 @@ class PermissionTests(unittest.TestCase):
 class ComponentDiscoveryTests(unittest.TestCase):
     SKILLS = {
         "apac-market-wrap", "catalyst-analysis", "desk", "desk-editor",
-        "event-trade-ideas", "market-color", "morning-brief", "parallel-desk",
-        "source-verifier",
+        "earnings-review", "event-radar", "event-trade-ideas", "market-color",
+        "morning-brief", "parallel-desk", "source-verifier", "topic-radar",
+        "cross-market-map", "signal-ledger",
     }
     COMMANDS = {
         "catalyst", "check", "color", "desk",
@@ -225,8 +226,7 @@ class ComponentDiscoveryTests(unittest.TestCase):
         self.assertEqual(self.AGENTS & self.COMMANDS, set())
 
     def test_only_the_parallel_skill_depends_on_agents(self):
-        # Codex loads skills but not agents/. Any other skill that told the
-        # model to dispatch one would break the Codex build silently.
+        # Agent orchestration is opt-in and stays isolated to the parallel skill.
         for skill in sorted(self.SKILLS - {"parallel-desk"}):
             text = (PLUGIN / "skills" / skill / "SKILL.md").read_text(encoding="utf-8")
             for agent in self.AGENTS:

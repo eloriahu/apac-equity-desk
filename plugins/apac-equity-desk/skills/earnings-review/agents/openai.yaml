@@ -1,0 +1,6 @@
+interface:
+  display_name: "APAC Earnings Review"
+  short_description: "Turn company results into verified earnings colour."
+  default_prompt: "Review these APAC company results versus consensus and explain what changed."
+policy:
+  allow_implicit_invocation: true

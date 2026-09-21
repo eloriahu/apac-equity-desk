@@ -1,6 +1,6 @@
 ---
 name: parallel-desk
-description: Run an APAC desk request with the full agent team — a market-data-analyst and a country-researcher per market, a catalyst-investigator per contested name, an independent desk-verifier and a chief-editor — for a higher-quality note at a higher token cost. Use when the user asks for multi-agent or parallel mode, the agent team, or /parallel. Claude Code only; ordinary short requests use the single-context workflows.
+description: Run an APAC desk request in Codex or Claude Code with the full agent team — market data and country research per market, catalyst investigators, an independent verifier and a chief editor. Use only when the user asks for multi-agent, parallel, the agent team, or /parallel.
 ---
 
 # Parallel Desk
@@ -13,6 +13,12 @@ produces.
 You are the desk head in this mode. You brief the team, move packs between
 them, reconcile across markets and present the result. You do not research,
 calculate or draft.
+
+Read `../../references/agent-team.md`. In a Codex checkout, use the matching
+project agents in `.codex/agents/`. From an installed plugin, create subagents
+with the role instructions in this skill and the table below; do not assume a
+subagent can see plugin files or prior conversation unless you include the
+needed paths and material. Claude Code uses the matching agents in `../../agents/`.
 
 ## The team
 
@@ -33,11 +39,11 @@ session date, the user's constraints, the packs — must be in its prompt.
 explicit constraints. Keep the user's request word for word; the chief-editor
 gets it verbatim.
 
-**2. First wave — one message.** For every market dispatch a
+**2. First wave — parallel.** For every market dispatch a
 `market-data-analyst` and a `country-researcher`. Send all of them in a single
-message or they run one after another.
+parallel wave, then wait for every result before continuing.
 
-**3. Second wave — one message.** Read the mover lists from the data packs.
+**3. Second wave — parallel.** Read the mover lists from the data packs.
 Dispatch a `catalyst-investigator` for each name whose move stands out from its
 sector and index, and for any name the user asked about. Give each one the
 security, the session, the move and peer figures from the data pack, and any

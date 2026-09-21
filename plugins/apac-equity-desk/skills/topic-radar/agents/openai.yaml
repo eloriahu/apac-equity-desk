@@ -1,0 +1,6 @@
+interface:
+  display_name: "APAC Topic Radar"
+  short_description: "Find the sectors and themes worth investigating now."
+  default_prompt: "Find the best evidence-backed APAC sector topic to write about now."
+policy:
+  allow_implicit_invocation: true

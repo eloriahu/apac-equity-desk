@@ -1,6 +1,6 @@
 ---
 name: desk
-description: Run predefined APAC equity desk workflows from short requests such as Japan morning, Japan wrap, CATL colour, why is it moving, Taiwan lenses, ideas from this, check this or tighten this. Use in a finance desk context or when explicitly invoked.
+description: Run APAC equity desk workflows from short requests including morning, wrap, colour, topic radar, earnings, event calendar, cross-market mapping, thesis updates, multi-agent mode, verification and editing. Use in a finance desk context or when explicitly invoked.
 ---
 
 # APAC Desk
@@ -15,6 +15,12 @@ Select the route and read its sibling skill:
 - Stock/sector colour or why-it-moved -> `../market-color/SKILL.md`
 - Deeper catalyst work -> `../catalyst-analysis/SKILL.md`
 - Event research ideas -> `../event-trade-ideas/SKILL.md`
+- Topic discovery / what is moving -> `../topic-radar/SKILL.md`
+- Earnings/results -> `../earnings-review/SKILL.md`
+- Upcoming catalysts -> `../event-radar/SKILL.md`
+- Cross-market transmission -> `../cross-market-map/SKILL.md`
+- Thesis tracking -> `../signal-ledger/SKILL.md`
+- Explicit multi-agent/parallel mode -> `../parallel-desk/SKILL.md`
 - Claim/source check -> `../source-verifier/SKILL.md`
 - Editing -> `../desk-editor/SKILL.md`
 
