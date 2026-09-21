@@ -1,0 +1,6 @@
+interface:
+  display_name: "APAC Company Fundamentals"
+  short_description: "Fundamentals, valuation and thesis changes"
+  default_prompt: "Use $company-fundamentals to review this APAC listed company from filings through valuation and falsifiers."
+policy:
+  allow_implicit_invocation: true

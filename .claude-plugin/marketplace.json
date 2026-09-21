@@ -5,22 +5,22 @@
     "name": "APAC Equity Desk",
     "url": "https://github.com/eloriahu/apac-equity-desk"
   },
-  "description": "Read-only APAC equity research workflows: topic radar, morning, wraps, colour, earnings, catalysts and signal tracking.",
-  "version": "1.1.0",
+  "description": "Read-only APAC equity research workflows: topic radar, morning, wraps, colour, earnings, company fundamentals, catalysts and signal tracking.",
+  "version": "1.2.0",
   "plugins": [
     {
       "name": "apac-equity-desk",
       "displayName": "APAC Equity Desk",
       "source": "./plugins/apac-equity-desk",
-      "description": "Bloomberg-first APAC equity research with screenshot ingestion and field-level OpenBB fallback.",
-      "version": "1.1.0",
+      "description": "Bloomberg-first APAC equity research with market, earnings, company-fundamentals and catalyst workflows.",
+      "version": "1.2.0",
       "author": {
         "name": "APAC Equity Desk"
       },
       "homepage": "https://github.com/eloriahu/apac-equity-desk#readme",
       "repository": "https://github.com/eloriahu/apac-equity-desk",
       "license": "MIT",
-      "keywords": ["apac", "equities", "market-color", "market-wrap", "research"],
+      "keywords": ["apac", "equities", "fundamentals", "valuation", "research"],
       "category": "finance"
     }
   ]

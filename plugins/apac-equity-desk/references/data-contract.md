@@ -2,6 +2,16 @@
 
 Calculation helpers accept UTF-8 JSON arrays (or CSV where noted) and emit JSON to stdout unless `--output` is supplied. Draft renderers accept JSON objects and emit Markdown. Unknown fields are preserved where practical in calculation helpers; narrative renderers output only their documented fields. Numbers may be JSON numbers or numeric strings; blanks become null.
 
+## Fundamental pack
+
+Company-fundamental workflows accept `fundamental_pack/v1` with `schema`, `schemaVersion: 1`, offset `as_of`, `entity`, nonempty `sources`, `financials.periods`, `metrics`, `valuation`, `expectations`, `thesis` and `quality`.
+
+Each period records `period_end`, `period_type`, currency, scale, basis, report status, source IDs and canonical statement values. Keep reported actuals, provider-standardized values, management guidance, consensus estimates, analyst assumptions and derived calculations explicitly labeled. Preserve provider-native labels in the raw adapter pack.
+
+`quality.status` is `ready`, `limited` or `blocked`; include missing inputs, warnings, conflicts and performed checks. A pack without traceable sources or usable periods is blocked. Valuation may be omitted for statement-only work, but a target-price or valuation conclusion requires current market data, diluted shares, net debt and disclosed assumptions.
+
+The contract is shared with `ai-toolbox/fundamental-tools` by schema, not by a source-code dependency.
+
 ## Source envelope
 
 Market packs should include `provider` or `provider_policy`, `as_of` (task/run time), `data_as_of` or row-level `timestamp`, `expected_market_timestamp`, `timezone`, `movement_basis` and `capture_window`. `as_of` never substitutes for a provider price timestamp.

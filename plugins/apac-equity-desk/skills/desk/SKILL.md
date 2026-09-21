@@ -24,6 +24,7 @@ Select the route and read its sibling skill:
 - Event research ideas -> `../event-trade-ideas/SKILL.md`
 - Topic discovery / what is moving -> `../topic-radar/SKILL.md`
 - Earnings/results -> `../earnings-review/SKILL.md`
+- Company fundamentals, valuation or model change -> `../company-fundamentals/SKILL.md`
 - Upcoming catalysts -> `../event-radar/SKILL.md`
 - Cross-market transmission -> `../cross-market-map/SKILL.md`
 - Thesis tracking -> `../signal-ledger/SKILL.md`

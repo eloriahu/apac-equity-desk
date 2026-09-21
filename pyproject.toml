@@ -1,6 +1,6 @@
 [project]
 name = "apac-equity-desk"
-version = "1.1.0"
+version = "1.2.0"
 description = "Deterministic helpers and Codex skills for read-only APAC equity research workflows"
 requires-python = ">=3.10"
 dependencies = []

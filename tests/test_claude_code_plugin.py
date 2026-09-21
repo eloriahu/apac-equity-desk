@@ -23,7 +23,7 @@ class PluginPackagingTests(unittest.TestCase):
         claude = json.loads((PLUGIN / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
         marketplace = json.loads((ROOT / ".claude-plugin" / "marketplace.json").read_text(encoding="utf-8"))
         base = codex["version"].split("+", 1)[0]
-        self.assertEqual(base, "1.1.0")
+        self.assertEqual(base, "1.2.0")
         self.assertEqual(claude["version"], base)
         self.assertEqual(marketplace["version"], base)
         self.assertEqual(marketplace["plugins"][0]["version"], base)
@@ -34,11 +34,18 @@ class PluginPackagingTests(unittest.TestCase):
         names = {path.parent.name for path in (PLUGIN / "skills").glob("*/SKILL.md")}
         expected = {
             "apac-market-wrap", "catalyst-analysis", "cross-market-map", "desk",
-            "desk-editor", "earnings-review", "event-radar", "event-trade-ideas",
+            "company-fundamentals", "desk-editor", "earnings-review", "event-radar", "event-trade-ideas",
             "market-color", "morning-brief", "parallel-desk", "signal-ledger",
             "source-verifier", "topic-radar",
         }
         self.assertEqual(names, expected)
+
+    def test_fundamental_workflow_is_routed_and_commanded(self):
+        router = (PLUGIN / "skills" / "desk" / "SKILL.md").read_text(encoding="utf-8")
+        contract = (PLUGIN / "references" / "data-contract.md").read_text(encoding="utf-8")
+        self.assertIn("company-fundamentals", router)
+        self.assertIn("fundamental_pack/v1", contract)
+        self.assertTrue((PLUGIN / "commands" / "fundamentals.md").is_file())
 
     def test_agent_prompts_do_not_request_brokerage_tools(self):
         for path in (PLUGIN / "agents").glob("*.md"):

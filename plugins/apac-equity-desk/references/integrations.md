@@ -18,6 +18,14 @@ Company filings and direct statements, exchange/regulator releases and official 
 
 Adapters should output the normalized contract in `data-contract.md`, including provider, artifact/endpoint identity, task time, market timestamp, timezone, capture window and delayed/live status.
 
+## AI Toolbox fundamental-tools
+
+When installed, `fundamental-tools` is the reusable source and calculation layer for company fundamentals. Consume `fundamental_pack/v1`; do not import, vendor or assume the local path of the toolbox repository. Preserve this desk's source ranking and verify material claims independently.
+
+Country preference is J-Quants/JPX for Japan, OpenDART/FSS for Korea, TWSE/MOPS for Taiwan, and SEC EDGAR for US-listed issuers or ADRs. FinanceDatabase supports identity resolution, FinanceToolkit supports transparent calculations, and AKShare is a fallback. A missing optional package or API key produces a declared gap, not an installation attempt.
+
+The Public Equity Investing plugin complements this desk. When explicitly invoked for an initiation, model, comps, DCF or thesis tracker, provide the APAC evidence pack to its focused workflow; do not duplicate the same hero artifact in two plugins.
+
 ## Adding an adapter
 
 Keep credentials in environment variables or the provider's authenticated connector. Add a small read-only collector outside the core calculation helpers, normalize its output, and add fixture-based tests. Never add order-routing capabilities to this plugin.

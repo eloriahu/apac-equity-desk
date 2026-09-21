@@ -1,12 +1,12 @@
 {
   "name": "apac-equity-desk",
-  "version": "1.1.0",
-  "description": "Bloomberg-first APAC equity research with screenshot ingestion and field-level OpenBB fallback.",
+  "version": "1.2.0",
+  "description": "Bloomberg-first APAC equity research with market, earnings, company-fundamentals and catalyst workflows.",
   "author": {
     "name": "APAC Equity Desk"
   },
   "license": "MIT",
   "repository": "https://github.com/eloriahu/apac-equity-desk",
   "homepage": "https://github.com/eloriahu/apac-equity-desk#readme",
-  "keywords": ["apac", "equities", "bloomberg", "openbb", "research"]
+  "keywords": ["apac", "equities", "fundamentals", "valuation", "research"]
 }

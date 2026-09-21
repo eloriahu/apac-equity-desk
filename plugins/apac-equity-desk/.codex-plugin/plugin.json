@@ -1,7 +1,7 @@
 {
   "name": "apac-equity-desk",
-  "version": "1.1.0+codex.20260921060034",
-  "description": "Bloomberg-first APAC equity research with screenshot ingestion, OpenBB fallback, topic discovery, wraps, colour and earnings workflows.",
+  "version": "1.2.0+codex.20260921080000",
+  "description": "Bloomberg-first APAC equity research with market, catalyst, earnings and company-fundamentals workflows.",
   "author": {
     "name": "APAC Equity Desk"
   },
@@ -11,15 +11,15 @@
   "keywords": [
     "apac",
     "equities",
-    "market-color",
-    "market-wrap",
+    "fundamentals",
+    "valuation",
     "research"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "APAC Equity Desk",
     "shortDescription": "Evidence-ranked APAC equity research drafts.",
-    "longDescription": "Uses user-supplied Bloomberg exports or screenshots first, fills explicit gaps through OpenBB, and turns APAC market data into verified morning notes, colour, wraps, earnings and topic research.",
+    "longDescription": "Uses user-supplied Bloomberg exports or screenshots first, fills explicit gaps through OpenBB, and turns APAC market and fundamental evidence into verified morning notes, colour, wraps, earnings, valuation and company research.",
     "developerName": "APAC Equity Desk",
     "category": "Finance",
     "capabilities": [
@@ -31,7 +31,8 @@
       "$desk Japan morning",
       "$desk Japan wrap",
       "$desk Why is CATL moving?",
-      "$desk What is moving in HK?"
+      "$desk What is moving in HK?",
+      "$desk Fundamental review of 9988 HK"
     ]
   }
 }
