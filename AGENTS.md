@@ -31,6 +31,8 @@ Read `plugins/apac-equity-desk/references/desk-defaults.md` for task routing, da
 4. Ask `Why today?`, `Why this stock?`, and `What contradicts this?`.
 5. Run fact checking and the desk-editor pass before presenting a client-ready draft.
 6. Preserve source URLs and timestamps beside claims, not in a detached source dump.
+7. Give every material market, sector or security move a driver assessment. State the fresh trigger, the economic or valuation mechanism, why the named exposure moved versus peers, and the strongest counterevidence. A theme label such as "AI strength" or "risk-on" is not an explanation by itself. If no driver survives the evidence test, say `No single catalyst is confirmed` and rank the best-supported possibilities instead of leaving the move unexplained.
+8. Finish reader-facing prose with the checklist in `plugins/apac-equity-desk/references/prose-quality.md`. Prefer natural paragraphs to decorative headings or bullet stacks, and remove canned framing, repeated conclusions and em-dash-heavy rhythm without deleting useful facts or uncertainty.
 
 ## House output formats
 

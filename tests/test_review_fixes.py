@@ -106,6 +106,21 @@ class FactCheckTests(unittest.TestCase):
         result = audit(self.bundle({"id": "c1", "source_ids": ["s1"], "causal": True}, unlevelled))
         self.assertIn("unknown_evidence_level", self.codes(result))
 
+    def test_material_move_requires_driver_assessment_and_mechanism(self):
+        result = audit(self.bundle({"id": "c1", "source_ids": ["s1"], "movement": True}))
+        self.assertEqual(result["status"], "revise")
+        self.assertLessEqual({"missing_driver_assessment", "missing_mechanism"}, self.codes(result))
+
+    def test_unresolved_move_with_explanation_passes(self):
+        result = audit(self.bundle({
+            "id": "c1",
+            "source_ids": ["s1"],
+            "movement": True,
+            "driver_status": "unresolved",
+            "mechanism": "Two plausible catalysts fit the timing, but peer dispersion does not distinguish them.",
+        }))
+        self.assertEqual(result["status"], "pass")
+
     def test_naive_timestamp_is_flagged(self):
         naive = dict(self.SOURCE, published_at="2026-09-18T09:00:00")
         self.assertIn("invalid_timestamp", self.codes(audit(self.bundle({"id": "c1", "source_ids": ["s1"]}, naive))))

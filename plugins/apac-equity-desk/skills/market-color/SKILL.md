@@ -1,6 +1,6 @@
 ---
 name: market-color
-description: Investigate an APAC stock or sector move from requests such as CATL colour or why is CATL moving, including relative performance, evidence-ranked explanations, implications, watch points and review.
+description: "Explain why an APAC stock or sector is up or down using a lean composite investigation: tape and peer-relative move, company news, regulation/policy, peers and industry, sentiment/chatter, a concise fundamental hook, implications and watch points. Use for ordinary natural-language questions such as 'XXX stock is up, why?' without requiring manual skill selection."
 ---
 
 # Market Color
@@ -15,16 +15,25 @@ Resolve the security, listing, session and as-of time. Prefer user-supplied Bloo
 
 Read `../../references/integrations.md` before selecting or combining sources. Preserve field-level lineage and material conflicts.
 
-Collect only what is material:
+Collect only what is material, but cover each evidence lane before concluding:
 
 - price move today and prior session; volume/turnover versus 20-day normal; VWAP/range/levels
 - sector and benchmark median moves; index contribution when available
 - A/H/ADR or related-listing comparison using aligned timestamps and FX
-- fresh company/exchange announcements, established reporting and specialist industry data
-- relevant input prices, policy/macro releases and dated prior catalysts
+- fresh company/exchange announcements and established company-specific reporting
+- relevant regulatory, policy, macro and input-price events with a plausible timing/mechanism link
+- peers, customers, suppliers and specialist industry evidence that test whether the move is shared or idiosyncratic
+- flow, positioning, technical and sentiment evidence as possible contributors, never substitutes for a causal mechanism
 - material social chatter only as Level 4 evidence, plus any company response
+- the smallest fundamental bridge needed to explain the move: revenue, cost, cash flow, balance-sheet risk or valuation/expectations
 
 Normalize quote rows to the shared contract. Use `../../scripts/relative_moves.py`, `movers.py`, `ah_premium.py` and `news_cluster.py` for calculations rather than mental arithmetic. Collect the move, relative context, evidence-ranked explanations, flow/technical context, read-through, watch points, sources, as-of time and data gaps. Use the theme or legacy single-stock schema in the data contract; presentation need not repeat the internal field labels.
+
+This triage is part of market-color itself. Do not require the user to invoke a
+news, sentiment, fundamentals or implications skill. Do not expand the concise
+fundamental bridge into a full company review unless the question actually
+turns on multi-period financials or valuation and that additional work could
+change the answer.
 
 ## Decide whether there is real colour
 
@@ -34,7 +43,13 @@ Rank proposed drivers with the evidence score in `source-priority.md`, computed 
 
 ## Draft and challenge
 
-Default to `format: desk-theme` for developed stock/sector commentary. Start with a punchy theme headline and verified desk tickers on separate lines. Follow with narrative paragraphs weighing fresh catalysts against valuation/positioning or rebound explanations, then the fundamental hook. Use short lists for mixed demand evidence, cross-market Implications and dated Things to watch. Explain each related stock's specific exposure, not merely that it "could follow".
+Default to `format: desk-theme` for developed stock/sector commentary. Start with a punchy theme headline and verified desk tickers on separate lines. Follow with narrative paragraphs weighing fresh catalysts against valuation/positioning or rebound explanations, then the fundamental hook. Include implications only when the evidence supports a specific exposure or changes what the reader should watch; keep speculative candidates separate from the explanation of the observed move. Use short lists for mixed demand evidence, useful cross-market implications and dated Things to watch. Explain each related stock's specific exposure, not merely that it "could follow".
+
+Do not automatically run a full idea funnel. Use `../idea-funnel/SKILL.md` only
+when the user asks for ideas, beneficiaries/losers or a candidate screen, or
+when an evidence-supported cross-market chain is central to the requested
+answer. Do not automatically use agents for one name. Escalate only when the
+criteria in `../../references/intent-routing.md` are met.
 
 Verify each ticker/company/listing, especially pasted Bloomberg strings; flag suffix mismatches rather than silently rewriting them. Taiwan themes are in scope when evidence/data is available, but no Taiwan provider is added by this skill.
 

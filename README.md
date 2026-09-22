@@ -223,6 +223,8 @@ The output is research, not personalized financial advice. Provider access, exch
 
 ## Release 1.2.0
 
+Reader-facing notes now enforce causal completeness: every material move needs a fresh trigger, transmission mechanism, relative-stock fit and counterevidence, or an explicit unresolved assessment with ranked alternatives. The final editorial pass also removes canned framing, decorative formatting and repetitive AI-style prose without deleting evidence or uncertainty.
+
 - Added `company-fundamentals` and `/fundamentals`.
 - Added the shared `fundamental_pack/v1` contract and loose coupling to AI Toolbox.
 - Added a documented handoff to Public Equity Investing for initiations, models, comps, DCFs and thesis tracking.

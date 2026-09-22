@@ -50,6 +50,23 @@ def audit(bundle: dict[str, Any]) -> dict[str, Any]:
             flag("block", "level4_causality", claim_id, "Causal claim relies only on Level 4 evidence.")
         if claim.get("causal") is True and linked and not levels:
             flag("revise", "unknown_evidence_level", claim_id, "Causal claim cites sources with no evidence_level.")
+        if claim.get("movement") is True:
+            driver_status = str(claim.get("driver_status", "")).strip().casefold()
+            mechanism = str(claim.get("mechanism", "")).strip()
+            if driver_status not in {"confirmed", "plausible", "unresolved"}:
+                flag(
+                    "revise",
+                    "missing_driver_assessment",
+                    claim_id,
+                    "Material movement claims require driver_status: confirmed, plausible or unresolved.",
+                )
+            if not mechanism:
+                flag(
+                    "revise",
+                    "missing_mechanism",
+                    claim_id,
+                    "Material movement claims require a transmission mechanism or an explicit unresolved explanation.",
+                )
         if claim.get("confirmed") is True and not any(level == 1 for level in levels):
             flag("revise", "confirmation_without_primary", claim_id, "Confirmed wording lacks Level 1 support.")
         evidence_times = []

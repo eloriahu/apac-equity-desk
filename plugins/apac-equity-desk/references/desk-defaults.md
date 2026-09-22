@@ -2,7 +2,8 @@
 
 A short request supplies the task and subject. These defaults supply the workflow.
 Do not ask the user to repeat the house style, source hierarchy, peer comparison,
-fact checking or editing instructions.
+fact checking or editing instructions. Read `intent-routing.md` and choose the
+minimum sufficient workflow automatically; slash commands are optional.
 
 ## Request routes
 
@@ -16,11 +17,15 @@ fact checking or editing instructions.
 | Ideas from this; trade ideas on this event | event-trade-ideas | Up to three research scenarios with mechanism, horizon, confirmation and invalidation |
 | What is moving?; sector radar; find me a topic; what should I write about? | topic-radar | Ranked observed sectors/themes, leaders, breadth, volume, gaps and research questions |
 | Earnings review; results colour; actual versus consensus | earnings-review | Verified result versus consensus, drivers, guidance and read-through |
+| Is this a quality company?; dividend durability; income screen | company-quality | Sector-aware quality or distribution durability with insufficient/not-applicable outcomes |
+| Assess management; did management deliver?; capital allocation review | management-review | Promise-versus-delivery ledger, capital allocation, incentives and governance |
+| Has the thesis changed?; audit this research; is this name researchable? | research-review | Researchability grade, fact/price/wording drift, number audit and publication gate |
+| Find beneficiaries; bottleneck scan; screen this theme; idea funnel | idea-funnel | Causal chain, bottlenecks, traceable universe screen, ranked candidates and exclusions |
 | Catalysts this week; event calendar; what matters next? | event-radar | Sourced chronological event watchlist with confirmed/provisional timing |
 | Cross-market read-through; who benefits?; transmission map | cross-market-map | Evidence-linked paths across sectors, securities, commodities and FX |
 | Track this thesis; update the signal; what changed? | signal-ledger | Explicit strengthened/weakened/falsified/unchanged ledger update |
 | Update this; what changed since the last pack? | current workflow + pack-delta | Refreshed facts and a material delta from the supplied/current-task prior pack |
-| Multi-agent; parallel; use the agent team; /parallel | parallel-desk | Explicit higher-cost team workflow with independent verification |
+| Multi-agent; parallel; use the agent team; /parallel | specialized parallel workflow | Functional research waves with independent verification |
 | Check this | source-verifier | Audit the supplied note and evidence |
 | Tighten this | desk-editor | Edit the supplied draft, preserving the selected house format and evidence |
 
@@ -29,6 +34,13 @@ or with an explicit desk invocation. Do not intercept unrelated uses of "wrap",
 "morning", "check" or "ideas". The user can invoke `$desk Japan wrap` to make
 the intended route explicit. These are natural-language instructions, not a
 shell command, keyword-parser API or background subscription.
+
+Routes may compose. Use one primary workflow, add only enrichers that could
+change its answer, and keep optional follow-ups unexecuted. A one-stock
+why-it-moved question remains `market-color`: its normal evidence pack already
+includes company/news, regulation/policy, peer/industry, sentiment/chatter and
+a concise fundamental hook. Do not run full fundamentals, an idea funnel or a
+team merely because those capabilities are related.
 
 ## Resolve context without a questionnaire
 
@@ -39,11 +51,14 @@ shell command, keyword-parser API or background subscription.
 - A wrap with no date defaults to the latest completed session for that market; display the date, especially on holidays or before today's close. If the user explicitly requests today's wrap while trading continues, return a clearly labelled interim note and do not use the closed-session renderer. Do not create a later run unless separately requested.
 - Colour defaults to the latest available market observation, with its actual timestamp and delayed/live status. Resolve security identity and listing; use prior context for an already-established A/H focus. Do not guess ambiguous numeric tickers.
 - "Ideas from this" needs an identifiable event and evidence. Use the current task's material and verify the event before developing scenarios. Do not choose an unrelated macro story just to fill three ideas.
+- "Who benefits?", "find ideas" or a theme/bottleneck screen routes to idea-funnel. A plain request for implications stays within the lead workflow unless candidate discovery is central and evidence supports a transmission chain.
+- Management, quality and research-review requests default to the named company and current evidence. Ask for a prior thesis/report only when drift or change cannot be assessed without one; do not imply access to another task.
+- A full company or earnings team is automatic only under `intent-routing.md` thresholds. Broad/deep/high-consequence work may escalate; a simple question never does so just because several skills are available.
 - Refresh time-sensitive prices and event status before an update or close wrap. Earlier task notes are leads, not fresh evidence. Respect an explicit "use only this pack" constraint and label the supplied cutoff.
 
 ## Run the whole routine
 
-For morning, wrap, colour and catalyst analysis:
+For morning, wrap, colour, catalyst analysis and composed research:
 
 1. Resolve market/session/subject and apply the source router in `integrations.md`: user-supplied Bloomberg export or screenshot first, OpenBB for missing/stale/absent market fields, and official primary sources for reported facts. Public research may supplement news, not masquerade as a timestamped quote feed.
 2. Build or refresh the evidence pack before drafting. Compare peers, benchmarks, related listings and cross-assets where relevant; investigate rather than assume causation.
@@ -57,6 +72,16 @@ For morning, wrap, colour and catalyst analysis:
 For event-trade-ideas, verify the event and assess catalysts first, then create
 at most three researched scenarios and perform the same verification/editing
 passes. Zero supported ideas is an acceptable result.
+
+For company-quality, management-review, research-review and idea-funnel, accept
+the matching schema pack from AI Toolbox when available. Consume it by schema,
+not by importing or assuming a repository path. Preserve this desk's source
+ranking, verification, APAC conventions and draft controls.
+
+When automatic team escalation is warranted, select `parallel-desk`,
+`parallel-company-research` or `parallel-earnings`; use functional roles in
+capacity-aware waves and keep the verifier independent. Team mode changes the
+execution plan, not the source or safety rules.
 
 For an explicit source audit or edit-only request, respect that narrow scope.
 The editor does not collect new data or append a trade-idea section.

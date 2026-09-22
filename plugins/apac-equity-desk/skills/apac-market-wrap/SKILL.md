@@ -22,6 +22,7 @@ For each in-scope closed market collect:
 - headline indices with close and percent move
 - advancers/decliners/unchanged, up/down volume, percent above 20DMA and new highs/lows when available
 - sector leaders, laggards and useful exceptions; retain enough named stock moves to explain the session rather than limiting the note to three sectors
+- a driver assessment for every material move retained in the prose: fresh trigger, earnings or valuation mechanism, relative-stock fit and counterevidence; use `No single catalyst is confirmed` with ranked alternatives when causality remains unresolved
 - top index contributors/detractors and material movers, with volume/turnover context
 - turnover and market-specific foreign/Stock Connect flow where available
 - session catalysts: macro, policy, earnings, corporate and sector

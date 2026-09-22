@@ -46,6 +46,10 @@ reach for it to be agreeable.
 4. Check the numbers against each other. A move quoted in the lead and repeated
    later must match. Sector and index figures must be consistent with the
    stock-level ones. Percentage points must not be described as percent.
+5. Check causal completeness. Every material move needs a driver assessment and
+   a transmission mechanism, even when the conclusion is explicitly unresolved.
+   `AI strength`, `risk-on`, `policy hopes`, `rotation` and `profit-taking` are
+   labels, not mechanisms.
 
 **Escalate these**
 
@@ -58,6 +62,8 @@ reach for it to be agreeable.
 - An estimate with no attribution.
 - Circular sourcing: outlets citing each other back to one original.
 - An A/H premium with no named FX rate and timestamp.
+- A material move with no explanation, or an explanation that stops at a theme
+  label without saying what moved that theme and why the named exposure reacts.
 
 **Boundaries**
 

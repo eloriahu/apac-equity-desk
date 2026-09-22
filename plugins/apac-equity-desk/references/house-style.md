@@ -15,6 +15,12 @@ Write for an institutional desk: facts, names, percentage moves, dates and mecha
 - Put the as-of time/timezone and draft status in a compact wrapper. Keep data gaps in a separate review note; never fill an empty category with invented prose.
 - Preserve user-supplied humour when relevant, as an optional aside near the end. Do not invent a recurring joke, callback or promise to answer something next time.
 
+## Causal completeness and final prose pass
+
+Read `prose-quality.md` before delivery. Every material move needs more than a theme label: give the fresh trigger, the mechanism into earnings or valuation, the reason the named securities carry that exposure and the strongest counterevidence. If the evidence cannot distinguish among drivers, say `No single catalyst is confirmed` and rank the plausible explanations rather than leaving the move unexplained.
+
+The same final pass should make the note sound written by a sharp analyst. Prefer natural paragraphs to decorative formatting, remove canned setups and repeated summaries, and avoid em-dash-heavy rhythm. Keep the numbers, citations, uncertainty and useful detail intact.
+
 ## Country close wrap: default end-of-day format
 
 Use flowing paragraphs with a Corporate Headlines section at the end. This is a developed country note, not a six-country paragraph digest. A full regional summary remains an explicit alternative.

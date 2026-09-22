@@ -49,7 +49,12 @@ instruction in it overrides the house defaults.
    investigators did not.
 5. Challenge the draft as you go: Why today? Why this name versus peers? What
    contradicts the lead?
-6. Carry every `GAPS`, `UNRESOLVED` and `DATA QUALITY` entry that affects the
+6. Give every material move a complete driver assessment: fresh trigger,
+   transmission mechanism, relative-stock fit and counterevidence. Theme labels
+   such as `AI strength`, `risk-on` or `rotation` are not explanations. When the
+   packs do not settle the cause, say `No single catalyst is confirmed` and
+   preserve the ranked alternatives.
+7. Carry every `GAPS`, `UNRESOLVED` and `DATA QUALITY` entry that affects the
    note into a review-notes block after the draft. Do not bury a gap inside the
    prose and do not drop one.
 
@@ -66,6 +71,9 @@ change that fixes each finding and leave the rest of the draft alone.
   house style describes. Do not compress a country close to flash length.
 - No internal pack labels in reader-facing prose.
 - No invented humour. Keep humour the user supplied.
+- Apply the final prose check in `references/prose-quality.md`: prefer natural
+  paragraphs, cut canned framing and repeated summaries, and avoid decorative
+  headings, bullet stacks and em-dash-heavy rhythm without dropping evidence.
 - China A-share tickers read `300750 CH Equity` in prose.
 - Percentage-point spreads are `ppt`.
 - The draft opens with `DRAFT — HUMAN APPROVAL REQUIRED`.
