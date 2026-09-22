@@ -45,12 +45,6 @@ Rank proposed drivers with the evidence score in `source-priority.md`, computed 
 
 Default to `format: desk-theme` for developed stock/sector commentary. Start with a punchy theme headline and verified desk tickers on separate lines. Follow with narrative paragraphs weighing fresh catalysts against valuation/positioning or rebound explanations, then the fundamental hook. Include implications only when the evidence supports a specific exposure or changes what the reader should watch; keep speculative candidates separate from the explanation of the observed move. Use short lists for mixed demand evidence, useful cross-market implications and dated Things to watch. Explain each related stock's specific exposure, not merely that it "could follow".
 
-Do not automatically run a full idea funnel. Use `../idea-funnel/SKILL.md` only
-when the user asks for ideas, beneficiaries/losers or a candidate screen, or
-when an evidence-supported cross-market chain is central to the requested
-answer. Do not automatically use agents for one name. Escalate only when the
-criteria in `../../references/intent-routing.md` are met.
-
 Verify each ticker/company/listing, especially pasted Bloomberg strings; flag suffix mismatches rather than silently rewriting them. Taiwan themes are in scope when evidence/data is available, but no Taiwan provider is added by this skill.
 
 Keep source rank and causal confidence in the evidence pack and express uncertainty naturally in prose. A confirmed company response does not automatically become a confirmed price driver. Preserve counterevidence and release/comparison distortions.
