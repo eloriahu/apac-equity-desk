@@ -23,6 +23,13 @@ Resolve contradictions by preserving both observations, preferring the higher-ra
 
 Read `plugins/apac-equity-desk/references/desk-defaults.md` for task routing, date/session defaults and included review stages. A request such as "Japan wrap" supplies the subject and task; do not require the user to repeat the house style or separately request verification and editing. Explicit user constraints override defaults. Ask only when an essential subject cannot be resolved.
 
+Also read `plugins/apac-equity-desk/references/intent-routing.md`. Choose exactly
+one lead workflow, add only support that can change its conclusion and select
+single, composed or agent-team execution automatically. A one-stock
+why-it-moved question stays lean; broad/deep or explicitly parallel work may
+use capacity-aware functional agent waves. Users do not need to name skills or
+agents.
+
 ## Workflow invariants
 
 1. Build a structured evidence/data pack before writing prose.

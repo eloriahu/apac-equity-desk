@@ -123,7 +123,7 @@ class CodexAgentTests(unittest.TestCase):
         import tomllib
 
         agents = sorted((ROOT / ".codex" / "agents").glob("*.toml"))
-        self.assertEqual(len(agents), 5)
+        self.assertEqual(len(agents), 11)
         for path in agents:
             data = tomllib.loads(path.read_text(encoding="utf-8"))
             self.assertEqual(data["name"], path.stem)

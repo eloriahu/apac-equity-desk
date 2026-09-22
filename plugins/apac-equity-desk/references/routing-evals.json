@@ -1,0 +1,101 @@
+{
+  "schema": "apac_intent_routing_eval/v1",
+  "cases": [
+    {
+      "id": "one-stock-move",
+      "prompt": "TSMC is up 6% today, why?",
+      "primary_workflow": "market-color",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["idea-funnel", "company-fundamentals", "parallel-desk", "parallel-company-research", "parallel-earnings"]
+    },
+    {
+      "id": "move-to-beneficiaries",
+      "prompt": "CATL is up—who benefits?",
+      "primary_workflow": "market-color",
+      "required_enrichers": ["cross-market-map", "idea-funnel", "source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["parallel-desk", "parallel-company-research", "parallel-earnings"]
+    },
+    {
+      "id": "thesis-without-baseline",
+      "prompt": "Does this break my short thesis?",
+      "primary_workflow": "research-review",
+      "required_enrichers": [],
+      "execution_mode": "single",
+      "team": "none",
+      "action": "clarify",
+      "clarification_count": 1,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["signal-ledger", "parallel-company-research"]
+    },
+    {
+      "id": "bottleneck-discovery",
+      "prompt": "AI power bottlenecks and listed beneficiaries",
+      "primary_workflow": "idea-funnel",
+      "required_enrichers": ["cross-market-map", "source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["parallel-desk", "parallel-company-research", "parallel-earnings"]
+    },
+    {
+      "id": "full-initiation-dcf",
+      "prompt": "Full initiation and DCF",
+      "primary_workflow": "public-equity-investing",
+      "required_enrichers": ["company-fundamentals", "fundamental-research"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "handoff",
+      "clarification_count": 0,
+      "hero_artifact_owner": "public-equity-investing",
+      "forbidden_workflows": ["parallel-company-research"]
+    },
+    {
+      "id": "quick-earnings",
+      "prompt": "Quick answer only: review these earnings",
+      "primary_workflow": "earnings-review",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["parallel-desk", "parallel-company-research", "parallel-earnings"]
+    },
+    {
+      "id": "explicit-full-team",
+      "prompt": "Use the full agent team for a Japan wrap",
+      "primary_workflow": "parallel-desk",
+      "required_enrichers": [],
+      "execution_mode": "agent-team",
+      "team": "full",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["parallel-company-research", "parallel-earnings"]
+    },
+    {
+      "id": "ambiguous-ticker",
+      "prompt": "ABC is up—why?",
+      "primary_workflow": "market-color",
+      "required_enrichers": [],
+      "execution_mode": "single",
+      "team": "none",
+      "action": "clarify",
+      "clarification_count": 1,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["idea-funnel", "parallel-desk", "parallel-company-research", "parallel-earnings"]
+    }
+  ]
+}

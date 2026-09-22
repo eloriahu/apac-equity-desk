@@ -1,0 +1,6 @@
+interface:
+  display_name: "Research Review"
+  short_description: "Audit thesis drift, evidence and critical numbers"
+  default_prompt: "Use $research-review to identify what actually changed in this thesis."
+policy:
+  allow_implicit_invocation: true

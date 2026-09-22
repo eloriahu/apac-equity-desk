@@ -1,0 +1,6 @@
+interface:
+  display_name: "Company Quality and Income"
+  short_description: "Test sector-aware quality and dividend durability"
+  default_prompt: "Use $company-quality to test the durability of this company's earnings and dividend."
+policy:
+  allow_implicit_invocation: true

@@ -1,4 +1,6 @@
 interface:
   display_name: "Market Color"
   short_description: "Explain APAC equity moves with ranked evidence"
-  default_prompt: "Use $market-color for CATL."
+  default_prompt: "Use $market-color to explain why this APAC stock is up today."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Parallel APAC Desk"
+  short_description: "Run functional teams for complex market work"
+  default_prompt: "Use $parallel-desk for a multi-market APAC research report."
+policy:
+  allow_implicit_invocation: true

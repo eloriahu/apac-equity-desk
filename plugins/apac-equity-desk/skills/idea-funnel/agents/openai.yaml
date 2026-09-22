@@ -1,0 +1,6 @@
+interface:
+  display_name: "APAC Idea Funnel"
+  short_description: "Trace themes and bottlenecks into ranked names"
+  default_prompt: "Use $idea-funnel to find APAC beneficiaries of this structural trend."
+policy:
+  allow_implicit_invocation: true

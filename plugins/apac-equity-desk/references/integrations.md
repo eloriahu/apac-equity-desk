@@ -24,7 +24,31 @@ When installed, `fundamental-tools` is the reusable source and calculation layer
 
 Country preference is J-Quants/JPX for Japan, OpenDART/FSS for Korea, TWSE/MOPS for Taiwan, and SEC EDGAR for US-listed issuers or ADRs. FinanceDatabase supports identity resolution, FinanceToolkit supports transparent calculations, and AKShare is a fallback. A missing optional package or API key produces a declared gap, not an installation attempt.
 
-The Public Equity Investing plugin complements this desk. When explicitly invoked for an initiation, model, comps, DCF or thesis tracker, provide the APAC evidence pack to its focused workflow; do not duplicate the same hero artifact in two plugins.
+The Public Equity Investing plugin complements this desk. When the requested
+deliverable is an initiation, model, comps/DCF workbook or equivalent full
+investment artifact and that plugin is available, route to it automatically
+and provide the verified APAC evidence pack; the user does not need to name the
+plugin. If it is unavailable, state the capability boundary and return only the
+supported desk research. Do not duplicate the same hero artifact in two
+plugins. Portfolio sizing or hedging requires an explicit portfolio request.
+Unless the installed Public Equity Investing version explicitly declares one
+of the toolbox schemas, hand it both the raw pack and a concise schema-neutral
+brief containing issuer/listing, as-of time, sourced facts, assumptions,
+conflicts, calculations and falsifiers. Treat this as an evidence handoff, not
+as a claim that the receiving plugin natively validates the pack version.
+
+## AI Toolbox idea and research-review packs
+
+AI Toolbox may also produce `idea_funnel/v1` and `research_review/v1`. Consume
+the schemas documented in `research-contracts.md`; do not import the toolbox,
+assume a checkout path or make it a required runtime dependency. Preserve the
+shared claim/source registry, `independence_group`, quality status, rejected
+candidates, incomplete comparisons and failed/unverifiable audit rows.
+
+The toolbox owns deterministic screening, comparison and audit mechanics. This
+desk owns APAC interpretation, source-ranking review, routing and reader-facing
+output. Agreement between separate agents or tools does not create independent
+evidence when the underlying sources share an independence group.
 
 ## Adding an adapter
 

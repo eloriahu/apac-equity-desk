@@ -1,0 +1,6 @@
+interface:
+  display_name: "Management Review"
+  short_description: "Test management promises, allocation and governance"
+  default_prompt: "Use $management-review to assess whether this management team delivered."
+policy:
+  allow_implicit_invocation: true

@@ -1,11 +1,12 @@
 ---
 name: parallel-desk
-description: Run an APAC desk request in Codex or Claude Code with the full agent team — market data and country research per market, catalyst investigators, an independent verifier and a chief editor. Use only when the user asks for multi-agent, parallel, the agent team, or /parallel.
+description: Run broad, deep or explicitly parallel APAC market research with functional agents, independent verification and a chief editor. Activate automatically only for multi-market or multi-company work that clears the desk complexity threshold, or when the user explicitly asks for parallel/multi-agent work; keep simple requests lean.
 ---
 
 # Parallel Desk
 
-Read `../../references/desk-defaults.md` first. Everything there still applies:
+Read `../../references/desk-defaults.md` and
+`../../references/intent-routing.md` first. Everything there still applies:
 the same house formats, the same session and date handling, the same
 human-approval banner. This skill changes who does each stage, not what the desk
 produces.
@@ -43,15 +44,18 @@ lineage and conflicts.
 explicit constraints. Keep the user's request word for word; the chief-editor
 gets it verbatim.
 
-**2. First wave — parallel.** For every market dispatch a
-`market-data-analyst` and a `country-researcher`. Send all of them in a single
-parallel wave, then wait for every result before continuing.
+**2. First wave — capacity-aware.** For every market dispatch a
+`market-data-analyst` and a `country-researcher`. Dispatch no more workers than
+the environment permits (at most three workers alongside the desk head in a
+four-slot environment); batch the rest into later first-wave groups and wait
+for every result before continuing.
 
-**3. Second wave — parallel.** Read the mover lists from the data packs.
+**3. Second wave — capacity-aware.** Read the mover lists from the data packs.
 Dispatch a `catalyst-investigator` for each name whose move stands out from its
 sector and index, and for any name the user asked about. Give each one the
 security, the session, the move and peer figures from the data pack, and any
-related headline from the country pack. Skip this wave when nothing stands out.
+related headline from the country pack. Batch to available slots. Skip this
+wave when nothing stands out.
 
 **4. Reconcile.** The packs arrive independently, so cross-market facts are
 yours: A/H and ADR read-through, one commodity or FX move explaining several
@@ -83,20 +87,26 @@ Numbers degrading between contexts is how this mode fails. Guard against it:
 - Figures come from the helpers via the data analyst, and travel as returned.
   Nobody downstream rounds, restates or re-derives one.
 - Source URLs and timestamps stay attached to their claims.
+- Every role uses the same claim/source-ID registry and independence groups.
+  Repeated agent agreement does not raise confidence when the source is shared.
 - Every `GAPS`, `UNRESOLVED` and `DATA QUALITY` entry reaches the final review
   notes. A problem an agent found and the desk dropped is worse than not running
   the team at all.
 - If an agent fails or returns nothing, retry it once. If it fails again, say so
   in the note. Never draft around a missing market.
 
-## Cost
+No worker may dispatch another worker or invoke an orchestration skill. Only
+the desk head controls the acyclic sequence of roles.
+
+## Cost and automatic threshold
 
 Each agent is its own context. A three-market wrap is six agents in the first
 wave, a handful of investigators, an editor and a verifier — roughly a dozen
 contexts against one for the ordinary workflow. That buys independent gathering,
 a data check, an isolated audit and a revision pass. It is for notes that
-matter, not for every request, which is why ordinary short requests never
-trigger it.
+matter, not for every request. Use it when explicitly requested or when the
+automatic threshold in `intent-routing.md` is met. A `quick`, `brief` or `flash`
+constraint stays in the ordinary workflow.
 
 ## Boundaries
 

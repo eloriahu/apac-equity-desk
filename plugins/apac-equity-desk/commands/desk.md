@@ -1,5 +1,5 @@
 ---
-description: Route a short APAC desk request (Japan morning, HK wrap, CATL colour, ideas from this, check this, tighten this) to the right workflow and run it end to end.
+description: Automatically route a natural-language APAC equity question to the minimum useful workflows and agent mode, then run it end to end.
 argument-hint: [short request, e.g. Japan wrap]
 ---
 
@@ -13,4 +13,4 @@ default. If the request is empty, ask for the task and the market, security or
 event in one short question.
 
 This command and the `desk` skill share a name on purpose: both do the same
-routing, and this is the explicit way to ask for it.
+semantic routing. The user does not need to name skills or agents.

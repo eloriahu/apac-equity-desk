@@ -1,7 +1,7 @@
 {
   "name": "apac-equity-desk",
-  "version": "1.2.0+codex.20260922021729",
-  "description": "Bloomberg-first APAC equity research with market, catalyst, earnings and company-fundamentals workflows.",
+  "version": "1.3.0+codex.20260922031832",
+  "description": "Automatically routed APAC equity research, idea discovery and functional multi-agent workflows.",
   "author": {
     "name": "APAC Equity Desk"
   },
@@ -13,26 +13,29 @@
     "equities",
     "fundamentals",
     "valuation",
+    "idea-generation",
+    "multi-agent",
     "research"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "APAC Equity Desk",
-    "shortDescription": "Evidence-ranked APAC equity research drafts.",
-    "longDescription": "Uses user-supplied Bloomberg exports or screenshots first, fills explicit gaps through OpenBB, and turns APAC market and fundamental evidence into verified morning notes, colour, wraps, earnings, valuation and company research.",
+    "shortDescription": "Auto-routed APAC equity research and ideas.",
+    "longDescription": "Understands natural-language APAC equity questions, selects the minimum useful market, fundamental, management, research-review or idea-discovery workflows, and escalates to functional agent teams only for broad, deep or explicitly parallel work.",
     "developerName": "APAC Equity Desk",
     "category": "Finance",
     "capabilities": [
       "Read-only market research",
+      "Automatic workflow routing",
+      "Idea and bottleneck discovery",
+      "Functional multi-agent research",
       "Analysis",
       "Drafting"
     ],
     "defaultPrompt": [
-      "$desk Japan morning",
-      "$desk Japan wrap",
-      "$desk Why is CATL moving?",
-      "$desk What is moving in HK?",
-      "$desk Fundamental review of 9988 HK"
+      "Prepare today's Japan morning brief.",
+      "Explain why CATL is moving and what it means for related APAC stocks.",
+      "Find APAC beneficiaries of AI power bottlenecks."
     ]
   }
 }

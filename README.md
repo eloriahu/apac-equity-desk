@@ -2,7 +2,7 @@
 
 For minipanda's happy friends.
 
-APAC Equity Desk is a read-only research plugin for market colour, morning notes, country closes, earnings, company fundamentals, catalysts and cross-market work. Give it a market, security or event. It builds the evidence pack, checks the claims and edits the note before returning a draft.
+APAC Equity Desk is a read-only research plugin for market colour, morning notes, country closes, earnings, company fundamentals, management review, idea discovery and cross-market work. Ask the question naturally: the desk selects the minimum useful workflows and only brings in an agent team when the work is genuinely broad, deep or explicitly parallel.
 
 The plugin supports Codex and Claude Code from the same skills, references and calculation helpers. Coverage includes North Asia, Australia/New Zealand, India and Southeast Asia when the required market data and sources are supplied or connected.
 
@@ -23,7 +23,8 @@ Morning notes distinguish observed opening moves from pre-open expectations. Clo
 
 | Ask | What comes back |
 | --- | --- |
-| `Why is CATL moving?` | Stock-versus-index and peer performance, ranked explanations and dated watch points |
+| `Why is CATL moving?` | Tape and peer-relative move, company/news, policy, industry and sentiment triage, a fundamental hook and dated watch points |
+| `CATL is up. Who benefits?` | The observed-move explanation first, followed by a separately labelled beneficiary funnel when the evidence supports it |
 | `Challenge the catalyst` | A timing test, competing explanations, contradictions and falsifiers |
 | `What is moving in HK?` | A ranked topic queue based on movement, breadth, relative performance and volume |
 | `Optical names are rallying. Map the read-through.` | Evidence-linked paths through suppliers, peers, commodities, FX and end markets |
@@ -38,10 +39,13 @@ The desk separates confirmed disclosures, plausible factors and unconfirmed chat
 | `Review these results` | Actual versus consensus, segment and margin drivers, guidance and estimate implications |
 | `What changed in the model after earnings?` | A reported-to-prior bridge, changed assumptions and valuation impact |
 | `Run base, upside and downside valuation scenarios` | Assumption-led scenarios with current-data and evidence limitations stated |
+| `Did management deliver on its targets?` | A dated promise-versus-delivery ledger, capital-allocation record and governance flags |
+| `Is the dividend durable?` | A sector-aware income review with coverage, balance-sheet and downside tests |
+| `Has the thesis actually changed?` | Fact-versus-price-versus-wording drift, researchability ceiling and critical-number audit |
 
 Install `fundamental-tools` from [AI Toolbox](https://github.com/eloriahu/ai-toolbox) for the shared `fundamental_pack/v1` contract, official APAC filing adapters and transparent ratio/DCF calculations. The desk can still work from supplied filings or a manually assembled pack when the toolbox is absent.
 
-The optional Public Equity Investing plugin complements this workflow. It can own a full initiation, comps workbook, DCF, three-statement model, model update or thesis tracker. APAC Equity Desk supplies the regional evidence, conventions and note-writing layer.
+When Public Equity Investing is available, the router hands it full initiations, comps/DCF workbooks, three-statement models, model updates and equivalent investment artifacts automatically based on the requested deliverable; the user does not need to name the plugin. APAC Equity Desk supplies the verified regional evidence, conventions and note-writing layer. If the specialist is unavailable, the desk states the boundary and returns only the supported research pack.
 
 ### Turn an event into research work
 
@@ -53,6 +57,17 @@ The optional Public Equity Investing plugin complements this workflow. It can ow
 | `Check this` | An audit of citations, timestamps, units, contradictions and causal wording |
 | `Tighten this to 150 words` | A senior edit that keeps the evidence and uncertainty intact |
 
+### Discover ideas from themes and bottlenecks
+
+| Ask | What comes back |
+| --- | --- |
+| `Find APAC beneficiaries of AI power bottlenecks` | A tested causal chain, scarce nodes, listed exposures and what could remove the bottleneck |
+| `Screen this theme` | A traceable universe funnel with sector-aware rules, ranked candidates and explicit rejections |
+| `Who loses from this policy change?` | Direct and second-order exposure paths, earnings sensitivity, catalysts and falsifiers |
+
+The idea funnel can return zero names. A popular theme does not become an idea
+until the economic link, listed-company exposure and expectations test survive.
+
 These are research workflows. They do not place trades, alter accounts or publish drafts.
 
 ## How the research stack fits together
@@ -62,7 +77,8 @@ Bloomberg export or screenshot / official filing / public source
                               │
                   AI Toolbox adapters and calculations
                               │
-                 market pack or fundamental_pack/v1
+       market pack / fundamental_pack/v1 / idea_funnel/v1
+                         / research_review/v1
                               │
                         APAC Equity Desk
                 evidence ranking + APAC judgment + writing
@@ -89,9 +105,10 @@ Start a new task and type a short request:
 $desk Japan morning
 $desk Why is CATL moving?
 $desk Fundamental review of 9988 HK
+$desk Find APAC beneficiaries of AI power bottlenecks
 ```
 
-Natural-language requests such as `Japan wrap` work when the session selects the desk automatically.
+Natural-language requests such as `Japan wrap`, `TSMC is up 6%, why?` or `Did management deliver?` work when the session selects the desk automatically. Slash commands are shortcuts, not a requirement.
 
 Update an installed copy:
 
@@ -109,7 +126,7 @@ Run these inside Claude Code:
 /plugin install apac-equity-desk@apac-equity-desk
 ```
 
-Claude Code exposes `/desk` plus focused commands including `/morning`, `/wrap`, `/color`, `/catalyst`, `/fundamentals`, `/ideas`, `/check`, `/tighten` and `/parallel`.
+Claude Code exposes `/desk` plus focused commands including `/morning`, `/wrap`, `/color`, `/catalyst`, `/fundamentals`, `/discover`, `/management`, `/quality`, `/research-audit`, `/company-team`, `/earnings-team`, `/check`, `/tighten` and `/parallel`.
 
 Update an installed copy with:
 
@@ -162,19 +179,27 @@ The local opening tape comes first, overnight context second and sector leadersh
 
 House style is the default. Ask for a flash, word limit or different audience when you want to override it.
 
-## Parallel desk mode
+## Automatic routing and agent teams
 
-Use `Multi-agent Japan wrap` or `/parallel Japan wrap` when the note merits separate research and verification lanes.
+Simple questions stay lean. `TSMC is up 6%, why?` runs one composed market-colour investigation rather than six agents. A narrow but materially conflicted conclusion may use a two- or three-agent challenge wave. Full teams are reserved for explicit parallel requests or genuinely broad/deep multi-market, multi-company, company or earnings reports.
+
+The router selects exactly one lead workflow, caps ordinary enrichers and prevents workers from spawning more workers. With a four-slot runtime, the desk head uses at most three workers at once and batches the rest into later waves.
 
 | Role | Job |
 | --- | --- |
 | `market-data-analyst` | Quotes, indices, breadth, sectors, movers, flows and data-quality checks |
 | `country-researcher` | Policy, macro, FX/rates, overnight context and company headlines |
 | `catalyst-investigator` | Timeline, competing explanations and falsification tests |
+| `filings-accounting-analyst` | Reported facts, reconciliation, cash flow and accounting quality |
+| `business-kpi-analyst` | Business mechanics, segments, KPIs, guidance and moat evidence |
+| `industry-chain-analyst` | Peers, customers, suppliers, causal chains and bottlenecks |
+| `expectations-valuation-analyst` | Consensus, priced-in expectations, valuation and catalysts |
+| `management-governance-analyst` | Delivery record, allocation, incentives, governance and succession |
+| `bear-case-analyst` | Independent contradictions, alternatives and falsifiers |
 | `chief-editor` | House-style draft and one revision against the audit |
 | `desk-verifier` | Independent comparison of the draft against the evidence packs |
 
-Parallel mode costs more time and context than the ordinary workflow, so it runs only when requested.
+All roles share a claim/source registry. Multiple agents repeating one syndicated source do not create independent confirmation.
 
 ## Repository layout
 
@@ -188,7 +213,7 @@ config/providers.example.toml       Optional provider settings
 plugins/apac-equity-desk/
   .claude-plugin/plugin.json        Claude Code manifest
   .codex-plugin/plugin.json         Codex manifest
-  skills/                           Router and fourteen workflows
+  skills/                           Semantic router and focused workflows
   commands/                         Claude Code slash commands
   agents/                           Packaged Claude Code roles
   references/                       Source rules, contracts and house style
@@ -220,6 +245,14 @@ All fixture names, numbers, events, URLs and dates are synthetic. They test form
 This repository does not package a brokerage connector. It must not submit, replace, cancel or stage orders; alter positions, alerts or watchlists; or publish/send a draft without explicit human approval at that moment.
 
 The output is research, not personalized financial advice. Provider access, exchange coverage, rate limits and redistribution rights remain subject to each provider's terms.
+
+## Release 1.3.0
+
+- Added automatic semantic routing across question type, horizon, deliverable, evidence availability and complexity.
+- Added idea-funnel and bottleneck discovery, management review, thesis/research audit, sector-aware quality and income review.
+- Added specialized company and earnings agent teams with capacity-aware waves, shared source independence and no nested fan-out.
+- Added schema-only consumption of AI Toolbox `idea_funnel/v1` and `research_review/v1` packs.
+- Routes requested full initiations and financial models to Public Equity Investing automatically when available; portfolio work still requires an explicit portfolio request.
 
 ## Release 1.2.0
 

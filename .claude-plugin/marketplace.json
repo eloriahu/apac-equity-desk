@@ -5,22 +5,22 @@
     "name": "APAC Equity Desk",
     "url": "https://github.com/eloriahu/apac-equity-desk"
   },
-  "description": "Read-only APAC equity research workflows: topic radar, morning, wraps, colour, earnings, company fundamentals, catalysts and signal tracking.",
-  "version": "1.2.0",
+  "description": "Automatically routed, read-only APAC equity research, idea discovery and functional agent teams.",
+  "version": "1.3.0",
   "plugins": [
     {
       "name": "apac-equity-desk",
       "displayName": "APAC Equity Desk",
       "source": "./plugins/apac-equity-desk",
-      "description": "Bloomberg-first APAC equity research with market, earnings, company-fundamentals and catalyst workflows.",
-      "version": "1.2.0",
+      "description": "Automatically routed APAC equity research, idea discovery and functional multi-agent workflows.",
+      "version": "1.3.0",
       "author": {
         "name": "APAC Equity Desk"
       },
       "homepage": "https://github.com/eloriahu/apac-equity-desk#readme",
       "repository": "https://github.com/eloriahu/apac-equity-desk",
       "license": "MIT",
-      "keywords": ["apac", "equities", "fundamentals", "valuation", "research"],
+      "keywords": ["apac", "equities", "fundamentals", "ideas", "multi-agent", "research"],
       "category": "finance"
     }
   ]

@@ -1,4 +1,6 @@
 interface:
   display_name: "APAC Desk"
-  short_description: "Run complete desk workflows from short requests"
-  default_prompt: "Use $desk Japan wrap."
+  short_description: "Auto-route natural-language APAC equity research"
+  default_prompt: "Use $desk to explain why this APAC stock is moving and run only the research needed."
+policy:
+  allow_implicit_invocation: true

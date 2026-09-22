@@ -1,6 +1,6 @@
 ---
 name: company-fundamentals
-description: Review an APAC listed company's business quality, reported financials, expectations, valuation, catalysts, risks and falsifiers from requests such as fundamental review, initiate on this name, valuation check, or what changed in the model.
+description: Build the APAC evidence and interpretation layer for a listed company's business, reported financials, expectations, valuation, catalysts, risks and falsifiers. Use for fundamental reviews, valuation checks and what-changed analysis; for a full initiation, model or DCF/comps artifact, support Public Equity Investing rather than owning a duplicate hero deliverable.
 ---
 
 # APAC Company Fundamentals
@@ -29,7 +29,12 @@ Address only the sections supported by the question and evidence:
 
 State whether the pack is `ready`, `limited` or `blocked`. Do not produce a target price or confident recommendation when current price, diluted shares, net debt, comparable history or valuation assumptions are materially unsupported. Sensitivities are derived scenarios, not facts.
 
-When the explicitly invoked Public Equity Investing plugin owns a larger artifact—initiating coverage, a DCF/comps workbook, model update or thesis tracker—use this APAC pack as its evidence handoff and let that specialist own the hero deliverable. Retain this desk's source hierarchy, APAC conventions and draft controls.
+When the requested deliverable is initiating coverage, a DCF/comps workbook,
+model update or equivalent full investment artifact, route it to Public Equity
+Investing automatically when that plugin is available. Use this APAC pack as
+its evidence handoff and let the specialist own the hero deliverable. If it is
+unavailable, state the capability boundary and return only the supported desk
+research. Retain this desk's source hierarchy, APAC conventions and controls.
 
 ## Output
 

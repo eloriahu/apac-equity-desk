@@ -1,0 +1,6 @@
+interface:
+  display_name: "Parallel Earnings Review"
+  short_description: "Run a functional team for complex APAC results"
+  default_prompt: "Use $parallel-earnings for an independent deep review of these results."
+policy:
+  allow_implicit_invocation: true

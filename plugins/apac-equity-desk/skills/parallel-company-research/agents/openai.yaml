@@ -1,0 +1,6 @@
+interface:
+  display_name: "Parallel Company Research"
+  short_description: "Run a functional team for deep company research"
+  default_prompt: "Use $parallel-company-research for an independent deep dive on this APAC company."
+policy:
+  allow_implicit_invocation: true

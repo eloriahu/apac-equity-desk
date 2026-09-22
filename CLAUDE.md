@@ -23,13 +23,14 @@ in `tests/test_claude_code_plugin.py` enforces this.
 
 ## Multi-agent mode
 
-`plugins/apac-equity-desk/agents/` holds five subagents Codex cannot load:
-`market-data-analyst`, `country-researcher`, `catalyst-investigator`,
-`chief-editor` and `desk-verifier`. Only `skills/parallel-desk/SKILL.md` may
-reference them, so the Codex build never depends on a component it cannot see; a
-test enforces that.
+`plugins/apac-equity-desk/agents/` holds the market roles plus functional
+company-research roles for filings/accounting, business/KPIs, industry chains,
+expectations/valuation, management/governance and bear-case challenge. The
+three orchestration skills carry the matching installed-plugin instructions;
+project-scoped Codex definitions live in `.codex/agents/`.
 
-The run is two gathering waves, then draft, verify and one revision round. The
+Full runs use capacity-aware gathering waves, then draft, verify and one
+revision round. The
 data analyst and country researcher run together per market; the catalyst
 investigators wait for the mover lists, because the movers decide which
 catalysts matter. The parent is the desk head: it briefs, reconciles and
@@ -41,8 +42,12 @@ full and unedited, and nobody downstream rounds or re-derives a figure. The
 chief-editor gets the user's request word for word, and the verifier gets the
 draft and packs with no account of how the draft was reached.
 
-The mode is opt-in through `/parallel` or an explicit ask. It runs roughly a
-dozen contexts for a three-market wrap, so ordinary short requests stay in one.
+Explicit `/parallel` or a direct multi-agent ask forces the appropriate team.
+The semantic router may also escalate broad/deep, multi-market/multi-company or
+high-consequence work under `references/intent-routing.md`. Ordinary one-name
+questions stay lean; `quick`, `brief` and `flash` forbid a full team. With a
+four-slot runtime, keep the desk head plus no more than three workers active.
+Workers never dispatch workers.
 
 Agent frontmatter is real YAML, so the `description` goes last and in a block
 scalar (`description: |`). The examples inside it contain blank lines and lines
