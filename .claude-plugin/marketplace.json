@@ -6,14 +6,14 @@
     "url": "https://github.com/eloriahu/apac-equity-desk"
   },
   "description": "Automatically routed, read-only APAC equity research, idea discovery and functional agent teams.",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "plugins": [
     {
       "name": "apac-equity-desk",
       "displayName": "APAC Equity Desk",
       "source": "./plugins/apac-equity-desk",
       "description": "Automatically routed APAC equity research, idea discovery and functional multi-agent workflows.",
-      "version": "1.4.0",
+      "version": "1.5.0",
       "author": {
         "name": "APAC Equity Desk"
       },

@@ -23,7 +23,7 @@ class PluginPackagingTests(unittest.TestCase):
         claude = json.loads((PLUGIN / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
         marketplace = json.loads((ROOT / ".claude-plugin" / "marketplace.json").read_text(encoding="utf-8"))
         base = codex["version"].split("+", 1)[0]
-        self.assertEqual(base, "1.4.0")
+        self.assertEqual(base, "1.5.0")
         self.assertEqual(claude["version"], base)
         self.assertEqual(marketplace["version"], base)
         self.assertEqual(marketplace["plugins"][0]["version"], base)
@@ -39,6 +39,7 @@ class PluginPackagingTests(unittest.TestCase):
             "market-color", "morning-brief", "parallel-company-research", "parallel-desk",
             "parallel-earnings", "research-review", "signal-ledger", "source-verifier",
             "topic-radar", "filing-change", "expectations-change", "ownership-flow",
+            "consensus-challenge",
         }
         self.assertEqual(names, expected)
 
@@ -56,12 +57,14 @@ class PluginPackagingTests(unittest.TestCase):
             "company-quality", "idea-funnel", "management-review", "research-review",
             "parallel-company-research", "parallel-earnings",
             "filing-change", "expectations-change", "ownership-flow",
+            "consensus-challenge",
         ):
             self.assertIn(name, router)
         self.assertIn("idea_funnel/v1", contracts)
         self.assertIn("research_review/v1", contracts)
         for schema in ("filing_change/v1", "expectations_bridge/v1", "ownership_flow/v1"):
             self.assertIn(schema, contracts)
+        self.assertIn("consensus_challenge/v1", contracts)
 
         commands = {path.stem for path in (PLUGIN / "commands").glob("*.md")}
         self.assertTrue({
@@ -74,6 +77,7 @@ class PluginPackagingTests(unittest.TestCase):
             "desk", "market-color", "company-quality", "idea-funnel",
             "management-review", "research-review", "parallel-company-research",
             "parallel-earnings", "filing-change", "expectations-change", "ownership-flow",
+            "consensus-challenge",
         }
         for name in names:
             metadata = (PLUGIN / "skills" / name / "agents" / "openai.yaml").read_text(encoding="utf-8")

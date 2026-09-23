@@ -38,6 +38,7 @@ Select exactly one primary route and any justified sibling enrichers:
 - Sector-aware company quality or dividend/income durability -> `../company-quality/SKILL.md`
 - Management quality, capital allocation or promise-versus-delivery -> `../management-review/SKILL.md`
 - Thesis drift, researchability or numerical research audit -> `../research-review/SKILL.md`
+- Critique a mainstream sell-side thesis or find consensus blind spots -> `../consensus-challenge/SKILL.md`
 - Theme-to-names, bottleneck discovery or candidate funnel -> `../idea-funnel/SKILL.md`
 - Upcoming catalysts -> `../event-radar/SKILL.md`
 - Cross-market transmission -> `../cross-market-map/SKILL.md`

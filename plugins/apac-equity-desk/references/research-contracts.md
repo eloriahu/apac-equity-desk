@@ -82,6 +82,12 @@ The desk also accepts three schema-only packs from AI Toolbox or an equivalent p
 
 An absent prior document/snapshot or missing source means the corresponding comparison is limited, not inferred. Optional Taiwan FinMind, Korea pykrx, Docling and disclosure-MCP access may be unavailable; never claim a connection without checking.
 
+## `consensus_challenge/v1`
+
+The pack has offset `as_of`, issuer/listing `entity`, a documented `eligible_houses` universe and `universe_basis`, central `sources`, explicit `theses`, dated `views`, linked `counterevidence`, `analyses`, `challenge_queue` and `quality`. Each analysis has a `mainstream_gate` of `established`, `not_established` or `unverified_universe`. An established gate requires at least three distinct fresh eligible house groups and a strict majority of the documented universe supporting the same thesis and horizon. One latest view per parent group counts; shared ratings with different causal theses do not.
+
+The desk must independently inspect material cited reports and primary documents. `shared_basis_groups` signals common underlying information, not herding or error. A `primary_checked` counterevidence label is an analyst assertion, not a script-verified fact. `unaddressed_in_reviewed_sample_ids` requires all supporting supplied reports to have been reviewed in full; even then, absence in this sample does not prove novelty to the market. Preserve the consensus steelman, dissent, price/expectations context and explicit falsifiers. Never promote `novelty_status: not_established` into a claim that nobody spotted a flaw.
+
 ## Consumption rules
 
 - Each source has `id`, `origin` and `independence_group`; each claim has `id`,

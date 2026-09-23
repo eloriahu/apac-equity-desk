@@ -20,6 +20,7 @@ minimum sufficient workflow automatically; slash commands are optional.
 | Is this a quality company?; dividend durability; income screen | company-quality | Sector-aware quality or distribution durability with insufficient/not-applicable outcomes |
 | Assess management; did management deliver?; capital allocation review | management-review | Promise-versus-delivery ledger, capital allocation, incentives and governance |
 | Has the thesis changed?; audit this research; is this name researchable? | research-review | Researchability grade, fact/price/wording drift, number audit and publication gate |
+| Challenge the Street's view; what is the consensus missing? | consensus-challenge | House-by-house thesis map, strongest consensus defense, source-backed weak links and falsifiers |
 | Who benefits/loses?; find candidates; bottleneck scan; screen this theme; idea funnel | idea-funnel | Causal chain, bottlenecks, traceable universe screen, ranked candidates and exclusions |
 | Catalysts this week; event calendar; what matters next? | event-radar | Sourced chronological event watchlist with confirmed/provisional timing |
 | Cross-market read-through; trace the exposure; transmission map | cross-market-map | Evidence-linked paths across sectors, securities, commodities and FX |

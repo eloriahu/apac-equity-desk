@@ -37,13 +37,15 @@ brief containing issuer/listing, as-of time, sourced facts, assumptions,
 conflicts, calculations and falsifiers. Treat this as an evidence handoff, not
 as a claim that the receiving plugin natively validates the pack version.
 
-## AI Toolbox idea and research-review packs
+## AI Toolbox idea, review and consensus packs
 
-AI Toolbox may also produce `idea_funnel/v1` and `research_review/v1`. Consume
+AI Toolbox may also produce `idea_funnel/v1`, `research_review/v1` and `consensus_challenge/v1`. Consume
 the schemas documented in `research-contracts.md`; do not import the toolbox,
 assume a checkout path or make it a required runtime dependency. Preserve the
 shared claim/source registry, `independence_group`, quality status, rejected
-candidates, incomplete comparisons and failed/unverifiable audit rows.
+candidates, incomplete comparisons, failed/unverifiable audit rows and consensus
+coverage limits. Broker reports are accessed only through user entitlements or
+lawful public summaries; never commit full proprietary research to fixtures.
 
 The toolbox owns deterministic screening, comparison and audit mechanics. This
 desk owns APAC interpretation, source-ranking review, routing and reader-facing

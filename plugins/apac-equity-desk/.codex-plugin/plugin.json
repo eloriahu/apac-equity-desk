@@ -1,7 +1,7 @@
 {
   "name": "apac-equity-desk",
-  "version": "1.4.0+codex.20260923013806",
-  "description": "Automatically routed APAC equity research, filing and expectations changes, ownership flows, ideas and functional agent workflows.",
+  "version": "1.5.0+codex.20260923021800",
+  "description": "Automatically routed APAC equity research, consensus challenges, filing and expectations changes, ownership flows and ideas.",
   "author": {
     "name": "APAC Equity Desk"
   },
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "APAC Equity Desk",
     "shortDescription": "Auto-routed APAC equity research and ideas.",
-    "longDescription": "Understands natural-language APAC equity questions, selecting the minimum useful market, fundamental, filing-change, expectations, ownership-flow, management, research-review or idea-discovery workflow; escalates to functional agent teams only when warranted.",
+    "longDescription": "Understands natural-language APAC equity questions, selecting the minimum useful market, fundamental, consensus-challenge, filing-change, expectations, ownership-flow, management, research-review or idea-discovery workflow; escalates to functional agent teams only when warranted.",
     "developerName": "APAC Equity Desk",
     "category": "Finance",
     "capabilities": [
@@ -36,7 +36,8 @@
       "Prepare today's Japan morning brief.",
       "Explain why CATL is moving and what it means for related APAC stocks.",
       "Find APAC beneficiaries of AI power bottlenecks.",
-      "What changed in TSMC's latest annual report and FY27 consensus?"
+      "What changed in TSMC's latest annual report and FY27 consensus?",
+      "Challenge the Street's common bull case on TSMC."
     ]
   }
 }

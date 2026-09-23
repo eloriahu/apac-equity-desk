@@ -149,6 +149,7 @@ router, not a keyword-matching runtime.
 - `Find AI power bottlenecks and APAC names` -> idea-funnel leads.
 - `Has my short thesis changed?` -> research-review only when the current task
   or explicit path supplies the baseline; otherwise ask for it.
+- `Challenge the Street's common bull case on TSMC` -> consensus-challenge leads; count independent major-house groups agreeing on the same mechanism, not just buy ratings. If the report universe is incomplete, say observed convergence rather than mainstream consensus.
 - `Quick earnings take` -> earnings-review, never a full team.
 - `What changed in TSMC's new annual report?` -> filing-change leads; verify important passages in the original documents.
 - `How did FY27 consensus change after results?` -> expectations-change leads; require two dated comparable snapshots and separate revisions from the share-price move.

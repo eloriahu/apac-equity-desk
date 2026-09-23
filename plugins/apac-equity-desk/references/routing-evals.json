@@ -122,6 +122,18 @@
       "forbidden_workflows": ["parallel-company-research"]
     },
     {
+      "id": "street-consensus-challenge",
+      "prompt": "Challenge the Street's common bull case on TSMC",
+      "primary_workflow": "consensus-challenge",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["research-review", "parallel-company-research"]
+    },
+    {
       "id": "ambiguous-ticker",
       "prompt": "ABC is up—why?",
       "primary_workflow": "market-color",

@@ -86,8 +86,8 @@ class AutomaticRoutingPolicyTests(unittest.TestCase):
         self.assertIn("automatically when available", self.routing)
 
     def test_machine_readable_route_acceptance_cases(self):
-        self.assertEqual(len(self.eval_cases), 11)
-        self.assertEqual(len({case["id"] for case in self.eval_cases}), 11)
+        self.assertEqual(len(self.eval_cases), 12)
+        self.assertEqual(len({case["id"] for case in self.eval_cases}), 12)
         by_id = {case["id"]: case for case in self.eval_cases}
         for case in self.eval_cases:
             self.assertIsInstance(case["primary_workflow"], str)
@@ -110,6 +110,7 @@ class AutomaticRoutingPolicyTests(unittest.TestCase):
         self.assertEqual(by_id["filing-delta"]["primary_workflow"], "filing-change")
         self.assertEqual(by_id["estimate-revision"]["primary_workflow"], "expectations-change")
         self.assertEqual(by_id["foreign-flow"]["primary_workflow"], "ownership-flow")
+        self.assertEqual(by_id["street-consensus-challenge"]["primary_workflow"], "consensus-challenge")
 
 
 class ResearchContractTests(unittest.TestCase):
@@ -122,6 +123,7 @@ class ResearchContractTests(unittest.TestCase):
         self.assertIn("research_review/v1", self.contracts)
         for schema in ("filing_change/v1", "expectations_bridge/v1", "ownership_flow/v1"):
             self.assertIn(schema, self.contracts)
+        self.assertIn("consensus_challenge/v1", self.contracts)
         self.assertIn("must not import", self.contracts)
         self.assertIn("independence_group", self.contracts)
 

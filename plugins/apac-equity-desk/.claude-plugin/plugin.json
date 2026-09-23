@@ -1,7 +1,7 @@
 {
   "name": "apac-equity-desk",
-  "version": "1.4.0",
-  "description": "Automatically routed APAC equity research, filing changes, expectations, ownership flows and idea discovery.",
+  "version": "1.5.0",
+  "description": "Automatically routed APAC equity research, consensus challenges, filing changes, expectations, ownership flows and ideas.",
   "author": {
     "name": "APAC Equity Desk"
   },

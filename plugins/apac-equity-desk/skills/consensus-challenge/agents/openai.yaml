@@ -1,0 +1,6 @@
+interface:
+  display_name: "APAC Consensus Challenge"
+  short_description: "Stress-test a mainstream sell-side thesis"
+  default_prompt: "Use $consensus-challenge to challenge the Street's shared thesis on this APAC stock."
+policy:
+  allow_implicit_invocation: true
