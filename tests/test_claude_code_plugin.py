@@ -23,7 +23,7 @@ class PluginPackagingTests(unittest.TestCase):
         claude = json.loads((PLUGIN / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
         marketplace = json.loads((ROOT / ".claude-plugin" / "marketplace.json").read_text(encoding="utf-8"))
         base = codex["version"].split("+", 1)[0]
-        self.assertEqual(base, "1.3.0")
+        self.assertEqual(base, "1.4.0")
         self.assertEqual(claude["version"], base)
         self.assertEqual(marketplace["version"], base)
         self.assertEqual(marketplace["plugins"][0]["version"], base)
@@ -38,7 +38,7 @@ class PluginPackagingTests(unittest.TestCase):
             "event-radar", "event-trade-ideas", "idea-funnel", "management-review",
             "market-color", "morning-brief", "parallel-company-research", "parallel-desk",
             "parallel-earnings", "research-review", "signal-ledger", "source-verifier",
-            "topic-radar",
+            "topic-radar", "filing-change", "expectations-change", "ownership-flow",
         }
         self.assertEqual(names, expected)
 
@@ -55,10 +55,13 @@ class PluginPackagingTests(unittest.TestCase):
         for name in (
             "company-quality", "idea-funnel", "management-review", "research-review",
             "parallel-company-research", "parallel-earnings",
+            "filing-change", "expectations-change", "ownership-flow",
         ):
             self.assertIn(name, router)
         self.assertIn("idea_funnel/v1", contracts)
         self.assertIn("research_review/v1", contracts)
+        for schema in ("filing_change/v1", "expectations_bridge/v1", "ownership_flow/v1"):
+            self.assertIn(schema, contracts)
 
         commands = {path.stem for path in (PLUGIN / "commands").glob("*.md")}
         self.assertTrue({
@@ -70,7 +73,7 @@ class PluginPackagingTests(unittest.TestCase):
         names = {
             "desk", "market-color", "company-quality", "idea-funnel",
             "management-review", "research-review", "parallel-company-research",
-            "parallel-earnings",
+            "parallel-earnings", "filing-change", "expectations-change", "ownership-flow",
         }
         for name in names:
             metadata = (PLUGIN / "skills" / name / "agents" / "openai.yaml").read_text(encoding="utf-8")

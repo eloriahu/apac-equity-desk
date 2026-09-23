@@ -1,0 +1,6 @@
+interface:
+  display_name: "APAC Ownership and Flow"
+  short_description: "Review holders and investor flows separately"
+  default_prompt: "Use $ownership-flow to review disclosed holders and investor trading flows."
+policy:
+  allow_implicit_invocation: true

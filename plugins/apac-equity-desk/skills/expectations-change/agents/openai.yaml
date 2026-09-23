@@ -1,0 +1,6 @@
+interface:
+  display_name: "APAC Expectations Change"
+  short_description: "Explain dated consensus and model revisions"
+  default_prompt: "Use $expectations-change to explain how this company's estimates changed."
+policy:
+  allow_implicit_invocation: true

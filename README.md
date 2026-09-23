@@ -42,8 +42,11 @@ The desk separates confirmed disclosures, plausible factors and unconfirmed chat
 | `Did management deliver on its targets?` | A dated promise-versus-delivery ledger, capital-allocation record and governance flags |
 | `Is the dividend durable?` | A sector-aware income review with coverage, balance-sheet and downside tests |
 | `Has the thesis actually changed?` | Fact-versus-price-versus-wording drift, researchability ceiling and critical-number audit |
+| `What changed in TSMC's new annual report?` | Page-linked filing differences, verified in the original documents and assessed for thesis relevance |
+| `How did FY27 consensus change after results?` | A like-for-like estimate bridge, with new/dropped coverage and price reaction kept separate |
+| `Are foreigners buying Samsung Electronics?` | Dated investor net trading by category; disclosed ownership is a separate question |
 
-Install `fundamental-tools` from [AI Toolbox](https://github.com/eloriahu/ai-toolbox) for the shared `fundamental_pack/v1` contract, official APAC filing adapters and transparent ratio/DCF calculations. The desk can still work from supplied filings or a manually assembled pack when the toolbox is absent.
+Install `fundamental-tools` from [AI Toolbox](https://github.com/eloriahu/ai-toolbox) for shared `fundamental_pack/v1`, `filing_change/v1`, `expectations_bridge/v1` and `ownership_flow/v1` contracts, optional Docling/pykrx adapters, Taiwan FinMind flow access and transparent ratio/DCF calculations. The desk can still work from supplied filings or manually assembled packs when the toolbox or a data entitlement is absent. Flows never substitute for beneficial-ownership disclosures.
 
 When Public Equity Investing is available, the router hands it full initiations, comps/DCF workbooks, three-statement models, model updates and equivalent investment artifacts automatically based on the requested deliverable; the user does not need to name the plugin. APAC Equity Desk supplies the verified regional evidence, conventions and note-writing layer. If the specialist is unavailable, the desk states the boundary and returns only the supported research pack.
 
@@ -78,7 +81,8 @@ Bloomberg export or screenshot / official filing / public source
                   AI Toolbox adapters and calculations
                               │
        market pack / fundamental_pack/v1 / idea_funnel/v1
-                         / research_review/v1
+       / research_review/v1 / filing_change/v1
+       / expectations_bridge/v1 / ownership_flow/v1
                               │
                         APAC Equity Desk
                 evidence ranking + APAC judgment + writing
@@ -245,6 +249,12 @@ All fixture names, numbers, events, URLs and dates are synthetic. They test form
 This repository does not package a brokerage connector. It must not submit, replace, cancel or stage orders; alter positions, alerts or watchlists; or publish/send a draft without explicit human approval at that moment.
 
 The output is research, not personalized financial advice. Provider access, exchange coverage, rate limits and redistribution rights remain subject to each provider's terms.
+
+## Release 1.4.0
+
+- Added automatic filing-change, expectations-change and ownership-flow routes.
+- Consumes three new AI Toolbox evidence bridges by schema, without importing its code.
+- Preserves the difference between changed filing text, consensus revisions, investor trading flows and disclosed beneficial ownership.
 
 ## Release 1.3.0
 

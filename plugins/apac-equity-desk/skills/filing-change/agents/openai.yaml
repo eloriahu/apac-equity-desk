@@ -1,0 +1,6 @@
+interface:
+  display_name: "APAC Filing Change"
+  short_description: "Review what changed between company filings"
+  default_prompt: "Use $filing-change to explain what changed in these APAC company filings."
+policy:
+  allow_implicit_invocation: true

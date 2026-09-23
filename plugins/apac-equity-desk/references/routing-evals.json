@@ -86,6 +86,42 @@
       "forbidden_workflows": ["parallel-company-research", "parallel-earnings"]
     },
     {
+      "id": "filing-delta",
+      "prompt": "What changed in TSMC's new annual report?",
+      "primary_workflow": "filing-change",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["parallel-company-research"]
+    },
+    {
+      "id": "estimate-revision",
+      "prompt": "How did FY27 consensus change after results?",
+      "primary_workflow": "expectations-change",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["parallel-company-research"]
+    },
+    {
+      "id": "foreign-flow",
+      "prompt": "Are foreigners buying Samsung Electronics?",
+      "primary_workflow": "ownership-flow",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["parallel-company-research"]
+    },
+    {
       "id": "ambiguous-ticker",
       "prompt": "ABC is up—why?",
       "primary_workflow": "market-color",

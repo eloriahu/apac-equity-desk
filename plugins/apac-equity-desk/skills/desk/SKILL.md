@@ -31,6 +31,9 @@ Select exactly one primary route and any justified sibling enrichers:
 - Event research ideas -> `../event-trade-ideas/SKILL.md`
 - Topic discovery / what is moving -> `../topic-radar/SKILL.md`
 - Earnings/results -> `../earnings-review/SKILL.md`
+- Compare two company filings or ask what is newly disclosed -> `../filing-change/SKILL.md`
+- Dated consensus/model revision or expectations drift -> `../expectations-change/SKILL.md`
+- Disclosed holders, foreign/institutional flow or positioning -> `../ownership-flow/SKILL.md`
 - Company fundamentals, valuation or model change -> `../company-fundamentals/SKILL.md`
 - Sector-aware company quality or dividend/income durability -> `../company-quality/SKILL.md`
 - Management quality, capital allocation or promise-versus-delivery -> `../management-review/SKILL.md`

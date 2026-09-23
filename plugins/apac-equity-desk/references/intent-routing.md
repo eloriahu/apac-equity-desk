@@ -150,6 +150,9 @@ router, not a keyword-matching runtime.
 - `Has my short thesis changed?` -> research-review only when the current task
   or explicit path supplies the baseline; otherwise ask for it.
 - `Quick earnings take` -> earnings-review, never a full team.
+- `What changed in TSMC's new annual report?` -> filing-change leads; verify important passages in the original documents.
+- `How did FY27 consensus change after results?` -> expectations-change leads; require two dated comparable snapshots and separate revisions from the share-price move.
+- `Are foreigners buying Samsung Electronics?` -> ownership-flow leads; investor net trading is not a change in beneficial ownership.
 - `Parallel deep dive on these five companies` -> parallel-company-research.
 - `Full initiation and DCF` -> Public Equity Investing owns the artifact
   automatically when available; AI Toolbox supplies calculations and the desk

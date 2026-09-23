@@ -72,6 +72,16 @@ is `pass`, `blocked` or `not_run`; a critical failed or unverifiable number used
 in a key conclusion blocks publication. `quality.status` is `ready`, `limited`
 or `blocked`.
 
+## Additional evidence bridges
+
+The desk also accepts three schema-only packs from AI Toolbox or an equivalent producer:
+
+- `filing_change/v1`: same-issuer/type, two dated official filings, stable section keys, page/source pointers, added/removed/changed status and analyst-review flags. Text similarity or a changed numeral never establishes materiality.
+- `expectations_bridge/v1`: same issuer, listing and provider; two offset-dated snapshots; rows matched on metric, fiscal period, basis, currency, unit and statistic. Preserve new/dropped rows and exact-decimal revisions. A revision is separate from actual-versus-consensus surprise and price reaction.
+- `ownership_flow/v1`: market/symbol, sourced dated investor-flow rows and separately sourced disclosed holdings. Each flow retains category, net, unit and source; each holding retains holder, stake, ownership type, effective date and filing source. Flow does not prove beneficial-owner change or price causation.
+
+An absent prior document/snapshot or missing source means the corresponding comparison is limited, not inferred. Optional Taiwan FinMind, Korea pykrx, Docling and disclosure-MCP access may be unavailable; never claim a connection without checking.
+
 ## Consumption rules
 
 - Each source has `id`, `origin` and `independence_group`; each claim has `id`,
