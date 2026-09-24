@@ -1,0 +1,6 @@
+interface:
+  display_name: "Deal Monitor"
+  short_description: "Update deal milestones, spreads and thesis changes"
+  default_prompt: "Use $deal-monitor to update this watchlist and explain material changes."
+policy:
+  allow_implicit_invocation: true

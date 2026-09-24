@@ -1,0 +1,24 @@
+{
+  "schema": "merger_arb/v1",
+  "deal_id": "SYNTHETIC-CASH",
+  "as_of": "2026-09-24T09:00:00+08:00",
+  "currency": "USD",
+  "structure": "cash",
+  "target_price": 98,
+  "cash": 100,
+  "exchange_ratio": 0,
+  "acquirer_price": 0,
+  "hedge_ratio": 0,
+  "capital_base": 98,
+  "financed_amount": 98,
+  "funding_rate": 0.04,
+  "borrow_rate": 0,
+  "rebate_rate": 0,
+  "transaction_cost": 0.10,
+  "notes": "Synthetic demonstration, not a live security. Probabilities are illustrative assumptions.",
+  "scenarios": [
+    {"name": "close", "outcome": "close", "days": 90, "probability": 0.8, "acquirer_exit": 0, "cash_adjustment": 0, "target_dividend": 0, "acquirer_dividend": 0, "additional_cost": 0},
+    {"name": "delayed close", "outcome": "close", "days": 180, "probability": 0.1, "acquirer_exit": 0, "cash_adjustment": 0, "target_dividend": 0, "acquirer_dividend": 0, "additional_cost": 0},
+    {"name": "break", "outcome": "break", "days": 90, "probability": 0.1, "target_exit": 80, "acquirer_exit": 0, "cash_adjustment": 0, "target_dividend": 0, "acquirer_dividend": 0, "additional_cost": 0}
+  ]
+}

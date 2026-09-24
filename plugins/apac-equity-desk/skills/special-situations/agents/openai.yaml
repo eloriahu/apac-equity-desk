@@ -1,0 +1,6 @@
+interface:
+  display_name: "Special Situations"
+  short_description: "Screen corporate events and test the mispricing"
+  default_prompt: "Use $special-situations to find sourced event-driven research candidates."
+policy:
+  allow_implicit_invocation: true

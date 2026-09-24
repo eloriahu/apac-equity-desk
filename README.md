@@ -2,7 +2,7 @@
 
 For minipanda's happy friends.
 
-APAC Equity Desk is a read-only research plugin for market colour, morning notes, country closes, earnings, company fundamentals, management review, idea discovery and cross-market work. Ask the question naturally: the desk selects the minimum useful workflows and only brings in an agent team when the work is genuinely broad, deep or explicitly parallel.
+APAC Equity Desk is a read-only research plugin for market colour, morning notes, country closes, earnings, company fundamentals, management review, merger arbitrage, special situations, idea discovery and cross-market work. Ask the question naturally: the desk selects the minimum useful workflows and only brings in an agent team when the work is genuinely broad, deep or explicitly parallel.
 
 The plugin supports Codex and Claude Code from the same skills, references and calculation helpers. Coverage includes North Asia, Australia/New Zealand, India and Southeast Asia when the required market data and sources are supplied or connected.
 
@@ -62,6 +62,32 @@ When Public Equity Investing is available, the router hands it full initiations,
 | `Update this thesis` | A visible strengthened, weakened, falsified or unchanged ledger entry |
 | `Check this` | An audit of citations, timestamps, units, contradictions and causal wording |
 | `Tighten this to 150 words` | A senior edit that keeps the evidence and uncertainty intact |
+
+### Research merger arbitrage and special situations
+
+| Ask | What comes back |
+| --- | --- |
+| `Analyze this HK privatization's spread and break downside` | Verified consideration, costed close/delay/break scenarios, conditions and next milestones |
+| `Screen announced APAC takeovers` | Sourced candidate shortlist with eligibility, downside, data gaps and exclusions |
+| `Find APAC spin-offs, tenders and rights situations` | Discrete corporate events, value mechanism, timing, implementation constraints and falsifiers |
+| `Update this deal watchlist` | Dated changes in terms, status, quotes, approvals, deadlines and thesis |
+| `Design an event-driven strategy` | Universe, event definitions, point-in-time data requirements, costs and risk framework |
+
+Use `$desk` or the focused `$merger-arb`, `$special-situations` and `$deal-monitor`
+skills. Claude Code has matching `/merger-arb`, `/special-situations` and
+`/deal-monitor` commands. These workflows are bundled in APAC Equity Desk; a
+separate Event Driven Desk installation is not needed.
+
+The offline calculator supports cash, fixed-ratio stock and mixed consideration,
+partial hedges, financing, borrow, rebates, dividends and fees. It distinguishes
+gross spread from costed P&L and analyst probabilities from a break-even threshold.
+See [calculation conventions](plugins/apac-equity-desk/references/event-driven/calculations.md).
+Collars, CVRs, floating ratios, FX and prorated tenders require explicit custom
+models. No live feed, background monitoring or backtested performance is supplied.
+Research watchlists are dated local artifacts; brokerage mutations remain out of scope.
+
+The [GitHub review](docs/event-driven-github-review.md) documents candidate skills
+and the formula issues identified before integrating this original calculator.
 
 ### Discover ideas from themes and bottlenecks
 
@@ -244,15 +270,22 @@ python plugins/apac-equity-desk/scripts/market_snapshot.py tests/fixtures/quotes
 python plugins/apac-equity-desk/scripts/render_market_color.py tests/fixtures/market_color_pack.json
 python plugins/apac-equity-desk/scripts/render_market_wrap.py tests/fixtures/market_wrap_pack.json
 python plugins/apac-equity-desk/scripts/session_clock.py --markets JP,HK,AU
+python plugins/apac-equity-desk/scripts/merger_arb.py plugins/apac-equity-desk/examples/event-driven/cash-deal.json
 ```
 
 All fixture names, numbers, events, URLs and dates are synthetic. They test formatting and controls, not market facts.
 
 ## Safety boundary
 
-This repository does not package a brokerage connector. It must not submit, replace, cancel or stage orders; alter positions, alerts or watchlists; or publish/send a draft without explicit human approval at that moment.
+This repository does not package a brokerage connector. It must not submit, replace, cancel or stage orders; alter brokerage positions, alerts or watchlists; or publish/send a research draft without explicit human approval at that moment. Local research watchlist snapshots are supported.
 
 The output is research, not personalized financial advice. Provider access, exchange coverage, rate limits and redistribution rights remain subject to each provider's terms.
+
+## Unreleased
+
+- Integrated merger arbitrage, special situations and deal monitoring into the existing desk router.
+- Added costed cash/fixed-ratio deal scenarios, synthetic examples and 15 offline calculator tests.
+- Preserved APAC scope, Bloomberg/OpenBB source policy, verification/editing and research draft controls.
 
 ## Release 1.5.0
 

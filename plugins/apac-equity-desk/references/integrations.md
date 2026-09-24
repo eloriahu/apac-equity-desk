@@ -52,6 +52,18 @@ desk owns APAC interpretation, source-ranking review, routing and reader-facing
 output. Agreement between separate agents or tools does not create independent
 evidence when the underlying sources share an independence group.
 
+## Bundled event-driven research
+
+Merger arbitrage, special situations and deal monitoring are native desk skills.
+They do not depend on the standalone Event Driven Desk plugin. The offline
+`scripts/merger_arb.py` helper consumes `merger_arb/v1` and emits
+`merger_arb_result/v1`; see `event-driven/calculations.md`. Research watchlist
+snapshots use `event_watchlist/v1` from `event-driven/output-contracts.md`.
+None is a live quote feed, broker integration or background scheduler.
+Keep Bloomberg/OpenBB field lineage and primary-source transaction terms under
+the same policy as the rest of this desk. Declared unsupported structures require
+an explicit payoff model rather than being forced into a fixed exchange ratio.
+
 ## Adding an adapter
 
 Keep credentials in environment variables or the provider's authenticated connector. Add a small read-only collector outside the core calculation helpers, normalize its output, and add fixture-based tests. Never add order-routing capabilities to this plugin.

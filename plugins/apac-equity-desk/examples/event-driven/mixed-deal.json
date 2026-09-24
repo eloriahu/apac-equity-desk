@@ -1,0 +1,23 @@
+{
+  "schema": "merger_arb/v1",
+  "deal_id": "SYNTHETIC-MIXED",
+  "as_of": "2026-09-24T09:00:00+08:00",
+  "currency": "USD",
+  "structure": "fixed_ratio_mixed",
+  "target_price": 68,
+  "cash": 20,
+  "exchange_ratio": 0.5,
+  "acquirer_price": 100,
+  "hedge_ratio": 0.5,
+  "capital_base": 90,
+  "financed_amount": 68,
+  "funding_rate": 0.04,
+  "borrow_rate": 0.02,
+  "rebate_rate": 0.01,
+  "transaction_cost": 0.10,
+  "notes": "Synthetic demonstration. Capital base is an explicit scenario assumption, not a broker margin quote.",
+  "scenarios": [
+    {"name": "close", "outcome": "close", "days": 90, "acquirer_exit": 80, "cash_adjustment": 0, "target_dividend": 0, "acquirer_dividend": 0, "additional_cost": 0},
+    {"name": "break", "outcome": "break", "days": 90, "target_exit": 45, "acquirer_exit": 110, "cash_adjustment": 0, "target_dividend": 0, "acquirer_dividend": 0, "additional_cost": 0}
+  ]
+}

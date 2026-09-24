@@ -1,6 +1,6 @@
 ---
 name: desk
-description: Automatically route short or composite APAC equity questions to the minimum useful research workflows and, only when warranted, a functional multi-agent team. Use for ordinary desk requests such as why a stock moved, company or management research, earnings, idea discovery, morning notes, wraps, catalysts, thesis updates, verification and editing.
+description: Automatically route short or composite APAC equity questions to the minimum useful research workflows and, only when warranted, a functional multi-agent team. Use for market moves, company research, earnings, idea discovery, merger arbitrage, special situations, deal updates, morning notes, wraps, catalysts, verification and editing.
 ---
 
 # APAC Desk
@@ -29,6 +29,9 @@ Select exactly one primary route and any justified sibling enrichers:
 - Stock/sector colour or why-it-moved -> `../market-color/SKILL.md`
 - Deeper catalyst work -> `../catalyst-analysis/SKILL.md`
 - Event research ideas -> `../event-trade-ideas/SKILL.md`
+- Announced takeover, privatization, tender terms or merger-arbitrage spread -> `../merger-arb/SKILL.md`
+- Event-driven strategy, announced-deal screen or special-situation candidates -> `../special-situations/SKILL.md`
+- Deal watchlist update, merger status or dated transaction comparison -> `../deal-monitor/SKILL.md`
 - Topic discovery / what is moving -> `../topic-radar/SKILL.md`
 - Earnings/results -> `../earnings-review/SKILL.md`
 - Compare two company filings or ask what is newly disclosed -> `../filing-change/SKILL.md`
@@ -53,6 +56,13 @@ Execute the selected workflow or lean composition. For research drafts, verifica
 included: read the source-verifier and desk-editor instructions and complete
 their passes in this task before returning the draft. Do not ask whether to
 perform those routine stages. A check-only or edit-only request stays narrow.
+
+For takeover news, route by the requested answer: why the stock moved remains
+market-color; deal economics and conditions use merger-arb; finding discrete
+corporate-event opportunities uses special-situations. Generic ideas from a
+policy or industry event remain event-trade-ideas, and a general catalyst calendar
+remains event-radar. These specialist routes are bundled here and do not require
+the separate Event Driven Desk plugin. Apply this desk's APAC scope and draft controls.
 
 For `XXX stock is up, why?`, use market-color as the lead. Its normal workflow
 already includes tape/relative move, company/news, regulation/policy,

@@ -144,6 +144,78 @@
       "clarification_count": 1,
       "hero_artifact_owner": "apac-equity-desk",
       "forbidden_workflows": ["idea-funnel", "parallel-desk", "parallel-company-research", "parallel-earnings"]
+    },
+    {
+      "id": "merger-spread",
+      "prompt": "Analyze this announced HK privatization: net spread, closing risks and break downside.",
+      "primary_workflow": "merger-arb",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["event-trade-ideas", "parallel-company-research"]
+    },
+    {
+      "id": "special-situation-screen",
+      "prompt": "Screen announced APAC takeovers and spin-offs for event-driven opportunities.",
+      "primary_workflow": "special-situations",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["idea-funnel", "parallel-desk"]
+    },
+    {
+      "id": "deal-watchlist-update",
+      "prompt": "Update this supplied deal watchlist and compare approvals, terms and spreads with its prior snapshot.",
+      "primary_workflow": "deal-monitor",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["signal-ledger", "parallel-desk"]
+    },
+    {
+      "id": "takeover-price-move",
+      "prompt": "This stock jumped on takeover news. Why did it move more than its peers?",
+      "primary_workflow": "market-color",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["special-situations", "parallel-company-research"]
+    },
+    {
+      "id": "policy-event-ideas",
+      "prompt": "Ideas from this verified APAC policy announcement, with catalysts and invalidation.",
+      "primary_workflow": "event-trade-ideas",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["merger-arb", "special-situations"]
+    },
+    {
+      "id": "general-event-calendar",
+      "prompt": "What APAC earnings and policy catalysts matter next week?",
+      "primary_workflow": "event-radar",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["deal-monitor", "merger-arb"]
     }
   ]
 }

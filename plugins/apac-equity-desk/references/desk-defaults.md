@@ -15,6 +15,9 @@ minimum sufficient workflow automatically; slash commands are optional.
 | CATL colour; why is CATL moving?; Taiwan lenses | market-color | Move versus peers, competing explanations, fundamental hook, mixed evidence, implications, watch |
 | Dig deeper; challenge the catalyst | catalyst-analysis | Evidence-ranked explanations, contradictions and invalidation |
 | Ideas from this; trade ideas on this event | event-trade-ideas | Up to three research scenarios with mechanism, horizon, confirmation and invalidation |
+| Analyze this takeover; merger spread; privatization terms; tender downside | merger-arb | Verified terms, costed close/delay/break scenarios, conditions and milestones |
+| Screen announced deals; find special situations; event-driven strategy | special-situations | Sourced APAC corporate-event candidates, eligibility, economics and falsifiers |
+| Update this deal watchlist; what changed in the merger? | deal-monitor | Dated terms/status/quote comparison and research-thesis changes |
 | What is moving?; sector radar; find me a topic; what should I write about? | topic-radar | Ranked observed sectors/themes, leaders, breadth, volume, gaps and research questions |
 | Earnings review; results colour; actual versus consensus | earnings-review | Verified result versus consensus, drivers, guidance and read-through |
 | Is this a quality company?; dividend durability; income screen | company-quality | Sector-aware quality or distribution durability with insufficient/not-applicable outcomes |
@@ -71,6 +74,13 @@ For morning, wrap, colour, catalyst analysis and composed research:
 For event-trade-ideas, verify the event and assess catalysts first, then create
 at most three researched scenarios and perform the same verification/editing
 passes. Zero supported ideas is an acceptable result.
+
+For merger-arb, special-situations and deal-monitor, use the event-driven
+references and `merger_arb/v1` calculation input where applicable. These deal
+inputs are not market-colour/earnings packs; do not feed them into pack-readiness
+or pack-delta under an unrelated schema. Verify terms, aligned quotes and costs,
+compare dated deal snapshots, then perform the same verification/editing passes.
+Research watchlist files are local artifacts, not brokerage watchlist mutations.
 
 For company-quality, management-review, research-review and idea-funnel, accept
 the matching AI Toolbox schema pack when available. Consume it by schema, not

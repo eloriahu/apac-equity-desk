@@ -87,6 +87,30 @@ explanation from downstream research scenarios.
 If evidence does not discriminate, preserve the unresolved outcome. Never add
 more workflows merely to manufacture certainty.
 
+## Event-driven requests
+
+APAC Equity Desk owns the bundled merger-arb, special-situations and deal-monitor
+workflows. Use the existing desk entrypoint; do not hand these requests to a
+separate Event Driven Desk installation or run a second router.
+
+- A specified announced takeover's spread, terms, consideration, contractual
+  hedge ratio, close conditions or break downside -> merger-arb.
+- Find/rank announced deals, spin-offs, tenders, rights or other discrete corporate
+  events; design an event-driven strategy -> special-situations.
+- Refresh a supplied/current-task deal watchlist or compare transaction snapshots
+  -> deal-monitor. If no prior snapshot exists, establish a baseline and disclose
+  that changes cannot yet be measured.
+- A takeover-driven stock move explanation -> market-color unless deal economics
+  are the central question. Add merger-arb only when needed to answer it.
+- General macro/policy event ideas -> event-trade-ideas; a broad upcoming calendar
+  -> event-radar; structural theme-to-company discovery -> idea-funnel.
+
+Contractual fixed-ratio hedge arithmetic and illustrative per-share P&L belong
+to deal research. Personalized portfolio hedge design or sizing still requires an
+explicit portfolio request and the integrations handoff. Ordinary deal analysis
+uses composed research in this task; apply the existing complexity threshold only
+when the requested scope warrants it. No broker mutations or implicit scheduling.
+
 ## Automatic agent threshold
 
 Use any agents only when one strong condition or two moderate conditions apply.
