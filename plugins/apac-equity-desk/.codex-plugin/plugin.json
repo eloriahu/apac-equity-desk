@@ -1,6 +1,6 @@
 {
   "name": "apac-equity-desk",
-  "version": "1.5.0+codex.20260924030922",
+  "version": "1.6.0+codex.20260924033404",
   "description": "Automatically routed APAC equity research, merger arbitrage, special situations, deal updates and idea discovery.",
   "author": {
     "name": "APAC Equity Desk"
@@ -33,7 +33,10 @@
       "Functional multi-agent research",
       "Analysis",
       "Drafting",
-      "Merger arbitrage and special situations"
+      "Merger arbitrage and special situations",
+      "Deal radar and document comparison",
+      "Probability and complex consideration models",
+      "Historical portfolio replay and local alerts"
     ],
     "defaultPrompt": [
       "Prepare today's Japan morning brief.",

@@ -93,6 +93,17 @@ APAC Equity Desk owns the bundled merger-arb, special-situations and deal-monito
 workflows. Use the existing desk entrypoint; do not hand these requests to a
 separate Event Driven Desk installation or run a second router.
 
+- Newly announced deals or transaction amendment feed -> deal-radar.
+- Deal document extraction or agreement/amendment comparison -> deal-documents.
+- Completion probability, break-value or timing sensitivity -> probability-sensitivity.
+- Collar, CVR, proration or FX consideration modeling -> deal-models.
+- Historical event strategy testing or portfolio replay -> historical-testing.
+- Local deal alert rules or material-change evaluation -> deal-alerts.
+
+These focused routes take precedence when their deliverable is explicit. Broad candidate
+ranking remains special-situations; a narrative watchlist refresh remains deal-monitor.
+No alert helper schedules runs or mutates brokerage accounts.
+
 - A specified announced takeover's spread, terms, consideration, contractual
   hedge ratio, close conditions or break downside -> merger-arb.
 - Find/rank announced deals, spin-offs, tenders, rights or other discrete corporate

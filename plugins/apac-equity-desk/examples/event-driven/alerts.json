@@ -1,0 +1,39 @@
+{
+  "schema": "deal_alerts/v1",
+  "as_of": "2026-09-24T09:00:00+08:00",
+  "previous": {
+    "deal_id": "SYNTHETIC-HK",
+    "as_of": "2026-09-23T09:00:00+08:00",
+    "status": "firm_offer",
+    "terms": {
+      "cash": 100,
+      "currency": "HKD"
+    },
+    "target_price": 98,
+    "consideration": 100,
+    "deadline": "2026-09-27T17:00:00+08:00"
+  },
+  "current": {
+    "deal_id": "SYNTHETIC-HK",
+    "as_of": "2026-09-24T09:00:00+08:00",
+    "status": "shareholder_approved",
+    "terms": {
+      "cash": 100,
+      "currency": "HKD"
+    },
+    "target_price": 96,
+    "consideration": 100,
+    "deadline": "2026-09-27T17:00:00+08:00"
+  },
+  "rules": {
+    "spread_widening_bps": 100,
+    "deadline_days": 7,
+    "stale_hours": 24
+  },
+  "state": {
+    "deal_id": "SYNTHETIC-HK",
+    "evaluated_at": null,
+    "active": [],
+    "seen_changes": []
+  }
+}

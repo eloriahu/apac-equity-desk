@@ -1,0 +1,6 @@
+interface:
+  display_name: "Deal Models"
+  short_description: "Collar, CVR, proration and FX consideration"
+  default_prompt: "Use $deal-models to model this deal collar, contingent payments and proration."
+policy:
+  allow_implicit_invocation: true

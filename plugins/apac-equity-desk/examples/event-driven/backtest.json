@@ -1,0 +1,119 @@
+{
+  "schema": "event_backtest/v1",
+  "currency": "HKD",
+  "initial_capital": 1000,
+  "cash_rate": 0,
+  "entry_cost_bps": 10,
+  "exit_cost_bps": 10,
+  "max_trade_fraction": 0.4,
+  "policy": {
+    "frozen_at": "2025-12-31T00:00:00+08:00",
+    "selection_rule": "Synthetic predeclared A, B and C; no outcome filter",
+    "sizing_rule": "Allocate 300 cash per eligible deal",
+    "benchmark": "Synthetic total-return index"
+  },
+  "coverage": {
+    "universe": "Synthetic demonstration only, not a historical market sample",
+    "source": "Synthetic fixed observations, including weekend dates to exercise calendar accrual",
+    "survivorship_limitations": "Three supplied deals cannot demonstrate universe completeness",
+    "excluded_deals": []
+  },
+  "splits": {
+    "train_end": "2026-01-03",
+    "validation_end": "2026-01-05"
+  },
+  "sessions": [
+    {
+      "date": "2026-01-02",
+      "benchmark": 100,
+      "marks": {
+        "SYNTHETIC-A": 100,
+        "SYNTHETIC-B": 100,
+        "SYNTHETIC-C": 100
+      }
+    },
+    {
+      "date": "2026-01-03",
+      "benchmark": 101,
+      "marks": {
+        "SYNTHETIC-A": 101,
+        "SYNTHETIC-B": 100,
+        "SYNTHETIC-C": 100
+      }
+    },
+    {
+      "date": "2026-01-04",
+      "benchmark": 102,
+      "marks": {
+        "SYNTHETIC-A": 95,
+        "SYNTHETIC-B": 98,
+        "SYNTHETIC-C": 100
+      }
+    },
+    {
+      "date": "2026-01-05",
+      "benchmark": 103,
+      "marks": {
+        "SYNTHETIC-A": 108,
+        "SYNTHETIC-B": 94,
+        "SYNTHETIC-C": 100
+      }
+    },
+    {
+      "date": "2026-01-06",
+      "benchmark": 104,
+      "marks": {
+        "SYNTHETIC-A": 110,
+        "SYNTHETIC-B": 90,
+        "SYNTHETIC-C": 100
+      }
+    },
+    {
+      "date": "2026-01-07",
+      "benchmark": 105,
+      "marks": {
+        "SYNTHETIC-A": 110,
+        "SYNTHETIC-B": 80,
+        "SYNTHETIC-C": 100
+      }
+    }
+  ],
+  "trades": [
+    {
+      "deal_id": "SYNTHETIC-A",
+      "source_url": "https://example.invalid/SYNTHETIC-A",
+      "source_at": "2026-01-01T08:00:00+08:00",
+      "signal_at": "2026-01-01T09:00:00+08:00",
+      "entry_at": "2026-01-02T16:00:00+08:00",
+      "entry_price": 100,
+      "exit_date": "2026-01-06",
+      "exit_price": 110,
+      "outcome": "completed",
+      "allocation": 300
+    },
+    {
+      "deal_id": "SYNTHETIC-B",
+      "source_url": "https://example.invalid/SYNTHETIC-B",
+      "source_at": "2026-01-01T08:00:00+08:00",
+      "signal_at": "2026-01-01T09:00:00+08:00",
+      "entry_at": "2026-01-03T16:00:00+08:00",
+      "entry_price": 100,
+      "exit_date": "2026-01-07",
+      "exit_price": 80,
+      "outcome": "failed",
+      "allocation": 300
+    },
+    {
+      "deal_id": "SYNTHETIC-C",
+      "source_url": "https://example.invalid/SYNTHETIC-C",
+      "source_at": "2026-01-01T08:00:00+08:00",
+      "signal_at": "2026-01-01T09:00:00+08:00",
+      "entry_at": "2026-01-04T16:00:00+08:00",
+      "entry_price": 100,
+      "exit_date": null,
+      "exit_price": null,
+      "outcome": "unresolved",
+      "allocation": 300
+    }
+  ]
+}

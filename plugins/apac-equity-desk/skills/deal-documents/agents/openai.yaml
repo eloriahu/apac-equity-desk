@@ -1,0 +1,6 @@
+interface:
+  display_name: "Deal Documents"
+  short_description: "Cited deal terms and amendment comparisons"
+  default_prompt: "Use $deal-documents to compare these deal documents and explain changed terms."
+policy:
+  allow_implicit_invocation: true

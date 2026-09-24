@@ -29,3 +29,7 @@ an available automation tool for the requested cadence and scope. A skill or JSO
 file is not a scheduler. If unavailable, report a manual baseline. Notify on material
 changes, completion, failure or required action; stay quiet on unchanged runs unless
 periodic reports were requested. A one-off update does not authorize a recurring job.
+
+For explicit threshold rules, use the bundled deal-alerts workflow and persist
+its duplicate-suppression state alongside the dated research snapshot. This
+evaluates local research alerts; it does not create brokerage alerts or deliver messages.

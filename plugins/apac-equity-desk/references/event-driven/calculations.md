@@ -65,9 +65,12 @@ It is not a true completion probability. Out-of-range results remain visible, no
 clipped. When both payoffs are equal the threshold is undefined. Losses below -100%
 of supplied K make compounded annualization undefined and are left null.
 
-Unsupported: collars, floating ratios, elections/proration, CVRs, FX risk, options,
-dynamic hedges, path-dependent financing and automatic sizing. Build explicit
-payoff/cash-flow models for these; do not relabel them as supported structures.
+Unsupported by `merger_arb.py`: collars, floating ratios, elections/proration,
+CVRs, FX risk, options, dynamic hedges, path-dependent financing and automatic sizing.
+The separate [deal-models helper](toolkit.md) values supported fixed-value collars,
+CVRs, proration and scenario FX as discounted consideration components. It does
+not turn those structures into fixed-ratio hedged P&L. Other structures require
+an explicitly reviewed extension.
 
 The calculator returns a structured research draft. It does not use the market
 colour/earnings pack-readiness schema. Assess deal-term and quote freshness before

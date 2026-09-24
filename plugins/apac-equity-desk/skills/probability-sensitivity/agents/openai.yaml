@@ -1,0 +1,6 @@
+interface:
+  display_name: "Probability Sensitivity"
+  short_description: "Probability, downside and timing sensitivity"
+  default_prompt: "Use $probability-sensitivity to stress this deal across close probability, break price and timing."
+policy:
+  allow_implicit_invocation: true

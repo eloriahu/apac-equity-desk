@@ -72,6 +72,12 @@ When Public Equity Investing is available, the router hands it full initiations,
 | `Find APAC spin-offs, tenders and rights situations` | Discrete corporate events, value mechanism, timing, implementation constraints and falsifiers |
 | `Update this deal watchlist` | Dated changes in terms, status, quotes, approvals, deadlines and thesis |
 | `Design an event-driven strategy` | Universe, event definitions, point-in-time data requirements, costs and risk framework |
+| `Run the APAC deal radar for new announcements` | Dated primary-source candidates, amendments, duplicate filtering and explicit coverage gaps |
+| `Compare this scheme document with the amended offer` | Cited term changes, unknowns and implications; omissions are not assumed to repeal terms |
+| `Stress close probability, break price and timing` | Costed EV grids and break-even thresholds with declared assumptions |
+| `Model this collar, CVR and partial tender` | Component payoffs and discounted scenario values, including explicit FX assumptions |
+| `Backtest this historical deal sample` | Portfolio NAV, locked capital, costs, benchmark/drawdown and failed/unresolved deal coverage |
+| `Evaluate alerts for this deal watchlist` | Material-change and threshold events with persisted duplicate suppression |
 
 Use `$desk` or the focused `$merger-arb`, `$special-situations` and `$deal-monitor`
 skills. Claude Code has matching `/merger-arb`, `/special-situations` and
@@ -82,9 +88,19 @@ The offline calculator supports cash, fixed-ratio stock and mixed consideration,
 partial hedges, financing, borrow, rebates, dividends and fees. It distinguishes
 gross spread from costed P&L and analyst probabilities from a break-even threshold.
 See [calculation conventions](plugins/apac-equity-desk/references/event-driven/calculations.md).
-Collars, CVRs, floating ratios, FX and prorated tenders require explicit custom
-models. No live feed, background monitoring or backtested performance is supplied.
-Research watchlists are dated local artifacts; brokerage mutations remain out of scope.
+The new toolkit adds `deal-radar`, `deal-documents`, `probability-sensitivity`,
+`deal-models`, `historical-testing` and `deal-alerts`, with matching slash commands.
+See the [toolkit guide and runnable examples](plugins/apac-equity-desk/references/event-driven/toolkit.md).
+Supported complex models cover fixed-value collars, CVRs, explicit FX and tender
+proration. Their output is consideration NPV; fixed-ratio trading P&L remains a
+separate calculation.
+
+Radar uses sources actually searched or supplied; no complete live APAC deal feed
+is bundled. Historical testing is a fully funded long-only replay of supplied
+decisions, with point-in-time checks, rather than a stock-hedged strategy simulator.
+Alert rules evaluate local snapshots; ongoing monitoring requires a configured
+data source, cadence and host automation. No historical performance claim or active
+monitor is created by installing the plugin. Research watchlists remain local artifacts.
 
 The [GitHub review](docs/event-driven-github-review.md) documents candidate skills
 and the formula issues identified before integrating this original calculator.
@@ -271,6 +287,9 @@ python plugins/apac-equity-desk/scripts/render_market_color.py tests/fixtures/ma
 python plugins/apac-equity-desk/scripts/render_market_wrap.py tests/fixtures/market_wrap_pack.json
 python plugins/apac-equity-desk/scripts/session_clock.py --markets JP,HK,AU
 python plugins/apac-equity-desk/scripts/merger_arb.py plugins/apac-equity-desk/examples/event-driven/cash-deal.json
+python plugins/apac-equity-desk/scripts/event_tools.py sensitivity plugins/apac-equity-desk/examples/event-driven/sensitivity.json
+python plugins/apac-equity-desk/scripts/event_backtest.py backtest plugins/apac-equity-desk/examples/event-driven/backtest.json
+python plugins/apac-equity-desk/scripts/event_tools.py alerts plugins/apac-equity-desk/examples/event-driven/alerts.json
 ```
 
 All fixture names, numbers, events, URLs and dates are synthetic. They test formatting and controls, not market facts.
@@ -281,11 +300,18 @@ This repository does not package a brokerage connector. It must not submit, repl
 
 The output is research, not personalized financial advice. Provider access, exchange coverage, rate limits and redistribution rights remain subject to each provider's terms.
 
-## Unreleased
+## Release 1.6.0
 
 - Integrated merger arbitrage, special situations and deal monitoring into the existing desk router.
 - Added costed cash/fixed-ratio deal scenarios, synthetic examples and 15 offline calculator tests.
 - Preserved APAC scope, Bloomberg/OpenBB source policy, verification/editing and research draft controls.
+- Added six focused workflows: deal radar, deal documents, probability sensitivity,
+  complex consideration models, historical portfolio replay and local alerts.
+- Added seven synthetic toolkit examples and offline checks for source timing,
+  contract math, capital constraints, failed/unresolved deals and alert state.
+- Aligned Codex, Claude Code and Python package release metadata.
+
+See [release notes](docs/releases/1.6.0.md) for capabilities and current boundaries.
 
 ## Release 1.5.0
 

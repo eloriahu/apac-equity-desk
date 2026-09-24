@@ -45,3 +45,8 @@ explicit portfolio sizing or hedge-design requests, follow the desk handoff
 in `../../references/integrations.md`; provide the verified scenario evidence.
 Contractual exchange-ratio arithmetic is deal research, not personalized hedge
 advice. Do not use generic Kelly outputs as NAV allocations.
+
+Focused support is bundled: deal-documents for cited term extraction/comparison,
+probability-sensitivity for explicit two-state grids and deal-models for supported
+complex consideration components. Read the toolkit guide before using these
+helpers; keep consideration NPV distinct from the fixed-ratio trading P&L above.

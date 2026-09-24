@@ -23,3 +23,8 @@ preserve old versions. This is an output convention, not a live database. The
 calculator uses its own smaller `merger_arb/v1` input, not the watchlist format.
 Updates: field | previous | current | source | implication.
 Calendar: deal | milestone | date/window | timezone | certainty | source.
+
+The focused executable workflows consume the smaller versioned schemas in
+[toolkit contracts](toolkit.md). Normalize a watchlist into the required input
+explicitly; do not pass event_watchlist/v1 directly to those calculators or drop
+its source evidence. Every result retains its input and content fingerprint.

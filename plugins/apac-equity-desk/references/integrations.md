@@ -59,6 +59,9 @@ They do not depend on the standalone Event Driven Desk plugin. The offline
 `scripts/merger_arb.py` helper consumes `merger_arb/v1` and emits
 `merger_arb_result/v1`; see `event-driven/calculations.md`. Research watchlist
 snapshots use `event_watchlist/v1` from `event-driven/output-contracts.md`.
+The six focused radar, document, sensitivity, consideration-model, historical-test
+and alert workflows use `scripts/event_tools.py` and `scripts/event_backtest.py`.
+See [toolkit contracts](event-driven/toolkit.md) for their explicit inputs and examples.
 None is a live quote feed, broker integration or background scheduler.
 Keep Bloomberg/OpenBB field lineage and primary-source transaction terms under
 the same policy as the rest of this desk. Declared unsupported structures require

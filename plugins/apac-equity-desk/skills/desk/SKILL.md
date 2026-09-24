@@ -32,6 +32,12 @@ Select exactly one primary route and any justified sibling enrichers:
 - Announced takeover, privatization, tender terms or merger-arbitrage spread -> `../merger-arb/SKILL.md`
 - Event-driven strategy, announced-deal screen or special-situation candidates -> `../special-situations/SKILL.md`
 - Deal watchlist update, merger status or dated transaction comparison -> `../deal-monitor/SKILL.md`
+- Newly announced deals or transaction amendment feed -> `../deal-radar/SKILL.md`
+- Deal document extraction or agreement/amendment comparison -> `../deal-documents/SKILL.md`
+- Completion probability, break-value or timing sensitivity -> `../probability-sensitivity/SKILL.md`
+- Collar, CVR, proration or FX consideration modeling -> `../deal-models/SKILL.md`
+- Historical event strategy testing or portfolio replay -> `../historical-testing/SKILL.md`
+- Local deal alert rules or material-change evaluation -> `../deal-alerts/SKILL.md`
 - Topic discovery / what is moving -> `../topic-radar/SKILL.md`
 - Earnings/results -> `../earnings-review/SKILL.md`
 - Compare two company filings or ask what is newly disclosed -> `../filing-change/SKILL.md`

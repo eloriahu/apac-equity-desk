@@ -16,6 +16,12 @@ minimum sufficient workflow automatically; slash commands are optional.
 | Dig deeper; challenge the catalyst | catalyst-analysis | Evidence-ranked explanations, contradictions and invalidation |
 | Ideas from this; trade ideas on this event | event-trade-ideas | Up to three research scenarios with mechanism, horizon, confirmation and invalidation |
 | Analyze this takeover; merger spread; privatization terms; tender downside | merger-arb | Verified terms, costed close/delay/break scenarios, conditions and milestones |
+| Newly announced deals or transaction amendment feed | deal-radar | See event-driven/toolkit.md for evidence and executable inputs |
+| Deal document extraction or agreement/amendment comparison | deal-documents | See event-driven/toolkit.md for evidence and executable inputs |
+| Completion probability, break-value or timing sensitivity | probability-sensitivity | See event-driven/toolkit.md for evidence and executable inputs |
+| Collar, CVR, proration or FX consideration modeling | deal-models | See event-driven/toolkit.md for evidence and executable inputs |
+| Historical event strategy testing or portfolio replay | historical-testing | See event-driven/toolkit.md for evidence and executable inputs |
+| Local deal alert rules or material-change evaluation | deal-alerts | See event-driven/toolkit.md for evidence and executable inputs |
 | Screen announced deals; find special situations; event-driven strategy | special-situations | Sourced APAC corporate-event candidates, eligibility, economics and falsifiers |
 | Update this deal watchlist; what changed in the merger? | deal-monitor | Dated terms/status/quote comparison and research-thesis changes |
 | What is moving?; sector radar; find me a topic; what should I write about? | topic-radar | Ranked observed sectors/themes, leaders, breadth, volume, gaps and research questions |
