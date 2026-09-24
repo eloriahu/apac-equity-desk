@@ -1,0 +1,6 @@
+interface:
+  display_name: "Deal Radar"
+  short_description: "New deal announcements and amendment coverage"
+  default_prompt: "Use $deal-radar to find newly announced APAC deals and material amendments."
+policy:
+  allow_implicit_invocation: true

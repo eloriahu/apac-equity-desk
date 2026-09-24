@@ -1,12 +1,21 @@
 {
   "name": "apac-equity-desk",
-  "version": "1.5.0",
-  "description": "Automatically routed APAC equity research, consensus challenges, filing changes, expectations, ownership flows and ideas.",
+  "version": "1.6.0",
+  "description": "Automatically routed APAC equity research, merger arbitrage, special situations, deal updates and idea discovery.",
   "author": {
     "name": "APAC Equity Desk"
   },
   "license": "MIT",
   "repository": "https://github.com/eloriahu/apac-equity-desk",
   "homepage": "https://github.com/eloriahu/apac-equity-desk#readme",
-  "keywords": ["apac", "equities", "fundamentals", "ideas", "multi-agent", "research"]
+  "keywords": [
+    "apac",
+    "equities",
+    "fundamentals",
+    "ideas",
+    "multi-agent",
+    "research",
+    "event-driven",
+    "merger-arbitrage"
+  ]
 }

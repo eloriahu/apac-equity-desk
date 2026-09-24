@@ -1,0 +1,6 @@
+interface:
+  display_name: "Deal Alerts"
+  short_description: "Local material-change rules and deduplication"
+  default_prompt: "Use $deal-alerts to evaluate these deal snapshots against material-change alert rules."
+policy:
+  allow_implicit_invocation: true

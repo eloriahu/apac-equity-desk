@@ -86,8 +86,8 @@ class AutomaticRoutingPolicyTests(unittest.TestCase):
         self.assertIn("automatically when available", self.routing)
 
     def test_machine_readable_route_acceptance_cases(self):
-        self.assertEqual(len(self.eval_cases), 12)
-        self.assertEqual(len({case["id"] for case in self.eval_cases}), 12)
+        self.assertEqual(len(self.eval_cases), 24)
+        self.assertEqual(len({case["id"] for case in self.eval_cases}), 24)
         by_id = {case["id"]: case for case in self.eval_cases}
         for case in self.eval_cases:
             self.assertIsInstance(case["primary_workflow"], str)
@@ -111,6 +111,16 @@ class AutomaticRoutingPolicyTests(unittest.TestCase):
         self.assertEqual(by_id["estimate-revision"]["primary_workflow"], "expectations-change")
         self.assertEqual(by_id["foreign-flow"]["primary_workflow"], "ownership-flow")
         self.assertEqual(by_id["street-consensus-challenge"]["primary_workflow"], "consensus-challenge")
+        for identity, primary in {
+            "merger-spread": "merger-arb",
+            "special-situation-screen": "special-situations",
+            "deal-watchlist-update": "deal-monitor",
+            "takeover-price-move": "market-color",
+            "policy-event-ideas": "event-trade-ideas",
+            "general-event-calendar": "event-radar",
+        }.items():
+            self.assertEqual(by_id[identity]["primary_workflow"], primary)
+            self.assertTrue((PLUGIN / "skills" / primary / "SKILL.md").is_file())
 
 
 class ResearchContractTests(unittest.TestCase):

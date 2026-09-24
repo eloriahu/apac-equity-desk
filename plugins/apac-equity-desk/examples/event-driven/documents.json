@@ -1,0 +1,51 @@
+{
+  "schema": "deal_documents/v1",
+  "deal_id": "SYNTHETIC-HK",
+  "before": {
+    "document_id": "SYNTHETIC-original",
+    "source_url": "https://example.invalid/agreement",
+    "published_at": "2026-09-22T09:00:00+08:00",
+    "terms": {
+      "cash": {
+        "value": {
+          "amount": 100,
+          "currency": "HKD",
+          "per": "ordinary share"
+        },
+        "status": "known",
+        "locator": "section 2.1"
+      },
+      "long_stop": {
+        "value": "2026-12-31",
+        "status": "known",
+        "locator": "section 8.1"
+      },
+      "financing": {
+        "value": null,
+        "status": "unknown",
+        "locator": "not disclosed in supplied extract"
+      }
+    }
+  },
+  "after": {
+    "document_id": "SYNTHETIC-amendment",
+    "source_url": "https://example.invalid/amendment",
+    "published_at": "2026-09-23T09:00:00+08:00",
+    "terms": {
+      "cash": {
+        "value": {
+          "amount": 102,
+          "currency": "HKD",
+          "per": "ordinary share"
+        },
+        "status": "known",
+        "locator": "amendment section 1"
+      },
+      "financing": {
+        "value": null,
+        "status": "unknown",
+        "locator": "not disclosed in supplied extract"
+      }
+    }
+  }
+}

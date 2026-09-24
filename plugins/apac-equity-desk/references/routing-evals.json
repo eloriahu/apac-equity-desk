@@ -5,25 +5,43 @@
       "id": "one-stock-move",
       "prompt": "TSMC is up 6% today, why?",
       "primary_workflow": "market-color",
-      "required_enrichers": ["source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["idea-funnel", "company-fundamentals", "parallel-desk", "parallel-company-research", "parallel-earnings"]
+      "forbidden_workflows": [
+        "idea-funnel",
+        "company-fundamentals",
+        "parallel-desk",
+        "parallel-company-research",
+        "parallel-earnings"
+      ]
     },
     {
       "id": "move-to-beneficiaries",
-      "prompt": "CATL is up—who benefits?",
+      "prompt": "CATL is up\u2014who benefits?",
       "primary_workflow": "market-color",
-      "required_enrichers": ["cross-market-map", "idea-funnel", "source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "cross-market-map",
+        "idea-funnel",
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["parallel-desk", "parallel-company-research", "parallel-earnings"]
+      "forbidden_workflows": [
+        "parallel-desk",
+        "parallel-company-research",
+        "parallel-earnings"
+      ]
     },
     {
       "id": "thesis-without-baseline",
@@ -35,43 +53,66 @@
       "action": "clarify",
       "clarification_count": 1,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["signal-ledger", "parallel-company-research"]
+      "forbidden_workflows": [
+        "signal-ledger",
+        "parallel-company-research"
+      ]
     },
     {
       "id": "bottleneck-discovery",
       "prompt": "AI power bottlenecks and listed beneficiaries",
       "primary_workflow": "idea-funnel",
-      "required_enrichers": ["cross-market-map", "source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "cross-market-map",
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["parallel-desk", "parallel-company-research", "parallel-earnings"]
+      "forbidden_workflows": [
+        "parallel-desk",
+        "parallel-company-research",
+        "parallel-earnings"
+      ]
     },
     {
       "id": "full-initiation-dcf",
       "prompt": "Full initiation and DCF",
       "primary_workflow": "public-equity-investing",
-      "required_enrichers": ["company-fundamentals", "fundamental-research"],
+      "required_enrichers": [
+        "company-fundamentals",
+        "fundamental-research"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "handoff",
       "clarification_count": 0,
       "hero_artifact_owner": "public-equity-investing",
-      "forbidden_workflows": ["parallel-company-research"]
+      "forbidden_workflows": [
+        "parallel-company-research"
+      ]
     },
     {
       "id": "quick-earnings",
       "prompt": "Quick answer only: review these earnings",
       "primary_workflow": "earnings-review",
-      "required_enrichers": ["source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["parallel-desk", "parallel-company-research", "parallel-earnings"]
+      "forbidden_workflows": [
+        "parallel-desk",
+        "parallel-company-research",
+        "parallel-earnings"
+      ]
     },
     {
       "id": "explicit-full-team",
@@ -83,59 +124,83 @@
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["parallel-company-research", "parallel-earnings"]
+      "forbidden_workflows": [
+        "parallel-company-research",
+        "parallel-earnings"
+      ]
     },
     {
       "id": "filing-delta",
       "prompt": "What changed in TSMC's new annual report?",
       "primary_workflow": "filing-change",
-      "required_enrichers": ["source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["parallel-company-research"]
+      "forbidden_workflows": [
+        "parallel-company-research"
+      ]
     },
     {
       "id": "estimate-revision",
       "prompt": "How did FY27 consensus change after results?",
       "primary_workflow": "expectations-change",
-      "required_enrichers": ["source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["parallel-company-research"]
+      "forbidden_workflows": [
+        "parallel-company-research"
+      ]
     },
     {
       "id": "foreign-flow",
       "prompt": "Are foreigners buying Samsung Electronics?",
       "primary_workflow": "ownership-flow",
-      "required_enrichers": ["source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["parallel-company-research"]
+      "forbidden_workflows": [
+        "parallel-company-research"
+      ]
     },
     {
       "id": "street-consensus-challenge",
       "prompt": "Challenge the Street's common bull case on TSMC",
       "primary_workflow": "consensus-challenge",
-      "required_enrichers": ["source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["research-review", "parallel-company-research"]
+      "forbidden_workflows": [
+        "research-review",
+        "parallel-company-research"
+      ]
     },
     {
       "id": "ambiguous-ticker",
-      "prompt": "ABC is up—why?",
+      "prompt": "ABC is up\u2014why?",
       "primary_workflow": "market-color",
       "required_enrichers": [],
       "execution_mode": "single",
@@ -143,7 +208,222 @@
       "action": "clarify",
       "clarification_count": 1,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["idea-funnel", "parallel-desk", "parallel-company-research", "parallel-earnings"]
+      "forbidden_workflows": [
+        "idea-funnel",
+        "parallel-desk",
+        "parallel-company-research",
+        "parallel-earnings"
+      ]
+    },
+    {
+      "id": "merger-spread",
+      "prompt": "Analyze this announced HK privatization: net spread, closing risks and break downside.",
+      "primary_workflow": "merger-arb",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "event-trade-ideas",
+        "parallel-company-research"
+      ]
+    },
+    {
+      "id": "special-situation-screen",
+      "prompt": "Screen announced APAC takeovers and spin-offs for event-driven opportunities.",
+      "primary_workflow": "special-situations",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "idea-funnel",
+        "parallel-desk"
+      ]
+    },
+    {
+      "id": "deal-watchlist-update",
+      "prompt": "Update this supplied deal watchlist and compare approvals, terms and spreads with its prior snapshot.",
+      "primary_workflow": "deal-monitor",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "signal-ledger",
+        "parallel-desk"
+      ]
+    },
+    {
+      "id": "takeover-price-move",
+      "prompt": "This stock jumped on takeover news. Why did it move more than its peers?",
+      "primary_workflow": "market-color",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "special-situations",
+        "parallel-company-research"
+      ]
+    },
+    {
+      "id": "policy-event-ideas",
+      "prompt": "Ideas from this verified APAC policy announcement, with catalysts and invalidation.",
+      "primary_workflow": "event-trade-ideas",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "merger-arb",
+        "special-situations"
+      ]
+    },
+    {
+      "id": "general-event-calendar",
+      "prompt": "What APAC earnings and policy catalysts matter next week?",
+      "primary_workflow": "event-radar",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "deal-monitor",
+        "merger-arb"
+      ]
+    },
+    {
+      "id": "deal-radar-focused",
+      "prompt": "Find newly announced APAC deals and material amendments.",
+      "primary_workflow": "deal-radar",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "parallel-desk"
+      ]
+    },
+    {
+      "id": "deal-documents-focused",
+      "prompt": "Compare these deal documents and explain changed terms.",
+      "primary_workflow": "deal-documents",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "parallel-desk"
+      ]
+    },
+    {
+      "id": "probability-sensitivity-focused",
+      "prompt": "Stress this deal across close probability, break price and timing.",
+      "primary_workflow": "probability-sensitivity",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "parallel-desk"
+      ]
+    },
+    {
+      "id": "deal-models-focused",
+      "prompt": "Model this deal collar, contingent payments and proration.",
+      "primary_workflow": "deal-models",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "parallel-desk"
+      ]
+    },
+    {
+      "id": "historical-testing-focused",
+      "prompt": "Replay this event-driven sample with costs and point-in-time checks.",
+      "primary_workflow": "historical-testing",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "parallel-desk"
+      ]
+    },
+    {
+      "id": "deal-alerts-focused",
+      "prompt": "Evaluate these deal snapshots against material-change alert rules.",
+      "primary_workflow": "deal-alerts",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "parallel-desk"
+      ]
     }
   ]
 }

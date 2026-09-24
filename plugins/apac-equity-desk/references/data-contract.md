@@ -2,6 +2,18 @@
 
 Calculation helpers accept UTF-8 JSON arrays (or CSV where noted) and emit JSON to stdout unless `--output` is supplied. Draft renderers accept JSON objects and emit Markdown. Unknown fields are preserved where practical in calculation helpers; narrative renderers output only their documented fields. Numbers may be JSON numbers or numeric strings; blanks become null.
 
+## Event-driven inputs and snapshots
+
+The strict `merger_arb/v1` calculator contract uses JSON numbers, requires explicit
+costs and rejects unsupported fields/structures. Unlike the generic helpers above,
+it does not coerce numeric strings or treat blanks as null. See
+[calculation conventions](event-driven/calculations.md) for all fields and units.
+`merger_arb_result/v1` preserves input assumptions and returns per-share scenario
+P&L, capital-based returns and explicit limitations with draft status.
+`event_watchlist/v1` is a dated research-output convention documented in
+[snapshot formats](event-driven/output-contracts.md); no live database or broker
+watchlist is implied. Do not run these schemas through market pack-readiness.
+
 ## Fundamental pack
 
 Company-fundamental workflows accept `fundamental_pack/v1` with `schema`, `schemaVersion: 1`, offset `as_of`, `entity`, nonempty `sources`, `financials.periods`, `metrics`, `valuation`, `expectations`, `thesis` and `quality`.

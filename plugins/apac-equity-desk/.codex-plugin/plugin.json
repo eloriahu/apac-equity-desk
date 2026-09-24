@@ -1,7 +1,7 @@
 {
   "name": "apac-equity-desk",
-  "version": "1.5.0+codex.20260923021800",
-  "description": "Automatically routed APAC equity research, consensus challenges, filing and expectations changes, ownership flows and ideas.",
+  "version": "1.6.0+codex.20260924033404",
+  "description": "Automatically routed APAC equity research, merger arbitrage, special situations, deal updates and idea discovery.",
   "author": {
     "name": "APAC Equity Desk"
   },
@@ -15,13 +15,15 @@
     "valuation",
     "idea-generation",
     "multi-agent",
-    "research"
+    "research",
+    "event-driven",
+    "merger-arbitrage"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "APAC Equity Desk",
-    "shortDescription": "Auto-routed APAC equity research and ideas.",
-    "longDescription": "Understands natural-language APAC equity questions, selecting the minimum useful market, fundamental, consensus-challenge, filing-change, expectations, ownership-flow, management, research-review or idea-discovery workflow; escalates to functional agent teams only when warranted.",
+    "shortDescription": "APAC equity, event-driven and merger-arbitrage research.",
+    "longDescription": "Routes natural-language APAC questions to market, fundamental, event-driven, merger-arbitrage, special-situation, deal-monitoring and idea-discovery workflows with source verification and desk editing.",
     "developerName": "APAC Equity Desk",
     "category": "Finance",
     "capabilities": [
@@ -30,14 +32,19 @@
       "Idea and bottleneck discovery",
       "Functional multi-agent research",
       "Analysis",
-      "Drafting"
+      "Drafting",
+      "Merger arbitrage and special situations",
+      "Deal radar and document comparison",
+      "Probability and complex consideration models",
+      "Historical portfolio replay and local alerts"
     ],
     "defaultPrompt": [
       "Prepare today's Japan morning brief.",
       "Explain why CATL is moving and what it means for related APAC stocks.",
       "Find APAC beneficiaries of AI power bottlenecks.",
       "What changed in TSMC's latest annual report and FY27 consensus?",
-      "Challenge the Street's common bull case on TSMC."
+      "Challenge the Street's common bull case on TSMC.",
+      "Analyze this APAC takeover: net spread, closing risks and break downside."
     ]
   }
 }

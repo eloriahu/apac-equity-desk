@@ -1,0 +1,62 @@
+{
+  "schema": "deal_radar/v1",
+  "as_of": "2026-09-24T09:00:00+08:00",
+  "since": "2026-09-20T00:00:00+08:00",
+  "coverage": "SYNTHETIC: supplied HK announcements only; other APAC markets not scanned",
+  "markets": [
+    "HK"
+  ],
+  "event_types": [
+    "privatization"
+  ],
+  "records": [
+    {
+      "deal_id": "SYNTHETIC-HK",
+      "market": "HK",
+      "event_type": "privatization",
+      "status": "firm_offer",
+      "title": "Synthetic cash offer",
+      "source_url": "https://example.invalid/offer",
+      "source_type": "official",
+      "published_at": "2026-09-23T09:00:00+08:00",
+      "observed_at": "2026-09-23T09:05:00+08:00",
+      "verified": true,
+      "terms": {
+        "cash": 100,
+        "currency": "HKD"
+      }
+    },
+    {
+      "deal_id": "SYNTHETIC-HK",
+      "market": "HK",
+      "event_type": "privatization",
+      "status": "firm_offer",
+      "title": "Synthetic news coverage",
+      "source_url": "https://example.invalid/news",
+      "source_type": "secondary",
+      "published_at": "2026-09-23T09:00:00+08:00",
+      "observed_at": "2026-09-23T09:05:00+08:00",
+      "verified": false,
+      "terms": {
+        "cash": 100,
+        "currency": "HKD"
+      }
+    },
+    {
+      "deal_id": "SYNTHETIC-HK",
+      "market": "HK",
+      "event_type": "privatization",
+      "status": "firm_offer",
+      "title": "Synthetic cash offer",
+      "source_url": "https://example.invalid/offer",
+      "source_type": "official",
+      "published_at": "2026-09-23T09:00:00+08:00",
+      "observed_at": "2026-09-23T09:05:00+08:00",
+      "verified": true,
+      "terms": {
+        "cash": 100,
+        "currency": "HKD"
+      }
+    }
+  ]
+}

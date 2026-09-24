@@ -1,0 +1,58 @@
+{
+  "schema": "deal_models/v1",
+  "deal_id": "SYNTHETIC-COLLAR-CVR",
+  "as_of": "2026-09-24T09:00:00+08:00",
+  "currency": "USD",
+  "target_price": 60,
+  "discount_rate": 0.05,
+  "cost_pv": 0.2,
+  "scenarios": [
+    {
+      "name": "close",
+      "probability": 0.85,
+      "components": [
+        {
+          "days": 90,
+          "fx_to_base": 1,
+          "source_locator": "SYNTHETIC agreement section 2",
+          "kind": "cash",
+          "amount": 20
+        },
+        {
+          "days": 90,
+          "fx_to_base": 1,
+          "source_locator": "SYNTHETIC agreement section 2",
+          "kind": "fixed_value_collar",
+          "stock_value": 50,
+          "reference_price": 100,
+          "floor": 80,
+          "ceiling": 120,
+          "ratio_below_floor": 0.625,
+          "ratio_above_ceiling": 0.4166666666666667,
+          "settlement_price": 90
+        },
+        {
+          "days": 730,
+          "fx_to_base": 1,
+          "source_locator": "SYNTHETIC agreement section 2",
+          "kind": "cvr",
+          "payment": 5,
+          "payment_probability": 0.4
+        }
+      ]
+    },
+    {
+      "name": "break",
+      "probability": 0.15,
+      "components": [
+        {
+          "days": 90,
+          "fx_to_base": 1,
+          "source_locator": "SYNTHETIC agreement section 2",
+          "kind": "cash",
+          "amount": 45
+        }
+      ]
+    }
+  ]
+}

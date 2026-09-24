@@ -1,0 +1,26 @@
+{
+  "schema": "deal_models/v1",
+  "deal_id": "SYNTHETIC-PARTIAL-TENDER",
+  "as_of": "2026-09-24T09:00:00+08:00",
+  "currency": "HKD",
+  "target_price": 90,
+  "discount_rate": 0.04,
+  "cost_pv": 0.1,
+  "scenarios": [
+    {
+      "name": "tender accepted in part",
+      "probability": 1,
+      "components": [
+        {
+          "days": 30,
+          "fx_to_base": 1,
+          "source_locator": "SYNTHETIC agreement section 2",
+          "kind": "proration",
+          "accepted_fraction": 0.4,
+          "accepted_value": 110,
+          "residual_value": 85
+        }
+      ]
+    }
+  ]
+}

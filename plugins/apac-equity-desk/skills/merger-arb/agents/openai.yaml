@@ -1,0 +1,6 @@
+interface:
+  display_name: "Merger Arbitrage"
+  short_description: "Deal terms, costed spreads and break downside"
+  default_prompt: "Use $merger-arb to analyze this deal's net spread, closing risks and downside."
+policy:
+  allow_implicit_invocation: true

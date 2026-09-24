@@ -5,6 +5,11 @@ description: Turn an identified event into up to three APAC equity research scen
 
 # Event Trade Ideas
 
+For an announced takeover's spread/conditions use `../merger-arb/SKILL.md`.
+For discovery of discrete corporate-event situations use
+`../special-situations/SKILL.md`; for a deal update use `../deal-monitor/SKILL.md`.
+This route continues to own broader macro, policy and industry-event scenarios.
+
 Read `../../references/desk-defaults.md` for short-request routing, context/date defaults and the included review stages. The user does not need to repeat these instructions or request each pass.
 
 If no verified event pack exists, build one from the identified event and available evidence, applying `../catalyst-analysis/SKILL.md`. Then generate scenarios from that verified pack. Apply `../source-verifier/SKILL.md` and `../desk-editor/SKILL.md` before delivery. Generate at most the few differentiated scenarios supported by evidence; zero is acceptable.

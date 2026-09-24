@@ -1,0 +1,6 @@
+interface:
+  display_name: "Historical Testing"
+  short_description: "Point-in-time event portfolio replay"
+  default_prompt: "Use $historical-testing to replay this event-driven sample with costs and point-in-time checks."
+policy:
+  allow_implicit_invocation: true
