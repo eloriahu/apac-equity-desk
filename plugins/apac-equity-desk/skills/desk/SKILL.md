@@ -22,6 +22,11 @@ Classify the request before selecting a route. Record internally:
 `execution_mode`, `reason` and `stop_conditions`. Answer the stated question
 first. Add an enricher only when its result could change the conclusion.
 
+For morning requests, the lead workflow includes active discovery and targeted
+follow-up research under `../../references/morning-research.md`. Minimum workflow
+count does not mean minimum investigation. A short prompt such as `Japan morning`
+uses the developed note; use a snippet only when the user requests one.
+
 Select exactly one primary route and any justified sibling enrichers:
 
 - Morning -> `../morning-brief/SKILL.md`

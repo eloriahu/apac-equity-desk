@@ -51,15 +51,19 @@ A punchy headline does not justify a causal certainty upgrade. Verify each ticke
 
 Rough guide: 180–350 words for developed theme colour. Use 90–180 words when the user asks for a flash. The old labelled What/Relative/Catalyst pack is useful for internal review, not the default reader-facing layout.
 
-## Morning snippet: default early-session format
+## Morning note: default early-session format
 
-Use a compact country header such as `{JA} JAPAN MORNING` when the country tag is supplied or configured. Usually three paragraphs:
+Read `morning-research.md` before drafting. Use a compact country header such as `{JA} JAPAN MORNING` when the country tag is supplied or configured. Open with the local tape, then let the researched agenda determine the space and paragraph structure:
 
 1. The current local tape first: index moves since the relevant reference point, headline/broad-index divergence and the offsetting stock/sector forces.
-2. The overnight setup: US equity closes, rates (intraday high versus final level), commodities, FX and the next major domestic/global policy event. Attribute expectations and surveys with dates.
-3. Current sector leadership and drag, with the most relevant names and any counterintuitive price reaction.
+2. The decisive overnight developments and their local transmission: investigate the earnings, policy or economic news behind the US/cross-asset moves. Distinguish rates' intraday highs from final levels and attribute expectations with dates.
+3. Material domestic policy, macro and corporate developments since the previous local close. Explain what changed, the affected earnings/cost/valuation channel and the relevant named exposures.
+4. Sector leadership and drag, meaningful stock exceptions and competing explanations. Develop the important questions far enough to explain why the first headline account is sufficient or where it fails; preserve contradictory evidence.
+5. Selective dated catalysts and observable tests of the morning view, with verified local times and sourced expectations where available. State what outcome would matter, not just that an event is scheduled.
 
-Default to about 150–250 words, with room for a busy policy morning. Avoid turning this into a 10–15-item watchlist unless requested. If the market has not opened, label the note PRE-OPEN, discuss expectations and do not invent opening performance. Keep the as-of time and the distinction between the prior close and since-open moves.
+These are editorial priorities, not compulsory headings or equal-sized sections. Let the dominant story carry more detail and omit immaterial categories. Default to roughly 500–900 words for a developed country morning when supported, with more room on dense sessions and less on quiet ones. Do not pad the note to hit a minimum. Use 150–250 words for an explicitly requested snippet/flash, or the user's word limit; compress the findings after research.
+
+If the market has not opened, label the note PRE-OPEN, discuss expectations and do not invent opening performance. Keep the as-of time and the distinction between the prior close and since-open moves. Concise prose must retain the evidence, counterexamples and uncertainty that determine the view.
 
 ## Review and research ideas
 

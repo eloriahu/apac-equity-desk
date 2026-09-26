@@ -130,10 +130,26 @@ Optional: `fundamental_hook` paragraph array, `mixed_evidence` bullet array and 
 
 Example: `tests/fixtures/optical_theme_house.json`. Its placeholder tickers are deliberately fictional.
 
-### Morning snippet: desk-morning
+### Morning note: desk-morning
 
-Required: `format`, `as_of`, `country`, `session`, `overnight_context` and `sector_drivers` paragraph arrays. Optional `country_tag` is a supplied/configured string such as `{JA}`.
+Required: `format: desk-morning`, offset `as_of`, `country`, `session`, and nonempty paragraph arrays `overnight_context` and `sector_drivers`. Optional `country_tag` is a supplied/configured string such as `{JA}`.
 
 For `session: open`, require `opening_tape` and omit `pre_open_setup`. For `session: pre_open`, require `pre_open_setup` and omit `opening_tape`. These are paragraph arrays. The renderer rejects contradictory session fields. It cannot validate whether prose describes an observed move correctly, so check the market clock and source timestamps before constructing the pack.
 
-Example: `tests/fixtures/japan_morning_house.json`.
+Optional `local_context` paragraphs follow `overnight_context`; `sector_drivers`
+comes next. Optional `research_focus` paragraphs then develop the material
+questions, named exposures and counterevidence selected through research. Optional
+`watch` bullet entries follow, linking dated catalysts or observable tests to the
+morning view. All use the same string or `summary`/`source_ids` text entries and
+inline citation validation as the required fields. Omitted/empty optional arrays
+produce no headings or filler. Existing three-field packs remain valid.
+
+Each paragraph array can hold multiple entries; no word or paragraph cap is
+enforced by the renderer. Keep the working research questions and source checks
+described in `morning-research.md` in the evidence pack. They are not narrative
+fields and structural readiness is not a research-sufficiency check. Explicit
+snippet requests use the same format with shorter analyst-reviewed prose.
+
+Examples: `tests/fixtures/japan_morning_house.json` (compact layout) and
+`tests/fixtures/japan_morning_researched.json` (developed layout). Both are
+synthetic renderer fixtures, not evidence of live research or sufficient depth.

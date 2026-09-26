@@ -61,6 +61,15 @@ substantive enrichers, excluding the routine verifier/editor passes. If a
 fourth lane looks useful, decide which existing lane it replaces or escalate
 under the criteria below. Do not turn every answer into a full initiation.
 
+For morning notes, these caps apply to additional workflows, not to sources,
+search iterations, companies compared or questions pursued within morning-brief.
+`Japan morning` requests the developed researched note in `morning-research.md`,
+even though the prompt is short. Broad discovery, targeted primary-source checks,
+local exposure analysis, counterevidence and today's catalysts belong to that
+lead workflow. Follow consequential findings until the material questions are
+supported or their unresolved boundaries are established. Use the same agent
+threshold below; deeper research does not require a team by default.
+
 ## Canonical composite: “XXX stock is up, why?”
 
 Use `market-color` and perform these lanes as one investigation:

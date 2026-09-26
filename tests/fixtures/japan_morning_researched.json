@@ -1,0 +1,86 @@
+{
+  "format": "desk-morning",
+  "synthetic": true,
+  "country": "Japan",
+  "country_tag": "{JA}",
+  "session": "open",
+  "as_of": "2026-09-18T09:35:00+09:00",
+  "sources": [
+    {
+      "id": "demo",
+      "label": "Synthetic desk fixture",
+      "url": "https://example.com/synthetic-desk-data",
+      "evidence_level": 1,
+      "published_at": "2026-09-17T23:00:00+00:00"
+    },
+    {
+      "id": "filing",
+      "label": "Synthetic company guidance",
+      "url": "https://example.com/synthetic-guidance",
+      "evidence_level": 1,
+      "published_at": "2026-09-18T08:00:00+09:00"
+    },
+    {
+      "id": "calendar",
+      "label": "Synthetic calendar",
+      "url": "https://example.com/synthetic-calendar",
+      "evidence_level": 1,
+      "published_at": "2026-09-17T16:00:00+09:00"
+    }
+  ],
+  "opening_tape": [
+    {
+      "summary": "NKY +0.05% versus the prior close and broadly flat since opening. AI-heavyweight losses are offsetting a cyclical bid; TPX +0.55% is ahead, helped by materials, construction and financials.",
+      "source_ids": [
+        "demo"
+      ]
+    }
+  ],
+  "overnight_context": [
+    "In this synthetic session, US equities softened with S&P -0.30% and Nasdaq -0.60%. UST 10Y briefly reached 4.28% before ending New York at 4.24%. Oil held firm ahead of a scheduled policy decision; the stated broker rate view remains an expectation."
+  ],
+  "sector_drivers": [
+    "AI hardware is the main drag despite a positive funding headline for a related company. Energy tracks firmer crude; chemicals and contractors are bid. The price response shows that the headline alone has not outweighed the broader pressure."
+  ],
+  "data_gaps": [
+    "Synthetic layout example; opening moves and overnight figures are not live observations."
+  ],
+  "local_context": [
+    {
+      "summary": "In this synthetic example, Example Components reduced its full-year operating-profit guidance from JPY 100bn to JPY 90bn before the open. Revenue guidance is unchanged; the filing attributes the reduction to lower factory utilization and higher launch costs. That distinction weakens an explanation based solely on softer end demand.",
+      "source_ids": [
+        "filing"
+      ]
+    },
+    {
+      "summary": "The filing leaves the new production line on schedule. This limits the inference that customers have cancelled orders, but does not establish that the cost pressure is temporary. The next useful comparison is the announced utilization recovery against subsequent production data.",
+      "source_ids": [
+        "filing"
+      ]
+    }
+  ],
+  "research_focus": [
+    {
+      "summary": "Example Components is therefore a company-specific exception to a simple overnight handover. The lower profit outlook supplies a fresh margin mechanism, while the unchanged revenue outlook argues against treating this as evidence of a broad industry order collapse. The synthetic tape alone cannot isolate how much of the share move reflects the filing rather than the wider hardware decline.",
+      "source_ids": [
+        "filing",
+        "demo"
+      ]
+    },
+    {
+      "summary": "The divergence between headline and broad indices also needs care: the observed heavyweight declines are consistent with a concentration effect, but index contribution data is unavailable. Do not claim that those names explain the entire gap. The relevant next check is whether weakness spreads to other exposed manufacturers as the session develops.",
+      "source_ids": [
+        "demo"
+      ]
+    }
+  ],
+  "watch": [
+    {
+      "summary": "2026-09-18, 11:00 JST: Example Components management briefing. An explanation that launch costs are temporary needs a dated utilization recovery and cost bridge; a further margin reset would weaken it.",
+      "source_ids": [
+        "calendar",
+        "filing"
+      ]
+    }
+  ]
+}

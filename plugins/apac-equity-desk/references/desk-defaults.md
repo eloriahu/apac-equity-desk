@@ -9,7 +9,8 @@ minimum sufficient workflow automatically; slash commands are optional.
 
 | User says | Workflow | Default result |
 | --- | --- | --- |
-| Japan morning; HK morning; morning snippet | morning-brief | Three short paragraphs: opening tape, overnight context, sectors |
+| Japan morning; HK morning; morning note | morning-brief | Developed researched note: local tape, overnight/domestic drivers, named exposures, counterevidence and catalysts |
+| Morning snippet; quick morning flash | morning-brief | Compressed researched findings at the requested length |
 | Japan wrap; HK close; China EOD | apac-market-wrap | Developed country close ending with Corporate Headlines |
 | APAC wrap | apac-market-wrap | Regional digest for completed sessions, with coverage gaps |
 | CATL colour; why is CATL moving?; Taiwan lenses | market-color | Move versus peers, competing explanations, fundamental hook, mixed evidence, implications, watch |
@@ -77,6 +78,14 @@ For morning, wrap, colour, catalyst analysis and composed research:
 7. Apply the sibling desk-editor instructions. Remove or qualify unsupported claims; if the conclusion cannot be supported, return a limited draft or concise evidence-gap request.
 8. Return the finished draft and only material unresolved gaps. The user does not need to request each review pass or receive a narration of every checklist item.
 
+For morning notes, read `morning-research.md`. Investigate beyond the first
+headlines and let material findings generate targeted follow-up searches. The
+routine above does not define research depth: neither a populated narrative
+pack nor a successful structural check is a completion criterion. The morning
+lead resolves material research gaps raised by the verifier/editor when feasible,
+then revises and rechecks; it does not leave accessible research as homework for
+the user. Explicit source or time limits still apply.
+
 For event-trade-ideas, verify the event and assess catalysts first, then create
 at most three researched scenarios and perform the same verification/editing
 passes. Zero supported ideas is an acceptable result.
@@ -107,7 +116,7 @@ or execute trades.
 
 ## Default output sizes and scope
 
-- Morning: 150–250 words, three short paragraphs.
+- Morning: roughly 500–900 words for a developed country note, guided by material findings; no fixed paragraph count. An explicitly requested snippet/flash is 150–250 words unless another limit is given.
 - Country wrap: roughly 500–900 words with useful sector/name detail.
 - Regional wrap: a compact country-by-country digest; expand only when requested.
 - Developed colour: 180–350 words; an explicitly requested flash is 90–180 words.

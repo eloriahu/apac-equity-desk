@@ -43,7 +43,7 @@ agents.
 
 ## House output formats
 
-Follow `plugins/apac-equity-desk/references/house-style.md`. Default country closes to a developed narrative: index divergence, local policy, FX/rates, macro, sector losers/winners and Corporate Headlines. Default thematic intraday colour to a headline/ticker block, competing explanations, fundamental hook, mixed evidence, implications and dated watch points. Morning snippets lead with the opening tape, then overnight context and sector leadership; label pre-open expectations honestly.
+Follow `plugins/apac-equity-desk/references/house-style.md`. Default country closes to a developed narrative: index divergence, local policy, FX/rates, macro, sector losers/winners and Corporate Headlines. Default thematic intraday colour to a headline/ticker block, competing explanations, fundamental hook, mixed evidence, implications and dated watch points. Morning notes use `plugins/apac-equity-desk/references/morning-research.md`: actively investigate overnight and domestic changes, local exposures, counterevidence and dated catalysts. Default to a developed note led by the local tape/setup; use a short snippet only when requested and label pre-open expectations honestly. Workflow completion alone is not research completion.
 
 Keep dense useful name/move lists, desk shorthand and optional user-supplied humour. Do not force internal evidence-pack labels into reader-facing prose or compress every note to flash length. Treat user samples as style references, never as reusable live facts. Do not publish the user's raw samples as fixtures; use clearly synthetic examples.
 

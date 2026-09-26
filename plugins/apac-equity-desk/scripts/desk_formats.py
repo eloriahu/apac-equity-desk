@@ -154,7 +154,7 @@ def render_morning(pack: dict[str, Any]) -> str:
         raise ValueError("A morning pack needs a country.")
     session = pack.get("session")
     if session not in {"open", "pre_open"}:
-        raise ValueError("A morning snippet requires session=open or pre_open.")
+        raise ValueError("A morning note requires session=open or pre_open.")
     # Fail closed on contradictory structure instead of dropping live-tape claims.
     if session == "pre_open" and pack.get("opening_tape"):
         raise ValueError("A pre-open pack cannot contain observed opening_tape.")
@@ -169,6 +169,12 @@ def render_morning(pack: dict[str, Any]) -> str:
     first = "opening_tape" if session == "open" else "pre_open_setup"
     blocks.extend(paragraphs(pack, first, sources, required=True))
     blocks.extend(paragraphs(pack, "overnight_context", sources, required=True))
+    blocks.extend(paragraphs(pack, "local_context", sources))
     blocks.extend(paragraphs(pack, "sector_drivers", sources, required=True))
+    blocks.extend(paragraphs(pack, "research_focus", sources))
+    if pack.get("watch") is not None:
+        watch = bullets(pack["watch"], sources)
+        if watch:
+            blocks.append("Things to watch:\n\n" + watch)
     blocks.extend(review_notes(pack, sources))
     return "\n\n".join(blocks) + "\n"

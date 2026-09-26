@@ -1,4 +1,4 @@
-"""Render an opening-tape morning snippet or explicitly labelled pre-open note."""
+"""Render a researched morning note, requested snippet or labelled pre-open note."""
 from __future__ import annotations
 
 import argparse
@@ -10,7 +10,7 @@ from desk_formats import render_morning
 
 def render(pack):
     if pack.get("format") != "desk-morning":
-        raise ValueError("Morning snippets require format=desk-morning.")
+        raise ValueError("Morning notes require format=desk-morning.")
     return render_morning(pack)
 
 

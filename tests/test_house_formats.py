@@ -88,6 +88,58 @@ class HouseFormatTests(unittest.TestCase):
         self.assertIn("{JA} JAPAN PRE-OPEN", result)
         self.assertNotIn("NKY +0.05%", result)
 
+    def test_developed_morning_keeps_findings_counterevidence_and_catalyst_links(self):
+        pack = fixture("japan_morning_researched.json")
+        result = morning(pack)
+        previous = -1
+        for field in ("opening_tape", "overnight_context", "local_context", "sector_drivers", "research_focus", "watch"):
+            for entry in pack[field]:
+                paragraph = entry["summary"] if isinstance(entry, dict) else entry
+                position = result.index(paragraph)
+                self.assertGreater(position, previous)
+                previous = position
+                if isinstance(entry, dict):
+                    rendered = result[position:].split("\n", 1)[0]
+                    for source_id in entry.get("source_ids", []):
+                        source = next(item for item in pack["sources"] if item["id"] == source_id)
+                        self.assertIn(source["url"], rendered)
+        self.assertGreater(result.index("Data gaps for review:"), previous)
+
+    def test_extended_morning_fields_are_optional_without_filler(self):
+        pack = fixture("japan_morning_house.json")
+        original = morning(pack)
+        self.assertNotIn("Things to watch:", original)
+        pack.update(local_context=[], research_focus=[], watch=[])
+        self.assertEqual(morning(pack), original)
+
+    def test_extended_morning_fields_validate_types_and_source_links(self):
+        for field in ("local_context", "research_focus", "watch"):
+            for malformed in ("Not an array", {}, 0):
+                with self.subTest(field=field, value=malformed):
+                    pack = fixture("japan_morning_house.json")
+                    pack[field] = malformed
+                    with self.assertRaises(ValueError):
+                        morning(pack)
+            with self.subTest(field=field, bad_source=True):
+                pack = fixture("japan_morning_house.json")
+                pack[field] = [{"summary": "A claim needing a source.", "source_ids": ["missing"]}]
+                with self.assertRaisesRegex(ValueError, "Unknown source"):
+                    morning(pack)
+
+    def test_developed_pre_open_keeps_research_without_observed_opening(self):
+        pack = fixture("japan_morning_researched.json")
+        pack["session"] = "pre_open"
+        pack.pop("opening_tape")
+        pack["pre_open_setup"] = ["Opening performance is not yet observable."]
+        result = morning(pack)
+        self.assertIn("JAPAN PRE-OPEN", result)
+        self.assertNotIn("NKY +0.05%", result)
+        self.assertIn(pack["research_focus"][0]["summary"], result)
+        self.assertIn(pack["watch"][0]["summary"], result)
+        pack["opening_tape"] = ["Contradictory live tape."]
+        with self.assertRaisesRegex(ValueError, "cannot contain"):
+            morning(pack)
+
     def test_bad_timestamp_and_broken_source_references_fail(self):
         pack = fixture("japan_close_house.json")
         pack["as_of"] = "2026-09-18T15:45:00"
@@ -108,7 +160,7 @@ class HouseFormatTests(unittest.TestCase):
 
     def test_renderers_accept_json_from_command_line(self):
         with tempfile.TemporaryDirectory() as folder:
-            for script, name in (("render_market_wrap.py", "japan_close_house.json"), ("render_market_color.py", "optical_theme_house.json"), ("render_morning_brief.py", "japan_morning_house.json")):
+            for script, name in (("render_market_wrap.py", "japan_close_house.json"), ("render_market_color.py", "optical_theme_house.json"), ("render_morning_brief.py", "japan_morning_house.json"), ("render_morning_brief.py", "japan_morning_researched.json")):
                 destination = Path(folder) / (script + ".md")
                 result = subprocess.run([sys.executable, str(SCRIPTS / script), str(FIXTURES / name), "--output", str(destination)], capture_output=True, text=True)
                 self.assertEqual(result.returncode, 0, result.stderr)

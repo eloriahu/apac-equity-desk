@@ -12,7 +12,7 @@ The plugin supports Codex and Claude Code from the same skills, references and c
 
 | Ask | What comes back |
 | --- | --- |
-| `Japan morning` | Opening tape, index divergence, overnight context and sector leadership |
+| `Japan morning` | A developed researched note: local tape, overnight/domestic drivers, named exposures, counterevidence and today's catalysts |
 | `HK wrap` | Index performance, breadth, sectors, movers, flows, catalysts and Corporate Headlines |
 | `APAC wrap` | A regional close with country-level detail and cross-market context |
 | `What matters tomorrow?` | A sourced calendar of earnings, policy, macro and company events |
@@ -223,9 +223,20 @@ A developed narrative covering index divergence, heavyweight concentration, poli
 
 A headline and ticker block followed by competing explanations, the fundamental hook, mixed evidence, implications and dated watch points. Typical length is 180–350 words.
 
-### Morning snippet
+### Morning note
 
-The local opening tape comes first, overnight context second and sector leadership last. Typical length is 150–250 words. Pre-open expectations are labeled as expectations.
+Morning notes actively investigate developments since the previous local close,
+follow material findings into primary sources and local company exposures, and
+test the first explanation against conflicting evidence. The local tape/setup
+leads, followed by the decisive overnight and domestic stories, sector/company
+implications and dated tests of the view. Typical length is 500–900 words when
+supported; quiet sessions need less. A requested snippet/flash uses 150–250 words
+or the user's limit. Pre-open expectations are labeled as expectations.
+
+The [morning research guide](plugins/apac-equity-desk/references/morning-research.md)
+defines research completion separately from formatting and structural checks.
+Available sources and explicit source/time constraints determine the supported
+scope; the workflow does not add a live data feed.
 
 House style is the default. Ask for a flash, word limit or different audience when you want to override it.
 
