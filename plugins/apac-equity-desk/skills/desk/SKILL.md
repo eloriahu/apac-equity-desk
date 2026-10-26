@@ -1,6 +1,6 @@
 ---
 name: desk
-description: Automatically route short or composite APAC equity questions to the minimum useful research workflows and, only when warranted, a functional multi-agent team. Use for market moves, company research, earnings, idea discovery, merger arbitrage, special situations, deal updates, morning notes, wraps, catalysts, verification and editing.
+description: Automatically route APAC equity questions and supplied market screens or tables in an established research task to the minimum useful workflows. Use for market moves, company research, earnings, idea discovery, merger arbitrage, special situations, deal updates, morning notes, wraps, catalysts, verification and editing; use agent teams only when warranted.
 ---
 
 # APAC Desk
@@ -17,6 +17,13 @@ market fields, and preserve task time, provider time and field lineage. Official
 filings and regulator/exchange/government releases remain authoritative for
 reported facts and events.
 
+When market observations are supplied, apply
+`../../references/supplied-data-research.md`: ingest them directly into the
+selected workflow and investigate news beyond the screen. Reuse an established
+task when updated data arrives without a repeated request. Supplied prices
+anchor the observation; they do not establish its cause or limit news research
+unless the user explicitly restricts sources.
+
 Classify the request before selecting a route. Record internally:
 `primary_workflow`, `required_enrichers`, `optional_followups`,
 `execution_mode`, `reason` and `stop_conditions`. Answer the stated question
@@ -30,7 +37,7 @@ uses the developed note; use a snippet only when the user requests one.
 Select exactly one primary route and any justified sibling enrichers:
 
 - Morning -> `../morning-brief/SKILL.md`
-- Country/regional close -> `../apac-market-wrap/SKILL.md`
+- Country/regional summary or close -> `../apac-market-wrap/SKILL.md`
 - Stock/sector colour or why-it-moved -> `../market-color/SKILL.md`
 - Deeper catalyst work -> `../catalyst-analysis/SKILL.md`
 - Event research ideas -> `../event-trade-ideas/SKILL.md`

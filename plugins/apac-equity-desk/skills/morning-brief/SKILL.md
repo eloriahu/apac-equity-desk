@@ -23,6 +23,11 @@ When pre-open, use a PRE-OPEN header and expectations instead of observed openin
 
 Prefer a user-supplied Bloomberg export or screenshot for the opening tape. Consult `../../references/integrations.md` and use OpenBB only for missing, stale or absent market fields. Keep every claim tied to an evidence pack, distinguish missing data from flat markets and retain contradictions.
 
+Apply `../../references/supplied-data-research.md` when observations or headlines
+are supplied. Incorporate them without a separate intake request; investigate
+outside news and distinguish an existing trend from a fresh catalyst affecting
+only part of the screen. Unknown quote timing limits reaction claims.
+
 Maintain the working evidence pack and research questions described in `morning-research.md`; derive the `format: desk-morning` narrative pack from that work. Its optional `local_context`, `research_focus` and `watch` fields preserve deeper findings in `../../scripts/render_morning_brief.py`. The renderer and pack-readiness helper check structure, not research sufficiency.
 
 Run source-verifier and desk-editor before delivery. When either exposes a material research gap, the morning lead resumes targeted collection if an accessible source could resolve it, then revises and rechecks the affected claims. The editor itself remains an editor. Finish when the material questions have supported answers or specific, honestly bounded unresolved outcomes; do not stop just because a pass ran. Never send, publish or execute trades; the result remains a draft for human review.

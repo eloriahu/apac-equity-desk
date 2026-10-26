@@ -186,6 +186,16 @@ Update an installed copy with:
 
 ## Inputs and source order
 
+Supply screenshots, pasted live prices/tables or exports with a short request
+such as `Japan market summary as of now, use this screen` or `Why are these AI
+names weak?`. In an established research task, an updated screen continues that
+task without another intake step. The desk uses your observations, investigates
+relevant news beyond the attachment, and tests the earlier backdrop, fresh
+catalysts and different company exposures before writing. `Use these prices`
+does not restrict outside news research; `use only these sources` does.
+Unknown screen timestamps remain explicit snapshot limitations. See the
+[supplied-data research workflow](plugins/apac-equity-desk/references/supplied-data-research.md).
+
 The desk prefers:
 
 1. user-supplied Bloomberg exports or screenshots for market observations;

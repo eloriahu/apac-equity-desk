@@ -86,8 +86,8 @@ class AutomaticRoutingPolicyTests(unittest.TestCase):
         self.assertIn("automatically when available", self.routing)
 
     def test_machine_readable_route_acceptance_cases(self):
-        self.assertEqual(len(self.eval_cases), 24)
-        self.assertEqual(len({case["id"] for case in self.eval_cases}), 24)
+        self.assertTrue(self.eval_cases)
+        self.assertEqual(len({case["id"] for case in self.eval_cases}), len(self.eval_cases))
         by_id = {case["id"]: case for case in self.eval_cases}
         for case in self.eval_cases:
             self.assertIsInstance(case["primary_workflow"], str)

@@ -9,8 +9,9 @@ $ARGUMENTS
 
 Read `${CLAUDE_PLUGIN_ROOT}/skills/desk/SKILL.md` and follow it. It routes the
 request to one of the sibling skills and lists the review passes included by
-default. If the request is empty, ask for the task and the market, security or
-event in one short question.
+default. Reuse supplied screens/tables and an unambiguous current research task,
+including when arguments are empty. If the task and essential subject cannot be
+inferred, ask for them in one short question.
 
 This command and the `desk` skill share a name on purpose: both do the same
 semantic routing. The user does not need to name skills or agents.

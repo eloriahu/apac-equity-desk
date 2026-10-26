@@ -1,5 +1,14 @@
 # Integration notes
 
+## Supplied observations and researched explanations
+
+For research requests with screenshots, pasted tables, exports or current-task
+packs, read `supplied-data-research.md`. Incorporate readable data directly and
+research relevant news even when every quote field is supplied. `Use these prices`
+does not mean `use only these sources`. Keep the quote baseline separate from
+the evidence explaining it, and test the earlier backdrop, fresh trigger and
+different company exposures before assigning causality.
+
 ## Bloomberg user inputs — preferred market observations
 
 Accept user-supplied Bloomberg CSV/XLSX/BQL exports and screenshots. Structured exports are preferred, but screenshots are first-class evidence when the visible rows can be read reliably. Transcribe only visible values, use numerical signs rather than colour, and leave cropped or ambiguous cells missing. Keep the source artifact local; never commit or redistribute proprietary inputs.

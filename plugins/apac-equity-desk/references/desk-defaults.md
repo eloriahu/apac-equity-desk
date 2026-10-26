@@ -36,6 +36,7 @@ minimum sufficient workflow automatically; slash commands are optional.
 | Cross-market read-through; trace the exposure; transmission map | cross-market-map | Evidence-linked paths across sectors, securities, commodities and FX |
 | Track this thesis; update the signal; what changed? | signal-ledger | Explicit strengthened/weakened/falsified/unchanged ledger update |
 | Update this; what changed since the last pack? | current workflow + pack-delta | Refreshed facts and a material delta from the supplied/current-task prior pack |
+| Use these live prices; updated screen (in an established research task) | current workflow | Supplied observations incorporated directly, with fresh news research and a revised explanation |
 | Multi-agent; parallel; use the agent team; /parallel | specialized parallel workflow | Functional research waves with independent verification |
 | Check this | source-verifier | Audit the supplied note and evidence |
 | Tighten this | desk-editor | Edit the supplied draft, preserving the selected house format and evidence |
@@ -64,6 +65,7 @@ idea funnel or a team merely because those capabilities are related.
 - Management, quality and research-review requests default to the named company and current evidence. Thesis drift needs a supplied/current-task baseline.
 - A full company or earnings team is automatic only under `intent-routing.md`; broad/deep/high-consequence work may escalate, while quick/simple work stays lean.
 - Refresh time-sensitive prices and event status before an update or close wrap. Earlier task notes are leads, not fresh evidence. Respect an explicit "use only this pack" constraint and label the supplied cutoff.
+- Treat `use the data in this screenshot` as a quote-source instruction, not a ban on outside news. Follow `supplied-data-research.md`; use the supplied cutoff and investigate material context beyond the attachment. Unknown screen time limits live/chronological claims, not all analysis.
 
 ## Run the whole routine
 
@@ -74,8 +76,8 @@ For morning, wrap, colour, catalyst analysis and composed research:
 3. Run `scripts/pack_readiness.py` for topic-radar, morning, wrap, colour or earnings packs. A blocking result stops prose; a limited result must be disclosed.
 4. For an update with a supplied or current-task prior pack, run `scripts/pack_delta.py` and lead with material changes. Never claim access to another task's pack.
 5. Use the appropriate format and voice from `house-style.md`.
-6. Apply the sibling source-verifier instructions to the claims and citations. Use the fact-check helper on structured claims where appropriate; it does not prove semantic support.
-7. Apply the sibling desk-editor instructions. Remove or qualify unsupported claims; if the conclusion cannot be supported, return a limited draft or concise evidence-gap request.
+6. Apply both source-verifier passes: verify material facts against the actual inputs/sources, then challenge the explanation against alternatives, chronology and counterevidence. Check the weight of direct and indirect links. Use the fact-check helper where appropriate; it does not prove semantic support or replace either pass.
+7. Apply the sibling desk-editor instructions, preserving the verified facts and calibrated causal weight. Resolve feasible research gaps through the lead and recheck affected claims and the final lead after revisions. If the conclusion still cannot be supported, return a limited draft or concise evidence-gap request.
 8. Return the finished draft and only material unresolved gaps. The user does not need to request each review pass or receive a narration of every checklist item.
 
 For morning notes, read `morning-research.md`. Investigate beyond the first
@@ -113,6 +115,11 @@ Read the relevant sibling SKILL.md files and perform these stages in the same
 task. This sequence does not require delegation or another task. Keep the
 draft banner and human publication approval. Never mutate brokerage accounts
 or execute trades.
+
+For any research request with supplied observations, apply
+`supplied-data-research.md`. Resolve material research gaps raised by review
+through the lead workflow when feasible. A list of supplied moves, the nearest
+headline or accessible news marked `unverified` does not complete an explanation.
 
 ## Default output sizes and scope
 

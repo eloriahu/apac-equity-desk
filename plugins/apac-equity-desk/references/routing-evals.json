@@ -424,6 +424,96 @@
       "forbidden_workflows": [
         "parallel-desk"
       ]
+    },
+    {
+      "id": "supplied-theme-screen",
+      "prompt": "Why are these AI names weak? Use the moves in my screen and this model-launch headline.",
+      "context": "Synthetic screen: model developer A -9%, developer B -4%, board supplier C -5%, equipment maker D -3%. No visible quote timestamp. Earlier reporting describes hardware weakness before the rival model launch.",
+      "primary_workflow": "market-color",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["idea-funnel", "parallel-desk"],
+      "expected_behaviors": [
+        "Use supplied moves with unknown-timestamp limitation; do not request manual re-entry.",
+        "Research outside news and verify the earlier backdrop independently of the supplied headline.",
+        "Distinguish developer competition from hardware funding, orders and valuation exposures.",
+        "First verify facts against inputs and sources, then challenge the explanation against alternatives and counterevidence; recheck affected claims after revisions.",
+        "Retain an evidence-supported indirect linkage at proportionate weight without making it the dominant driver.",
+        "Test the possible positive compute-demand channel; retain unresolved supplier-specific causes."
+      ],
+      "forbidden_behaviors": [
+        "Treat the launch as the cause of earlier hardware weakness or assert selling spread between groups without chronology.",
+        "Imply the same causal link in the lead or transition and attempt to repair it with a later caveat.",
+        "Generalize the supplied names to an entire sector without additional market evidence.",
+        "Conclude that there is no linkage merely because a dominant causal role is unproven.",
+        "Count the same citation twice or a helper pass as completion of both substantive checks.",
+        "Treat use-the-screen as a prohibition on outside news or fabricate a live quote time."
+      ]
+    },
+    {
+      "id": "supplied-country-intraday",
+      "prompt": "Japan market summary as of now. Use this table.",
+      "context": "Synthetic current-session watchlist during cash trading. Supplied daily percentage moves, but no price levels, indices, FX or rates.",
+      "primary_workflow": "apac-market-wrap",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["parallel-desk"],
+      "expected_behaviors": [
+        "Return an interim narrative using the supplied percentages and researched drivers.",
+        "Collect necessary missing context with its own timestamps; declare unavailable fields."
+      ],
+      "forbidden_behaviors": [
+        "Invent price levels or call watchlist participation exchange-wide breadth.",
+        "Use a closed-session renderer or call intraday observations closing prices."
+      ]
+    },
+    {
+      "id": "supplied-screen-update",
+      "prompt": "Updated screen attached.",
+      "context": "The current task is a semiconductor market-colour note with an earlier supplied snapshot and an established subject.",
+      "primary_workflow": "market-color",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["parallel-desk"],
+      "expected_behaviors": [
+        "Continue the established task, preserve both cutoffs and explain material changes.",
+        "Refresh relevant news and retest the prior explanation against the new observations."
+      ],
+      "forbidden_behaviors": [
+        "Ask the user to repeat the task or silently overwrite the earlier snapshot."
+      ]
+    },
+    {
+      "id": "supplied-only-source-limit",
+      "prompt": "Explain this sector screen using only the attached prices and headlines. Do not browse.",
+      "context": "Synthetic supplied data supports the observed moves but leaves some causes and quote times unresolved.",
+      "primary_workflow": "market-color",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["parallel-desk"],
+      "expected_behaviors": [
+        "Respect the explicit source restriction and label the cutoff and unresolved causes.",
+        "Distinguish observations from proposed drivers using only supplied evidence."
+      ],
+      "forbidden_behaviors": [
+        "Fetch external news or claim that missing checks were performed."
+      ]
     }
   ]
 }

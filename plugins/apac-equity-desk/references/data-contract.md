@@ -34,6 +34,13 @@ The preferred market source is a user-supplied Bloomberg export or screenshot. F
 
 Required: `symbol`, `market`, `last`, `prev_close`.
 
+These are the inputs for helpers that derive returns from prices. A supplied
+screen may instead establish only `symbol`, `market` and `pct_change`; preserve
+that observation in the evidence pack with its source and timing limitations.
+Use helpers that accept `pct_change` where applicable, or omit unsupported
+calculations. Do not infer missing price levels from a percentage or fabricate
+fields to pass validation. Unknown screen time remains null, not task time.
+
 Recommended: `name`, `desk_ticker`, `currency`, `timestamp`, `session`, `open`, `high`, `low`, `volume`, `turnover`, `avg_volume_20d`, `avg_turnover_20d`, `vwap`, `sector`, `benchmark`, `benchmark_pct`, `peer_median_pct`, `index_weight`, `fresh_announcement`, `policy_headline`, `commodity_shock`, `unusual_flow`, `ah_divergence_pct`, `close`, `dma20`, `high_52w`, `low_52w`.
 
 Timestamps must include an offset or the pack must provide a timezone. Do not merge quotes from materially different as-of times without a warning.

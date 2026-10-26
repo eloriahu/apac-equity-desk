@@ -72,6 +72,18 @@ threshold below; deeper research does not require a team by default.
 
 ## Canonical composite: “XXX stock is up, why?”
 
+Supplied screens, tables and exports are inputs to the chosen route, not a
+separate extraction task unless that is requested. Use `supplied-data-research.md`
+for intake, outside-news research, chronology and exposure checks. Continue the
+current task for an unambiguous updated screen; ask only when the task or
+essential subject cannot be inferred.
+
+For a country-level `market summary as of now`, use `apac-market-wrap` with an
+interim narrative while the market is open; never force an intraday snapshot
+through its closed-session renderer. A supplied sector/theme screen asking why
+names are weak remains `market-color`. Missing visible time requires a snapshot
+limitation, not a fabricated live timestamp or an automatic stop.
+
 Use `market-color` and perform these lanes as one investigation:
 
 1. establish the current or requested-session move, volume and comparison with

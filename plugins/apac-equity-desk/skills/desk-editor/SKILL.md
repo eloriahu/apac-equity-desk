@@ -11,6 +11,16 @@ Read `../../references/house-style.md` and `../../references/prose-quality.md`. 
 
 Do not collect new evidence. If evidence is missing, return a specific data request. Challenge: Why today? Why this name versus peers? What is new? What contradicts the lead? Does a confirmed announcement really establish causation? Are close, intraday peak and since-open moves distinguished?
 
+In a composed research workflow, return that request to the research lead for
+feasible follow-up before delivery. For supplied-data drafts, preserve the
+distinction between the existing backdrop and an incremental catalyst. Do not
+write that selling spread between groups merely because both are down; retain
+different business exposures and any beneficial counter-channel.
+Preserve the verifier's distinction between a leading explanation and a possible
+secondary influence. Do not turn qualified linkage into categorical causation or
+categorical disconnection. Return changes to factual or causal meaning for a
+targeted verifier recheck before delivery; a style edit alone needs no new research.
+
 Reject unexplained movement language. For every material move, require a fresh trigger, a transmission mechanism, a reason the named exposure moved versus peers, and counterevidence. Phrases such as `led by AI`, `risk-on`, `policy hopes`, `rotation` or `profit-taking` are incomplete unless the draft explains what moved the theme and why that matters for the securities named. If the pack cannot support an explanation, retain the move but write `No single catalyst is confirmed` and present the ranked possibilities.
 
 Preserve dense but useful stock/sector rosters, familiar desk abbreviations, mixed evidence, inline citations and user-supplied humour. Fix spelling and tangled sentences without turning the voice into generic polished prose. Do not delete counterexamples to strengthen a thesis. An optional joke is not a market explanation; do not invent one or create a next-wrap promise.

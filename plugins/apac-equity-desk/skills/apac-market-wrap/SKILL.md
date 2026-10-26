@@ -1,6 +1,6 @@
 ---
 name: apac-market-wrap
-description: Run a complete country close or regional APAC wrap from short requests such as Japan wrap, HK close or China EOD, including fresh session data, house-style drafting, source checks and editing.
+description: Run a country or regional APAC market summary from requests such as Japan wrap, HK close, China EOD or market summary as of now with supplied screens. Research the drivers and return a verified house-style draft, labelled interim while trading continues.
 ---
 
 # Apac Market Wrap
@@ -14,6 +14,16 @@ Build the structured data pack before prose. Read `../../references/house-style.
 Resolve the date, closed sessions and cutoff time using the shared defaults. Run `../../scripts/session_clock.py` for the requested markets and verify holidays against an exchange calendar when material; do not turn this into a mandatory confirmation question. Never call a still-open market “closed”. Label holidays, partial sessions, delayed data and non-overlapping FX/commodity timestamps. Prefer a user-supplied Bloomberg export or screenshot for market observations; use OpenBB only for missing, stale or absent fields.
 
 Always read `../../references/integrations.md` before choosing or combining sources.
+
+For supplied screens, tables or headline panels, apply
+`../../references/supplied-data-research.md`. Use the observations directly and
+research omitted news, the earlier backdrop and sector-specific mechanisms.
+For `as of now` during trading, use a developed interim narrative with the
+observed cutoffs and coverage gaps; do not use the closed-session renderer or
+describe the supplied watchlist as exchange-wide breadth.
+The close-specific collection and rendering steps below apply to completed
+sessions. An interim summary uses the same research questions with available
+intraday observations and a plain narrative draft instead of a close pack.
 
 ## Build one pack per market
 

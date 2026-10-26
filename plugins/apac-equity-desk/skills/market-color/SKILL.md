@@ -15,6 +15,12 @@ Resolve the security, listing, session and as-of time. Prefer user-supplied Bloo
 
 Read `../../references/integrations.md` before selecting or combining sources. Preserve field-level lineage and material conflicts.
 
+For supplied prices or headlines, apply `../../references/supplied-data-research.md`.
+Use readable observations immediately, then investigate the earlier backdrop,
+new developments and different business exposures. A new headline affecting one
+subset must not become the explanation for every stock sharing its theme, and
+co-movement does not establish that selling spread between groups.
+
 Collect only what is material, but cover each evidence lane before concluding:
 
 - price move today and prior session; volume/turnover versus 20-day normal; VWAP/range/levels
