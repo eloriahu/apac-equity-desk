@@ -70,6 +70,20 @@ lead workflow. Follow consequential findings until the material questions are
 supported or their unresolved boundaries are established. Use the same agent
 threshold below; deeper research does not require a team by default.
 
+## Pre-open news digests
+
+`China news snippets`, `HK pre-open snippets` and a before-market news roundup
+select `news-snippets`. The requested deliverable is a series of short factual
+items, with broad relevant coverage and compact company updates. Use
+`news-snippets.md`; do not apply the morning-flash total word limit or require an
+opening tape, market forecast or watchlist. A generic `Japan morning` remains
+`morning-brief`, including when requested before opening. A `quick morning flash`
+also stays there unless the user asks for a news digest. Editing a supplied
+snippet draft stays `desk-editor` and preserves the news-snippets format.
+
+Ordinary news-digest preparation uses composed research with source-verifier
+and desk-editor. Item count alone does not call for a full company-research team.
+
 ## Canonical composite: “XXX stock is up, why?”
 
 Supplied screens, tables and exports are inputs to the chosen route, not a

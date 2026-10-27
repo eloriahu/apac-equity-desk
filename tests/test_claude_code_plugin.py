@@ -36,7 +36,7 @@ class PluginPackagingTests(unittest.TestCase):
             "apac-market-wrap", "catalyst-analysis", "cross-market-map", "desk",
             "company-fundamentals", "company-quality", "desk-editor", "earnings-review",
             "event-radar", "event-trade-ideas", "idea-funnel", "management-review",
-            "market-color", "morning-brief", "parallel-company-research", "parallel-desk",
+            "market-color", "morning-brief", "news-snippets", "parallel-company-research", "parallel-desk",
             "parallel-earnings", "research-review", "signal-ledger", "source-verifier",
             "topic-radar", "filing-change", "expectations-change", "ownership-flow",
             "consensus-challenge", "merger-arb", "special-situations", "deal-monitor",

@@ -4,6 +4,13 @@ Apply this check to every reader-facing draft after the evidence, fact-check and
 
 ## Explain the move
 
+For the News Snippets format, apply `news-snippets.md`: check the accuracy,
+timing and attribution of each item and any causal claim it makes. A factual
+announcement does not need the full market-move chain below. Headline-and-summary
+colons and standalone company briefs are the intended format, not decorative
+fragmentation. Preserve reported moves with their session/basis and qualify or
+remove unsupported explanations rather than inventing a mechanism.
+
 Every material index, sector, theme or security move mentioned in prose needs a driver assessment. Write the chain plainly:
 
 1. what moved, over which session and against which benchmark or peers;

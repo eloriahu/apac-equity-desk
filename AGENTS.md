@@ -43,6 +43,13 @@ agents.
 
 ## House output formats
 
+Explicit pre-open news-snippets requests use
+`plugins/apac-equity-desk/references/news-snippets.md`: a broad digest of short
+headline-and-paragraph items and compact company briefs. The causal-completeness
+rules assess explanations actually made; factual news items need no invented
+opening view, peer comparison or full driver chain. This format permits verified
+compact company tickers and has no inherited morning-flash total word limit.
+
 Follow `plugins/apac-equity-desk/references/house-style.md`. Default country closes to a developed narrative: index divergence, local policy, FX/rates, macro, sector losers/winners and Corporate Headlines. Default thematic intraday colour to a headline/ticker block, competing explanations, fundamental hook, mixed evidence, implications and dated watch points. Morning notes use `plugins/apac-equity-desk/references/morning-research.md`: actively investigate overnight and domestic changes, local exposures, counterevidence and dated catalysts. Default to a developed note led by the local tape/setup; use a short snippet only when requested and label pre-open expectations honestly. Workflow completion alone is not research completion.
 
 Keep dense useful name/move lists, desk shorthand and optional user-supplied humour. Do not force internal evidence-pack labels into reader-facing prose or compress every note to flash length. Treat user samples as style references, never as reusable live facts. Do not publish the user's raw samples as fixtures; use clearly synthetic examples.
@@ -51,7 +58,7 @@ Keep dense useful name/move lists, desk shorthand and optional user-supplied hum
 
 - Use local market time and name the timezone on first use.
 - Use percentage points as `ppt`; do not call a percentage-point spread a percent difference.
-- Display China A-share tickers as `300750 CH Equity` in prose and retain provider symbols such as `300750.SZ` in data packs.
+- Display China A-share tickers as `300750 CH Equity` in prose and retain provider symbols such as `300750.SZ` in data packs. News Snippets may use verified compact forms under its format-specific guide.
 - Prefer median peer moves to simple averages when a basket is skewed.
 - Do not compare live prices from non-overlapping sessions without flagging the timing mismatch.
 - For A/H premiums, name the FX rate and timestamp used.

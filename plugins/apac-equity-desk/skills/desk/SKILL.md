@@ -36,7 +36,8 @@ uses the developed note; use a snippet only when the user requests one.
 
 Select exactly one primary route and any justified sibling enrichers:
 
-- Morning -> `../morning-brief/SKILL.md`
+- Pre-open news digest / country news snippets -> `../news-snippets/SKILL.md`
+- Morning note or morning flash -> `../morning-brief/SKILL.md`
 - Country/regional summary or close -> `../apac-market-wrap/SKILL.md`
 - Stock/sector colour or why-it-moved -> `../market-color/SKILL.md`
 - Deeper catalyst work -> `../catalyst-analysis/SKILL.md`

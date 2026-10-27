@@ -5,6 +5,10 @@ description: Research and write an APAC morning note from requests such as Japan
 
 # Morning Brief
 
+For an explicit country news-snippets or before-market news-digest request, use
+`../news-snippets/SKILL.md`. That item-based format has its own scope and length;
+ordinary morning notes and morning flashes continue here.
+
 Read `../../references/desk-defaults.md` for short-request routing, context/date defaults and the included review stages. The user does not need to repeat these instructions or request each pass.
 
 Read `../../references/morning-research.md` for the investigation and completion criteria, `../../references/house-style.md` (voice and morning format), `../../references/prose-quality.md`, `../../references/source-priority.md` and the morning-note contract in `../../references/data-contract.md`.

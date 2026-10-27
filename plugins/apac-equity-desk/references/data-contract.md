@@ -117,7 +117,7 @@ Optional claim fields: `value`, `unit`, `currency`, `session`, `tolerance`, `fac
 
 Build the underlying quote/news/claim pack first, then author the narrative entries below from that evidence. Renderers format supplied prose; they do not generate research or determine causality. They reject structural errors but cannot verify a paragraph's truth or a ticker's identity.
 
-All three formats require `as_of` as an ISO timestamp with a timezone offset. Optional `sources` is an array of objects with unique `id`, an HTTP(S) `url` and optional `label`. A text entry is either an analyst-reviewed string or `{"summary":"Supported paragraph.","source_ids":["s1"]}`. Linked entries retain their citations inline; missing IDs and malformed URLs fail validation. Bare strings are allowed for reviewed prose and are not automatically verified.
+All narrative formats require `as_of` as an ISO timestamp with a timezone offset. The `sources` registry is an array of objects with unique `id`, an HTTP(S) `url` and optional `label`. In the close, theme and morning formats, sources are optional and a text entry is either an analyst-reviewed string or `{"summary":"Supported paragraph.","source_ids":["s1"]}`. News snippets require source-linked item objects as described below. Linked entries retain their citations inline; missing IDs and malformed URLs fail validation. Bare strings in the other formats are allowed for reviewed prose and are not automatically verified.
 
 Use lists of text entries for paragraph fields and bullet fields. Omit optional fields or use empty arrays; the renderer does not insert empty-section filler. Optional `data_gaps` and `review_notes` are bullet arrays displayed separately after the note. Set `synthetic: true` for fabricated layout examples; their output is visibly labelled.
 
@@ -136,6 +136,28 @@ Required: `format`, `as_of`, `headline`, nonempty `tickers` (verified display st
 Optional: `fundamental_hook` paragraph array, `mixed_evidence` bullet array and `implications` bullet array. Preserve conflicting evidence and separate different stock exposures. Each ticker appears on its own line; a narrative template does not validate exchange mappings.
 
 Example: `tests/fixtures/optical_theme_house.json`. Its placeholder tickers are deliberately fictional.
+
+### Pre-open news digest: desk-news-snippets
+
+`render_news_snippets.py` accepts `format: desk-news-snippets`, an offset `as_of`
+information cutoff, a nonempty `country`, `session: pre_open` and a nonempty
+`items` array. Optional `retrospective: true` labels preparation after the target
+opening; the cutoff must still precede that opening. `synthetic: true` marks
+fictional examples. The renderer rejects observed `opening_tape`.
+
+Each item is an object with a nonempty `summary` and nonempty `source_ids` list
+referencing the shared `sources` registry. Optional `headline` adds a headline
+and colon before the summary; omit it for a company-led sentence. Both are
+single-paragraph strings. The renderer preserves item order and numbers, adds
+inline source links, and never caps length or invents categories or analysis.
+Optional `data_gaps` and `review_notes` follow the digest in the shared layout.
+
+The underlying evidence record retains event/publication/quote times and
+verification status; the narrative pack does not replace it. Schema validation
+cannot establish factual accuracy, source independence, ticker identity or
+exchange opening time. Apply `news-snippets.md` before rendering. Do not run this
+pack through morning pack-readiness: an opening tape and sector-driver paragraphs
+are not required. Example: `tests/fixtures/china_news_snippets.json` (synthetic).
 
 ### Morning note: desk-morning
 

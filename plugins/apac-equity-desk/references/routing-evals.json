@@ -2,6 +2,54 @@
   "schema": "apac_intent_routing_eval/v1",
   "cases": [
     {
+      "id": "china-pre-open-news-snippets",
+      "prompt": "China news snippets before the market opens",
+      "primary_workflow": "news-snippets",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["morning-brief", "parallel-company-research"]
+    },
+    {
+      "id": "ordinary-morning-before-open",
+      "prompt": "Japan morning, as of 08:00 JST before the open",
+      "primary_workflow": "morning-brief",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["news-snippets"]
+    },
+    {
+      "id": "morning-flash-keeps-view",
+      "prompt": "Quick HK morning flash in 150 words",
+      "primary_workflow": "morning-brief",
+      "required_enrichers": ["source-verifier", "desk-editor"],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["news-snippets", "parallel-desk"]
+    },
+    {
+      "id": "edit-supplied-news-snippets",
+      "prompt": "Tighten this supplied China News Snippets draft; keep its items and do not research",
+      "primary_workflow": "desk-editor",
+      "required_enrichers": [],
+      "execution_mode": "single",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": ["news-snippets", "morning-brief"]
+    },
+    {
       "id": "one-stock-move",
       "prompt": "TSMC is up 6% today, why?",
       "primary_workflow": "market-color",

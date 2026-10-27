@@ -11,6 +11,7 @@ minimum sufficient workflow automatically; slash commands are optional.
 | --- | --- | --- |
 | Japan morning; HK morning; morning note | morning-brief | Developed researched note: local tape, overnight/domestic drivers, named exposures, counterevidence and catalysts |
 | Morning snippet; quick morning flash | morning-brief | Compressed researched findings at the requested length |
+| China news snippets; HK pre-open snippets; before-market news roundup | news-snippets | Headline-and-paragraph news digest with short policy, global, sector and company items |
 | Japan wrap; HK close; China EOD | apac-market-wrap | Developed country close ending with Corporate Headlines |
 | APAC wrap | apac-market-wrap | Regional digest for completed sessions, with coverage gaps |
 | CATL colour; why is CATL moving?; Taiwan lenses | market-color | Move versus peers, competing explanations, fundamental hook, mixed evidence, implications, watch |
@@ -123,6 +124,7 @@ headline or accessible news marked `unverified` does not complete an explanation
 
 ## Default output sizes and scope
 
+- News snippets: short individual items, often 20–80 words each; no total word or item quota. Use `news-snippets.md`; the morning-flash length does not apply.
 - Morning: roughly 500–900 words for a developed country note, guided by material findings; no fixed paragraph count. An explicitly requested snippet/flash is 150–250 words unless another limit is given.
 - Country wrap: roughly 500–900 words with useful sector/name detail.
 - Regional wrap: a compact country-by-country digest; expand only when requested.

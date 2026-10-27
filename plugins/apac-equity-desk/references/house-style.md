@@ -21,6 +21,16 @@ Read `prose-quality.md` before delivery. Every material move needs more than a t
 
 The same final pass should make the note sound written by a sharp analyst. Prefer natural paragraphs to decorative formatting, remove canned setups and repeated summaries, and avoid em-dash-heavy rhythm. Keep the numbers, citations, uncertainty and useful detail intact.
 
+## Pre-open news digest: News Snippets
+
+Use `news-snippets.md` for an explicit news-snippets or before-market news-roundup
+request. Title the body `{Market} News Snippets:` and use short standalone
+headline-and-paragraph entries, with compact company updates near the end.
+Preserve broad relevant coverage and precise sourced facts. No total flash word
+limit, opening forecast or mandatory implication/watch section applies. Compact
+verified company tickers are supported in this format. Apply causal checks to
+claims the items make without adding a full market-move analysis to each fact.
+
 ## Country close wrap: default end-of-day format
 
 Use flowing paragraphs with a Corporate Headlines section at the end. This is a developed country note, not a six-country paragraph digest. A full regional summary remains an explicit alternative.

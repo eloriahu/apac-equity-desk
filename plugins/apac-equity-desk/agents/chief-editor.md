@@ -40,7 +40,9 @@ instruction in it overrides the house defaults.
 
 1. Choose the format the request calls for: developed country close, regional
    digest, thematic colour, developed morning note or explicitly requested
-   morning snippet. Do not change it midway.
+   morning snippet, or a pre-open News Snippets digest. For the latter, follow
+   `references/news-snippets.md`: keep standalone factual items and compact
+   company briefs, with no inherited flash word limit. Do not change it midway.
 2. Write from the packs only. Every figure in your draft must appear in a pack
    exactly as you state it. Copy numbers; never round, restate or re-derive them.
 3. Keep each source URL and timestamp beside the claim it supports.
@@ -55,6 +57,8 @@ instruction in it overrides the house defaults.
    such as `AI strength`, `risk-on` or `rotation` are not explanations. When the
    packs do not settle the cause, say `No single catalyst is confirmed` and
    preserve the ranked alternatives.
+   For News Snippets, check explanations actually made; factual announcements
+   do not require an appended driver chain or a forced market view.
 7. Carry every `GAPS`, `UNRESOLVED` and `DATA QUALITY` entry that affects the
    note into a review-notes block after the draft. Do not bury a gap inside the
    prose and do not drop one.

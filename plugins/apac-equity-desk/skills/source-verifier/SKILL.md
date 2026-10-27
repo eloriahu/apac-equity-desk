@@ -28,6 +28,13 @@ source or an unresolved conflict remains a stated limitation, never a claimed ch
 
 ## Second pass: challenge the explanation
 
+For a News Snippets digest, use `../../references/news-snippets.md`: check
+headlines as well as summaries for unsupported certainty, implied causal links
+and misleading selection or juxtaposition. Apply the full driver assessment
+when a market explanation is claimed; a factual announcement does not require
+an invented market view or peer-relative thesis. For a reported move with no
+established cause, preserve its date/basis and keep uncertainty brief and clear.
+
 Reassess the draft's lead against the verified facts, starting with the strongest
 alternative explanation rather than looking only for confirmation. Check earlier
 trends, fresh developments, event/quote chronology, different business exposures,

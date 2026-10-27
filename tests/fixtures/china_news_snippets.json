@@ -1,0 +1,34 @@
+{
+  "format": "desk-news-snippets",
+  "synthetic": true,
+  "as_of": "2026-05-06T08:15:00+08:00",
+  "country": "China",
+  "session": "pre_open",
+  "sources": [
+    {"id": "policy", "label": "Synthetic regulator release", "url": "https://example.com/fictional-policy"},
+    {"id": "company", "label": "Synthetic company filing", "url": "https://example.com/fictional-filing"},
+    {"id": "report", "label": "Synthetic industry report", "url": "https://example.com/fictional-report"}
+  ],
+  "items": [
+    {
+      "headline": "Example Regulator Proposes Settlement Change",
+      "summary": "The regulator opened consultation on a shorter settlement cycle, with responses due on 12 May. The proposal does not specify an implementation date.",
+      "source_ids": ["policy"]
+    },
+    {
+      "headline": "Example Manufacturer Reportedly Tests New Process",
+      "summary": "Example Industry Journal reported that a manufacturer has begun pilot testing. Commercial qualification remains pending and the company has not announced a production schedule.",
+      "source_ids": ["report"]
+    },
+    {
+      "headline": "Example Components Raises Revenue Guidance",
+      "summary": "Example Components lifted its full-year revenue guidance to RMB4.2–4.4bn from RMB4.0–4.2bn, citing higher shipments. Q1 net profit rose 18.25% YoY to RMB126mn on revenue of RMB980mn.",
+      "source_ids": ["company"]
+    },
+    {
+      "summary": "Example Networks said its pilot line remains in qualification; commercial deliveries are expected next year and no customer orders were disclosed.",
+      "source_ids": ["company"]
+    }
+  ],
+  "data_gaps": ["Synthetic illustration only; no live news or quotes were collected."]
+}

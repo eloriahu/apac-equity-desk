@@ -1,0 +1,6 @@
+interface:
+  display_name: "News Snippets"
+  short_description: "Write APAC pre-open news and company snippets"
+  default_prompt: "Use $news-snippets for China before the market opens."
+policy:
+  allow_implicit_invocation: true

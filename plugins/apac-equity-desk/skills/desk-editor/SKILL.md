@@ -9,6 +9,15 @@ Read `../../references/desk-defaults.md` for short-request routing, context/date
 
 Read `../../references/house-style.md` and `../../references/prose-quality.md`. Identify whether the draft is a developed country close, a theme note, a flash, a developed morning note, an explicitly requested morning snippet or a regional digest; preserve that choice.
 
+For a pre-open news-snippets digest, read `../../references/news-snippets.md`.
+Preserve short headline-and-paragraph items, broad relevant coverage, compact
+company briefs and the information cutoff. Merge duplication without deleting
+distinct news. The morning-flash word limit and flowing market-narrative layout
+do not apply. Verify or qualify any stated causal link, but do not demand a
+move/peer/mechanism/counterevidence essay for every announcement or add a market
+outlook, trade implication or watch section. Keep attribution in headlines as
+well as summaries. The movement rules below govern explanations actually made.
+
 Do not collect new evidence. If evidence is missing, return a specific data request. Challenge: Why today? Why this name versus peers? What is new? What contradicts the lead? Does a confirmed announcement really establish causation? Are close, intraday peak and since-open moves distinguished?
 
 In a composed research workflow, return that request to the research lead for

@@ -13,11 +13,18 @@ The plugin supports Codex and Claude Code from the same skills, references and c
 | Ask | What comes back |
 | --- | --- |
 | `Japan morning` | A developed researched note: local tape, overnight/domestic drivers, named exposures, counterevidence and today's catalysts |
+| `China news snippets before the open` | A sourced news digest: short headline-and-paragraph policy, global, sector and company updates |
 | `HK wrap` | Index performance, breadth, sectors, movers, flows, catalysts and Corporate Headlines |
 | `APAC wrap` | A regional close with country-level detail and cross-market context |
 | `What matters tomorrow?` | A sourced calendar of earnings, policy, macro and company events |
 
 Morning notes distinguish observed opening moves from pre-open expectations. Close notes will not call an open market “closed.” Missing breadth, flow or turnover data stays visible as a gap.
+
+News snippets use a separate [pre-open digest format](plugins/apac-equity-desk/references/news-snippets.md).
+Each story is short; the full digest has no fixed item count or morning-flash word
+limit. Ask naturally, use `$news-snippets China`, or `/snippets China` in Claude
+Code. The digest carries a dated information cutoff and inline sources, with
+compact company updates near the end.
 
 ### Explain a stock or sector move
 
