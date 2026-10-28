@@ -66,7 +66,8 @@ class HouseFormatTests(unittest.TestCase):
             pack = fixture(name)
             result = renderer(pack)
             self.assertIn("[Synthetic desk fixture](https://example.com/synthetic-desk-data)", result)
-            self.assertTrue(result.startswith("DRAFT — HUMAN APPROVAL REQUIRED"))
+            banner = "DRAFT | HUMAN APPROVAL REQUIRED" if renderer is close else "DRAFT — HUMAN APPROVAL REQUIRED"
+            self.assertTrue(result.startswith(banner))
             self.assertIn("SYNTHETIC EXAMPLE", result)
 
     def test_morning_opens_with_local_tape_before_overnight(self):

@@ -54,6 +54,16 @@ Follow `plugins/apac-equity-desk/references/house-style.md`. Default country clo
 
 Keep dense useful name/move lists, desk shorthand and optional user-supplied humour. Do not force internal evidence-pack labels into reader-facing prose or compress every note to flash length. Treat user samples as style references, never as reusable live facts. Do not publish the user's raw samples as fixtures; use clearly synthetic examples.
 
+## Japan EOD presentation
+
+Apply these defaults to Japan end-of-day summaries unless the user requests otherwise.
+
+* Use plain headings and prose with no bold formatting or dash punctuation. Use `|` as a header separator and `* ` for every Corporate Headlines bullet, never hyphen-led bullets. Preserve signed daily returns in the narrative; use the mathematical minus sign `−` for declines.
+* Keep company names and daily percentage moves in the market narrative. Corporate Headlines contain concise company-led news only, without stock price moves or share prices. Earnings, guidance, deal, dividend and buyback figures remain useful.
+* Write for the end reader. Do not refer to the user's screenshots, screens, feed, supplied watchlist, attachments or the research process. Avoid phrases such as "as the feed shows", "as shown on the screen" or "the supplied headlines do not provide a reason".
+* State uncertainty directly and proportionately through the analysis; do not invent a catalyst to avoid a process caveat. Retain source citations, relevant market timestamps and the distinction between session news and results released at or after the close. Keep input provenance, missing inputs and editorial checks in the private evidence/review pack, outside the copy-ready draft.
+* For this format the draft banner is `DRAFT | HUMAN APPROVAL REQUIRED`. This typography exception does not change the approval requirement.
+
 ## Market conventions
 
 - Use local market time and name the timezone on first use.

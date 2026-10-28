@@ -47,6 +47,17 @@ This order is a useful default, not a requirement to manufacture a policy, rates
 
 Rough guide: 500–900 words for a developed country wrap, with more room on dense sessions and less on quiet ones. The user's requested length overrides the guide.
 
+### Japan EOD presentation override
+
+Apply these defaults to Japan end-of-day summaries unless the user requests otherwise.
+
+* Use plain headings and prose with no bold formatting or dash punctuation. Use `|` as a header separator and `* ` for every Corporate Headlines bullet, never hyphen-led bullets. Preserve signed daily returns in the narrative; use the mathematical minus sign `−` for declines.
+* Keep company names and daily percentage moves in the market narrative. Corporate Headlines contain concise company-led news only, without stock price moves or share prices. Earnings, guidance, deal, dividend and buyback figures remain useful.
+* Write for the end reader. Do not refer to the user's screenshots, screens, feed, supplied watchlist, attachments or the research process. Avoid phrases such as "as the feed shows", "as shown on the screen" or "the supplied headlines do not provide a reason".
+* State uncertainty directly and proportionately through the analysis; do not invent a catalyst to avoid a process caveat. Retain source citations, relevant market timestamps and the distinction between session news and results released at or after the close. Keep input provenance, missing inputs and editorial checks in the private evidence/review pack, outside the copy-ready draft.
+* For this format the draft banner is `DRAFT | HUMAN APPROVAL REQUIRED`. This typography exception does not change the approval requirement.
+
+
 ## Intraday theme colour: default developed commentary
 
 Start with a short, energetic theme headline (uppercase is welcome when warranted), followed by relevant verified desk tickers on separate lines. Then:

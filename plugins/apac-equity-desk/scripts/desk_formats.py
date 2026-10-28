@@ -71,16 +71,16 @@ def paragraphs(block: dict[str, Any], field: str, sources: list[dict[str, Any]],
     return [text(value, sources) for value in values]
 
 
-def bullets(values: Any, sources: list[dict[str, Any]]) -> str:
+def bullets(values: Any, sources: list[dict[str, Any]], marker: str = "-") -> str:
     if not isinstance(values, list):
         raise ValueError("Bullet entries must be an array.")
-    return "\n".join("- " + text(value, sources) for value in values)
+    return "\n".join(marker + " " + text(value, sources) for value in values)
 
 
-def header(pack: dict[str, Any], title: str) -> list[str]:
-    blocks = [BANNER]
+def header(pack: dict[str, Any], title: str, separator: str = " — ") -> list[str]:
+    blocks = [BANNER.replace(" — ", separator)]
     if pack.get("synthetic") is True:
-        blocks.append("SYNTHETIC EXAMPLE — NOT MARKET DATA")
+        blocks.append("SYNTHETIC EXAMPLE" + separator + "NOT MARKET DATA")
     blocks.extend([title, f"As of {pack['as_of']}"])
     return blocks
 
@@ -104,7 +104,10 @@ def render_close(pack: dict[str, Any]) -> str:
     if not isinstance(markets, list) or not markets:
         raise ValueError("A close pack needs at least one market.")
     sources = pack.get("sources", [])
-    blocks = header(pack, f"Market close — {pack['date']}")
+    japan_eod = (len(markets) == 1 and isinstance(markets[0], dict)
+                 and str(markets[0].get("name", "")).strip().casefold() in {"japan", "jp", "日本"})
+    separator = " | " if japan_eod else " — "
+    blocks = header(pack, f"Market close{separator}{pack['date']}", separator)
     for market in markets:
         if not isinstance(market, dict) or not isinstance(market.get("name"), str) or not market["name"].strip():
             raise ValueError("Every market needs a name.")
@@ -117,8 +120,12 @@ def render_close(pack: dict[str, Any]) -> str:
         if market.get("desk_aside"):
             blocks.append(text(market["desk_aside"], sources))
         if market.get("corporate_headlines"):
-            blocks.append("**Corporate Headlines**\n\n" + bullets(market["corporate_headlines"], sources))
-    blocks.extend(review_notes(pack, sources))
+            heading = "Corporate Headlines" if japan_eod else "**Corporate Headlines**"
+            marker = "*" if japan_eod else "-"
+            blocks.append(heading + "\n\n" + bullets(market["corporate_headlines"], sources, marker))
+    # Japan EOD review notes stay in the evidence pack, outside the reader copy.
+    if not japan_eod:
+        blocks.extend(review_notes(pack, sources))
     return "\n\n".join(blocks) + "\n"
 
 
