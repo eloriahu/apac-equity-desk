@@ -5,6 +5,10 @@ description: Research and write an APAC pre-open news digest from requests such 
 
 # News Snippets
 
+For public-source search and extraction, read
+`../../references/research-addons.md`; Firecrawl can support collection when
+available while the original publisher remains the evidence source.
+
 Read `../../references/news-snippets.md` for the writing format and selection
 rules, `../../references/source-priority.md` for evidence, and the
 `desk-news-snippets` section in `../../references/data-contract.md` if rendering

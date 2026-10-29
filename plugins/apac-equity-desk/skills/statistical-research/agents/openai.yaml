@@ -1,0 +1,6 @@
+interface:
+  display_name: "APAC Statistical Research"
+  short_description: "Test APAC research hypotheses with historical data"
+  default_prompt: "Use $statistical-research to test whether these Taiwan flow observations predict subsequent returns."
+policy:
+  allow_implicit_invocation: true

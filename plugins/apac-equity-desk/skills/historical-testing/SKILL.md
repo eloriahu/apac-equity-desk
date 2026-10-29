@@ -19,3 +19,8 @@ Read [research standards](../../references/event-driven/research-standards.md),
 Use the `backtest` example and helper described in the toolkit. Preserve the input
 and output beside the source pack. Run source-verifier and desk-editor for the
 reader-facing research draft; retain `DRAFT — HUMAN APPROVAL REQUIRED`.
+
+When the user also asks about significance, factor-adjusted performance or
+predictiveness, use `../statistical-research/SKILL.md` as bounded support with
+available K-Dense methods. The replay remains this workflow's responsibility;
+chronological segment summaries alone do not validate a predictive model.

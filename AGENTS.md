@@ -21,6 +21,12 @@ Resolve contradictions by preserving both observations, preferring the higher-ra
 
 ## Short requests
 
+For source extraction, document conversion, public datasets and empirical
+analysis, read `plugins/apac-equity-desk/references/research-addons.md`.
+For work on the desk's code, skills or integrations, use
+`plugins/apac-equity-desk/skills/desk-development/SKILL.md`; development aids do
+not change the research source hierarchy or run during ordinary market notes.
+
 Read `plugins/apac-equity-desk/references/desk-defaults.md` for task routing, date/session defaults and included review stages. A request such as "Japan wrap" supplies the subject and task; do not require the user to repeat the house style or separately request verification and editing. Explicit user constraints override defaults. Ask only when an essential subject cannot be resolved.
 
 Also read `plugins/apac-equity-desk/references/intent-routing.md`. Choose exactly

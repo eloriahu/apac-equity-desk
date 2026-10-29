@@ -149,6 +149,34 @@ Collection and judgment stay separate. A calculation library cannot silently bec
 
 ## Install
 
+### Optional research and development integrations
+
+The desk uses installed tools when their capabilities fit the question. These
+are optional; no new API key or modeling package is required for ordinary notes.
+
+| Addition | Example request | How it joins the desk |
+| --- | --- | --- |
+| [Firecrawl](https://github.com/firecrawl/firecrawl-mcp-server) | `Japan morning: investigate fresh company IR announcements` | Searches and extracts public sources, preserving original links and dates |
+| [MarkItDown](https://github.com/microsoft/markitdown) | `Compare these two annual reports and explain the changes` | Converts local documents for research; material figures and citations are checked against originals |
+| [K-Dense scientific skills](https://github.com/K-Dense-AI/scientific-agent-skills) | `Test whether Taiwan foreign buying predicts next-week returns` | Selects statistical-analysis, statsmodels, PyMC or a named public database lookup as needed |
+| [Context7](https://github.com/upstash/context7) | `Add a current-library chart to our desk dashboard` | Supplies library documentation during software development |
+| [Matt Pocock skills](https://github.com/mattpocock/skills) | `Improve the desk's agent instructions` | Uses writing-for-agents; specification, handoff, retrospective and setup skills remain explicit shortcuts where configured that way |
+| [gstack](https://github.com/garrytan/gstack) | `Find and fix the broken filter in our research dashboard` | Provides relevant debugging, review and QA workflows during desk development |
+
+Ask naturally through the desk. The new `$statistical-research` and
+`$desk-development` skills are also directly available; Claude Code shortcuts
+are `/empirical` and `/develop`. Deterministic deal sensitivity and historical
+portfolio replay keep their existing workflows, with statistical support only
+when requested or necessary to the question.
+
+See the [integration guide](plugins/apac-equity-desk/references/research-addons.md)
+for availability checks, provenance and fallbacks. Basic Firecrawl connections
+may have only search/scrape/parse. Scientific skill instructions do not install
+Python modeling libraries. Existing host connections and credentials stay
+outside this plugin; a missing optional service produces a supported fallback
+or a specific limitation. Ordinary research does not run development reviews,
+install packages or publish artifacts.
+
 ### Codex
 
 ```shell
@@ -327,6 +355,16 @@ All fixture names, numbers, events, URLs and dates are synthetic. They test form
 This repository does not package a brokerage connector. It must not submit, replace, cancel or stage orders; alter brokerage positions, alerts or watchlists; or publish/send a research draft without explicit human approval at that moment. Local research watchlist snapshots are supported.
 
 The output is research, not personalized financial advice. Provider access, exchange coverage, rate limits and redistribution rights remain subject to each provider's terms.
+
+## Release 1.7.0
+
+- Added optional Firecrawl and local MarkItDown intake with source provenance.
+- Added statistical-research with K-Dense methods and desk-development with
+  Context7, Matt Pocock and gstack integration.
+- Preserved direct workflow invocation, missing-tool fallbacks and existing
+  finance calculation contracts.
+
+See [release notes](docs/releases/1.7.0.md) for capabilities and boundaries.
 
 ## Release 1.6.0
 

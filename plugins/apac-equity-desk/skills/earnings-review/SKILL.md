@@ -5,6 +5,10 @@ description: Review APAC company earnings from requests such as earnings review,
 
 # Earnings Review
 
+Read `../../references/integrations.md` for market/consensus source policy and
+`../../references/research-addons.md` when retrieving or converting filings,
+presentations and workbooks. Verify extracted figures in their originals.
+
 Resolve the company, listing, reporting period, currency, accounting basis and as-of time. Prefer the company filing and presentation for actuals, and attribute every consensus figure to its provider and retrieval time.
 
 Build rows for revenue, operating profit, net income, EPS, margins, segment results and guidance as available. Run `../../scripts/earnings_surprise.py`; do not calculate surprises mentally. Reject mixed units, currencies, GAAP/non-GAAP bases or periods rather than comparing them. Run `../../scripts/pack_readiness.py --mode earnings` before drafting.

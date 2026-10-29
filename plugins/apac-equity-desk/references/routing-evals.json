@@ -5,37 +5,54 @@
       "id": "china-pre-open-news-snippets",
       "prompt": "China news snippets before the market opens",
       "primary_workflow": "news-snippets",
-      "required_enrichers": ["source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["morning-brief", "parallel-company-research"]
+      "forbidden_workflows": [
+        "morning-brief",
+        "parallel-company-research"
+      ]
     },
     {
       "id": "ordinary-morning-before-open",
       "prompt": "Japan morning, as of 08:00 JST before the open",
       "primary_workflow": "morning-brief",
-      "required_enrichers": ["source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["news-snippets"]
+      "forbidden_workflows": [
+        "news-snippets"
+      ]
     },
     {
       "id": "morning-flash-keeps-view",
       "prompt": "Quick HK morning flash in 150 words",
       "primary_workflow": "morning-brief",
-      "required_enrichers": ["source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["news-snippets", "parallel-desk"]
+      "forbidden_workflows": [
+        "news-snippets",
+        "parallel-desk"
+      ]
     },
     {
       "id": "edit-supplied-news-snippets",
@@ -47,7 +64,10 @@
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["news-snippets", "morning-brief"]
+      "forbidden_workflows": [
+        "news-snippets",
+        "morning-brief"
+      ]
     },
     {
       "id": "one-stock-move",
@@ -72,7 +92,7 @@
     },
     {
       "id": "move-to-beneficiaries",
-      "prompt": "CATL is up\u2014who benefits?",
+      "prompt": "CATL is up—who benefits?",
       "primary_workflow": "market-color",
       "required_enrichers": [
         "cross-market-map",
@@ -248,7 +268,7 @@
     },
     {
       "id": "ambiguous-ticker",
-      "prompt": "ABC is up\u2014why?",
+      "prompt": "ABC is up—why?",
       "primary_workflow": "market-color",
       "required_enrichers": [],
       "execution_mode": "single",
@@ -478,13 +498,19 @@
       "prompt": "Why are these AI names weak? Use the moves in my screen and this model-launch headline.",
       "context": "Synthetic screen: model developer A -9%, developer B -4%, board supplier C -5%, equipment maker D -3%. No visible quote timestamp. Earlier reporting describes hardware weakness before the rival model launch.",
       "primary_workflow": "market-color",
-      "required_enrichers": ["source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["idea-funnel", "parallel-desk"],
+      "forbidden_workflows": [
+        "idea-funnel",
+        "parallel-desk"
+      ],
       "expected_behaviors": [
         "Use supplied moves with unknown-timestamp limitation; do not request manual re-entry.",
         "Research outside news and verify the earlier backdrop independently of the supplied headline.",
@@ -507,13 +533,18 @@
       "prompt": "Japan market summary as of now. Use this table.",
       "context": "Synthetic current-session watchlist during cash trading. Supplied daily percentage moves, but no price levels, indices, FX or rates.",
       "primary_workflow": "apac-market-wrap",
-      "required_enrichers": ["source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["parallel-desk"],
+      "forbidden_workflows": [
+        "parallel-desk"
+      ],
       "expected_behaviors": [
         "Return an interim narrative using the supplied percentages and researched drivers.",
         "Collect necessary missing context with its own timestamps; declare unavailable fields."
@@ -528,13 +559,18 @@
       "prompt": "Updated screen attached.",
       "context": "The current task is a semiconductor market-colour note with an earlier supplied snapshot and an established subject.",
       "primary_workflow": "market-color",
-      "required_enrichers": ["source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["parallel-desk"],
+      "forbidden_workflows": [
+        "parallel-desk"
+      ],
       "expected_behaviors": [
         "Continue the established task, preserve both cutoffs and explain material changes.",
         "Refresh relevant news and retest the prior explanation against the new observations."
@@ -548,19 +584,275 @@
       "prompt": "Explain this sector screen using only the attached prices and headlines. Do not browse.",
       "context": "Synthetic supplied data supports the observed moves but leaves some causes and quote times unresolved.",
       "primary_workflow": "market-color",
-      "required_enrichers": ["source-verifier", "desk-editor"],
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
       "execution_mode": "composed",
       "team": "none",
       "action": "answer",
       "clarification_count": 0,
       "hero_artifact_owner": "apac-equity-desk",
-      "forbidden_workflows": ["parallel-desk"],
+      "forbidden_workflows": [
+        "parallel-desk"
+      ],
       "expected_behaviors": [
         "Respect the explicit source restriction and label the cutoff and unresolved causes.",
         "Distinguish observations from proposed drivers using only supplied evidence."
       ],
       "forbidden_behaviors": [
         "Fetch external news or claim that missing checks were performed."
+      ]
+    },
+    {
+      "id": "public-ir-collection",
+      "prompt": "Japan morning; investigate fresh public IR releases",
+      "primary_workflow": "morning-brief",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "desk-development",
+        "statistical-research"
+      ],
+      "optional_capabilities": [
+        "firecrawl_search",
+        "firecrawl_scrape"
+      ]
+    },
+    {
+      "id": "local-filing-conversion",
+      "prompt": "Compare these two supplied annual-report PDFs",
+      "primary_workflow": "filing-change",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "desk-development"
+      ],
+      "optional_capabilities": [
+        "local-markitdown"
+      ],
+      "required_checks": [
+        "Original-page verification of material changes",
+        "Preserve document dates and original locators"
+      ]
+    },
+    {
+      "id": "flow-predictiveness",
+      "prompt": "Test whether these dated Taiwan foreign-flow observations predict next-week returns after market and sector controls",
+      "primary_workflow": "statistical-research",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "desk-development"
+      ],
+      "optional_capabilities": [
+        "statistical-analysis",
+        "statsmodels"
+      ],
+      "required_checks": [
+        "Chronological validation",
+        "Aligned availability and return horizons",
+        "Dependence-aware inference"
+      ]
+    },
+    {
+      "id": "bayesian-deal-estimation",
+      "prompt": "Estimate completion probabilities from this point-in-time sample using a Bayesian hierarchical model",
+      "primary_workflow": "statistical-research",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "desk-development"
+      ],
+      "optional_capabilities": [
+        "pymc"
+      ],
+      "required_checks": [
+        "Prior and posterior predictive checks",
+        "Out-of-sample calibration",
+        "Failed and unresolved deal coverage"
+      ]
+    },
+    {
+      "id": "deterministic-grid-stays-lean",
+      "prompt": "Stress this deal at 60%, 75% and 90% close probability",
+      "primary_workflow": "probability-sensitivity",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "statistical-research",
+        "desk-development"
+      ],
+      "optional_capabilities": []
+    },
+    {
+      "id": "macro-dataset-intake",
+      "prompt": "Japan morning: include the latest official industrial-production release",
+      "primary_workflow": "morning-brief",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "desk-development",
+        "statistical-research"
+      ],
+      "optional_capabilities": [
+        "database-lookup"
+      ]
+    },
+    {
+      "id": "desk-dashboard-development",
+      "prompt": "Add a chart and fix the broken date filter in our APAC desk dashboard",
+      "primary_workflow": "desk-development",
+      "required_enrichers": [],
+      "execution_mode": "single",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "market-color",
+        "statistical-research"
+      ],
+      "optional_capabilities": [
+        "context7",
+        "gstack"
+      ],
+      "required_checks": [
+        "Relevant tests and UI verification",
+        "No implicit deployment"
+      ]
+    },
+    {
+      "id": "optional-tools-unavailable",
+      "prompt": "Review these supplied earnings documents; no Firecrawl or MarkItDown is available",
+      "primary_workflow": "earnings-review",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "desk-development"
+      ],
+      "optional_capabilities": [],
+      "required_checks": [
+        "Use available document tools",
+        "Preserve supported research and explicit extraction gaps",
+        "No installation during research"
+      ]
+    },
+    {
+      "id": "private-local-report",
+      "prompt": "Compare these supplied proprietary broker reports locally",
+      "primary_workflow": "consensus-challenge",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "desk-development"
+      ],
+      "optional_capabilities": [
+        "local-markitdown"
+      ],
+      "required_checks": [
+        "No remote parser upload without authorization",
+        "Distinct independent house groups",
+        "Original-document verification"
+      ]
+    },
+    {
+      "id": "bayesian-without-data",
+      "prompt": "Give me a calibrated deal completion probability using PyMC; no historical deals or model are supplied or accessible",
+      "primary_workflow": "statistical-research",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "desk-development"
+      ],
+      "optional_capabilities": [],
+      "required_checks": [
+        "Analysis plan or limitation only",
+        "No fabricated calibration or fitted probability"
+      ]
+    },
+    {
+      "id": "preserve-explicit-only-tools",
+      "prompt": "Improve the APAC desk agent instructions and save a development handoff",
+      "primary_workflow": "desk-development",
+      "required_enrichers": [],
+      "execution_mode": "single",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "market-color"
+      ],
+      "optional_capabilities": [
+        "writing-for-agents"
+      ],
+      "required_checks": [
+        "Respect explicit-only invocation for Matt handoff, retro and to-spec",
+        "Complete ordinary context preservation directly"
       ]
     }
   ]

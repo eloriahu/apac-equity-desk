@@ -1,6 +1,6 @@
 ---
 name: desk
-description: Automatically route APAC equity questions and supplied market screens or tables in an established research task to the minimum useful workflows. Use for market moves, company research, earnings, idea discovery, merger arbitrage, special situations, deal updates, morning notes, wraps, catalysts, verification and editing; use agent teams only when warranted.
+description: Automatically route APAC equity questions and supplied market screens or tables to the minimum useful workflows. Use for market moves, company research, earnings, ideas, deals, notes, empirical research and desk-tool development; use agent teams only when warranted.
 ---
 
 # APAC Desk
@@ -16,6 +16,11 @@ Bloomberg export or screenshot, use OpenBB only for missing, stale or absent
 market fields, and preserve task time, provider time and field lineage. Official
 filings and regulator/exchange/government releases remain authoritative for
 reported facts and events.
+
+For public web collection, document conversion, public datasets or statistical
+analysis, read `../../references/research-addons.md` and select only useful,
+available capabilities. These support the chosen route without starting another
+research workflow. Requests to build or fix the desk use desk-development.
 
 When market observations are supplied, apply
 `../../references/supplied-data-research.md`: ingest them directly into the
@@ -35,6 +40,9 @@ count does not mean minimum investigation. A short prompt such as `Japan morning
 uses the developed note; use a snippet only when the user requests one.
 
 Select exactly one primary route and any justified sibling enrichers:
+
+- Build, fix or integrate desk software, skills or dashboards -> `../desk-development/SKILL.md`
+- Empirical hypothesis, factor regression, event study or Bayesian estimation -> `../statistical-research/SKILL.md`
 
 - Pre-open news digest / country news snippets -> `../news-snippets/SKILL.md`
 - Morning note or morning flash -> `../morning-brief/SKILL.md`
@@ -93,5 +101,5 @@ Resolve dates/session cutoffs from the request and current market calendar;
 use task context for "this" or "update". Ask one concise question only if an
 essential subject cannot be inferred. Do not invent live data, imply unavailable
 connections or assume access to other tasks. Retain material gaps and the
-human-approval draft banner. Do not place orders, change accounts, publish,
+human-approval draft banner for research outputs. Do not place orders, change accounts, publish,
 schedule runs or create new tasks through this shorthand.

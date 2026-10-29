@@ -44,6 +44,19 @@ nested fan-out, duplicated research and circular hand-offs.
 
 ## Minimum-sufficient routing
 
+First distinguish research from building the desk. A request to implement a
+collector, calculator, skill, integration or dashboard selects desk-development;
+Context7, Matt Pocock and gstack support only that development work. Requests to
+explain market prices continue to select the research routes.
+
+A requested empirical test, regression, event study or Bayesian estimate selects
+statistical-research. Historical portfolio replay remains historical-testing;
+an assumption-driven deal grid remains probability-sensitivity. Add statistical
+support only when the question and data warrant estimation. Follow
+`research-addons.md` for optional Firecrawl, MarkItDown and database-lookup
+collection within the lead workflow. A converter or retrieval tool is not an
+extra lead route. Missing optional capabilities do not block supported research.
+
 - **Single** — one narrow workflow answers the request. Examples: check a
   supplied note, update a supplied ledger, or review one clearly defined
   management commitment.

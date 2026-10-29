@@ -18,3 +18,8 @@ Read [research standards](../../references/event-driven/research-standards.md),
 Use the `sensitivity` example and helper described in the toolkit. Preserve the input
 and output beside the source pack. Run source-verifier and desk-editor for the
 reader-facing research draft; retain `DRAFT — HUMAN APPROVAL REQUIRED`.
+
+If the request includes estimating completion probabilities from historical
+deals, use `../statistical-research/SKILL.md` for the separate estimation step
+when suitable data and a runtime are available. Keep its model estimate distinct
+from the sensitivity assumptions and algebraic break-even threshold.

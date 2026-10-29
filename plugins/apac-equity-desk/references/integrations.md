@@ -1,5 +1,16 @@
 # Integration notes
 
+## Optional source, statistics and development tools
+
+For public web collection, document conversion, named public datasets or
+empirical modeling, read [research-addons.md](research-addons.md). It routes
+available Firecrawl, local MarkItDown and K-Dense skills into the existing
+evidence workflow, with original-source verification and unavailable-tool
+fallbacks. For building or fixing the desk, use
+`../skills/desk-development/SKILL.md`, which selects Context7, Matt Pocock and
+gstack capabilities when useful. These integrations add no required connection,
+automatic package installation or data entitlement.
+
 ## Supplied observations and researched explanations
 
 For research requests with screenshots, pasted tables, exports or current-task
