@@ -5,6 +5,9 @@ description: Discover and compare APAC event-driven equity situations such as an
 
 # Special Situations
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Read [research standards](../../references/event-driven/research-standards.md). Establish scope,
 cutoff and universe actually searched. A web shortlist is not a complete database.
 Separate announced transactions, preliminary approaches and rumors.

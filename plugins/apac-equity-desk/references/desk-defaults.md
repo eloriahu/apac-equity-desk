@@ -5,6 +5,9 @@ Do not ask the user to repeat the house style, source hierarchy, peer comparison
 fact checking or editing instructions. Read `intent-routing.md` and choose the
 minimum sufficient workflow automatically; slash commands are optional.
 
+Apply `tool-selection.md` for current-host capability discovery, task-specific
+selection, fallback and answer-coverage checks, including direct skill requests.
+
 ## Request routes
 
 | User says | Workflow | Default result |
@@ -48,7 +51,8 @@ or with an explicit desk invocation. Do not intercept unrelated uses of "wrap",
 the intended route explicit. These are natural-language instructions, not a
 shell command, keyword-parser API or background subscription.
 
-Routes may compose. Use one primary workflow, add only enrichers that could
+Routes may compose. One primary workflow owns synthesis, while multiple tools
+and specialist skills may contribute without a fixed count cap. Add enrichers that could
 change its answer, and keep optional follow-ups unexecuted. A one-stock
 why-it-moved question remains market-color; do not run full fundamentals, an
 idea funnel or a team merely because those capabilities are related.

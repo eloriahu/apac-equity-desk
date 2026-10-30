@@ -5,6 +5,9 @@ description: Test competing APAC equity catalysts from requests such as dig deep
 
 # Catalyst Analysis
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Read `../../references/desk-defaults.md` for short-request routing, context/date defaults and the included review stages. The user does not need to repeat these instructions or request each pass.
 
 Read `../../references/source-priority.md`. Define the observation, session and relevant comparison group. Build a timeline from the last unaffected price through each disclosure and market reaction. For every proposed catalyst record source level, freshness, specificity, market fit, whether it was already known and contradictory evidence.

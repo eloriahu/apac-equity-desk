@@ -5,6 +5,14 @@ description: Orchestrate a full functional-agent APAC earnings review only for e
 
 # Parallel Earnings Review
 
+Before dispatching workers, read `../../references/agent-assignments.md`.
+Use its role-to-module map, complete briefs, dependency checks and handoff
+statuses. Broker a scoped read-only tool request when a worker lacks a connector;
+keep the verifier in a fresh context with only the draft and full evidence.
+
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Read `../../references/intent-routing.md`, `../../references/agent-team.md` and
 `../earnings-review/SKILL.md`. Use this mode only when the automatic escalation
 threshold is met.

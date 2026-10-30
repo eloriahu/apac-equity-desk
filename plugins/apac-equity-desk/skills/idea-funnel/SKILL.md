@@ -5,6 +5,15 @@ description: Discover and rank APAC equity candidates from a theme, structural t
 
 # APAC Idea Funnel
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
+Use the `candidate-analysis` module in
+`../../references/research-modules.md`: read and execute the installed
+`fundamental-tools:equity-idea-generation` skill for the scoped evidence/calculation
+assignment when available. Reuse its returned pack; a missing skill or runtime
+uses the documented fallback with the same evidence requirements.
+
 Start from the user's question, not a stock list. Read
 `../../references/intent-routing.md`, `../../references/source-priority.md`,
 `../../references/integrations.md` and the `idea_funnel/v1` section of

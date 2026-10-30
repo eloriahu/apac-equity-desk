@@ -23,7 +23,7 @@ class PluginPackagingTests(unittest.TestCase):
         claude = json.loads((PLUGIN / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
         marketplace = json.loads((ROOT / ".claude-plugin" / "marketplace.json").read_text(encoding="utf-8"))
         base = codex["version"].split("+", 1)[0]
-        self.assertEqual(base, "1.7.0")
+        self.assertEqual(base, "1.10.0")
         self.assertEqual(claude["version"], base)
         self.assertEqual(marketplace["version"], base)
         self.assertEqual(marketplace["plugins"][0]["version"], base)

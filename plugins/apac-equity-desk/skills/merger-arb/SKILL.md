@@ -5,6 +5,9 @@ description: Analyze announced APAC takeovers, mergers, privatizations and tende
 
 # Merger Arbitrage
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Read [research standards](../../references/event-driven/research-standards.md) and the relevant
 [jurisdiction sources](../../references/event-driven/jurisdictions.md).
 

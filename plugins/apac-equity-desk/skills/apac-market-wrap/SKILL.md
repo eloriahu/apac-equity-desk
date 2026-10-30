@@ -5,6 +5,9 @@ description: Run a country or regional APAC market summary from requests such as
 
 # Apac Market Wrap
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Read `../../references/desk-defaults.md` for short-request routing, context/date defaults and the included review stages. The user does not need to repeat these instructions or request each pass.
 
 Build the structured data pack before prose. Read `../../references/house-style.md`, `../../references/source-priority.md`, `../../references/data-contract.md` and `../../references/market-calendars.json`. Default to the house's developed country narrative when a country is requested; use a regional digest only when requested.

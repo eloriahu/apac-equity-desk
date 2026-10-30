@@ -5,6 +5,9 @@ description: Model contractual merger consideration with fixed-value collars, st
 
 # Deal Models
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Read [research standards](../../references/event-driven/research-standards.md),
 [toolkit contracts and examples](../../references/event-driven/toolkit.md), and
 [market data integrations](../../references/integrations.md).

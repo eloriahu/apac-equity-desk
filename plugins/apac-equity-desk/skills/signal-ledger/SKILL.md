@@ -5,6 +5,9 @@ description: Maintain an explicit APAC research-thesis ledger from requests such
 
 # Signal Ledger
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Use only a ledger supplied in the current task or at an explicit file path. Never imply hidden or cross-task memory.
 
 For each thesis retain: stable ID, statement, created/updated timestamps, horizon, supporting observations, counterevidence, confirmation conditions, invalidation conditions, status and source IDs. New evidence must be classified `strengthened`, `weakened`, `falsified` or `unchanged` with a reason.

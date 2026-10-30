@@ -5,6 +5,9 @@ description: Research and write an APAC pre-open news digest from requests such 
 
 # News Snippets
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 For public-source search and extraction, read
 `../../references/research-addons.md`; Firecrawl can support collection when
 available while the original publisher remains the evidence source.

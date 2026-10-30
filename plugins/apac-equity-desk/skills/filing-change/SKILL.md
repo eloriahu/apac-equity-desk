@@ -5,6 +5,15 @@ description: Explain what changed between two dated APAC company filings, includ
 
 # Filing Change
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
+Use the `filing-analysis` module in
+`../../references/research-modules.md`: read and execute the installed
+`fundamental-tools:filing-change-radar` skill for the scoped evidence/calculation
+assignment when available. Reuse its returned pack; a missing skill or runtime
+uses the documented fallback with the same evidence requirements.
+
 For document retrieval or conversion, read `../../references/research-addons.md`
 and select available Firecrawl, local MarkItDown or existing document tools.
 

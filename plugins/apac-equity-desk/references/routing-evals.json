@@ -180,6 +180,9 @@
         "parallel-desk",
         "parallel-company-research",
         "parallel-earnings"
+      ],
+      "required_modules": [
+        "fundamental-analysis"
       ]
     },
     {
@@ -853,6 +856,223 @@
       "required_checks": [
         "Respect explicit-only invocation for Matt handoff, retro and to-spec",
         "Complete ordinary context preservation directly"
+      ]
+    },
+    {
+      "id": "earnings-financial-analysis",
+      "prompt": "Review these earnings and explain what drove the result.",
+      "primary_workflow": "earnings-review",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "parallel-company-research",
+        "parallel-earnings"
+      ],
+      "required_modules": [
+        "fundamental-analysis"
+      ],
+      "required_questions": [
+        "reported-period comparability",
+        "segment and margin drivers",
+        "earnings quality and material cash items",
+        "actual versus dated consensus/guidance",
+        "forward implications"
+      ]
+    },
+    {
+      "id": "earnings-with-revisions",
+      "prompt": "Review these earnings and explain the estimate changes using my before/after workbooks.",
+      "primary_workflow": "earnings-review",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "parallel-company-research",
+        "parallel-earnings"
+      ],
+      "required_modules": [
+        "fundamental-analysis",
+        "expectations-analysis"
+      ],
+      "required_inputs": [
+        "official results",
+        "two comparable dated estimate snapshots"
+      ]
+    },
+    {
+      "id": "earnings-cash-followup",
+      "prompt": "Earnings beat, but the supplied statements show profit rose while operating cash fell. Is the beat sustainable?",
+      "primary_workflow": "earnings-review",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "parallel-company-research",
+        "parallel-earnings"
+      ],
+      "required_modules": [
+        "fundamental-analysis"
+      ],
+      "followup_assignment": "Investigate cash conversion, receivables/working capital and identified one-offs before judging repeatability.",
+      "forbidden_claims": [
+        "cash weakness is fraud",
+        "earnings beat proves recurring growth"
+      ]
+    },
+    {
+      "id": "earnings-reaction-explanation",
+      "prompt": "The results beat consensus; why did the stock fall?",
+      "primary_workflow": "market-color",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "parallel-company-research",
+        "parallel-earnings"
+      ],
+      "required_modules": [
+        "fundamental-analysis"
+      ],
+      "required_questions": [
+        "timestamped relative reaction",
+        "guidance and result quality",
+        "what was known before the move",
+        "competing explanations"
+      ],
+      "conditional_modules": [
+        {
+          "capability": "expectations-analysis",
+          "condition": "A dated estimate-change question is material and two comparable snapshots exist."
+        }
+      ]
+    },
+    {
+      "id": "earnings-beneficiary-composition",
+      "prompt": "Review these results and identify APAC suppliers that benefit.",
+      "primary_workflow": "earnings-review",
+      "required_enrichers": [
+        "idea-funnel",
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "parallel-company-research",
+        "parallel-earnings"
+      ],
+      "required_modules": [
+        "fundamental-analysis",
+        "candidate-analysis"
+      ],
+      "required_questions": [
+        "verified earnings drivers",
+        "exposure mechanism for each candidate",
+        "counterevidence"
+      ]
+    },
+    {
+      "id": "eps-only-calculation",
+      "prompt": "Only calculate the EPS beat from these two comparable numbers.",
+      "primary_workflow": "earnings-review",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "parallel-company-research",
+        "parallel-earnings"
+      ],
+      "required_modules": [],
+      "forbidden_modules": [
+        "fundamental-analysis",
+        "candidate-analysis",
+        "investment-artifact"
+      ],
+      "required_capabilities": [
+        "deterministic-calculation"
+      ]
+    },
+    {
+      "id": "edit-earnings-only",
+      "prompt": "Tighten this earnings note only. Do not add research.",
+      "primary_workflow": "desk-editor",
+      "required_enrichers": [],
+      "execution_mode": "single",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "parallel-company-research",
+        "parallel-earnings"
+      ],
+      "required_modules": [],
+      "forbidden_modules": [
+        "fundamental-analysis",
+        "expectations-analysis",
+        "candidate-analysis"
+      ]
+    },
+    {
+      "id": "revision-without-baseline",
+      "prompt": "Review results and say whether estimates changed; only the current consensus snapshot is accessible.",
+      "primary_workflow": "earnings-review",
+      "required_enrichers": [
+        "source-verifier",
+        "desk-editor"
+      ],
+      "execution_mode": "composed",
+      "team": "none",
+      "action": "answer",
+      "clarification_count": 0,
+      "hero_artifact_owner": "apac-equity-desk",
+      "forbidden_workflows": [
+        "parallel-company-research",
+        "parallel-earnings"
+      ],
+      "required_modules": [
+        "fundamental-analysis"
+      ],
+      "unmet_needs": [
+        "like-for-like consensus revision requires a prior snapshot"
+      ],
+      "forbidden_claims": [
+        "estimate revisions inferred from the price move",
+        "missing prior estimate treated as zero"
       ]
     }
   ]

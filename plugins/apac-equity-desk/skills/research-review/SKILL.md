@@ -5,6 +5,15 @@ description: Review the reliability and evolution of APAC equity research. Use f
 
 # Research Review
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
+Use the `research-audit` module in
+`../../references/research-modules.md`: read and execute the installed
+`fundamental-tools:research-quality-review` skill for the scoped evidence/calculation
+assignment when available. Reuse its returned pack; a missing skill or runtime
+uses the documented fallback with the same evidence requirements.
+
 Read `../../references/source-priority.md` and the `research_review/v1` section
 of `../../references/research-contracts.md`. Work only from reports, thesis snapshots
 or packs supplied in the current task or at an explicit path. Never imply

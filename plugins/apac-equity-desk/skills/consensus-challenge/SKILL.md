@@ -5,6 +5,15 @@ description: Challenge a shared sell-side APAC equity thesis by testing the majo
 
 # APAC Consensus Challenge
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
+Use the `consensus-analysis` module in
+`../../references/research-modules.md`: read and execute the installed
+`fundamental-tools:consensus-challenge` skill for the scoped evidence/calculation
+assignment when available. Reuse its returned pack; a missing skill or runtime
+uses the documented fallback with the same evidence requirements.
+
 Treat “mainstream” as agreement by a documented majority of distinct major sell-side research-house groups on the *same causal thesis and horizon*, not merely matching ratings or target-price direction. Read `../../references/research-contracts.md` and `../../references/integrations.md`. Use a supplied or lawfully accessible dated report set. If AI Toolbox is available, consume `consensus_challenge/v1` by schema; otherwise assemble the same evidence record manually. Never imply Bloomberg research, broker subscriptions or full report text is available when it is not. Do not bypass paywalls or reproduce proprietary reports.
 
 Map the house universe, latest view per group, thesis, load-bearing premises, underlying common sources, explicit dissent and stale coverage. If the universe or source text is incomplete, label only observed convergence. Steelman the consensus case before testing it. Challenge it with official filings, segment and cash-flow data, customer/supplier checks, peer behavior, regulation, expectations and valuation. Separate a documented contradiction from an untested assumption or alternate scenario; quantify earnings/valuation relevance only when comparable data supports it. Search whether published dissent already makes the same point. “Unaddressed in this reviewed sample” is never “nobody saw it.”

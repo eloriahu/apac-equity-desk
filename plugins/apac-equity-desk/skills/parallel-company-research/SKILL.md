@@ -5,6 +5,14 @@ description: Orchestrate a full functional-agent deep dive on an APAC listed com
 
 # Parallel Company Research
 
+Before dispatching workers, read `../../references/agent-assignments.md`.
+Use its role-to-module map, complete briefs, dependency checks and handoff
+statuses. Broker a scoped read-only tool request when a worker lacks a connector;
+keep the verifier in a fresh context with only the draft and full evidence.
+
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Read `../../references/intent-routing.md`, `../../references/agent-team.md` and
 `../company-fundamentals/SKILL.md`. This is an execution mode, not a larger
 permission boundary. The desk head owns scope, hand-offs, reconciliation and

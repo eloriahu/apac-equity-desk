@@ -39,3 +39,6 @@ proprietary/
 work/
 outputs/
 *.log
+
+# Local assistant session transcripts
+.claude/logs/

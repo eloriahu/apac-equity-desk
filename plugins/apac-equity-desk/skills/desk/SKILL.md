@@ -5,6 +5,9 @@ description: Automatically route APAC equity questions and supplied market scree
 
 # APAC Desk
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Read `../../references/desk-defaults.md` and `../../references/intent-routing.md`.
 The user should need only a natural-language question and a market, security,
 company, event or theme. Do not make the user choose skills, slash commands or
@@ -29,6 +32,11 @@ task when updated data arrives without a repeated request. Supplied prices
 anchor the observation; they do not establish its cause or limit news research
 unless the user explicitly restricts sources.
 
+For research, use `../../references/research-planning.md` to decompose the
+question and `../../references/research-modules.md` to invoke the necessary
+specialists. Earnings-review normally uses fundamental-tools:fundamental-research
+for a scoped financial analysis; other modules follow the actual subquestions.
+
 Classify the request before selecting a route. Record internally:
 `primary_workflow`, `required_enrichers`, `optional_followups`,
 `execution_mode`, `reason` and `stop_conditions`. Answer the stated question
@@ -39,7 +47,11 @@ follow-up research under `../../references/morning-research.md`. Minimum workflo
 count does not mean minimum investigation. A short prompt such as `Japan morning`
 uses the developed note; use a snippet only when the user requests one.
 
-Select exactly one primary route and any justified sibling enrichers:
+Select exactly one primary route to coordinate the final answer, with as many
+relevant supporting skills and tools as the evidence requires. One lead is not
+a one-tool restriction; there is no fixed supporting-workflow count cap.
+
+Select the lead and any justified sibling enrichers:
 
 - Build, fix or integrate desk software, skills or dashboards -> `../desk-development/SKILL.md`
 - Empirical hypothesis, factor regression, event study or Bayesian estimation -> `../statistical-research/SKILL.md`

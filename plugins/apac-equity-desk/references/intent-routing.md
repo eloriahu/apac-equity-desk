@@ -4,6 +4,13 @@ The user supplies the question; the desk chooses the minimum sufficient
 workflow. Slash commands remain shortcuts, not prerequisites. Route by meaning,
 not by literal keyword matching.
 
+For research, first apply `research-planning.md` and select scoped specialist
+assignments from `research-modules.md`. The lead interprets the question and
+revises the plan as evidence arrives; matching a workflow name is only the start.
+Before acquisition, apply `tool-selection.md` to the selected workflow. Record
+`evidence_needs`, actual `tool_bindings`, `fallbacks` and `completion_checks`
+alongside the routing record. Choosing a skill does not complete tool selection.
+
 ## Classify before acting
 
 Make a short internal assessment across five dimensions:
@@ -37,7 +44,10 @@ stop_conditions:
 
 `execution_mode` is `single`, `composed` or `agent-team`.
 
-Choose exactly one lead route. Required enrichers form a one-way support graph
+Choose exactly one lead route to own the final synthesis. This is an ownership
+rule, not a one-tool or one-skill restriction. A single question can require
+multiple specialist workflows, complementary tools and sequential follow-ups.
+Required enrichers form a one-way support graph
 from that lead; an enricher must not launch another workflow or its own agents.
 The desk head alone may add, remove or sequence support work. This prevents
 nested fan-out, duplicated research and circular hand-offs.
@@ -69,13 +79,14 @@ extra lead route. Missing optional capabilities do not block supported research.
   question, prefer a two- or three-agent micro-team in one wave rather than the
   full research team. Multiple available skills alone does not qualify.
 
-For ordinary composition, cap the work at one primary workflow and three
-substantive enrichers, excluding the routine verifier/editor passes. If a
-fourth lane looks useful, decide which existing lane it replaces or escalate
-under the criteria below. Do not turn every answer into a full initiation.
+Use as many relevant supporting workflows and tools as the question requires;
+there is no fixed per-question count cap. Give each a distinct evidence need,
+calculation or verification role, reuse results and stop when further work is
+unlikely to improve the answer. Respect explicit user scope, time and cost
+constraints. Tool count alone does not require a team or a full initiation.
 
-For morning notes, these caps apply to additional workflows, not to sources,
-search iterations, companies compared or questions pursued within morning-brief.
+For morning notes, pursue the sources, search iterations, company comparisons
+and supporting workflows needed to resolve material research questions.
 `Japan morning` requests the developed researched note in `morning-research.md`,
 even though the prompt is short. Broad discovery, targeted primary-source checks,
 local exposure analysis, counterevidence and today's catalysts belong to that

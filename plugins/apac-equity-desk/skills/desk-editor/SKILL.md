@@ -5,6 +5,9 @@ description: Edit a completed APAC desk draft from requests such as tighten this
 
 # Desk Editor
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Read `../../references/desk-defaults.md` for short-request routing, context/date defaults and the included review stages. The user does not need to repeat these instructions or request each pass.
 
 Read `../../references/house-style.md` and `../../references/prose-quality.md`. Identify whether the draft is a developed country close, a theme note, a flash, a developed morning note, an explicitly requested morning snippet or a regional digest; preserve that choice.

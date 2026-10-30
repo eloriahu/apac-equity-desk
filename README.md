@@ -6,6 +6,41 @@ APAC Equity Desk is a read-only research plugin for market colour, morning notes
 
 The plugin supports Codex and Claude Code from the same skills, references and calculation helpers. Coverage includes North Asia, Australia/New Zealand, India and Southeast Asia when the required market data and sources are supplied or connected.
 
+## Planning the research
+
+The desk first [analyzes the question](plugins/apac-equity-desk/references/research-planning.md),
+then assigns the necessary [specialist research modules](plugins/apac-equity-desk/references/research-modules.md),
+and finally selects the tools for their evidence and calculations. It revisits
+the plan when a material finding raises a new question.
+
+An ordinary earnings review automatically uses installed
+`fundamental-tools:fundamental-research` for scoped financial normalization and
+operating/cash analysis. Estimate revisions, disclosure changes, ownership,
+candidate discovery, thesis/management audits and Street-consensus challenges
+use their respective specialists when required by the question and supported by
+inputs. The desk integrates their outputs into one verified answer.
+
+These are optional cross-plugin skills; they are not all bundled runtimes or
+live data connections. See [release 1.9.0](docs/releases/1.9.0.md).
+
+## Choosing tools for each question
+
+Every desk skill applies the same [tool-selection procedure](plugins/apac-equity-desk/references/tool-selection.md).
+It turns the question into evidence needs, discovers callable tools, checks
+coverage and input constraints, selects an eligible method, and switches methods
+when the result fails its completion check. This includes direct skill requests.
+
+Docling is preferred for structured financial PDF tables; MarkItDown for plain
+text intake; spreadsheet tools for formulas and cells; and Serena for code
+definitions and callers. Fresh supplied Bloomberg observations stay first.
+When OpenBB cannot supply a field, an eligible connected read-only provider or
+official exchange source can fill it with explicit provenance.
+
+The offline selector checks task-specific inventories and fallbacks. It does
+not guarantee semantic routing accuracy or verify the truth of retrieved facts.
+Source verification, original-page checks and desk editing still apply.
+See [release 1.8.0](docs/releases/1.8.0.md).
+
 ## Use cases
 
 ### Start and finish the trading day
@@ -289,7 +324,7 @@ House style is the default. Ask for a flash, word limit or different audience wh
 
 Simple questions stay lean. `TSMC is up 6%, why?` runs one composed market-colour investigation rather than six agents. A narrow but materially conflicted conclusion may use a two- or three-agent challenge wave. Full teams are reserved for explicit parallel requests or genuinely broad/deep multi-market, multi-company, company or earnings reports.
 
-The router selects exactly one lead workflow, caps ordinary enrichers and prevents workers from spawning more workers. With a four-slot runtime, the desk head uses at most three workers at once and batches the rest into later waves.
+The router selects exactly one lead workflow to own synthesis and allows as many relevant supporting tools and skills as the question needs. There is no fixed per-question count cap. Workers cannot spawn more workers. With a four-slot runtime, the desk head uses at most three workers at once and batches the rest into later waves.
 
 | Role | Job |
 | --- | --- |
@@ -304,6 +339,20 @@ The router selects exactly one lead workflow, caps ordinary enrichers and preven
 | `bear-case-analyst` | Independent contradictions, alternatives and falsifiers |
 | `chief-editor` | House-style draft and one revision against the audit |
 | `desk-verifier` | Independent comparison of the draft against the evidence packs |
+
+The lead maps the question to specialist assignments using the
+[agent assignment protocol](plugins/apac-equity-desk/references/agent-assignments.md).
+Each researcher may use several relevant tools and integrated skills. For an
+earnings review, accounting and business research establish the facts before
+expectations analysis uses them; an editor then drafts from the returned packs
+and a fresh verifier checks the draft against the evidence. Missing inputs remain
+explicit gaps.
+
+Assignments carry complete inputs, source IDs, actual tool calls and completion
+status. When a worker lacks a connector available to the lead, it can request a
+specific read-only call; missing entitlements are never assumed. Native agents
+inherit the current model settings. If the host has no native agent support, the
+desk discloses sequential execution without claiming independent review.
 
 All roles share a claim/source registry. Multiple agents repeating one syndicated source do not create independent confirmation.
 

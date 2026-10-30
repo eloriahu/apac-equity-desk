@@ -5,6 +5,9 @@ description: "Explain why an APAC stock or sector is up or down using a lean com
 
 # Market Color
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Read `../../references/desk-defaults.md` for short-request routing, context/date defaults and the included review stages. The user does not need to repeat these instructions or request each pass.
 
 Produce a draft that a sell-side analyst can verify quickly. Read `../../references/source-priority.md`, `../../references/house-style.md` and the market-colour section of `../../references/data-contract.md`.

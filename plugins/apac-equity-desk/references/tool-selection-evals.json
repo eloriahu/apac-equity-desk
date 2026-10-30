@@ -1,0 +1,1599 @@
+{
+  "schema": "tool_selection_evals/v1",
+  "note": "Synthetic task-specific inventories; these test the selector, not LLM semantic routing.",
+  "cases": [
+    {
+      "id": "financial-pdf",
+      "prompt": "Extract the financial table from this local earnings PDF.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "earnings-review",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "document-tables",
+            "required": true,
+            "local_only": true,
+            "candidates": {
+              "docling": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::docling",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "pdf-reader": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::pdf-reader",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "docling"
+        ]
+      }
+    },
+    {
+      "id": "plain-document",
+      "prompt": "Read the text of this supplied DOCX.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "company-fundamentals",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "document-text",
+            "required": true,
+            "local_only": true,
+            "candidates": {
+              "markitdown": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::markitdown",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "docling": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::docling",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "markitdown"
+        ]
+      }
+    },
+    {
+      "id": "private-pdf-remote-converter",
+      "prompt": "Keep this broker PDF local; extract its table.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "earnings-review",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "document-tables",
+            "required": true,
+            "local_only": true,
+            "candidates": {
+              "docling": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::remote-docling",
+                "execution": "remote",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "pdf-reader": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::pdf-reader",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "pdf-reader"
+        ]
+      }
+    },
+    {
+      "id": "converter-failure",
+      "prompt": "Docling failed on this filing; continue from the original.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "filing-change",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "document-tables",
+            "required": true,
+            "local_only": true,
+            "candidates": {
+              "docling": {
+                "state": "failed",
+                "eligible": true,
+                "binding": "synthetic::docling",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "pdf-reader": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::pdf-reader",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "pdf-reader"
+        ]
+      }
+    },
+    {
+      "id": "unreadable-scan",
+      "prompt": "Neither available reader can read the scanned numbers.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "earnings-review",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "document-tables",
+            "required": true,
+            "local_only": true,
+            "candidates": {
+              "docling": {
+                "state": "callable",
+                "eligible": false,
+                "binding": "synthetic::docling",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "pdf-reader": {
+                "state": "callable",
+                "eligible": false,
+                "binding": "synthetic::pdf-reader",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "limited",
+        "selected": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "configured-not-callable",
+      "prompt": "Docling was configured yesterday but is absent in this session.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "deal-documents",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "document-tables",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "docling": {
+                "state": "unverified",
+                "eligible": true,
+                "binding": "synthetic::docling",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "pdf-reader": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::pdf-reader",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "pdf-reader"
+        ]
+      }
+    },
+    {
+      "id": "fresh-bloomberg",
+      "prompt": "Use these fresh Bloomberg prices to explain the move.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "market-color",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "market-observation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "supplied-bloomberg": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::supplied-bloomberg",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "openbb": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::openbb",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "longbridge-quotes": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::longbridge-quotes",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "supplied-bloomberg"
+        ]
+      }
+    },
+    {
+      "id": "stale-bloomberg",
+      "prompt": "Update the stale market fields without losing their provenance.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "apac-market-wrap",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "market-observation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "supplied-bloomberg": {
+                "state": "callable",
+                "eligible": false,
+                "binding": "synthetic::supplied-bloomberg",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "openbb": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::openbb",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "openbb"
+        ]
+      }
+    },
+    {
+      "id": "openbb-absent-hk",
+      "prompt": "Explain this HK move with no supplied prices and no OpenBB.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "market-color",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "market-observation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "openbb": {
+                "state": "unavailable",
+                "eligible": true,
+                "binding": "synthetic::openbb",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "longbridge-quotes": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::longbridge-quotes",
+                "execution": "remote",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "longbridge-quotes"
+        ]
+      }
+    },
+    {
+      "id": "japan-coverage",
+      "prompt": "The connected quote tool does not support this Japan listing.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "apac-market-wrap",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "market-observation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "longbridge-quotes": {
+                "state": "callable",
+                "eligible": false,
+                "binding": "synthetic::longbridge-quotes",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "official-market-data": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::official-market-data",
+                "execution": "remote",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "official-market-data"
+        ]
+      }
+    },
+    {
+      "id": "supplied-only-stale",
+      "prompt": "Use only this supplied pack; it has no current-session prices.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "market-color",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "market-observation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "supplied-bloomberg": {
+                "state": "callable",
+                "eligible": false,
+                "binding": "synthetic::supplied-bloomberg",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "openbb": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::openbb",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            },
+            "allowed_candidates": [
+              "supplied-bloomberg"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "limited",
+        "selected": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "missing-live-price",
+      "prompt": "No available source supplies a timestamped quote.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "market-color",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "market-observation",
+            "required": true,
+            "local_only": false,
+            "candidates": {}
+          }
+        ]
+      },
+      "expected": {
+        "status": "limited",
+        "selected": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "explicit-provider",
+      "prompt": "Use Longbridge for this supported HK quote.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "market-color",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "market-observation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "openbb": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::openbb",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "longbridge-quotes": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::longbridge-quotes",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            },
+            "preferred_candidate": "longbridge-quotes"
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "longbridge-quotes"
+        ]
+      }
+    },
+    {
+      "id": "preference-does-not-bypass-boundary",
+      "prompt": "Use Docling, but keep my document local.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "filing-change",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "document-tables",
+            "required": true,
+            "local_only": true,
+            "candidates": {
+              "docling": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::remote-docling",
+                "execution": "remote",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "pdf-reader": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::pdf-reader",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            },
+            "preferred_candidate": "docling"
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "pdf-reader"
+        ]
+      }
+    },
+    {
+      "id": "official-filings",
+      "prompt": "Check the issuer announcement through its official connector.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "earnings-review",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "primary-source",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "primary-connector": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::primary-connector",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "firecrawl": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::firecrawl",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "primary-connector"
+        ]
+      }
+    },
+    {
+      "id": "blocked-scraper",
+      "prompt": "Firecrawl is rate limited; read the official announcement in the browser.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "market-color",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "primary-source",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "firecrawl": {
+                "state": "failed",
+                "eligible": true,
+                "binding": "synthetic::firecrawl",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "browser": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::browser",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "browser"
+        ]
+      }
+    },
+    {
+      "id": "formula-workbook",
+      "prompt": "Compare two dated consensus workbooks including cell formulas.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "expectations-change",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "workbook-cells",
+            "required": true,
+            "local_only": true,
+            "candidates": {
+              "spreadsheet-tools": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::spreadsheet-tools",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "local-workbook-runtime": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::local-workbook-runtime",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "spreadsheet-tools"
+        ]
+      }
+    },
+    {
+      "id": "deal-arithmetic",
+      "prompt": "Calculate contractual merger consideration from supplied terms.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "deal-models",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "deterministic-calculation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "desk-helper": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::desk-helper",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "local-python": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::local-python",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "desk-helper"
+        ]
+      }
+    },
+    {
+      "id": "missing-statistics-runtime",
+      "prompt": "Fit a regression; the statsmodels skill exists but its runtime is absent.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "statistical-research",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "regression",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "statsmodels": {
+                "state": "callable",
+                "eligible": false,
+                "binding": "synthetic::statsmodels",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "limited",
+        "selected": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "bayesian-data-fit",
+      "prompt": "Estimate a hierarchical model with appropriate data and a working PyMC runtime.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "statistical-research",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "bayesian-estimation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "pymc": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::pymc",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "pymc"
+        ]
+      }
+    },
+    {
+      "id": "code-navigation",
+      "prompt": "Trace the Japan EOD formatter and all callers before editing.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "desk-development",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "code-navigation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "serena": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::serena",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "native-code-tools": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::native-code-tools",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "serena"
+        ]
+      }
+    },
+    {
+      "id": "serena-unavailable",
+      "prompt": "Serena cannot activate this project; inspect the source directly.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "desk-development",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "code-navigation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "serena": {
+                "state": "failed",
+                "eligible": true,
+                "binding": "synthetic::serena",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "native-code-tools": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::native-code-tools",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "native-code-tools"
+        ]
+      }
+    },
+    {
+      "id": "api-docs",
+      "prompt": "Check the installed API version while changing a collector.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "desk-development",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "api-documentation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "context7": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::context7",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              },
+              "official-api-docs": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::official-api-docs",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "context7"
+        ]
+      }
+    },
+    {
+      "id": "artifact-owner",
+      "prompt": "Produce a full initiation and DCF workbook.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "company-fundamentals",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "investment-artifact",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "public-equity-investing": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::public-equity-investing",
+                "execution": "local",
+                "effect": "local_write",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "public-equity-investing"
+        ]
+      }
+    },
+    {
+      "id": "external-write-rejected",
+      "prompt": "A quote candidate unexpectedly exposes an external account write.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "market-color",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "market-observation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "longbridge-quotes": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::unsafe-tool",
+                "execution": "local",
+                "effect": "external_write",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "limited",
+        "selected": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "binding-required",
+      "prompt": "A tool was named in a readme but no callable binding was discovered.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "filing-change",
+        "needs": [
+          {
+            "id": "required-evidence",
+            "capability": "document-tables",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "docling": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: task coverage and binding verified"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "limited",
+        "selected": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "analysis-module-fundamental-analysis",
+      "prompt": "Execute the scoped fundamental-analysis assignment after interpreting the research question.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "earnings-review",
+        "needs": [
+          {
+            "id": "analysis",
+            "capability": "fundamental-analysis",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "fundamental-tools:fundamental-research": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::fundamental-tools:fundamental-research",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              },
+              "desk-fundamental-analysis": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::desk-fundamental-analysis",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "fundamental-tools:fundamental-research"
+        ]
+      }
+    },
+    {
+      "id": "analysis-module-expectations-analysis",
+      "prompt": "Execute the scoped expectations-analysis assignment after interpreting the research question.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "desk",
+        "needs": [
+          {
+            "id": "analysis",
+            "capability": "expectations-analysis",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "fundamental-tools:expectations-bridge": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::fundamental-tools:expectations-bridge",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              },
+              "desk-expectations-analysis": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::desk-expectations-analysis",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "fundamental-tools:expectations-bridge"
+        ]
+      }
+    },
+    {
+      "id": "analysis-module-filing-analysis",
+      "prompt": "Execute the scoped filing-analysis assignment after interpreting the research question.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "desk",
+        "needs": [
+          {
+            "id": "analysis",
+            "capability": "filing-analysis",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "fundamental-tools:filing-change-radar": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::fundamental-tools:filing-change-radar",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              },
+              "desk-filing-analysis": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::desk-filing-analysis",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "fundamental-tools:filing-change-radar"
+        ]
+      }
+    },
+    {
+      "id": "analysis-module-ownership-analysis",
+      "prompt": "Execute the scoped ownership-analysis assignment after interpreting the research question.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "desk",
+        "needs": [
+          {
+            "id": "analysis",
+            "capability": "ownership-analysis",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "fundamental-tools:ownership-flow-review": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::fundamental-tools:ownership-flow-review",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              },
+              "desk-ownership-analysis": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::desk-ownership-analysis",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "fundamental-tools:ownership-flow-review"
+        ]
+      }
+    },
+    {
+      "id": "analysis-module-candidate-analysis",
+      "prompt": "Execute the scoped candidate-analysis assignment after interpreting the research question.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "desk",
+        "needs": [
+          {
+            "id": "analysis",
+            "capability": "candidate-analysis",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "fundamental-tools:equity-idea-generation": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::fundamental-tools:equity-idea-generation",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              },
+              "desk-candidate-analysis": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::desk-candidate-analysis",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "fundamental-tools:equity-idea-generation"
+        ]
+      }
+    },
+    {
+      "id": "analysis-module-research-audit",
+      "prompt": "Execute the scoped research-audit assignment after interpreting the research question.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "desk",
+        "needs": [
+          {
+            "id": "analysis",
+            "capability": "research-audit",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "fundamental-tools:research-quality-review": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::fundamental-tools:research-quality-review",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              },
+              "desk-research-audit": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::desk-research-audit",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "fundamental-tools:research-quality-review"
+        ]
+      }
+    },
+    {
+      "id": "analysis-module-consensus-analysis",
+      "prompt": "Execute the scoped consensus-analysis assignment after interpreting the research question.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "desk",
+        "needs": [
+          {
+            "id": "analysis",
+            "capability": "consensus-analysis",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "fundamental-tools:consensus-challenge": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::fundamental-tools:consensus-challenge",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              },
+              "desk-consensus-analysis": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::desk-consensus-analysis",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "fundamental-tools:consensus-challenge"
+        ]
+      }
+    },
+    {
+      "id": "analysis-module-market-normalization",
+      "prompt": "Execute the scoped market-normalization assignment after interpreting the research question.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "desk",
+        "needs": [
+          {
+            "id": "analysis",
+            "capability": "market-normalization",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "finance-tools:market-data": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::finance-tools:market-data",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              },
+              "desk-market-normalization": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::desk-market-normalization",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "finance-tools:market-data"
+        ]
+      }
+    },
+    {
+      "id": "analysis-module-quantitative-design",
+      "prompt": "Execute the scoped quantitative-design assignment after interpreting the research question.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "desk",
+        "needs": [
+          {
+            "id": "analysis",
+            "capability": "quantitative-design",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "quant-tools:quant-research": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::quant-tools:quant-research",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              },
+              "desk-statistical-design": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::desk-statistical-design",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "quant-tools:quant-research"
+        ]
+      }
+    },
+    {
+      "id": "analysis-module-source-investigation",
+      "prompt": "Execute the scoped source-investigation assignment after interpreting the research question.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "desk",
+        "needs": [
+          {
+            "id": "analysis",
+            "capability": "source-investigation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "research-tools:browser-research": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::research-tools:browser-research",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              },
+              "desk-source-investigation": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::desk-source-investigation",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "research-tools:browser-research"
+        ]
+      }
+    },
+    {
+      "id": "earnings-fundamental-runtime-unavailable",
+      "prompt": "Review the reported earnings; the optional fundamental helper cannot run.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "earnings-review",
+        "needs": [
+          {
+            "id": "financial-analysis",
+            "capability": "fundamental-analysis",
+            "required": true,
+            "local_only": true,
+            "candidates": {
+              "fundamental-tools:fundamental-research": {
+                "state": "callable",
+                "eligible": false,
+                "binding": "synthetic::fundamental-tools:fundamental-research",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              },
+              "desk-fundamental-analysis": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::desk-fundamental-analysis",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "desk-fundamental-analysis"
+        ]
+      }
+    },
+    {
+      "id": "revision-baseline-unavailable",
+      "prompt": "What changed in consensus after results? Only one snapshot is available.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "expectations-change",
+        "needs": [
+          {
+            "id": "dated-revisions",
+            "capability": "expectations-analysis",
+            "required": true,
+            "local_only": true,
+            "candidates": {
+              "fundamental-tools:expectations-bridge": {
+                "state": "callable",
+                "eligible": false,
+                "binding": "synthetic::fundamental-tools:expectations-bridge",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              },
+              "desk-expectations-analysis": {
+                "state": "callable",
+                "eligible": false,
+                "binding": "synthetic::desk-expectations-analysis",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: scoped assignment, inputs and runtime are available"
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "limited",
+        "selected": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "multi-tool-earnings-question",
+      "prompt": "Review these earnings using the PDF, before/after consensus workbooks and observed price reaction; verify the important table cells in the original.",
+      "request": {
+        "schema": "tool_request/v1",
+        "primary_workflow": "earnings-review",
+        "needs": [
+          {
+            "id": "extract-results-table",
+            "capability": "document-tables",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "docling": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::docling",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: table extraction is supported."
+              }
+            }
+          },
+          {
+            "id": "verify-original-page",
+            "capability": "document-tables",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "pdf-reader": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::pdf-reader",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: original-page inspection supports material-cell verification."
+              }
+            }
+          },
+          {
+            "id": "financial-quality",
+            "capability": "fundamental-analysis",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "fundamental-tools:fundamental-research": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::fundamental-tools:fundamental-research",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: comparable reported periods and a working financial helper."
+              }
+            }
+          },
+          {
+            "id": "calculate-surprises",
+            "capability": "deterministic-calculation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "desk-helper": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::desk-helper",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: same-basis actual and consensus rows."
+              }
+            }
+          },
+          {
+            "id": "compare-estimate-snapshots",
+            "capability": "expectations-analysis",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "fundamental-tools:expectations-bridge": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::fundamental-tools:expectations-bridge",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: two dated comparable snapshots."
+              }
+            }
+          },
+          {
+            "id": "price-reaction",
+            "capability": "market-observation",
+            "required": true,
+            "local_only": false,
+            "candidates": {
+              "supplied-bloomberg": {
+                "state": "callable",
+                "eligible": true,
+                "binding": "synthetic::supplied-bloomberg",
+                "execution": "local",
+                "effect": "read",
+                "evidence": "Synthetic fixture: timestamped supplied prices and benchmark."
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "planned",
+        "selected": [
+          "docling",
+          "pdf-reader",
+          "fundamental-tools:fundamental-research",
+          "desk-helper",
+          "fundamental-tools:expectations-bridge",
+          "supplied-bloomberg"
+        ]
+      }
+    }
+  ]
+}

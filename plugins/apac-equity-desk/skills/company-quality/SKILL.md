@@ -5,6 +5,9 @@ description: Evaluate an APAC listed company's sector-aware operating quality or
 
 # Company Quality and Income
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Resolve the company, sector, fiscal basis, horizon and whether the user wants
 operating quality, income durability or both. Read the fundamental contract in
 `../../references/data-contract.md`, the idea funnel contract in

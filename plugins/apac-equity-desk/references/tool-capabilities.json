@@ -1,0 +1,264 @@
+{
+  "schema": "tool_capabilities/v1",
+  "workflows": [
+    "apac-market-wrap",
+    "catalyst-analysis",
+    "company-fundamentals",
+    "company-quality",
+    "consensus-challenge",
+    "cross-market-map",
+    "deal-alerts",
+    "deal-documents",
+    "deal-models",
+    "deal-monitor",
+    "deal-radar",
+    "desk",
+    "desk-development",
+    "desk-editor",
+    "earnings-review",
+    "event-radar",
+    "event-trade-ideas",
+    "expectations-change",
+    "filing-change",
+    "historical-testing",
+    "idea-funnel",
+    "management-review",
+    "market-color",
+    "merger-arb",
+    "morning-brief",
+    "news-snippets",
+    "ownership-flow",
+    "parallel-company-research",
+    "parallel-desk",
+    "parallel-earnings",
+    "probability-sensitivity",
+    "research-review",
+    "signal-ledger",
+    "source-verifier",
+    "special-situations",
+    "statistical-research",
+    "topic-radar",
+    "public-equity-investing"
+  ],
+  "capabilities": {
+    "market-observation": {
+      "candidates": [
+        "supplied-bloomberg",
+        "openbb",
+        "longbridge-quotes",
+        "official-market-data"
+      ]
+    },
+    "primary-source": {
+      "candidates": [
+        "primary-connector",
+        "firecrawl",
+        "browser"
+      ]
+    },
+    "public-discovery": {
+      "candidates": [
+        "firecrawl",
+        "web-search",
+        "browser"
+      ]
+    },
+    "session-calendar": {
+      "candidates": [
+        "official-calendar",
+        "local-session-clock"
+      ]
+    },
+    "document-tables": {
+      "candidates": [
+        "docling",
+        "pdf-reader"
+      ]
+    },
+    "document-text": {
+      "candidates": [
+        "markitdown",
+        "docling",
+        "document-reader"
+      ]
+    },
+    "workbook-cells": {
+      "candidates": [
+        "spreadsheet-tools",
+        "local-workbook-runtime"
+      ],
+      "effects": [
+        "read",
+        "local_write"
+      ]
+    },
+    "public-dataset": {
+      "candidates": [
+        "database-lookup",
+        "official-dataset-api",
+        "openbb"
+      ]
+    },
+    "deterministic-calculation": {
+      "candidates": [
+        "desk-helper",
+        "local-python"
+      ]
+    },
+    "statistical-design": {
+      "candidates": [
+        "statistical-analysis",
+        "quant-research"
+      ]
+    },
+    "regression": {
+      "candidates": [
+        "statsmodels",
+        "local-statistical-runtime"
+      ]
+    },
+    "bayesian-estimation": {
+      "candidates": [
+        "pymc",
+        "local-bayesian-runtime"
+      ]
+    },
+    "investment-artifact": {
+      "candidates": [
+        "public-equity-investing"
+      ],
+      "effects": [
+        "read",
+        "local_write"
+      ]
+    },
+    "presentation-artifact": {
+      "candidates": [
+        "presentations",
+        "local-presentation-runtime"
+      ],
+      "effects": [
+        "read",
+        "local_write"
+      ]
+    },
+    "document-artifact": {
+      "candidates": [
+        "documents",
+        "local-document-runtime"
+      ],
+      "effects": [
+        "read",
+        "local_write"
+      ]
+    },
+    "code-navigation": {
+      "candidates": [
+        "serena",
+        "native-code-tools"
+      ],
+      "workflows": [
+        "desk-development"
+      ],
+      "effects": [
+        "read",
+        "local_write"
+      ]
+    },
+    "api-documentation": {
+      "candidates": [
+        "context7",
+        "official-api-docs"
+      ],
+      "workflows": [
+        "desk-development"
+      ]
+    },
+    "instruction-editing": {
+      "candidates": [
+        "writing-for-agents",
+        "skill-creator"
+      ],
+      "workflows": [
+        "desk-development"
+      ],
+      "effects": [
+        "read",
+        "local_write"
+      ]
+    },
+    "development-review": {
+      "candidates": [
+        "gstack-review",
+        "native-development-checks"
+      ],
+      "workflows": [
+        "desk-development"
+      ],
+      "effects": [
+        "read",
+        "local_write"
+      ]
+    },
+    "fundamental-analysis": {
+      "candidates": [
+        "fundamental-tools:fundamental-research",
+        "desk-fundamental-analysis"
+      ]
+    },
+    "expectations-analysis": {
+      "candidates": [
+        "fundamental-tools:expectations-bridge",
+        "desk-expectations-analysis"
+      ]
+    },
+    "filing-analysis": {
+      "candidates": [
+        "fundamental-tools:filing-change-radar",
+        "desk-filing-analysis"
+      ]
+    },
+    "ownership-analysis": {
+      "candidates": [
+        "fundamental-tools:ownership-flow-review",
+        "desk-ownership-analysis"
+      ]
+    },
+    "candidate-analysis": {
+      "candidates": [
+        "fundamental-tools:equity-idea-generation",
+        "desk-candidate-analysis"
+      ]
+    },
+    "research-audit": {
+      "candidates": [
+        "fundamental-tools:research-quality-review",
+        "desk-research-audit"
+      ]
+    },
+    "consensus-analysis": {
+      "candidates": [
+        "fundamental-tools:consensus-challenge",
+        "desk-consensus-analysis"
+      ]
+    },
+    "market-normalization": {
+      "candidates": [
+        "finance-tools:market-data",
+        "desk-market-normalization"
+      ]
+    },
+    "quantitative-design": {
+      "candidates": [
+        "quant-tools:quant-research",
+        "desk-statistical-design"
+      ]
+    },
+    "source-investigation": {
+      "candidates": [
+        "research-tools:browser-research",
+        "desk-source-investigation"
+      ]
+    }
+  }
+}

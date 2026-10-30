@@ -5,6 +5,9 @@ description: Find timely APAC equity topics from requests such as what is moving
 
 # Topic Radar
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Use this when the user needs a timely subject for a market update or colour note.
 
 1. Resolve the market, session and observation window. APAC means China, Hong Kong, Japan, Korea, Taiwan, Australia, New Zealand, India and Southeast Asia to the extent the supplied/configured sources cover them. If no market is named and none is established, default to the supported APAC region rather than HK alone.

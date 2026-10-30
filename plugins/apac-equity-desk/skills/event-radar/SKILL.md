@@ -5,6 +5,9 @@ description: Build a sourced upcoming APAC catalyst calendar from requests such 
 
 # Event Radar
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Resolve the markets, timezone and horizon. Gather events from primary exchange, company, regulator, central-bank and statistical-agency sources, or use a user-supplied calendar. Mark times confirmed or provisional and retain source URLs and retrieval timestamps.
 
 When `finance-tools` is installed, normalize the supplied set with its `scripts/event_calendar.py`; otherwise sort the same contract directly. The helper is not a discovery source. Cover earnings, macro, central banks, dividends, index changes, IPOs and material corporate events as relevant.

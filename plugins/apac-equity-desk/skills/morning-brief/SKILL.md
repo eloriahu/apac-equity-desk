@@ -5,6 +5,9 @@ description: Research and write an APAC morning note from requests such as Japan
 
 # Morning Brief
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 For an explicit country news-snippets or before-market news-digest request, use
 `../news-snippets/SKILL.md`. That item-based format has its own scope and length;
 ordinary morning notes and morning flashes continue here.

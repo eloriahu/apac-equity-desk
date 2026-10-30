@@ -5,6 +5,9 @@ description: Build, fix or extend APAC Equity Desk skills, research pipelines, c
 
 # Desk Development
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Work in the user's actual desk source project. Read its AGENTS.md and inspect
 the current files and working changes before editing. Resolve the requested
 behavior from the task; make a concrete, tested local change within that scope.
@@ -17,6 +20,7 @@ conclusion:
 
 | Development need | Integration |
 | --- | --- |
+| Symbol definitions, callers and scoped code edits | Serena on the actual repository; native file/search tools if the language server is unavailable. |
 | Current API or library syntax | Context7: resolve the library, then query its docs for the installed/target version. Use repository documentation or official docs if unavailable. Send the technical question without proprietary research or credentials. |
 | Skill or agent instruction changes | Read Matt Pocock's installed `writing-for-agents` reference; keep triggers precise and disclose detail only where needed. |
 | A requested specification | Matt Pocock `to-spec` is an optional explicit invocation. Keep the resulting spec local unless the user has authorized creating an issue. |

@@ -5,6 +5,14 @@ description: Run broad, deep or explicitly parallel APAC market research with fu
 
 # Parallel Desk
 
+Before dispatching workers, read `../../references/agent-assignments.md`.
+Use its role-to-module map, complete briefs, dependency checks and handoff
+statuses. Broker a scoped read-only tool request when a worker lacks a connector;
+keep the verifier in a fresh context with only the draft and full evidence.
+
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Read `../../references/desk-defaults.md` and
 `../../references/intent-routing.md` first. Everything there still applies:
 the same house formats, the same session and date handling, the same

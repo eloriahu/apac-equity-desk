@@ -19,6 +19,16 @@ Prefer user-supplied Bloomberg exports or screenshots for market observations. P
 
 Resolve contradictions by preserving both observations, preferring the higher-ranked and more recent primary source, and explaining the discrepancy. Two sites repeating the same wire or social post count as one source.
 
+## Tool selection
+
+For research, first use `plugins/apac-equity-desk/references/research-planning.md`
+to understand the question and select scoped specialist assignments from
+`research-modules.md`. Let material findings update the plan.
+For every desk request, including direct skill invocation, apply
+`plugins/apac-equity-desk/references/tool-selection.md`. Select tools against
+explicit evidence needs and current-host availability; replan on failed or
+inadequate results and account for every required need before answering.
+
 ## Short requests
 
 For source extraction, document conversion, public datasets and empirical
@@ -30,11 +40,18 @@ not change the research source hierarchy or run during ordinary market notes.
 Read `plugins/apac-equity-desk/references/desk-defaults.md` for task routing, date/session defaults and included review stages. A request such as "Japan wrap" supplies the subject and task; do not require the user to repeat the house style or separately request verification and editing. Explicit user constraints override defaults. Ask only when an essential subject cannot be resolved.
 
 Also read `plugins/apac-equity-desk/references/intent-routing.md`. Choose exactly
-one lead workflow, add only support that can change its conclusion and select
+one lead workflow to own synthesis, use all supporting tools and skills needed
+for the question without a fixed count cap, and select
 single, composed or agent-team execution automatically. A one-stock
 why-it-moved question stays lean; broad/deep or explicitly parallel work may
 use capacity-aware functional agent waves. Users do not need to name skills or
 agents.
+
+Read `plugins/apac-equity-desk/references/agent-assignments.md` before dispatch.
+Map evidence needs to role assignments, pass complete inputs, check worker tool
+access and wait for required dependencies. Use structured handoffs and a fresh
+verifier context. The head may broker a scoped read-only tool request or prepare
+a helper input file without duplicating the investigation.
 
 ## Workflow invariants
 

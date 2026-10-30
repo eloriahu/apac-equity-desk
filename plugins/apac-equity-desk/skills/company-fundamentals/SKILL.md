@@ -5,6 +5,15 @@ description: Build the APAC evidence and interpretation layer for a listed compa
 
 # APAC Company Fundamentals
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
+Use the `fundamental-analysis` module in
+`../../references/research-modules.md`: read and execute the installed
+`fundamental-tools:fundamental-research` skill for the scoped evidence/calculation
+assignment when available. Reuse its returned pack; a missing skill or runtime
+uses the documented fallback with the same evidence requirements.
+
 Resolve the issuer, primary listing, reporting currency, fiscal calendar, accounting basis and investor question. Read `../../references/integrations.md`, `../../references/source-priority.md` and the `fundamental_pack/v1` section of `../../references/data-contract.md` before collecting evidence.
 
 ## Evidence pack

@@ -5,6 +5,9 @@ description: Audit APAC finance claims and citations from requests such as check
 
 # Source Verifier
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Read `../../references/desk-defaults.md` for short-request routing, context/date defaults and the included review stages. The user does not need to repeat these instructions or request each pass.
 
 Read `../../references/source-priority.md` and the fact-check schema in

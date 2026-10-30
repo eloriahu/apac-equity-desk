@@ -29,6 +29,11 @@ expectations/valuation, management/governance and bear-case challenge. The
 three orchestration skills carry the matching installed-plugin instructions;
 project-scoped Codex definitions live in `.codex/agents/`.
 
+Read `plugins/apac-equity-desk/references/agent-assignments.md` for role-to-module
+assignments, worker access checks and structured handoffs. The head may broker
+a specific read-only tool request or prepare a helper input file when a worker
+lacks that access; it returns the exact result and does not duplicate research.
+
 Full runs use capacity-aware gathering waves, then draft, verify and one
 revision round. The
 data analyst and country researcher run together per market; the catalyst

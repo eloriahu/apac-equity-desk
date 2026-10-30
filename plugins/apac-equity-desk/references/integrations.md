@@ -1,5 +1,9 @@
 # Integration notes
 
+Apply [tool-selection.md](tool-selection.md) before choosing tools. Its catalog
+selects among eligible current-host capabilities; this document governs the
+underlying data sources and field-level lineage.
+
 ## Optional source, statistics and development tools
 
 For public web collection, document conversion, named public datasets or
@@ -32,11 +36,32 @@ Use OpenBB when no Bloomberg input was supplied or when supplied market fields a
 
 Fallback values must retain provider and timestamp lineage. Fresh fallback data may replace stale live fields, but it must not silently replace fresh Bloomberg observations or official reported facts. Preserve material conflicts for review.
 
+### When OpenBB is unavailable or lacks coverage
+
+Use an already connected read-only quote provider, such as Longbridge, or
+official exchange market data for the missing fields. Verify the exact listing,
+exchange coverage, timestamp, currency, session and delayed/live status from
+actual results. A supported HK symbol does not imply Japan, Korea or Taiwan
+coverage. Retain the original and fallback observations with provider lineage.
+Search snippets are not a timestamped quote feed. If no eligible source exists,
+limit the affected claim instead of fabricating a price or silently changing
+the user’s supplied-only boundary. This adds no brokerage connector to the
+plugin and permits no account, order, alert or watchlist mutation.
+
 ## Official and optional sources
 
 Company filings and direct statements, exchange/regulator releases and official economic data remain authoritative for reported actuals and events. Optional AKShare/Tushare can support China-specific breadth or flows and Jin10 can support macro-headline timing when configured.
 
 Adapters should output the normalized contract in `data-contract.md`, including provider, artifact/endpoint identity, task time, market timestamp, timezone, capture window and delayed/live status.
+
+## Specialist analysis composition
+
+Use `research-planning.md` and `research-modules.md` to select and invoke the
+installed specialist skills automatically for the question’s required analysis.
+Ordinary earnings reviews use scoped fundamental-research; revisions, filing
+changes, ownership, candidate discovery and research audits use their respective
+modules when the question and inputs warrant them. A module returns evidence
+and calculations to the lead, rather than starting a second full report.
 
 ## AI Toolbox fundamental-tools
 

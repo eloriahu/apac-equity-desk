@@ -5,6 +5,9 @@ description: Refresh an event-driven watchlist or compare dated merger snapshots
 
 # Deal Monitor
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Read [research standards](../../references/event-driven/research-standards.md) and
 [snapshot format](../../references/event-driven/output-contracts.md). Locate a supplied/task-local
 prior snapshot. If absent, create a baseline and state that historical comparison

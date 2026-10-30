@@ -5,6 +5,9 @@ description: Turn an identified event into up to three APAC equity research scen
 
 # Event Trade Ideas
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 For an announced takeover's spread/conditions use `../merger-arb/SKILL.md`.
 For discovery of discrete corporate-event situations use
 `../special-situations/SKILL.md`; for a deal update use `../deal-monitor/SKILL.md`.

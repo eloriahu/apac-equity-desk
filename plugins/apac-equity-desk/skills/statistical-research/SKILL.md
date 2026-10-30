@@ -5,6 +5,9 @@ description: Test APAC equity research hypotheses with supplied or accessible hi
 
 # Statistical Research
 
+Before choosing tools, apply `../../references/tool-selection.md`, including
+when this skill is invoked directly. Reuse the lead’s plan in supporting work.
+
 Read `../../references/research-addons.md` and
 `../../references/integrations.md`. Use this as the lead for an empirical
 question, or bounded support to an existing historical-testing or

@@ -9,6 +9,11 @@ files live in `.codex/agents/`; Claude Code role files live in
 `plugins/apac-equity-desk/agents/`. Installed skills carry their complete
 orchestration contract so they do not depend on project files.
 
+Read `agent-assignments.md` before dispatch. Map the question-driven analysis
+plan to scoped role assignments, check input dependencies and actual worker tool
+access, and retain structured completion/gap handoffs. A worker may use multiple
+relevant tools and modules; role count is not tool count.
+
 An explicit request for multi-agent, parallel, agent-team or `/parallel` mode
 activates the appropriate team. The router may also escalate broad/deep,
 multi-market/multi-company or high-consequence work under
